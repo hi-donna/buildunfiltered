@@ -33,8 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="site-foot">
           <div className="wrap">
             <p>
-              {site.name} — built in the open. Rankings are opinions with dates on them;
-              when we haven&apos;t done the work, the page says so.
+              {site.name}{" "}&mdash; built in the open. Rankings are opinions with dates on
+              them; when we haven&apos;t done the work, the page says so.
             </p>
           </div>
         </footer>

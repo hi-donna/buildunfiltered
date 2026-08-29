@@ -1,28 +1,45 @@
-import JobList from "@/components/JobList";
+import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
-import { domains, allJobs, reviewedCount, isReviewed } from "@/lib/data";
-import jobsData from "@/data/jobs.json";
+import { allJobs, reviewedCount } from "@/lib/data";
+import { site } from "@/site.config";
+
+export const metadata: Metadata = {
+  title: `${site.name} — ${site.tagline}`,
+  description:
+    "Free tools for people who build things. Starting with a finder that tells you which AI tool to use for the job you actually have.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
-  const reviewed = allJobs.filter((j) => isReviewed(j.id)).map((j) => j.id);
   return (
     <div className="wrap">
       <header className="mast">
-        <p className="eyebrow">Updated {jobsData.generated}</p>
-        <h1>What are you actually trying to do?</h1>
+        <h1>Tools for people who build things.</h1>
         <p className="lede">
-          Every AI tool directory lists fifty thousand tools and answers nothing. This one
-          starts from the job. Pick yours and get five ranked tools, what each costs, and the
-          catch nobody mentions. Where we haven&apos;t done the work yet, it says so.
+          Small, free, no login. Made because the thing I needed didn&apos;t exist yet, or
+          existed badly. Everything here says what it knows and what it doesn&apos;t.
         </p>
-        <ul className="stats">
-          <li><b>{allJobs.length}</b><span>Jobs</span></li>
-          <li><b>{domains.length}</b><span>Categories</span></li>
-          <li><b>{reviewedCount}</b><span>Reviewed</span></li>
-        </ul>
       </header>
 
-      <JobList domains={domains} reviewed={reviewed} total={allJobs.length} />
+      <section className="shelf">
+        <h2 className="shelf-head">Tools</h2>
+        <a className="tool-card" href="/ai-tools/">
+          <div className="tool-main">
+            <h3>AI Tool Finder</h3>
+            <p>
+              Start from the job, not the tool. {allJobs.length}{" "}jobs, each with five ranked picks — what they cost, what they&apos;re good at, and the catch nobody mentions.
+            </p>
+          </div>
+          <div className="tool-meta">
+            <span className="tool-stat"><b>{reviewedCount}</b> of {allJobs.length} reviewed</span>
+            <span className="tool-go">Open →</span>
+          </div>
+        </a>
+        <p className="shelf-note">
+          One tool so far. More when they&apos;re worth shipping, not before.
+        </p>
+      </section>
+
       <Newsletter />
     </div>
   );

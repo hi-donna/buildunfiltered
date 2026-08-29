@@ -20,7 +20,7 @@ export default function JobList({
     .filter((d) => d.jobs.length > 0);
 
   const shown = filtered.reduce((n, d) => n + d.jobs.length, 0);
-  const href = (id: string) => `/for/${id.replace(".", "/")}/`;
+  const href = (id: string) => `/ai-tools/${id.replace(".", "/")}/`;
 
   return (
     <>
