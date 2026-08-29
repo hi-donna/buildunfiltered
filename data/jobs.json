@@ -1,0 +1,567 @@
+{
+  "$schema": "./schema/jobs.schema.json",
+  "version": "0.2.0",
+  "generated": "2026-08-27",
+  "note": "Cut to what one person can actually research, test and keep current. Nothing listed that we can't stand behind.",
+  "domains": [
+    {
+      "id": "images",
+      "label": "Images",
+      "blurb": "Making, fixing and changing still images.",
+      "jobs": [
+        {
+          "id": "images.text-to-image",
+          "label": "Generate an image from a description",
+          "aliases": [
+            "text to image",
+            "ai art",
+            "make a picture",
+            "image generator"
+          ]
+        },
+        {
+          "id": "images.product-shot",
+          "label": "Make a product photo without a photoshoot",
+          "aliases": [
+            "product photography",
+            "packshot",
+            "ecommerce photo"
+          ]
+        },
+        {
+          "id": "images.bg-remove",
+          "label": "Remove or replace backgrounds on a lot of images",
+          "aliases": [
+            "cutout",
+            "transparent png",
+            "batch background removal"
+          ]
+        },
+        {
+          "id": "images.thumbnail",
+          "label": "Make a thumbnail with text that's actually readable",
+          "aliases": [
+            "youtube thumbnail",
+            "click art"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "label": "Video",
+      "blurb": "Generating, editing and reshaping moving pictures.",
+      "jobs": [
+        {
+          "id": "video.text-to-video",
+          "label": "Generate a video clip from a description",
+          "aliases": [
+            "text to video",
+            "ai video generator"
+          ]
+        },
+        {
+          "id": "video.talking-head",
+          "label": "Make a presenter video without filming myself",
+          "aliases": [
+            "ai avatar",
+            "talking head",
+            "spokesperson video"
+          ]
+        },
+        {
+          "id": "video.long-to-shorts",
+          "label": "Cut a long video into Reels and Shorts",
+          "aliases": [
+            "clipping",
+            "repurpose podcast",
+            "auto shorts"
+          ]
+        },
+        {
+          "id": "video.dub",
+          "label": "Dub a video into another language",
+          "aliases": [
+            "dubbing",
+            "translate video",
+            "lip sync translation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "audio",
+      "label": "Audio & voice",
+      "blurb": "Speech, music, sound and everything you hear.",
+      "jobs": [
+        {
+          "id": "audio.tts",
+          "label": "Turn a script into a natural voiceover",
+          "aliases": [
+            "text to speech",
+            "voiceover",
+            "narration"
+          ]
+        },
+        {
+          "id": "audio.voice-clone",
+          "label": "Clone my own voice",
+          "aliases": [
+            "voice cloning",
+            "my voice",
+            "custom voice"
+          ]
+        },
+        {
+          "id": "audio.transcribe",
+          "label": "Transcribe a recording accurately",
+          "aliases": [
+            "speech to text",
+            "transcription",
+            "asr"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "writing",
+      "label": "Writing & content",
+      "blurb": "Getting words out that sound like a human wrote them.",
+      "jobs": [
+        {
+          "id": "writing.blog",
+          "label": "Draft a blog post that doesn't read as AI",
+          "aliases": [
+            "blog writer",
+            "article generator",
+            "long form content"
+          ]
+        },
+        {
+          "id": "writing.my-voice",
+          "label": "Rewrite something in my own writing voice",
+          "aliases": [
+            "style matching",
+            "sound like me",
+            "tone of voice"
+          ]
+        },
+        {
+          "id": "writing.summarise",
+          "label": "Boil a long document down",
+          "aliases": [
+            "summarise",
+            "tldr",
+            "condense document"
+          ]
+        },
+        {
+          "id": "writing.repurpose",
+          "label": "Turn one piece of content into ten formats",
+          "aliases": [
+            "repurposing",
+            "atomise content",
+            "content multiplier"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "label": "Design & brand",
+      "blurb": "Visual output that has to look deliberate.",
+      "jobs": [
+        {
+          "id": "design.landing-page",
+          "label": "Build a landing page without coding",
+          "aliases": [
+            "landing page builder",
+            "no code site",
+            "one pager"
+          ]
+        },
+        {
+          "id": "design.deck",
+          "label": "Make a presentation deck",
+          "aliases": [
+            "slide deck",
+            "pitch deck",
+            "presentation generator"
+          ]
+        },
+        {
+          "id": "design.social-graphics",
+          "label": "Make social graphics at scale",
+          "aliases": [
+            "social templates",
+            "post design",
+            "batch graphics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Social media & growth",
+      "blurb": "Getting seen, and knowing whether it worked.",
+      "jobs": [
+        {
+          "id": "social.schedule",
+          "label": "Schedule posts across every channel",
+          "aliases": [
+            "social scheduler",
+            "post planner",
+            "cross posting"
+          ]
+        },
+        {
+          "id": "social.trends",
+          "label": "Find what's trending in my niche right now",
+          "aliases": [
+            "trend spotting",
+            "viral topics",
+            "whats hot"
+          ]
+        },
+        {
+          "id": "social.dm-comments",
+          "label": "Reply to comments and DMs at scale",
+          "aliases": [
+            "comment automation",
+            "dm automation",
+            "community management"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing & ads",
+      "blurb": "Paid, owned and earned demand.",
+      "jobs": [
+        {
+          "id": "marketing.ad-creative",
+          "label": "Generate ad creative variations",
+          "aliases": [
+            "ad creative",
+            "static ads",
+            "creative testing"
+          ]
+        },
+        {
+          "id": "marketing.campaign-audit",
+          "label": "Work out why a campaign is underperforming",
+          "aliases": [
+            "campaign audit",
+            "ads diagnosis",
+            "wasted spend"
+          ]
+        },
+        {
+          "id": "marketing.aeo",
+          "label": "See whether AI assistants mention my brand",
+          "aliases": [
+            "aeo",
+            "geo",
+            "llm visibility",
+            "answer engine optimisation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sales",
+      "label": "Sales & outreach",
+      "blurb": "Finding people and starting conversations.",
+      "jobs": [
+        {
+          "id": "sales.lead-search",
+          "label": "Find leads that match my ideal customer",
+          "aliases": [
+            "lead generation",
+            "prospecting",
+            "icp search"
+          ]
+        },
+        {
+          "id": "sales.enrich",
+          "label": "Get verified emails and details for a contact list",
+          "aliases": [
+            "data enrichment",
+            "email finder",
+            "contact data"
+          ]
+        },
+        {
+          "id": "sales.cold-email",
+          "label": "Write personalised cold emails at scale",
+          "aliases": [
+            "cold outreach",
+            "sequences",
+            "personalisation at scale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "meetings",
+      "label": "Meetings & knowledge",
+      "blurb": "What was said, and finding it again later.",
+      "jobs": [
+        {
+          "id": "meetings.notetaker",
+          "label": "Take notes in a meeting for me",
+          "aliases": [
+            "ai notetaker",
+            "meeting assistant",
+            "auto minutes"
+          ]
+        },
+        {
+          "id": "meetings.chat-with-pdfs",
+          "label": "Ask questions across a pile of PDFs",
+          "aliases": [
+            "chat with documents",
+            "rag",
+            "document qa"
+          ]
+        },
+        {
+          "id": "meetings.async-video",
+          "label": "Record and share an async video update",
+          "aliases": [
+            "screen recording",
+            "loom style",
+            "async update"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "docs",
+      "label": "Documents & data",
+      "blurb": "Structured information trapped in unstructured files.",
+      "jobs": [
+        {
+          "id": "docs.invoice-extract",
+          "label": "Pull data out of invoices and receipts",
+          "aliases": [
+            "document ai",
+            "invoice parsing",
+            "receipt scanning"
+          ]
+        },
+        {
+          "id": "docs.pdf-tables",
+          "label": "Get the tables out of a PDF",
+          "aliases": [
+            "pdf table extraction",
+            "parse pdf",
+            "document parsing"
+          ]
+        },
+        {
+          "id": "docs.ask-spreadsheet",
+          "label": "Ask questions about a spreadsheet in plain English",
+          "aliases": [
+            "spreadsheet ai",
+            "excel copilot",
+            "natural language query"
+          ]
+        },
+        {
+          "id": "docs.contract-review",
+          "label": "Check a contract for risky clauses",
+          "aliases": [
+            "contract review",
+            "legal ai",
+            "clause analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Research & learning",
+      "blurb": "Finding out, and actually retaining it.",
+      "jobs": [
+        {
+          "id": "research.deep-research",
+          "label": "Do deep research on a topic with real sources",
+          "aliases": [
+            "deep research",
+            "research agent",
+            "cited report"
+          ]
+        },
+        {
+          "id": "research.monitor",
+          "label": "Watch a topic and tell me when it changes",
+          "aliases": [
+            "monitoring",
+            "alerts",
+            "change detection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "automation",
+      "label": "Automation & agents",
+      "blurb": "Making software do the boring part by itself.",
+      "jobs": [
+        {
+          "id": "automation.connect-apps",
+          "label": "Connect two apps that don't talk to each other",
+          "aliases": [
+            "integration",
+            "zapier style",
+            "app connector"
+          ]
+        },
+        {
+          "id": "automation.workflow",
+          "label": "Build a multi-step automation without code",
+          "aliases": [
+            "workflow automation",
+            "no code automation",
+            "pipeline"
+          ]
+        },
+        {
+          "id": "automation.browser-agent",
+          "label": "Let an agent drive my browser",
+          "aliases": [
+            "browser automation",
+            "computer use",
+            "web agent"
+          ]
+        },
+        {
+          "id": "automation.support-bot",
+          "label": "Put a support chatbot on my site",
+          "aliases": [
+            "chatbot",
+            "customer support ai",
+            "help widget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "code",
+      "label": "Coding & product",
+      "blurb": "Shipping software.",
+      "jobs": [
+        {
+          "id": "code.app-from-prompt",
+          "label": "Build a whole app from a prompt",
+          "aliases": [
+            "vibe coding",
+            "app generator",
+            "text to app"
+          ]
+        },
+        {
+          "id": "code.autocomplete",
+          "label": "Get good code completion in my editor",
+          "aliases": [
+            "copilot",
+            "code completion",
+            "ide assistant"
+          ]
+        },
+        {
+          "id": "code.pr-review",
+          "label": "Review a pull request",
+          "aliases": [
+            "code review",
+            "pr review",
+            "automated review"
+          ]
+        },
+        {
+          "id": "code.deploy",
+          "label": "Deploy and host a side project",
+          "aliases": [
+            "hosting",
+            "deployment",
+            "paas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ops",
+      "label": "Business ops & admin",
+      "blurb": "The unglamorous machinery of running a business.",
+      "jobs": [
+        {
+          "id": "ops.bookkeeping",
+          "label": "Keep the books and categorise spend",
+          "aliases": [
+            "bookkeeping",
+            "accounting",
+            "expense categorisation"
+          ]
+        },
+        {
+          "id": "ops.screen-applicants",
+          "label": "Screen job applicants",
+          "aliases": [
+            "resume screening",
+            "ats",
+            "candidate ranking"
+          ]
+        },
+        {
+          "id": "ops.support-tickets",
+          "label": "Answer support tickets faster",
+          "aliases": [
+            "helpdesk",
+            "ticket deflection",
+            "support automation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "personal",
+      "label": "Personal productivity",
+      "blurb": "Your own day, handled.",
+      "jobs": [
+        {
+          "id": "personal.calendar",
+          "label": "Manage my calendar and book meetings",
+          "aliases": [
+            "scheduling",
+            "calendar assistant",
+            "booking link"
+          ]
+        },
+        {
+          "id": "personal.inbox",
+          "label": "Triage my inbox and draft replies",
+          "aliases": [
+            "email assistant",
+            "inbox zero",
+            "auto draft"
+          ]
+        },
+        {
+          "id": "personal.notes",
+          "label": "Capture and organise notes",
+          "aliases": [
+            "note taking",
+            "second brain",
+            "pkm"
+          ]
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "domains": 15,
+    "jobs": 50
+  }
+}

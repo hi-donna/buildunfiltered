@@ -1,0 +1,120 @@
+{
+  "version": "0.1.0",
+  "picks": {
+    "images.text-to-image": {
+      "status": "verified",
+      "last_verified": "2026-08-27",
+      "question": "You want a picture and all you have is a sentence. Which one do you open?",
+      "method": {
+        "how": "Started from the Artificial Analysis blind-vote arena, which ranks models on identical prompts, then adjusted for the things a leaderboard can't see: what it costs, whether there's an API, and whether the free tier is usable.",
+        "tested_on": "Not independently tested yet. Rankings below lean on published arena scores and vendor pricing — that's stated on each card rather than dressed up as hands-on testing.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "\"Blind tests\" = people shown two images made from the same prompt, not told which model made which, asked which is better. Millions of votes, turned into a chess-style rating. Only some models take part — Midjourney, Ideogram and Flux don't, so they carry no badge. It measures which picture people like, not whether the tool fits your job."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "Nano Banana 2",
+          "maker": "Google",
+          "url": "https://gemini.google.com",
+          "one_liner": "Near-top quality, free, inside an app you already have.",
+          "use_it_when": "You have no strong preference and want a good image in ten seconds. This is the correct default for maybe 80% of people.",
+          "cost": "Free in the Gemini app. Paid API for volume.",
+          "good_at": "Speed-to-quality-to-cost. Conversational editing — you can say 'make the sky darker' and it just does it.",
+          "the_catch": "Its house style is competent but generic. If you need a look that's yours, this isn't it. Google's naming across tiers is also genuinely confusing.",
+          "wrong_for": "Anyone whose output needs a distinctive aesthetic. Go to Midjourney.",
+          "blind": "#4 in blind tests"
+        },
+        {
+          "rank": 2,
+          "name": "GPT Image 2",
+          "maker": "OpenAI",
+          "url": "https://chatgpt.com",
+          "one_liner": "Highest-ranked model right now. Follows instructions literally.",
+          "use_it_when": "The prompt is complicated, has several things that must all be right, or needs correct text inside the image.",
+          "cost": "In ChatGPT Plus/Pro; per-token on the API.",
+          "good_at": "Prompt adherence and photorealism. Reasoning mode means it thinks before drawing, so complex compositions hold together.",
+          "the_catch": "Reasoning mode is slow and costs more. For fifty quick variations it's the wrong instrument, and the bill notices.",
+          "wrong_for": "High-volume batch work. Use Flux or Nano Banana.",
+          "blind": "#1 in blind tests"
+        },
+        {
+          "rank": 3,
+          "name": "Midjourney V8",
+          "maker": "Midjourney",
+          "url": "https://midjourney.com",
+          "one_liner": "Still the best-looking output. Still the most annoying to automate.",
+          "use_it_when": "The image is the point — hero art, brand imagery, anything a person will actually look at rather than scroll past.",
+          "cost": "$10–$120/mo across four plans. No free tier.",
+          "good_at": "Art direction. Its images look composed rather than generated, which no competitor has matched.",
+          "the_catch": "No official public API, so it can't sit inside a pipeline. It also interprets rather than obeys — great for exploring, frustrating when you need one exact thing.",
+          "wrong_for": "Anything automated, and anyone who needs the prompt followed literally."
+        },
+        {
+          "rank": 4,
+          "name": "Ideogram 3",
+          "maker": "Ideogram",
+          "url": "https://ideogram.ai",
+          "one_liner": "The one that can spell.",
+          "use_it_when": "There are words in the image — a poster, a logo, a thumbnail, an ad.",
+          "cost": "Free tier with weekly credits; roughly $0.03–$0.10 per image beyond that.",
+          "good_at": "Headline typography, cleanly, first time. The others still garble long text.",
+          "the_catch": "Accuracy falls off past roughly 60 characters. Keep it to a headline, not a paragraph.",
+          "wrong_for": "Photorealism with no text in it — you're paying for a strength you aren't using."
+        },
+        {
+          "rank": 5,
+          "name": "FLUX.2",
+          "maker": "Black Forest Labs",
+          "url": "https://blackforestlabs.ai",
+          "one_liner": "Open weights. Run it yourself, at any volume.",
+          "use_it_when": "You're generating thousands of images, or the images can't leave your infrastructure.",
+          "cost": "Free self-hosted (you pay for GPUs). Paid API tiers available.",
+          "good_at": "Control. Multi-reference conditioning and 4K editing, inside a pipeline you own.",
+          "the_catch": "Frontier quality is on the paid tier; the open weights trail it. And 'free' means you're now running GPUs.",
+          "wrong_for": "Casual use. If you just want one picture, this is a weekend of setup for a worse result."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Reve 2.1",
+          "why_not": "Ranks #3 in blind tests — above our top pick — but the ecosystem around it is thin. Worth watching; hard to recommend as a default yet."
+        },
+        {
+          "name": "MAI-Image-2.6",
+          "why_not": "Microsoft, #2 in blind tests. Still preview-labelled, so not something to build a habit on."
+        },
+        {
+          "name": "Recraft V4",
+          "why_not": "Excellent, but it's a vector tool. Wrong job — it belongs under design assets, not this one."
+        },
+        {
+          "name": "Adobe Firefly",
+          "why_not": "Best commercial-safety story if your legal team cares. Behind on raw quality, so it wins on procurement, not output."
+        }
+      ],
+      "watch_list": [
+        "Reve and Microsoft's MAI both beat our #1 in blind tests. If either ships a real free tier or API, this list reorders.",
+        "Midjourney sits at #3 purely on the missing API. An official one would move it up."
+      ],
+      "sources": [
+        {
+          "label": "Artificial Analysis — text-to-image arena",
+          "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        {
+          "label": "Best AI image generators 2026 (FrankX)",
+          "url": "https://www.frankx.ai/blog/best-ai-image-generators-2026"
+        },
+        {
+          "label": "Midjourney pricing 2026",
+          "url": "https://costbench.com/software/ai-image-generators/midjourney/"
+        },
+        {
+          "label": "Ideogram pricing 2026",
+          "url": "https://www.eesel.ai/blog/ideogram-pricing"
+        }
+      ]
+    }
+  }
+}
