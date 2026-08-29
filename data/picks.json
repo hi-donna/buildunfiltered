@@ -115,6 +115,634 @@
           "url": "https://www.eesel.ai/blog/ideogram-pricing"
         }
       ]
+    },
+    "images.product-shot": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "You have a product, a phone camera and no studio. What actually gets you a photo you can put on a listing?",
+      "method": {
+        "how": "Split the field in two before ranking it. Compositing tools cut your real product out of your real photo and put it somewhere else — the pixels of the product survive untouched. Generative models redraw the whole frame, product included. For anything you sell, that distinction matters more than image quality, so it drives the order here. Then adjusted for batch behaviour, whether there's an API, and what it costs per image.",
+        "tested_on": "Not independently tested. We read the vendors' own pricing and documentation pages on 2026-08-29 and took the numbers from there. We did not run one product through all five and compare. Where a strength is the vendor's own claim, it says so.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "There is no blind-vote arena for product photography, so nothing here carries a badge. The general image arena scores pretty pictures from text prompts — it tells you nothing about whether a tool kept your label spelled correctly, which is the only question this job asks."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "Photoroom",
+          "maker": "Photoroom",
+          "url": "https://www.photoroom.com",
+          "one_liner": "Cuts your real product out and restages it. The product itself never gets redrawn.",
+          "use_it_when": "You have a photo of the actual product and the label, logo and proportions have to survive intact — which, for anything you sell, they do.",
+          "cost": "Free tier. Paid tiers are Pro, Max and Ultra with rising credit and export allowances — check current pricing, the site renders the numbers dynamically. The API is published flat: $0.02 per image for background removal, $0.10 per image for the generative editing endpoints (AI backgrounds, shadows, relighting).",
+          "good_at": "Batch, and having somewhere to grow. Phone app, web app, Shopify integration and an API all sit on the same engine, so one Etsy listing and a 500-SKU catalog use the same tool. Cutout edge quality benchmarks at or near the top of the field.",
+          "the_catch": "It runs on AI credits, and the features you actually came for — AI backgrounds, shadows, relighting — burn them fast, with 4K output and adjustable shadows fenced off on the upper tiers. The generated backgrounds also have a house look: soft studio surface, tasteful shadow, slight haze. One image is fine. Twenty in a row and your catalog announces how it was made.",
+          "wrong_for": "A scene that doesn't exist yet — a hand holding your product, your bottle on a mountainside at golden hour. That's generation, not compositing."
+        },
+        {
+          "rank": 2,
+          "name": "Nano Banana 2",
+          "maker": "Google",
+          "url": "https://gemini.google.com",
+          "one_liner": "Upload the product, describe the scene, get the scene. Free, in an app you already have.",
+          "use_it_when": "The product needs to be somewhere a compositor can't put it — held, used, lit from inside the environment rather than pasted onto it.",
+          "cost": "Free in the Gemini app. Per-image on the Gemini API and Vertex AI. Outputs from 512px to 4K.",
+          "good_at": "Understanding a scene rather than assembling one. It relights the product to match the environment, holds multiple objects consistent across a set, and you can keep talking to it — 'lower the camera', 'warmer light' — instead of starting over.",
+          "the_catch": "It redraws your product. Shape and colour normally survive; small type, logo letterforms and fine label detail drift, and they drift silently — the image looks right until you zoom in on the ingredients panel and find an invented word. Every single output needs checking at full size, which is exactly what kills it as a batch tool.",
+          "wrong_for": "Regulated packaging, anything where label text is a legal claim, or a run of 200 SKUs nobody is going to inspect one by one."
+        },
+        {
+          "rank": 3,
+          "name": "Flair AI",
+          "maker": "Flair",
+          "url": "https://flair.ai",
+          "one_liner": "A canvas where you place the product, the props and the light yourself.",
+          "use_it_when": "You already know what the shot should look like and you're tired of trying to describe it in a sentence. You want to move the bottle two inches to the left.",
+          "cost": "Free: 1 custom model, 5 images, 1 video. Pro $8/mo. Pro+ $26/mo (up to 8 custom models, 80 images, 3 videos). Scale from $38/mo, which is where API early access starts. Enterprise custom.",
+          "good_at": "Art direction. Drag-and-drop scene composition, custom models trained on your specific product, and on-model / virtual try-on for apparel — the things a prompt box structurally cannot give you.",
+          "the_catch": "The quotas are small for the money. Eighty images a month on the $26 tier is one afternoon of iterating, and iterating is the entire reason to use a canvas tool rather than a prompt. You end up rationing the thing you bought it for. API access is gated to the $38 tier and still labelled early access.",
+          "wrong_for": "One quick photo. The setup only pays back if you're building a look you'll reuse."
+        },
+        {
+          "rank": 4,
+          "name": "Product Studio",
+          "maker": "Google",
+          "url": "https://support.google.com/merchants/answer/13708167",
+          "one_liner": "Free, and already sitting on top of your catalog — if your catalog is in Merchant Center.",
+          "use_it_when": "You sell through Google Shopping and the feed images just need to stop being bad: backgrounds swapped, resolution raised, a short animation added.",
+          "cost": "Free for all Merchant Center users. There is no paid tier.",
+          "good_at": "Being free and being where the products already are. It edits feed imagery in place — no export, no re-upload, no filename discipline — which for a catalog is most of the actual labour.",
+          "the_catch": "The restriction list is long and you'll hit it. It won't process images containing hands, wall art or light fixtures; it refuses regulated goods outright — alcohol, tobacco, pharmaceuticals, weapons, gambling, health and medical devices; it's unavailable in Russia and France, and video generation only runs in six countries. There's also a cap of 70 images per product. Find that out after you've moved your workflow, not before.",
+          "wrong_for": "Anyone not selling through Google, and anyone who wants a distinctive look. This makes a weak catalog acceptable; it will not make a good one memorable."
+        },
+        {
+          "rank": 5,
+          "name": "Claid",
+          "maker": "Claid.ai",
+          "url": "https://claid.ai/business",
+          "one_liner": "For when 'a lot of images' means thousands and you'd rather call an API than click.",
+          "use_it_when": "Catalog imagery is a pipeline for you — enhance, cut out, restage, upscale — running on a schedule rather than by hand.",
+          "cost": "Free account with 50 credits. Essentials $9/mo, Professional $39/mo (includes a 200-credit API starter pack). Self-serve API from $59 for 1,000 credits. Operations consume 1 to 10+ credits each depending on complexity.",
+          "good_at": "Volume plumbing. Background removal, scene generation, upscaling, on-model fashion and image-to-video behind one API, with batch treated as the normal case rather than a feature.",
+          "the_catch": "The credit-per-operation model makes real cost genuinely hard to forecast. An operation is 1 credit or 10-plus depending on what it is, so '1,000 credits for $59' is emphatically not 1,000 images, and you can't know your rate until you know your mix. Price a representative sample before you commit a catalog to it.",
+          "wrong_for": "One product and one photo. You would be buying an API to do what a free phone app does."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Pebblely",
+          "why_not": "Lite $9/mo (30 images), Basic $19/mo (200), Pro $39/mo (500). The shortest path from a plain packshot to a lifestyle background, and cheap. Left out because there's no API on the pricing page and unused credits don't roll over — Photoroom does the same job and has somewhere to go afterwards."
+        },
+        {
+          "name": "Pixelcut",
+          "why_not": "Free tier, Pro $10/mo with 1,000 batch exports, Business $30/mo with 2,000. Strong batch value and it earns its place in the background-removal conversation. For staging a product in a scene specifically, it's the thinner tool."
+        },
+        {
+          "name": "Midjourney",
+          "why_not": "Makes the most beautiful product images in this whole space and the least accurate ones. It has no dependable way to hold your actual product constant, which is the entire requirement of this job."
+        },
+        {
+          "name": "Adobe Photoshop / Firefly",
+          "why_not": "The right answer if you're already fluent in Photoshop and need one hero image composited properly by hand. The wrong answer if the reason you're reading this is that you aren't."
+        },
+        {
+          "name": "An actual photographer",
+          "why_not": "Under roughly twenty SKUs, on products with real margin, a half-day studio hire still beats this entire list on both quality and total time. AI product photography is a volume play — say so rather than pretend otherwise."
+        }
+      ],
+      "watch_list": [
+        "Photoroom's $0.02 API cutout is the number holding this order together. If it rises, generation gets relatively cheaper and the ranking reopens.",
+        "Nano Banana 2 takes #1 the day something wraps it with a label-fidelity check — an automatic diff of the product region against the source image. Nobody ships that yet, and it is the only thing standing between it and the top spot.",
+        "Flair opening API access below the $38 tier would turn it from a design toy into a real pipeline option."
+      ],
+      "sources": [
+        {
+          "label": "Photoroom — plan features and credits",
+          "url": "https://www.photoroom.com/pricing"
+        },
+        {
+          "label": "Photoroom — API pricing per image",
+          "url": "https://www.photoroom.com/api/pricing"
+        },
+        {
+          "label": "Flair — pricing tiers",
+          "url": "https://flair.ai/pricing"
+        },
+        {
+          "label": "Pebblely — pricing tiers",
+          "url": "https://pebblely.com/pricing/"
+        },
+        {
+          "label": "Google — About Product Studio (limits and restrictions)",
+          "url": "https://support.google.com/merchants/answer/13708167?hl=en"
+        },
+        {
+          "label": "Google — Nano Banana 2 announcement",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/"
+        },
+        {
+          "label": "Pixelcut — pricing and batch export limits",
+          "url": "https://www.pixelcut.ai/pricing"
+        }
+      ]
+    },
+    "images.bg-remove": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "You have a folder, not a photo. What removes backgrounds from all of it without costing more than the images are worth?",
+      "method": {
+        "how": "Ranked on cost per image at volume, whether batch is a real feature or a manual loop, and licence — the last one matters more than people expect, because the two best open cutout models have very different rules about using them at work. Edge quality figures are the vendors' own or from published third-party comparisons; both are labelled as such rather than presented as our measurements.",
+        "tested_on": "Not independently tested. We read the vendors' pricing, API docs and model cards on 2026-08-29. We have not run the same hundred images through all five and counted the bad mattes. Anyone claiming a precise accuracy percentage for these tools is quoting someone else's benchmark — usually the vendor's.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "There is no blind-vote arena for background removal, so nothing here carries a badge. Cutout quality is judged on specific hard cases — wispy hair, glass, fur, motion blur — and any honest comparison names the case rather than giving one number."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "Photoroom",
+          "maker": "Photoroom",
+          "url": "https://www.photoroom.com/api/pricing",
+          "one_liner": "$0.02 an image through the API, and a batch mode in the app if you'd rather not write code.",
+          "use_it_when": "You have volume and you want it handled, not administered. This is the default unless one of the reasons below applies to you.",
+          "cost": "API: $0.02 per image for background removal, $0.10 per image for the generative editing endpoints. Free API tier: 1,000 sandbox calls a month (watermarked) plus 10 free production removal calls. Enterprise needs an annual commitment and a 200,000-image minimum. The consumer app has its own tiers — check current pricing.",
+          "good_at": "Products, and having two front doors. The same engine is reachable from a phone app, a web batch tool, a Shopify app and a REST API, so you can start by hand and automate later without changing tools or results.",
+          "the_catch": "Two price lists, one API, and it's easy to be on the wrong one. Removal is $0.02; the moment a call touches AI backgrounds, shadows or relighting it becomes a $0.10 call, and the bill is where you find out. Unused images don't roll over month to month, and the enterprise rate is fenced behind a 200,000-image annual commitment, so mid-volume users pay retail.",
+          "wrong_for": "Images that can't leave your network, and any volume where $0.02 each stops being rounding — at a million images that's $20,000 to do something a GPU in the corner does free."
+        },
+        {
+          "rank": 2,
+          "name": "rembg (with BiRefNet)",
+          "maker": "Daniel Gatis / open source",
+          "url": "https://github.com/danielgatis/rembg",
+          "one_liner": "Free at any volume, on your own machine, with the current best open model behind it.",
+          "use_it_when": "The volume is large, the images are sensitive, or the per-image price of anything else has stopped making sense. Runs as a CLI, a Python library, an HTTP server or a Docker container.",
+          "cost": "Free. You pay for the hardware and the hour it takes to set up.",
+          "good_at": "Batch as a first-class command — point it at a folder and walk away. Model choice is yours: birefnet-general, birefnet-portrait, u2net, isnet, silueta, SAM. GPU support through ONNX Runtime on both CUDA and ROCm; CPU works, slowly.",
+          "the_catch": "The package is MIT but the model weights are not — each checkpoint carries its own licence, independently. rembg's current default checkpoint is bria-rmbg, which needs a paid commercial agreement, so the out-of-the-box configuration is the one you may not legally ship. Switch to a BiRefNet variant, which is MIT, and check it yourself rather than trusting this sentence. Also: on CPU it's seconds per image, and when a matte comes out wrong there is nobody to email.",
+          "wrong_for": "Anyone who doesn't want to run software. There is no web page here — it's a terminal, a Python environment and a licence question."
+        },
+        {
+          "rank": 3,
+          "name": "Pixelcut",
+          "maker": "Pixelcut",
+          "url": "https://www.pixelcut.ai/pricing",
+          "one_liner": "The cheapest batch button for someone who is never going to open a terminal.",
+          "use_it_when": "You have a few hundred images a month, no engineer, and no interest in per-call pricing.",
+          "cost": "Free tier with limited background removal and watermark-free exports. Pro $10/mo ($8 yearly) with 1,000 batch exports and 600 AI credits a month. Business $30/mo ($24 yearly) with 2,000 batch exports and 3,600 credits. An API exists with separate terms.",
+          "good_at": "Flat, predictable pricing for click-based batch work. A thousand exports for $10 is the best ratio here for someone who wants a UI rather than an endpoint.",
+          "the_catch": "The caps are hard and they're monthly. A thousand batch exports sounds generous until a re-run of a batch you already processed counts against it again, and there's no rollover. The free tier's background removal is described only as 'limited', with no published number — you find the ceiling by hitting it.",
+          "wrong_for": "Volume past a couple of thousand a month, or anything you want to run unattended on a schedule."
+        },
+        {
+          "rank": 4,
+          "name": "remove.bg",
+          "maker": "remove.bg (Canva)",
+          "url": "https://www.remove.bg/api",
+          "one_liner": "The tool that made one-click cutouts normal. Priced for occasional use, not for a folder.",
+          "use_it_when": "You need a handful of very good cutouts and you want the least possible thought involved. Still excellent on hair.",
+          "cost": "Free web tier returns preview-resolution output; full resolution costs a credit. First 50 API calls a month are free. Beyond that it's credits or a subscription — check current pricing, as the per-image rate varies sharply with volume.",
+          "good_at": "Raw accuracy on the hard cases, especially hair against a busy background. Handles up to 50MP on JPG, WebP or ZIP output (10MP on PNG), and the API will take up to 500 images a minute at low resolution.",
+          "the_catch": "The economics are the problem, not the model. It's among the most expensive per image in this list, and the throughput limit scales down with resolution — a 50MP image drops you to 10 a minute, so your big files are also your slow ones. The free tier's preview-resolution output is unusable for anything printed or zoomed, which is a demo, not a free tier.",
+          "wrong_for": "Bulk. At folder scale you are paying a premium per image for a quality difference that BiRefNet has largely closed."
+        },
+        {
+          "rank": 5,
+          "name": "BRIA RMBG-2.0",
+          "maker": "BRIA AI",
+          "url": "https://huggingface.co/briaai/RMBG-2.0",
+          "one_liner": "Arguably the best matte here. The licence is why it isn't higher.",
+          "use_it_when": "Edge quality is contractual — you're delivering cutouts to a client, or the alpha channel feeds something downstream that can't tolerate a halo.",
+          "cost": "Weights are free to download for non-commercial use only. Commercial use needs either a purchased self-hosted licence or the BRIA API — both priced on request, so check current pricing.",
+          "good_at": "Fine edges and semi-transparent objects. Trained on 15,000+ professionally labelled images and outputs a proper 8-bit alpha matte rather than a hard mask, which is what makes it composite cleanly.",
+          "the_catch": "CC BY-NC 4.0. The weights are downloadable, free and openly hosted, and using them in your business is a licence violation unless you buy an agreement. It is very easy to pull this model through a wrapper, ship it, and not realise. If money changes hands anywhere near the output, you need the commercial licence.",
+          "wrong_for": "Hobby projects that might turn into a business later, and any team without someone who reads licences."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Canva's background remover",
+          "why_not": "Fine if you already pay for Canva and the image is already inside a Canva design. It's a feature within a design tool, so it stops scaling the moment your input is a folder rather than a document."
+        },
+        {
+          "name": "Adobe Photoshop / Express",
+          "why_not": "Still the best manual refinement when one cutout has to be genuinely perfect and a human is going to fix the edge by hand. Wrong shape entirely for volume."
+        },
+        {
+          "name": "Nano Banana 2 and other image models",
+          "why_not": "They will happily remove a background, but they redraw the subject while doing it. This job wants segmentation — the original pixels, minus some — not generation."
+        },
+        {
+          "name": "Hosted open models (Runware, Replicate and similar)",
+          "why_not": "A sensible middle path: BiRefNet-class quality per call with no GPU of your own. Left out because you'd be choosing a host, not a tool, and the quality you get is whatever checkpoint that host happens to run this month."
+        }
+      ],
+      "watch_list": [
+        "BRIA moving RMBG to a permissive licence would put it straight at #1. The licence is the only thing keeping it at #5.",
+        "rembg's default checkpoint is bria-rmbg, which is not free for commercial use. If that default changes to a BiRefNet variant, the biggest footgun in self-hosting disappears.",
+        "Open BiRefNet-class models are close enough now that the paid APIs are increasingly selling reliability, support and someone to blame — not accuracy. If that gap closes completely this list collapses to two options: self-host, or pay someone to."
+      ],
+      "sources": [
+        {
+          "label": "Photoroom — API pricing per image",
+          "url": "https://www.photoroom.com/api/pricing"
+        },
+        {
+          "label": "rembg — README, models and licence note",
+          "url": "https://github.com/danielgatis/rembg"
+        },
+        {
+          "label": "remove.bg — API capabilities, limits and free calls",
+          "url": "https://www.remove.bg/api"
+        },
+        {
+          "label": "BRIA RMBG-2.0 — model card and CC BY-NC licence",
+          "url": "https://huggingface.co/briaai/RMBG-2.0"
+        },
+        {
+          "label": "Pixelcut — pricing and batch export limits",
+          "url": "https://www.pixelcut.ai/pricing"
+        }
+      ]
+    },
+    "images.thumbnail": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "The thumbnail will be seen at about 200 pixels wide on a phone. What makes text that survives that?",
+      "method": {
+        "how": "Started from what actually breaks a thumbnail: four words that are too small, too thin, or misspelled. That splits the field into layout tools, where text is an editable object you can resize and retype forever, and generative models, where text is pixels baked into the picture. Layout tools rank higher for this job for that reason alone, and the generators are ranked by how well they spell. Then checked cost and whether the tool defaults to the correct 1280x720 canvas.",
+        "tested_on": "Not independently tested. Pricing and capability claims come from the vendors' own pricing pages, docs and technical write-ups, read on 2026-08-29. We did not make the same thumbnail five times and measure click-through — nobody outside a large channel can, and anyone who says they did is selling something.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "No blind-vote arena applies here, so nothing carries a badge. The one number in this entry that looks like a benchmark — Ideogram's 0.97 OCR text accuracy — is Ideogram's own reported figure from its own technical post, not an independent result. It's quoted because it's specific, not because it's neutral."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "Canva",
+          "maker": "Canva",
+          "url": "https://www.canva.com",
+          "one_liner": "The text stays text. You can retype the headline at 11pm without regenerating anything.",
+          "use_it_when": "Almost always. A thumbnail gets rewritten more often than it gets designed, and this is the cheapest tool that lets you rewrite it.",
+          "cost": "Free tier, and it is genuinely enough to make thumbnails. Pro adds the background remover, brand kits and more AI credits — check current pricing.",
+          "good_at": "The unglamorous parts: a correct 1280x720 preset, real font control, editable layers, a background remover, and templates that put the text somewhere the YouTube duration badge won't sit on top of it.",
+          "the_catch": "It will happily let you make an unreadable thumbnail. The default type sizes are set for posters and slides, not for something viewed at 200 pixels, so the tool never tells you your headline is too small — you find out from the analytics. And the templates are the most-used templates on the internet; a Canva thumbnail is recognisable as one, which is the opposite of standing out in a feed.",
+          "wrong_for": "Generating the image itself. Its AI imagery is fine and unremarkable — bring the picture from somewhere else and use Canva for the type."
+        },
+        {
+          "rank": 2,
+          "name": "Ideogram 4.0",
+          "maker": "Ideogram",
+          "url": "https://ideogram.ai",
+          "one_liner": "The generator that can actually spell, and the only one that lets you say where the words go.",
+          "use_it_when": "You want the type to be part of the image — integrated into the scene, on a sign, on packaging — rather than a box floating over a photo.",
+          "cost": "Free tier with a small daily allowance; free generations are public. Paid web tiers and separate per-image API billing — check current pricing, as Ideogram runs web subscriptions and API billing as two different systems.",
+          "good_at": "Type at production fidelity: multilingual, denser text at smaller sizes, headlines and signage that hold together. Released June 2026 as a 9.3B open-weight model under a commercial licence, with bounding-box layout control — you can specify where the headline, logo and subject each belong — plus native transparency for clean cutouts.",
+          "the_catch": "It is still generating pixels, not documents. Ideogram's own materials describe editable text and movable image layers as coming out of a follow-up release, not the current one, so today a typo means regenerating the whole frame and losing the version you liked. The 0.97 text accuracy is Ideogram's own number, and 0.97 across a corpus still means the occasional wrong letter in your headline — the one thing a thumbnail cannot survive.",
+          "wrong_for": "Anything you'll want to A/B test. Two headline variants means two generations and two different pictures, which tests nothing."
+        },
+        {
+          "rank": 3,
+          "name": "Nano Banana 2",
+          "maker": "Google",
+          "url": "https://gemini.google.com",
+          "one_liner": "Free, fast, up to 4K, and you can just tell it to move things.",
+          "use_it_when": "You need the underlying image — a scene, a composite, your face lit dramatically — and you'd rather iterate by talking than by prompting from scratch.",
+          "cost": "Free in the Gemini app. Per-image on the Gemini API and Vertex AI. Output from 512px to 4K.",
+          "good_at": "Speed and revision. Precise text rendering is one of its headline improvements, it holds subjects consistent across a set (useful for a series where every thumbnail is recognisably yours), and conversational editing means 'make the face bigger, move the text left' works.",
+          "the_catch": "Its house style is competent and completely generic, which is a real cost in a feed where the whole job is looking different from the nine thumbnails around you. Text is baked in, so corrections are regenerations. And because it pulls from live web knowledge, the same prompt does not reliably give you the same picture twice.",
+          "wrong_for": "A channel with a fixed visual identity. Getting a consistent look out of it takes more fighting than setting up a template once in a layout tool."
+        },
+        {
+          "rank": 4,
+          "name": "Figma",
+          "maker": "Figma",
+          "url": "https://www.figma.com",
+          "one_liner": "Build the thumbnail template once, then every future thumbnail is a text edit.",
+          "use_it_when": "You publish regularly and want a house style that's actually enforced — same frame, same type scale, same safe margins, every week.",
+          "cost": "Starter is free with unlimited drafts and 150 AI credits/day up to 500/month. Professional $16/month per full seat; Organization $55 and Enterprise $90 per full seat, billed annually.",
+          "good_at": "Precision and repeatability. An exact 1280x720 frame, components and variants so a thumbnail template is a real object rather than a copied file, and the ability to duplicate one frame and preview eight headline variants side by side at actual display size.",
+          "the_catch": "It gives you nothing to start from. No stock library worth using, no thumbnail templates, no image generation in the flow — you bring the picture and the taste, and Figma only guarantees you can position them exactly. For one thumbnail this is strictly more work than Canva for an identical result.",
+          "wrong_for": "One-off thumbnails, and anyone who doesn't already know what they want the thumbnail to look like."
+        },
+        {
+          "rank": 5,
+          "name": "1of10",
+          "maker": "1of10",
+          "url": "https://1of10.com",
+          "one_liner": "The only one here that knows what actually got clicked.",
+          "use_it_when": "You're stuck on what the thumbnail should be, not on how to make it, and you want to see what outperformed in your niche before you design anything.",
+          "cost": "Free plan: outlier search, bookmarks, tracking up to 3 channels, plus free thumbnail preview and tag tools. Basic $29/month or $349/year. Pro $69/month or $828/year, which is the tier that includes 1,000 AI credits/month and AI thumbnail and title generation. Enterprise custom.",
+          "good_at": "Research rather than rendering. Outlier search across niches, competitor tracking and a free thumbnail previewer that shows your image at real feed size — which is the single most useful free thing on this page.",
+          "the_catch": "AI thumbnail generation only exists on the $69/month tier, which is a lot for a feature the free tools above do adequately. Worse, the advice regresses to the mean of what already works: every channel that follows it converges on the same shocked face, same arrow, same three yellow words. It optimises for the pattern, and the pattern is why every thumbnail already looks the same.",
+          "wrong_for": "Anyone who already knows their audience, and anyone below the volume where a $69 monthly research subscription pays for itself."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Photopea",
+          "why_not": "A free, browser-based Photoshop clone that opens PSDs and does layered text properly. Genuinely good and genuinely free. Left out only because Canva reaches the same result faster for people who aren't already Photoshop-shaped."
+        },
+        {
+          "name": "Adobe Photoshop",
+          "why_not": "Still the ceiling for compositing a face onto a background convincingly. If you already own it and know it, you don't need this page."
+        },
+        {
+          "name": "Midjourney",
+          "why_not": "Best-looking images in the field, and it still can't be trusted with four words of English. For a thumbnail, that disqualifies it from the text half of the job."
+        },
+        {
+          "name": "VidIQ / TubeBuddy",
+          "why_not": "Both bolt thumbnail features onto a channel analytics product. Reasonable if you already pay for the analytics; not worth subscribing to for the thumbnail tool alone."
+        },
+        {
+          "name": "YouTube's own thumbnail tools",
+          "why_not": "Free, in the upload flow, and increasingly capable. Worth trying first for exactly that reason — but they're built for the median uploader, so the output is safe rather than distinctive."
+        }
+      ],
+      "watch_list": [
+        "Ideogram has said editable text and movable image layers will come directly out of inference in a follow-up release. If that ships, the split this entire ranking is built on — generators make pixels, layout tools make documents — stops being true, and Ideogram goes to #1.",
+        "Any tool that previews your thumbnail at actual feed size, next to real competing thumbnails, before you export. 1of10 gives this away free and none of the design tools do it by default, which is why so many thumbnails fail at the only size that matters.",
+        "Canva shipping thumbnail-specific type defaults — minimum sizes, contrast warnings — would remove the main way people ruin one."
+      ],
+      "sources": [
+        {
+          "label": "Ideogram 4.0 — technical details, layout control, text accuracy",
+          "url": "https://ideogram.ai/blog/ideogram-4.0/"
+        },
+        {
+          "label": "Ideogram — available models and feature differences",
+          "url": "https://docs.ideogram.ai/using-ideogram/generation-settings/available-models"
+        },
+        {
+          "label": "Ideogram — API reference (v3 generate endpoint)",
+          "url": "https://developer.ideogram.ai/api-reference/api-reference/generate-v3"
+        },
+        {
+          "label": "Figma — pricing and free Starter limits",
+          "url": "https://www.figma.com/pricing/"
+        },
+        {
+          "label": "1of10 — plans and pricing",
+          "url": "https://1of10.com/pricing"
+        },
+        {
+          "label": "Google — Nano Banana 2 capabilities and resolution",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/"
+        }
+      ]
+    },
+    "video.text-to-video": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "A sentence in, a few seconds of video out. Which one, and what does a minute of finished footage actually cost?",
+      "method": {
+        "how": "Started from the Artificial Analysis video arena, which runs the same blind-vote format as the image one and keeps two separate boards — with audio and without — because they rank differently. Then priced everything per second of output from the vendors' own pricing pages, since that is the number that decides whether a project is affordable, and checked what each model refuses to do: maximum clip length, whether audio is native, and whether it's a shipped product or a preview that can change under you.",
+        "tested_on": "Not independently tested. Elo figures are read off the Artificial Analysis leaderboard on 2026-08-29; per-second prices come from the vendors' own published pricing where we could open it, and are marked 'check current pricing' where we could not. We did not generate the same prompt on all five and compare.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "\"Blind tests\" = people shown two clips from the same prompt, not told which model made which, asked which is better. Thousands of votes per model, turned into a chess-style rating. Two things to know here. First, there are two boards — with audio and without — and they do not agree, so a model can lead one and not the other. Second, several serious tools in this list do not appear in the top five of either board; that is not evidence they are worse, only that the arena scores raw clips and most of these products sell an editor around the clip."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "Gemini Omni Flash",
+          "maker": "Google",
+          "url": "https://aistudio.google.com",
+          "one_liner": "Top of the blind arena, ten cents a second, and you can edit it by talking to it.",
+          "use_it_when": "You want the best-looking short clip for the least money, and you expect to revise it — 'same shot, slower push in' rather than starting the prompt over.",
+          "cost": "About $0.10 per second of 720p video on the Gemini API (billed per token — 5,792 tokens per second of 720p at $17.50 per million output tokens). Also in the Gemini app and Google Flow.",
+          "good_at": "Conversational editing and multimodal input — it takes text, images and video together and keeps text and action in sync. Launched into public preview on 30 June 2026 and went straight to the top of the no-audio arena on Elo 1324, above every model here.",
+          "the_catch": "It is a public preview, and Google publishes its own list of what doesn't work yet: no audio references, no scene extension through the API, no reliable video references, and character consistency degrades across scene changes. It also caps at ten seconds. Preview also means the behaviour and the price can move without your project's permission.",
+          "wrong_for": "Anything longer than ten seconds in one pass, anything where a character has to survive a cut, and anything on a deadline you can't afford to have a preview model break.",
+          "blind": "#1 in blind tests (no audio)"
+        },
+        {
+          "rank": 2,
+          "name": "Veo 3.1",
+          "maker": "Google",
+          "url": "https://labs.google/flow",
+          "one_liner": "The shipped one. Native audio, real 4K, and a proper editor around it in Flow.",
+          "use_it_when": "You need something finished rather than something impressive — audio included, longer than a preview model allows, inside a tool built for sequencing shots.",
+          "cost": "Per second on the Gemini API: Lite $0.05 (720p) / $0.08 (1080p), no 4K. Fast $0.10 (720p) / $0.12 (1080p) / $0.30 (4K). Standard $0.40 (720p and 1080p) / $0.60 (4K). Also included in Google AI subscription tiers as Flow credits — check current pricing for those.",
+          "good_at": "Being a product rather than an endpoint. Flow gives you shot sequencing, extension and reference handling, and Veo has been in the field long enough that the failure modes are documented by other people rather than discovered by you.",
+          "the_catch": "There is a twelve-fold price spread between Lite 720p and Standard 4K, and most people try Lite first, decide AI video looks cheap, and never learn that the version they were shown in the demo cost eight times more per second. Pick the tier deliberately. Google's own newer model also outranks it in blind votes at a quarter of Standard's price, so you are buying maturity here, not the frontier.",
+          "wrong_for": "Bulk experimentation at Standard tier — the per-second cost punishes iteration, which is exactly what early drafts need."
+        },
+        {
+          "rank": 3,
+          "name": "Runway",
+          "maker": "Runway",
+          "url": "https://runway.com",
+          "one_liner": "The editor, not the model. It runs its own Gen-4.5 and everyone else's models in one place.",
+          "use_it_when": "The generation is one step in a longer process — video-to-video, motion control, inpainting, ProRes delivery — and you'd rather not stitch five vendors together.",
+          "cost": "Free: 125 one-time credits. Standard $12/month billed yearly, 625 credits/month. Pro $28/month yearly, 2,250 credits. Max $76/month yearly, 9,500 credits. Gen-4.5 video costs 60 credits per 5 seconds. Paid plans include Gen-4.5, Gen-4, Act-Two, Aleph and third-party models including Veo 3.1 and Kling 3.0 Pro.",
+          "good_at": "Control. Video-to-video, motion controls, professional delivery formats and workflows — the parts of the job that a raw model API leaves entirely to you.",
+          "the_catch": "Do the credit arithmetic before subscribing. 625 credits at 60 per 5 seconds is about 52 seconds of Gen-4.5 a month on the $12 plan — under a minute of footage, and every rejected take spends from the same pot. Credits don't roll over on Standard or Pro (Max keeps up to a month). The free tier's 125 credits are one-time, not monthly, so it's a demo rather than a trial.",
+          "wrong_for": "Volume generation. Per second of finished video this is among the most expensive routes here, and you're paying for the editor whether you open it or not."
+        },
+        {
+          "rank": 4,
+          "name": "MiniMax H3",
+          "maker": "MiniMax",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+          "one_liner": "Second in the blind arena, with published weights — and a licence you must actually read.",
+          "use_it_when": "You want frontier-adjacent quality with native synchronised audio, and either self-hosting or a non-US/EU jurisdiction makes an open-weight model genuinely useful to you.",
+          "cost": "Weights are free to download under the MiniMax H3 Community License. Hosted API pricing through MiniMax — check current pricing, we could not open a published rate card.",
+          "good_at": "One-pass audio-visual generation: 33B parameters, text, image, video or audio in, 4 to 15 seconds out at 24fps with 32kHz stereo sound, up to 2K through a separate regeneration module. Elo 1301 without audio, second only to Google.",
+          "the_catch": "Two problems, both easy to miss. The licence: the model card links a separate application form specifically for the USA, EU, UK and South Korea, and secondary readings of the community licence describe those regions as excluded from default local deployment rights — read the licence yourself before you deploy, because 'the weights are on Hugging Face' is not the same as 'you may use them'. And the download isn't the whole model: the instruction-refinement layer is hosted rather than open-sourced, and the module that lifts output to 2K is not open-sourced either, so what you can run at home is not what you voted for in the arena.",
+          "wrong_for": "A US or EU company that wants to self-host without legal review, and anyone without serious GPU capacity — 33B dense is not a laptop model."
+        },
+        {
+          "rank": 5,
+          "name": "Kling 3.0",
+          "maker": "Kuaishou",
+          "url": "https://klingai.com",
+          "one_liner": "The cheap one that people keep choosing anyway, for multi-shot consistency.",
+          "use_it_when": "You need several shots of the same subject to look like the same subject, and the budget is the binding constraint.",
+          "cost": "Sold as subscription credits with per-second API rates. Check current pricing — Kling's own pricing and API pages would not load for us on 2026-08-29, so we are not quoting a number we could not read at source.",
+          "good_at": "Subject and scene consistency across multiple shots at a price well below the Western frontier tiers, which is why it keeps turning up in production workflows despite the friction.",
+          "the_catch": "We could not verify its pricing from Kling's own site, which is itself the story: it is the least legible tool in this list from outside China. Subscription credits are reported to expire monthly rather than accumulate, content moderation is stricter and less predictable than the Western tools, and if you have data-residency obligations, a Kuaishou-operated endpoint is a conversation with your legal team, not a checkbox.",
+          "wrong_for": "Regulated industries, anything with a compliance review, and anyone who needs to forecast cost precisely before committing."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Sora 2 / Sora 2 Pro",
+          "why_not": "Excluded on a hard date, not an opinion. OpenAI's own deprecation page lists sora-2, sora-2-pro, their snapshots and the entire Videos API for removal on 24 September 2026, with no replacement named — under a month from this review. The consumer app went earlier. Do not start anything on it."
+        },
+        {
+          "name": "Wan 3.0",
+          "why_not": "Alibaba's model leads the with-audio arena on Elo 1241 and is reported to do 30 seconds in a single pass from text, image, audio, video or documents. Left out because we could not open Alibaba's own pages to verify anything, access is a beta you apply for on Model Studio, and the open-weights story is genuinely contested — sources disagree about whether 3.0 weights exist at all or whether the open line stops at 2.2. Promising and unverifiable is not a recommendation."
+        },
+        {
+          "name": "Dreamina Seedance 2.0",
+          "why_not": "ByteDance's model sits in the top five of both arena boards, which is a real result. Left out of the ranking for the same reason as Wan: we could not confirm access terms or pricing from the source."
+        },
+        {
+          "name": "HappyHorse 1.0 / 1.1",
+          "why_not": "Third and fifth on the no-audio board. Two research-stage models from Alibaba with no product around them that we could find. Watch the leaderboard, not this entry, for these."
+        },
+        {
+          "name": "Luma, Pika and the rest of the 2024 cohort",
+          "why_not": "Still running, still cheap, and comprehensively out-ranked. If you already pay for one it is fine; there is no reason to start now."
+        }
+      ],
+      "watch_list": [
+        "Gemini Omni Flash leaving public preview. It already tops the arena at $0.10 a second — the only thing keeping it from being an unqualified recommendation is that Google reserves the right to change it.",
+        "24 September 2026: the Sora 2 API and OpenAI's Videos API shut down. Anything built on them stops working, and OpenAI has not named a successor.",
+        "Whether Alibaba ships open Wan 3.0 weights under Apache 2.0 as some sources claim is planned. An openly licensed model at the top of the with-audio board would reorder this entire list.",
+        "The two arena boards converging. Right now audio and no-audio rank differently, which means nobody has yet built the model that is best at both."
+      ],
+      "sources": [
+        {
+          "label": "Artificial Analysis — text-to-video arena (both boards)",
+          "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        {
+          "label": "Google — Gemini API pricing, per-second video rates",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+        },
+        {
+          "label": "Google — Gemini Omni Flash launch and stated limitations",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/"
+        },
+        {
+          "label": "OpenAI — deprecations page, Sora 2 and Videos API shutdown",
+          "url": "https://developers.openai.com/api/docs/deprecations"
+        },
+        {
+          "label": "Runway — pricing, credits and included models",
+          "url": "https://runway.com/pricing"
+        },
+        {
+          "label": "MiniMax H3 — model card and licence",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3"
+        }
+      ]
+    },
+    "video.talking-head": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "You need someone on camera saying your script, and it isn't going to be you. What actually holds up on screen — and what are you now legally required to say about it?",
+      "method": {
+        "how": "Ranked on three things. What the free tier actually lets you finish, not what it lets you try. What the paid tier gates — with these tools the headline minutes are rarely minutes of the good avatar, so we read the tier tables rather than the landing pages. And whether the tool suits the shape of video you're making: a training module, a social clip and a product explainer are three different jobs that this category pretends are one. Every pick also carries the same legal footnote, which is in the catches because it changes what you have to ship.",
+        "tested_on": "Not independently tested. Plans, prices and limits are read from each vendor's own pricing page on 2026-08-29. We did not render the same script through five avatars and judge which looked least dead — that judgement is subjective, and every published version of it we found was written by one of the vendors.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "There is no blind-vote arena for avatar video, so nothing here carries a badge — and be careful with the ones you'll find elsewhere. Searching for the best AI avatar generator returns HeyGen's own blog post ranking the best AI avatar generators as a top result. It is a good post. It is also a vendor ranking itself, and that is most of what this category's 'tested and compared' content actually is."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "HeyGen",
+          "maker": "HeyGen",
+          "url": "https://www.heygen.com",
+          "one_liner": "The most convincing presenter, in the most languages, with a free tier you can genuinely evaluate.",
+          "use_it_when": "You want one person delivering a script well, and especially when the same script has to exist in a dozen languages.",
+          "cost": "Free: 3 videos/month, 1 minute each, 1 custom digital twin, 500+ stock avatars, 30+ languages. Creator $29/mo: 600 credits, 30-minute videos, 1080p, voice cloning, 175+ languages. Pro $49/mo: 1,000 credits, 4K. Business $149/mo plus $20/seat: 1,500 credits, 60-minute videos, 5 custom twins. Enterprise on request. Monthly credits roll over one cycle; annual credits accumulate until renewal.",
+          "good_at": "Custom digital twins and multilingual delivery. The realism of the newer avatar models is the thing people notice, and 175+ languages on a $29 plan is the strongest argument in the category for anyone publishing outside English.",
+          "the_catch": "Two catches, one commercial and one legal. Commercially: everything meters. A re-render after a script tweak costs the same credits as the first render, so iteration is the expensive part and nobody budgets for it — and 4K sits behind the $49 tier while the free tier's three one-minute videos are exactly enough to fall in love and not enough to publish. Legally: since 2 August 2026 the EU AI Act's Article 50 requires deployers to disclose AI-generated or manipulated likeness content to viewers on first exposure, clearly and perceptibly, and it applies to non-EU businesses whose output reaches EU users. Your avatar video needs a visible label. Plan the label into the design, not into a panic later.",
+          "wrong_for": "Anything where the audience's trust depends on it being a real person, and any budget that assumed one render per script."
+        },
+        {
+          "rank": 2,
+          "name": "Synthesia",
+          "maker": "Synthesia",
+          "url": "https://www.synthesia.io",
+          "one_liner": "The one built for companies — governance, LMS export, and an actual editor around the avatar.",
+          "use_it_when": "The video is internal training, compliance or comms, it has to land in an LMS, and someone will ask who approved it.",
+          "cost": "Basic free: 10 minutes of video/month, 1,200 credits/month, 3 personal avatars, 125+ avatars. Starter $18/mo billed yearly ($29 monthly): 120 minutes per year, 5 personal avatars. Creator $64/mo billed yearly ($89 monthly): 360 minutes per year, 180+ avatars, and this is the lowest tier with API access. Enterprise: unlimited minutes, 240+ avatars, unlimited personal avatars.",
+          "good_at": "Being defensible. Built-in editor, SCORM and LMS export, brand controls and the review workflow that a training team needs. The free tier's 10 minutes a month is the most generous unpaid allowance in this list that isn't watermarked into uselessness.",
+          "the_catch": "The minutes are annual, and the pricing page shows them monthly. Starter's '120 minutes' is 120 per year — ten minutes a month, the same as the free plan, for $18. Read that table before you buy. API access doesn't appear until the $64 tier, so any plan to automate this starts at $768 a year. And the avatars read as corporate presenters, because that is who they were built to be — they will never look like a person filming in their kitchen.",
+          "wrong_for": "Social video, personality-led content, and anyone who wants a lot of short clips rather than a few long ones."
+        },
+        {
+          "rank": 3,
+          "name": "Hedra",
+          "maker": "Hedra",
+          "url": "https://www.hedra.com",
+          "one_liner": "One photo in, a talking character out, billed by the second.",
+          "use_it_when": "The presenter doesn't need to be a real person at all — a character, a mascot, an illustrated host — and you want the cheapest credible route to a moving face.",
+          "cost": "Free tier with limited watermarked generations. Basic $15/mo, 1,500 credits, slower queue. Creator $30/mo, 5,400 credits, faster. Professional / Teams $75/mo, 14,400 credits, fastest, team access. Enterprise custom. Video is charged by actual duration — a 10-second clip is billed as 10 seconds. Subscription credits do not roll over; separately purchased credit packs don't expire.",
+          "good_at": "Motion that doesn't read as a puppet. It animates a still image into a performance rather than warping a mouth, which is why it works for characters and illustrations where the avatar tools look wrong.",
+          "the_catch": "You are buying a face, not a video. There is no script editor, no brand kit, no LMS export and no slide behind the presenter — everything except the talking head is your problem, which usually means paying for a second tool. Generation speed is a paid feature, so the $15 tier is explicitly the slow queue, and subscription credits vanish at month end while the packs you buy to cover the shortfall don't. That asymmetry is not an accident.",
+          "wrong_for": "Long-form presentation, corporate delivery, and anyone who needs the finished video rather than the performance inside it."
+        },
+        {
+          "rank": 4,
+          "name": "Captions",
+          "maker": "Captions",
+          "url": "https://www.captions.ai",
+          "one_liner": "Makes the whole short-form clip, of which the avatar is one layer.",
+          "use_it_when": "The output is vertical social video and you want captions, B-roll, music and batch clipping handled in the same place as the presenter.",
+          "cost": "Free version covers basic editing — trimming, transitions, some library assets — but generative features need a paid plan. Max $24.99/mo: 500 credits, digital twins, chat-based editing, batch clip creation. Scale 1x $69.99/mo (1,400 credits), 2x $139.99 (2,800), 4x $279.99 (5,600). Enterprise custom. Credits roll over up to 3x the monthly allowance. Yearly billing is discounted.",
+          "good_at": "Finishing. Digital twin plus generated B-roll, sound and captions in one pass, and batch creation of many clips from one source — the actual workflow of anyone posting daily.",
+          "the_catch": "Its house style is extremely legible, and that is the cost. Hard jump cuts, oversized animated captions, a zoom on every emphasis — the format that performed in 2024 and now signals 'made in a tool' to anyone who watches a lot of short video. You can override it, and almost nobody does. The free tier is also a video trimmer: every AI feature you came for is paid.",
+          "wrong_for": "Anything longer than about 90 seconds, anything landscape, and any brand that can't wear the aesthetic."
+        },
+        {
+          "rank": 5,
+          "name": "Colossyan",
+          "maker": "Colossyan",
+          "url": "https://www.colossyan.com",
+          "one_liner": "The most usable free tier in the category, aimed squarely at training video.",
+          "use_it_when": "You're building learning content, you need SCORM, and Synthesia's Creator tier is more than the project justifies.",
+          "cost": "Starter free: 20 minutes/month on the NEO avatar, 15 custom avatars, 3 voices, 10 interactive videos/month, no credit card. Professional $59/mo billed annually: 30 min/month NEO plus 10 min/month NEO2, up to 3 editors, watermark removal, 5 SCORM exports/month, limited API. Enterprise custom: unlimited NEO minutes, unlimited SCORM, SOC 2 Type II, EU/US data residency. 300+ stock avatars, 700+ voices, 120+ languages.",
+          "good_at": "Interactive learning video specifically — branching, quizzes, SCORM into Workday, Cornerstone and Docebo — plus a free tier at 20 minutes a month with 15 custom avatars, which is more than most people will use.",
+          "the_catch": "The minutes are split across two avatar generations and the good one is rationed. Professional gives 30 minutes of NEO but only 10 minutes of NEO2 a month, so the headline number is mostly minutes of the older model — and you won't discover which one you were watching in the demo until you've paid. SCORM exports are capped at 5 a month on Professional, annual minutes are granted upfront and don't roll over, and full API access is Enterprise-only.",
+          "wrong_for": "Marketing and social video. This is an L&D tool wearing a general-purpose landing page."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Argil",
+          "why_not": "Clones you from about two minutes of footage and produces short-form vertical video with captions and B-roll — a genuinely good fit for this job. Left out because its pricing page loads plans dynamically and we could not read a single verified price from the source. We won't rank a tool on a number we didn't see."
+        },
+        {
+          "name": "D-ID",
+          "why_not": "Still the cheap, API-first route from a photo to a talking video, and notably explicit about labelling output as synthetic. Left out because the pricing splits across separate Studio and API pages that we could not read, and because minutes round up to the nearest 15 seconds and don't roll over — worth knowing before you pick it."
+        },
+        {
+          "name": "Filming yourself with a teleprompter app",
+          "why_not": "Below roughly one video a week, a phone, a $15 lapel mic, a window for light and a free teleprompter app beats every tool on this page — on trust, on cost, and usually on time once you count the re-renders. AI presenters win on volume, translation and on not needing you to be available. They do not win on being convincing."
+        },
+        {
+          "name": "Creatify and the UGC-ad tools",
+          "why_not": "A different job wearing the same clothes: synthetic creators reading ad scripts for paid social. If that's what you're doing, this list is aimed slightly wrong — that belongs under ad creative."
+        }
+      ],
+      "watch_list": [
+        "2 December 2026 ends the grace period on the AI Act's machine-readable marking obligation for systems already on the market. Expect provenance metadata — C2PA and similar — to become a default output feature rather than an enterprise checkbox, and expect it to be the thing platforms start reading automatically.",
+        "Whether any of these ship the disclosure label as a built-in, styled overlay. Right now compliance is a manual step you have to remember on every export, which is exactly how it gets forgotten.",
+        "Audience detection. The advantage of an AI presenter shrinks as viewers get better at spotting one — and unlike price or resolution, no vendor will tell you when that line has moved."
+      ],
+      "sources": [
+        {
+          "label": "HeyGen — plans, credits, video length and avatar limits",
+          "url": "https://www.heygen.com/pricing"
+        },
+        {
+          "label": "Synthesia — plans, minutes and API tier",
+          "url": "https://www.synthesia.io/pricing"
+        },
+        {
+          "label": "Hedra — plans, credits and per-second billing",
+          "url": "https://www.hedra.com/pricing"
+        },
+        {
+          "label": "Captions — plans, credits and free tier limits",
+          "url": "https://www.captions.ai/pricing"
+        },
+        {
+          "label": "Colossyan — plans, NEO/NEO2 minute split, SCORM limits",
+          "url": "https://www.colossyan.com/pricing"
+        },
+        {
+          "label": "European Commission — Article 50 transparency obligations FAQ",
+          "url": "https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act"
+        },
+        {
+          "label": "D-ID — pricing terms on minutes and watermarks",
+          "url": "https://www.d-id.com/pricing/"
+        }
+      ]
     }
   }
 }
