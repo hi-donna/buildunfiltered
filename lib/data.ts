@@ -11,6 +11,7 @@ export interface Pick {
   rank: number; name: string; maker: string; url: string;
   one_liner: string; use_it_when: string; cost: string;
   good_at: string; the_catch: string; wrong_for: string; blind?: string;
+  pricing_detail?: string;
 }
 export interface Entry {
   status: string; last_verified: string; question: string;

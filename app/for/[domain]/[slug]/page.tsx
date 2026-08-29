@@ -71,7 +71,7 @@ export default async function JobPage({ params }: { params: Promise<Params> }) {
                 <p className="oneliner">{p.one_liner}</p>
                 <dl className="facts">
                   <div><dt>Use it when</dt><dd>{p.use_it_when}</dd></div>
-                  <div><dt>Cost</dt><dd>{p.cost}</dd></div>
+                  <div><dt>Cost</dt><dd>{p.cost}{p.pricing_detail && <span className="detail">{p.pricing_detail}</span>}</dd></div>
                   <div><dt>Good at</dt><dd>{p.good_at}</dd></div>
                   <div className="catch"><dt>The catch</dt><dd>{p.the_catch}</dd></div>
                   <div><dt>Wrong for</dt><dd>{p.wrong_for}</dd></div>

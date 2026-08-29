@@ -115,6 +115,7 @@ h1,h2,h3 { text-wrap:balance; }
 .facts dt { font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:700;
   color:var(--muted); margin-bottom:2px; }
 .facts dd { margin:0; font-size:.88rem; }
+.facts .detail { display:block; margin-top:6px; font-size:.79rem; color:var(--muted); }
 .facts .catch { border-left-color:var(--warn); }
 .facts .catch dt { color:var(--warn); }
 .visit { grid-column:2; margin-top:14px; font-size:.85rem; font-weight:600; color:var(--accent);
