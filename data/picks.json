@@ -768,6 +768,714 @@
           "url": "https://www.d-id.com/pricing/"
         }
       ]
+    },
+    "audio.transcribe": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "I have a two-hour interview, three speakers, one strong accent. What transcribes it accurately without babysitting?",
+      "method": {
+        "how": "Ranked on measured word error rate under degraded conditions rather than clean-studio scores, because a real recording has crosstalk, room noise and accents. I weighted two independent benchmarks over vendor self-reports: Artificial Analysis AA-WER v2 (non-streaming track) and Coval's 3,500-sample STT set, which tests clipping, far-field mics, phone codecs, reverb, accents and noise gaps. Then I checked whether speaker diarisation and word-level timestamps are included in the headline price or billed separately, since a transcript without speaker labels is half a deliverable. Finally I required the list to span hosted APIs and weights you can run on your own hardware.",
+        "tested_on": "Not independently tested. No audio was run through any of these. Prices read from vendors' own pricing pages on 2026-08-29; WER figures read from third-party leaderboards and vendor blogs, and attributed as such.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "The WER numbers here come from three sources: the Artificial Analysis speech-to-text leaderboard (AA-WER v2, three datasets chosen for accent and acoustic variation), Coval's open STT benchmark (31 models, six degradation conditions), and the Hugging Face Open ASR Leaderboard (clean, standardised sets). Treat all vendor-published WER as marketing. Vendors pick the audio, pick the normalisation, and pick which competitor build they compare against — ElevenLabs' Scribe v2 launch post shows a FLEURS chart with no numbers printed on it at all. Coval's own write-up notes that top providers now sit within one to two points of each other on clean English, that alphanumeric entity accuracy can fall to 50-70% in production, and that a model posting 5% WER on monolingual audio can post 15-20% on code-switched calls. None of that shows up on a pricing page. Run your own worst recording through the free tiers before committing."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "Scribe v2",
+          "maker": "ElevenLabs",
+          "url": "https://elevenlabs.io/speech-to-text",
+          "one_liner": "Lowest measured error rate, diarisation included, priced like a commodity.",
+          "use_it_when": "You have a finished recording — interview, podcast, deposition, lecture — and you want the best transcript available without running infrastructure.",
+          "cost": "$0.22/hr batch ($3.67 per 1,000 min). Realtime $0.39/hr.",
+          "pricing_detail": "Scribe v2 $0.22/hr; Scribe v2 Realtime $0.39/hr. Add-ons billed separately: entity detection $0.070/hr, keyterm prompting $0.050/hr. No standalone free tier on the API page — the Starter plan at $6/month includes 4 hours 30 minutes of Scribe v2. Files to 3 GB and 10 hours per job.",
+          "good_at": "Artificial Analysis ranks it first on AA-WER v2 at 2.2% WER, ahead of Microsoft's MAI-Transcribe-1.5 (2.4%) and Google's Gemini 3.5 Transcribe (2.6%), and it is cheaper than both at $3.67 per 1,000 minutes against $6.00 and $5.00. Diarisation up to 32 speakers and word-level timestamps are in the base price, not bolted on. 90+ languages.",
+          "the_catch": "ElevenLabs will not tell you what the model is. The Scribe v2 launch post claims 'the lowest word error rate recorded on industry-standard benchmarks' and prints a FLEURS chart with no figures on it and no named competitors — you are trusting a third-party leaderboard, not the vendor. There is no self-hosted or on-prem option of any kind, so if your audio is legally confined to your own infrastructure this is a dead end. Keyterm prompting, the feature you will want the moment your recording contains product names or drug names, costs extra per hour.",
+          "wrong_for": "Anyone with data-residency or air-gap constraints — go to Whisper self-hosted at rank 4 or Speechmatics' container at rank 5. Also wrong if you need streaming for a voice agent, where AssemblyAI's realtime tier is the stronger buy."
+        },
+        {
+          "rank": 2,
+          "name": "Universal-3.5 Pro",
+          "maker": "AssemblyAI",
+          "url": "https://www.assemblyai.com/pricing",
+          "one_liner": "Best on genuinely bad audio. Diarisation costs extra.",
+          "use_it_when": "The recording is rough — phone audio, a laptop mic across a boardroom table, clipping, heavy accents — and you have tried a cheap model already and thrown the output away.",
+          "cost": "$0.21/hr async, plus $0.02/hr for speaker diarisation.",
+          "pricing_detail": "Universal-3.5 Pro async $0.21/hr; Universal-2 async $0.15/hr. Streaming: Universal-3.5 Pro Realtime $0.45/hr, Universal-Streaming $0.15/hr (multilingual also $0.15/hr). Sync API $0.45/hr. Speaker diarisation is a $0.02/hr add-on on both async and streaming. Free tier covers up to 185 hours of pre-recorded transcription per AssemblyAI's own pricing page. Volume pricing by sales contact.",
+          "good_at": "Degraded audio. AssemblyAI reports Universal-3.5 Pro led all 31 models on Coval's independent benchmark at 3.4% overall WER, and topped the field specifically on clipping and far-field audio — the two conditions that wreck real meeting recordings. The free tier is the most generous here by a wide margin: 185 hours is enough to transcribe a whole back catalogue before you pay anything.",
+          "the_catch": "Diarisation is a separate line item, so the $0.21/hr you budgeted is actually $0.23/hr the moment you need speaker labels, and every comparison table you have seen quotes the number without it. The Coval result is reported by AssemblyAI on AssemblyAI's blog — Coval's own public write-up declines to publish per-provider rankings, so you cannot check the 3.4% independently from the source. And the sync API, which is what you will reach for when you want a transcript back in one HTTP call rather than polling, is $0.45/hr — more than double the async rate.",
+          "wrong_for": "Clean single-speaker audio at volume, where Deepgram or Speechmatics Melia cost a third as much for a transcript you will not be able to tell apart. Also wrong if the audio cannot leave your infrastructure."
+        },
+        {
+          "rank": 3,
+          "name": "Nova-3",
+          "maker": "Deepgram",
+          "url": "https://deepgram.com/pricing",
+          "one_liner": "Fastest hosted transcription, diarisation free, accuracy a step behind.",
+          "use_it_when": "You are transcribing thousands of hours and throughput matters more than the last percentage point — call-centre archives, media libraries, anything where the transcript feeds search rather than a human reader.",
+          "cost": "$0.0043/min pre-recorded English (~$0.26/hr). Diarisation included.",
+          "pricing_detail": "Pay-as-you-go pre-recorded: Nova-3 monolingual $0.0043/min, multilingual $0.0052/min. Growth plan: $0.0036/min and $0.0043/min. Streaming: Nova-3 monolingual $0.0048/min, multilingual $0.0058/min, Flux English $0.0065/min. Speaker diarisation is included on pre-recorded, but costs $0.0020/min extra on streaming. $200 promotional credit for new accounts. Self-hosted via Docker, Podman or Kubernetes requires a Deepgram Enterprise Plan; Amazon SageMaker deployment is billed through AWS without an enterprise contract.",
+          "good_at": "Speed and unit economics. Artificial Analysis clocks Nova-3 at 530.6x realtime, the fastest non-streaming model on their board — a two-hour recording comes back in well under a minute. Diarisation is genuinely included on pre-recorded, unlike AssemblyAI. And it is the only major hosted vendor here with a documented self-hosted path that does not start with a sales call, via SageMaker.",
+          "the_catch": "It is not the accuracy leader and Deepgram's own pricing page is where the good news stops — the product page for Nova-3 returned a 404 when I went looking for its WER claims, so I have no vendor-stated accuracy figure to attribute at all. On the independent AA board it does not appear in the top five by WER. That gap shows up as exactly the errors that cost you time: proper nouns, alphanumeric identifiers, overlapping speech. The $200 credit is generous but expires, and Growth pricing requires a monthly commitment.",
+          "wrong_for": "A single important recording where every word matters — pay the extra 4p an hour for Scribe v2 or Universal-3.5 Pro. Also wrong for Docker-based on-prem unless you are prepared for an enterprise contract."
+        },
+        {
+          "rank": 4,
+          "name": "Whisper large-v3 (via faster-whisper / WhisperX)",
+          "maker": "OpenAI (weights) / SYSTRAN, Max Bain (runtimes)",
+          "url": "https://huggingface.co/openai/whisper-large-v3",
+          "one_liner": "Free, offline, 99 languages. Hallucinates, and you own the GPU.",
+          "use_it_when": "The audio legally cannot leave your infrastructure — medical, legal, HR, defence — or you have enough volume that per-minute API pricing has stopped being rounding error.",
+          "cost": "Free. Apache 2.0 weights, MIT runtime. You pay for GPU only.",
+          "pricing_detail": "Model weights Apache 2.0, 1.55B parameters, 99 languages. faster-whisper is MIT-licensed and claims up to 4x faster than openai/whisper at the same accuracy with less memory (13 minutes of audio: 2m23s on openai/whisper versus 1m03s on faster-whisper, large-v2 FP16 on GPU). WhisperX adds word-level timestamps and speaker diarisation via pyannote, which has its own model-access gating. If you would rather rent than own, Groq hosts it at $0.111/hr for large-v3 and $0.04/hr for large-v3-turbo — but that is a hosted API again, with a 25 MB file cap on the free tier and 100 MB on dev.",
+          "good_at": "Nothing else on this list runs with the network cable pulled out. 99 languages is the broadest coverage here — Parakeet does 25, Scribe does 90+. The ecosystem is the real asset: faster-whisper, WhisperX, whisper.cpp, distil-whisper and a decade of fine-tunes all take the same weights, so you can trade accuracy for speed without changing vendors. And the marginal cost of the ten-thousandth hour is the same as the first.",
+          "the_catch": "OpenAI's own model card documents it: the model can generate text 'not actually spoken in the audio input', and the sequence-to-sequence architecture 'makes it prone to generating repetitive texts'. On day three you will find a paragraph of plausible, fluent, entirely invented speech in the middle of a silence, and no confidence score flagged it. It also ships with no diarisation — you bolt on WhisperX and pyannote yourself, and now you are maintaining a three-model pipeline. Performance is explicitly uneven across accents, dialects and low-resource languages. Budget a week, not an afternoon.",
+          "wrong_for": "Anyone in a hurry with a single recording, or a team with no GPU and no appetite for pipeline maintenance. Pay $0.22/hr and move on. Also wrong if you need low-latency streaming."
+        },
+        {
+          "rank": 5,
+          "name": "Speechmatics",
+          "maker": "Speechmatics",
+          "url": "https://www.speechmatics.com/pricing",
+          "one_liner": "Cheapest credible hosted rate, plus a container you can actually deploy.",
+          "use_it_when": "You need on-prem or private-cloud deployment with a support contract behind it, or you are transcribing at volume in many languages and want the price floor.",
+          "cost": "Batch from $0.129/hr (Melia 1). Enhanced $0.40/hr. Container on Enterprise.",
+          "pricing_detail": "Batch: Melia 1 $0.129/hr, Standard $0.24/hr, Enhanced $0.40/hr. Real-time: Standard $0.24/hr, Enhanced $0.43/hr. Add-ons: translation $0.65/hr, summaries $0.12/hr, chapters $0.40/hr. Diarisation is listed as a core speech-to-text feature across tiers, not an add-on. $100 credit to start, no card. Pro tier gives 50 concurrent real-time sessions and 10 file jobs/second; Free and Pro are SaaS-only across US, EU or Australia regions. Enterprise unlocks Private Cloud, Container, Virtual Appliance and On-Device — pricing is sales-gated, so check current pricing.",
+          "good_at": "The deployment spread. It is the only vendor here offering a supported container and virtual appliance alongside a public hosted price list, which matters when compliance says on-prem but your team has no interest in babysitting a Whisper pipeline. $0.129/hr on Melia 1 is roughly half the going hosted rate. 55+ languages, diarisation included, and a $100 no-card credit that is a real trial rather than a demo.",
+          "the_catch": "The $0.129/hr headline is the cheapest model, not the good one — the tier you will end up on after listening to the output is Enhanced at $0.40/hr, three times the advertised floor and nearly double Scribe v2. Speechmatics publishes no WER figure I could verify on their pricing page, and they appear in AssemblyAI's competitor list without a number attached, so the accuracy case rests on reputation rather than a benchmark I can point you at. On-prem pricing is entirely behind a sales conversation — I could not verify it.",
+          "wrong_for": "A solo builder with one recording and no procurement process. The trial is fine, but the value here is the enterprise deployment path, and you are not buying that."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "NVIDIA Parakeet TDT 0.6b v3",
+          "why_not": "Nearly took rank 4 — 0.6B parameters, 6.34% average WER on the Open ASR Leaderboard, word-level timestamps, runs in 2 GB — but CC-BY-4.0, only 25 European languages, and no diarisation at all."
+        },
+        {
+          "name": "OpenAI gpt-transcribe",
+          "why_not": "$0.0045/min (~$0.27/hr), fine quality, but no diarisation story and it does not appear in the top ranks of any independent WER board I checked."
+        },
+        {
+          "name": "Microsoft Azure MAI-Transcribe-1.5",
+          "why_not": "Second on Artificial Analysis at 2.4% WER, but $6.00 per 1,000 minutes — 63% more than Scribe v2 for 0.2 points of WER."
+        },
+        {
+          "name": "Google Gemini 3.5 Transcribe",
+          "why_not": "2.6% WER at $5.00 per 1,000 minutes. Beaten on both axes by Scribe v2."
+        },
+        {
+          "name": "Groq (Whisper large-v3 / turbo)",
+          "why_not": "$0.111/hr and $0.04/hr is the cheapest way to rent Whisper, but 25 MB free / 100 MB dev file caps and single-track-only processing make it awkward for long recordings."
+        },
+        {
+          "name": "Canary-Qwen-2.5B",
+          "why_not": "5.63% WER and strong on the leaderboard, but English-only and CC-BY-4.0 — narrower than Whisper for the same self-hosting effort."
+        },
+        {
+          "name": "Mistral Voxtral Mini 4B Realtime",
+          "why_not": "Apache 2.0 and 13 languages, but 7.68% WER puts it behind both Whisper and Parakeet for batch work."
+        }
+      ],
+      "watch_list": [
+        "Whether ElevenLabs ever publishes actual WER figures and names the Scribe v2 architecture — right now rank 1 rests entirely on a third-party board.",
+        "Coval publishing per-provider rankings on benchmarks.coval.ai/stt directly, rather than results reaching us via AssemblyAI's blog.",
+        "AssemblyAI folding diarisation into the base $0.21/hr — that alone would put it level with Scribe v2 on price and ahead on degraded audio.",
+        "Deepgram shipping a Nova successor with a published WER figure; Nova-3 currently competes on speed and price because there is no accuracy number to check.",
+        "An Apache-2.0 or MIT open model clearing 5% average WER with built-in diarisation — that collapses the case for hosted APIs at the volume end.",
+        "Entity and alphanumeric accuracy becoming a standard benchmark axis. Coval reports production accuracy of 50-70% on IDs and proper nouns across providers, and nobody prices against it.",
+        "Speechmatics or anyone else publishing on-prem container pricing openly instead of routing it through sales."
+      ],
+      "sources": [
+        {
+          "label": "Deepgram pricing",
+          "url": "https://deepgram.com/pricing"
+        },
+        {
+          "label": "Deepgram self-hosted docs",
+          "url": "https://developers.deepgram.com/docs/self-hosted-introduction"
+        },
+        {
+          "label": "AssemblyAI pricing",
+          "url": "https://www.assemblyai.com/pricing"
+        },
+        {
+          "label": "AssemblyAI: Universal-3.5 Pro on independent benchmarks",
+          "url": "https://www.assemblyai.com/blog/universal-3-5-pro-independent-stt-benchmarks"
+        },
+        {
+          "label": "ElevenLabs API pricing",
+          "url": "https://elevenlabs.io/pricing/api"
+        },
+        {
+          "label": "ElevenLabs: Introducing Scribe v2",
+          "url": "https://elevenlabs.io/blog/introducing-scribe-v2"
+        },
+        {
+          "label": "ElevenLabs speech-to-text docs",
+          "url": "https://elevenlabs.io/docs/capabilities/speech-to-text"
+        },
+        {
+          "label": "Speechmatics pricing",
+          "url": "https://www.speechmatics.com/pricing"
+        },
+        {
+          "label": "OpenAI API pricing",
+          "url": "https://developers.openai.com/api/docs/pricing"
+        },
+        {
+          "label": "Artificial Analysis speech-to-text leaderboard (non-streaming)",
+          "url": "https://artificialanalysis.ai/speech-to-text/non-streaming"
+        },
+        {
+          "label": "Coval: best STT providers 2026",
+          "url": "https://www.coval.ai/blog/best-speech-to-text-providers-in-2026-independent-benchmarks-and-how-to-choose/"
+        },
+        {
+          "label": "Hugging Face: Open ASR Leaderboard trends",
+          "url": "https://huggingface.co/blog/open-asr-leaderboard"
+        },
+        {
+          "label": "OpenAI Whisper large-v3 model card",
+          "url": "https://huggingface.co/openai/whisper-large-v3"
+        },
+        {
+          "label": "faster-whisper",
+          "url": "https://github.com/SYSTRAN/faster-whisper"
+        },
+        {
+          "label": "NVIDIA Parakeet TDT 0.6b v3 model card",
+          "url": "https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3"
+        },
+        {
+          "label": "Groq speech-to-text docs",
+          "url": "https://console.groq.com/docs/speech-to-text"
+        },
+        {
+          "label": "MarkTechPost: open ASR models compared 2026",
+          "url": "https://www.marktechpost.com/2026/07/23/best-open-speech-recognition-asr-models-in-2026-wer-languages-latency-and-license-compared/"
+        }
+      ]
+    },
+    "audio.tts": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "I have a 2,000-word script. Which text-to-speech actually sounds human, and what will it really cost me?",
+      "method": {
+        "how": "Ranked on fit for turning a written script into finished narration, not on demo clips. First filter: does it handle a long script as a script — chunking, chapters, pronunciation control, per-line voice — or does it hand you a single 5,000-character endpoint and wish you luck. Second: blind-arena naturalness, using the Artificial Analysis Speech Arena Elo read on 29 Aug 2026. Third: cost per character and, decisively, whether the licence lets you publish the result — several tools here gate commercial use or voice cloning behind a tier, and one popular open model forbids commercial use entirely.",
+        "tested_on": "Not independently tested. No audio was generated, no A/B listening was done, no latency was measured. Prices, credit allowances, licence terms and feature gating were read from the vendors' own pricing, docs and licence pages on 29 August 2026. Arena positions come from Artificial Analysis, not from us.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "Two blind arenas exist and both were used as inputs. Artificial Analysis Speech Arena ranks by Elo from blind paired listening — Cartesia Sonic 3.6 sat at 1288, ahead of Speechify Simba 3.2 and Qwen-Audio-3.0-TTS-Plus at 1243. TTS Arena v2 (TTS-AGI, on Hugging Face) also runs blind A/B with names revealed only after voting, but its leaderboard renders client-side and the table could not be read on 29 Aug 2026, so no figures from it are quoted here. Neither arena tests long-form narration; they test short utterances. That gap is why the ranking below is not the arena order."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "ElevenLabs",
+          "maker": "ElevenLabs",
+          "url": "https://elevenlabs.io/",
+          "one_liner": "Still the only one built around a whole script, not a request.",
+          "use_it_when": "You have a real script — an explainer, an audiobook chapter, a course module — and you need pronunciation fixed, two voices swapping mid-paragraph, and a WAV you can hand to an editor without writing chunking code.",
+          "cost": "Free 10k credits/mo, no commercial use. Paid $6-$990/mo (30k-6M credits).",
+          "pricing_detail": "Free $0 (10k credits/mo), Starter $6 (30k), Creator $22 (121k, first month half price at $11), Pro $99 (600k), Scale $299 (1.8M), Business $990 (6M), Enterprise custom. Unused credits roll over but only up to two months' worth, and only while the subscription stays active. Instant voice cloning unlocks at Starter; professional voice cloning at Creator. Pay-as-you-go top-up credits last 12 months and kick in when the monthly quota runs dry.",
+          "good_at": "Studio is the actual differentiator: import EPUB, PDF, DOCX, TXT, HTML or a URL, split into up to 500 chapters, assign different voices inside a single paragraph, apply pronunciation dictionaries with phoneme or alias tags, export MP3, WAV or video. Nothing else here treats a script as a document.",
+          "the_catch": "It is far and away the most expensive per character on this list — the mid plans work out around ten to twenty times what Speechify or Inworld charge per million characters. And the free tier is a trap dressed as generosity: ElevenLabs states plainly that it includes no commercial licence and cannot be used for any commercial purpose, and that free-plan output published anywhere must carry 'elevenlabs.io' attribution in the title. You need a paid plan before a single second of this reaches a client.",
+          "wrong_for": "Anyone generating narration at volume, or anyone who just needs an API call. Go to Speechify or Inworld and keep the difference."
+        },
+        {
+          "rank": 2,
+          "name": "Cartesia Sonic 3.6",
+          "maker": "Cartesia",
+          "url": "https://cartesia.ai/",
+          "one_liner": "Top of the blind arena. Bring your own script pipeline.",
+          "use_it_when": "You are generating voiceover from code, naturalness is the thing you will be judged on, and you are happy to write your own paragraph splitting and stitching.",
+          "cost": "Free 20k credits/mo, no commercial use. Paid $5-$299/mo (100k-8M credits).",
+          "pricing_detail": "Free $0 (20k credits, ~27 TTS minutes), Pro $5 (100k credits, ~133 min), Startup $49 (1.25M credits, ~1,667 min), Scale $299 (8M credits, ~10,667 min), Enterprise custom. Commercial licence starts at Pro. Instant voice cloning from Pro (2 clones); professional cloning from Startup. Artificial Analysis lists Sonic 3.6 at $49 per 1M characters.",
+          "good_at": "Raw naturalness. It ranks first on both Artificial Analysis speech arenas at Elo 1288, with the gap to third wider than the gap from third to twelfth. 61 locales, 500+ preset voices, Hinglish code-switching, and accent adherence that survives voice cloning. Sub-90ms replies and ~132 characters/sec generation, so a long script renders fast.",
+          "the_catch": "It is engineered for live voice agents, not narration. The launch material sells sub-90ms latency and a 99.9% uptime SLA — there is no Studio, no chapters, no document import, no pronunciation dictionary workflow. You will spend day three writing the splitter, the retry logic and the concatenation that ElevenLabs gives you in a text box. The free tier's 20k credits is roughly 27 minutes and carries no commercial rights.",
+          "wrong_for": "Anyone who wants to paste a script into a browser and download an MP3. That is ElevenLabs or Speechify."
+        },
+        {
+          "rank": 3,
+          "name": "Speechify (Simba 3.2 API)",
+          "maker": "Speechify",
+          "url": "https://speechify.ai/",
+          "one_liner": "Near arena-leading quality at a tenth of ElevenLabs' price.",
+          "use_it_when": "You are shipping narration at volume and the budget matters more than the last five percent of naturalness — or you want a free tier you can legally publish from.",
+          "cost": "Free 50k chars/mo, commercial use allowed. Paid $10-$499/mo, $6-$10 per extra 1M chars.",
+          "pricing_detail": "Free $0 (50k TTS characters/mo, hard cap, no overages, commercial use permitted). Starter $10/mo then $10 per additional 1M characters. Pro $99/mo then $8 per 1M. Scale $499/mo then $6 per 1M. Enterprise volume pricing. Artificial Analysis lists Simba 3.2 at $10 per 1M characters at Elo 1243 — second on the leaderboard. 1,500+ voices, 30+ languages.",
+          "good_at": "Price-to-quality, by a distance. Simba 3.2 sits 45 Elo behind the arena leader and costs roughly a fifth per character. The free tier is the only one here that explicitly permits commercial use, and it is a hard cap — no overage, no surprise invoice at the end of the month.",
+          "the_catch": "Voice cloning is not on the free tier. The Free card lists commercial use and 1,500+ voices; 'Voice cloning, streaming, SSML' appears only from Starter. So the free 50k characters gets you stock voices only — if the brief was 'clone the founder's voice', you are paying from day one. The free tier's hard cap also means generation simply stops mid-project rather than degrading.",
+          "wrong_for": "Long documents needing chapter structure and pronunciation dictionaries. Use ElevenLabs Studio for that."
+        },
+        {
+          "rank": 4,
+          "name": "Gemini TTS",
+          "maker": "Google",
+          "url": "https://ai.google.dev/gemini-api/docs/speech-generation",
+          "one_liner": "Free two-speaker dialogue in 100+ languages, with a data catch.",
+          "use_it_when": "You need a two-hander — interview, dialogue, back-and-forth explainer — or you are prototyping and want to spend nothing on non-confidential text.",
+          "cost": "Free tier free of charge. Paid $1/1M text-in, $20/1M audio-out tokens.",
+          "pricing_detail": "gemini-3.1-flash-tts-preview: paid tier $1.00 per 1M input text tokens, $20.00 per 1M output audio tokens; batch halves both to $0.50 and $10.00. Free tier is listed as free of charge for both input and output. Free-tier rate limits are no longer enumerated in the docs — they are only visible in AI Studio under your own account. Also available: Gemini 2.5 Flash Preview TTS and 2.5 Pro Preview TTS.",
+          "good_at": "Native multi-speaker generation — up to 2 speakers in one call, which no other tool here does without stitching separate renders. Over 100 languages with automatic detection, a 32k-token session context, and genuinely free access for prototyping.",
+          "the_catch": "Two problems land on day three. Google's own pricing page says free-tier content is 'used to improve our products' while paid-tier content is not — so a client's unreleased script cannot go through the free path. And the speech-generation docs warn that quality and consistency 'may begin to drift with generated outputs that are longer than a few minutes', which is exactly the length of the voiceover you are trying to make. Add: 30 preset voices, no voice cloning, and every TTS model still carries a 'preview' label.",
+          "wrong_for": "Anyone who needs a specific or cloned voice, or a 20-minute continuous read. Go to ElevenLabs or Speechify."
+        },
+        {
+          "rank": 5,
+          "name": "Chatterbox Multilingual v3",
+          "maker": "Resemble AI",
+          "url": "https://github.com/resemble-ai/chatterbox",
+          "one_liner": "MIT weights, free cloning, no per-character meter running.",
+          "use_it_when": "Volume is high enough that per-character pricing hurts, the script cannot leave your infrastructure, or you want unlimited voice cloning without a subscription tier deciding when.",
+          "cost": "Free. MIT-licensed weights; you pay only for the GPU.",
+          "pricing_detail": "No pricing. Weights are MIT — the genuinely permissive licence in this field, and the reason it beats Fish Audio S2 Pro and Breeze TTS 2 here despite both scoring higher on the arena. 500M parameters. Runs on CUDA, CPU or Apple Silicon (mps); the Nano variant runs 3x faster than realtime on 8 CPU cores. 23+ languages plus dedicated single-language packs for six.",
+          "good_at": "Zero-shot voice cloning from roughly a 10-second reference clip, with no tier gate and no per-clone limit. Exaggeration and cfg_weight parameters give you direct control over how dramatic the read is, and Turbo/Nano support paralinguistic tags like [laugh] and [cough].",
+          "the_catch": "Every file it generates carries Resemble's Perth neural watermark — imperceptible, but designed to survive MP3 compression and editing, and not something you can switch off. On top of that, output quality depends on you tuning cfg_weight and exaggeration per reference clip, and a reference whose language does not match the language tag will bleed its accent into the read. That is an afternoon of fiddling per voice, every voice.",
+          "wrong_for": "Anyone without a GPU and an afternoon. If you just need a clean read by Friday, pay Speechify $10."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Kokoro-82M",
+          "why_not": "Apache 2.0 and only 82M parameters, so it runs anywhere — but Elo 1059 on the arena and no voice cloning at all. Chatterbox does the same job better under an equally free licence."
+        },
+        {
+          "name": "Fish Audio S2 Pro",
+          "why_not": "Open weights in name only. The Fish Audio Research License forbids any commercial purpose without a separate written agreement, and requires 'Built with Fish Audio' displayed."
+        },
+        {
+          "name": "Breeze TTS 2",
+          "why_not": "Leading open-weights model on the arena at Elo 1220, but the code is Apache 2.0 while the weights sit under a research-and-non-commercial licence requiring written permission from Resonia, Inc. Free to download, not free to sell."
+        },
+        {
+          "name": "Inworld Realtime TTS-2 Flash",
+          "why_not": "Genuinely cheap — $15 per 1M characters on-demand dropping to $7 on Growth, with ~70 TTS minutes free — and Elo 1228. Narrowly out on script-handling workflow rather than on price or quality."
+        },
+        {
+          "name": "OpenAI TTS",
+          "why_not": "As of 29 Aug 2026 the OpenAI API pricing page lists realtime and transcription audio models but no standalone text-to-speech model or per-character rate. Cannot verify a price, so cannot rank it."
+        },
+        {
+          "name": "Qwen-Audio-3.0-TTS-Plus",
+          "why_not": "Tied for second on the arena at Elo 1243, but $27.6 per 1M characters — nearly triple Speechify for the same score."
+        },
+        {
+          "name": "Murf",
+          "why_not": "Pricing page is JavaScript-only and returned no readable tiers on 29 Aug 2026. No verified price, no ranking."
+        }
+      ],
+      "watch_list": [
+        "Whether ElevenLabs cuts per-character pricing. It is currently defending a roughly 10-20x premium on workflow alone, and Speechify at $10/1M with Elo 1243 is the pressure.",
+        "Cartesia shipping a long-form Studio-equivalent. Sonic 3.6 already leads the arena; give it document import and chapters and it takes rank 1 outright.",
+        "Any arena-competitive model landing under a real Apache or MIT licence. Breeze TTS 2 and Fish S2 Pro both beat Chatterbox on quality and both forbid commercial use — that stalemate breaking would reorder the bottom half.",
+        "Gemini TTS leaving preview, and whether the paid tier fixes the multi-minute quality drift. If it does, free two-speaker narration becomes very hard to argue with.",
+        "OpenAI reinstating a listed standalone TTS model and price. Its absence from the pricing page is the single biggest unknown here.",
+        "Watermarking becoming mandatory. Chatterbox already embeds Perth; if hosted vendors follow, the self-host escape hatch closes."
+      ],
+      "sources": [
+        {
+          "label": "ElevenLabs pricing",
+          "url": "https://elevenlabs.io/pricing"
+        },
+        {
+          "label": "ElevenLabs API pricing",
+          "url": "https://elevenlabs.io/pricing/api"
+        },
+        {
+          "label": "ElevenLabs billing docs (credit rollover)",
+          "url": "https://elevenlabs.io/docs/overview/administration/billing"
+        },
+        {
+          "label": "ElevenLabs: can I publish the content I generate?",
+          "url": "https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform"
+        },
+        {
+          "label": "ElevenLabs Studio product guide",
+          "url": "https://elevenlabs.io/docs/product-guides/products/studio"
+        },
+        {
+          "label": "Cartesia pricing",
+          "url": "https://cartesia.ai/pricing"
+        },
+        {
+          "label": "Cartesia: Introducing Sonic-3.6",
+          "url": "https://www.cartesia.ai/blog/sonic-3.6"
+        },
+        {
+          "label": "Artificial Analysis text-to-speech leaderboard",
+          "url": "https://artificialanalysis.ai/text-to-speech/leaderboard"
+        },
+        {
+          "label": "TTS Arena v2 (blind A/B)",
+          "url": "https://tts-agi-tts-arena-v2.hf.space/leaderboard"
+        },
+        {
+          "label": "Speechify pricing",
+          "url": "https://speechify.ai/pricing"
+        },
+        {
+          "label": "Gemini API pricing",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+        },
+        {
+          "label": "Gemini speech generation docs",
+          "url": "https://ai.google.dev/gemini-api/docs/speech-generation"
+        },
+        {
+          "label": "Chatterbox on GitHub",
+          "url": "https://github.com/resemble-ai/chatterbox"
+        },
+        {
+          "label": "Chatterbox model card (MIT, watermarking)",
+          "url": "https://huggingface.co/ResembleAI/chatterbox"
+        },
+        {
+          "label": "Kokoro-82M model card",
+          "url": "https://huggingface.co/hexgrad/Kokoro-82M"
+        },
+        {
+          "label": "Fish Audio S2 Pro licence",
+          "url": "https://huggingface.co/fishaudio/s2-pro/blob/main/LICENSE.md"
+        },
+        {
+          "label": "Breeze TTS 2 model card (non-commercial weights)",
+          "url": "https://huggingface.co/BreezeBlue/Breeze-TTS-2"
+        },
+        {
+          "label": "Inworld pricing",
+          "url": "https://inworld.ai/pricing"
+        },
+        {
+          "label": "OpenAI API pricing",
+          "url": "https://developers.openai.com/api/docs/pricing"
+        }
+      ]
+    },
+    "video.dub": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "I have one talking-head video and five markets to hit. What dubs it without the mouth looking wrong?",
+      "method": {
+        "how": "Ranked on what actually breaks a dub: translation you can edit line by line, voice that survives the language switch, and whether the lips move with it. Then on honest cost per finished minute, because every vendor here meters something different — credits, points, or minutes that only accrue annually. Tools that do the whole job in one pass rank above tools you must assemble; tools with legible pricing rank above tools whose unit maths is not published. Lip sync being gated behind a higher tier than the one advertised on the landing page pushed a tool down.",
+        "tested_on": "Not independently tested. No videos were dubbed, no output was watched. Prices, credit rates, minute allowances and feature gates were read from each vendor's own pricing and docs pages on 2026-08-29. Quality claims are the vendors' own unless stated.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "There is no blind-vote benchmark for dubbing quality. Nothing like an Arena leaderboard exists for translated speech or lip sync, so no independent ranking of output quality is available to anyone, including us. Search results for 'best AI dubbing tool' are almost entirely vendor blogs — HeyGen, Vozo, Perso and Rask all publish listicles that rank themselves first. Treat any comparison table you find, including the ones those pages cite, as marketing until you have run your own clip through two tools and watched both."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "HeyGen Video Translate",
+          "maker": "HeyGen",
+          "url": "https://www.heygen.com/video-translate",
+          "one_liner": "Upload, pick language, get lip-synced dub. Nothing to assemble.",
+          "use_it_when": "You have a single-presenter video — a demo, a course module, a founder update — and you need it in several languages this week with mouths that match.",
+          "cost": "Free tier. Paid $29-$149/mo (+$20/seat on Business).",
+          "pricing_detail": "Free: $0, 3 videos/month, watermark, 1 voice clone, 1080p. Creator: $29/mo or $24/mo billed annually, 600 credits/mo, 1080p, unlimited voice cloning. Pro: $49/mo, 1,000 credits/mo, adds 4K export. Business: $149/mo plus $20 per seat, 1,500 credits/mo. Translation burns credits by mode: 6 credits per minute in speed mode, 10 in precision mode, 4 with lip sync off. So Creator's 600 credits is 60 minutes of precision translation — but only if you spend nothing else from the same pool. Monthly plans roll unused credits over one cycle; annual plans accumulate to renewal; everything is forfeited if you drop to free. 175+ languages.",
+          "good_at": "The only tool here where lip sync is the default path rather than a paid add-on or a separate model you wire up yourself. Widest language list of the five. One upload, one output file.",
+          "the_catch": "The credit pool is shared with avatar generation, so a month of avatar work silently eats your translation budget — and Avatar V costs 48 credits a minute against translation's 10. 4K is locked to Pro at $49, so the $29 tier caps at 1080p. Free-tier limits are stated inconsistently: the pricing page says 1 minute per video, the video-translate product page says 3. Separately, this is the tool most exposed to EU AI Act Article 50, which has applied since 2 August 2026: cloning a real person's voice and altering their lip movements is the manipulated-likeness case the rules were written for, and the disclosure duty falls on you as deployer, not on HeyGen. A machine-readable watermark from the vendor does not discharge it — you need a label a viewer can see or hear.",
+          "wrong_for": "Anyone dubbing audio-only content, screen recordings, or multi-speaker panels. You are paying for lip sync you cannot use. Go to ElevenLabs."
+        },
+        {
+          "rank": 2,
+          "name": "ElevenLabs Dubbing",
+          "maker": "ElevenLabs",
+          "url": "https://elevenlabs.io/dubbing",
+          "one_liner": "Best voices, cheapest minutes, honest API. You supply the lips.",
+          "use_it_when": "The voice is what people judge, the face barely moves or is off-camera, and you want to fix the translated script line by line before it renders. Also the right pick if this is going into a pipeline rather than a browser tab.",
+          "cost": "Free tier. Paid $6-$990/mo; dubbing metered from plan credits.",
+          "pricing_detail": "Free: $0, 10k credits/mo, roughly 0.4 minutes of Dubbing v2. Starter $6/mo, Creator $22/mo (first month $11 — the pricing page advertises the discounted figure), Pro $99/mo, Scale $299/mo, Business $990/mo. Dubbing is metered two ways and the gap is enormous. Dubbing v2 (automatic): 2 min included on Starter then $2.70/extra min; 9 min on Creator then $2.45; 44 min on Pro then $2.23. Dubbing v1 without watermark: 40 min on Creator then $0.55/extra min; 200 min on Pro then $0.50. Dubbing v1 with a watermark is cheaper again — $0.33/min extra on Pro. Instant voice cloning starts at Starter; professional voice cloning starts at Creator (1 clone, rising to 3 on Scale, 10 on Business). 90+ languages.",
+          "good_at": "Voice quality and per-line control. Dubbing Studio separates speakers, exposes the transcript and the translation as editable text, and re-renders only what you changed. Cheapest verified per-minute rate of anything here on v1. Proper API.",
+          "the_catch": "It does not lip sync. The docs are explicit: 'ElevenLabs does not offer lip syncing as part of Dubbing' — it exists only in Studio and Flows via third-party models. So for any talking head you are building a two-tool pipeline and paying twice. The v1/v2 split is the other trap: the headline cheap rate is v1, and the cheapest v1 tier watermarks your output, while the good model costs four to five times more per minute. Cloning a real voice puts you in Article 50 disclosure territory the same as HeyGen does.",
+          "wrong_for": "Anyone who needs a finished talking-head video today and does not want to stitch a lip-sync model onto the end. Go to HeyGen."
+        },
+        {
+          "rank": 3,
+          "name": "Rask AI",
+          "maker": "Rask AI",
+          "url": "https://www.rask.ai/",
+          "one_liner": "Multi-speaker dubbing at volume, if you sign annually.",
+          "use_it_when": "You are localising a back catalogue — podcast episodes, webinar recordings, interviews — with several people talking over each other, into a dozen-plus languages.",
+          "cost": "Free 3 min. Paid $33-$500/mo billed annually; $60-$750 monthly.",
+          "pricing_detail": "Free trial: 3 minutes. Creator: $60/mo monthly, or $33/mo billed $396/year — 25 minutes a month, 300 a year. Creator Pro: $150/mo monthly, or $78/mo billed $936/year — 100 minutes a month, 1,200 a year. Business: $750/mo monthly, or $500/mo billed $6,000/year — 500 minutes a month, 6,000 a year, with extra minutes at $3 each. 135 languages for translation; voice cloning in 32 of them. Standard lip sync is included on every tier. Enhanced lip sync is metered at 3 minutes of quota per 1 minute of video.",
+          "good_at": "Speaker diarisation. It detects how many people are talking and keeps them distinct, which is the thing that falls apart in every other tool on this list once you leave single-presenter footage.",
+          "the_catch": "Two billing traps stacked. First, minutes only accumulate on annual plans — pay monthly and anything unused at the end of the month is gone, which makes the $60 monthly price for 25 minutes the worst per-minute deal on this page. Second, enhanced lip sync consumes quota at 3x, so Creator Pro's advertised 100 minutes becomes 33 minutes the moment you turn on the feature you probably bought it for. Voice cloning covers 32 languages against 135 for translation, so most of the language list gets a stock voice, not your speaker's.",
+          "wrong_for": "One-off jobs and anyone unwilling to commit for a year. The monthly pricing is punitive by design. Go to Vozo or ElevenLabs."
+        },
+        {
+          "rank": 4,
+          "name": "Vozo",
+          "maker": "Vozo AI",
+          "url": "https://www.vozo.ai/pricing",
+          "one_liner": "Cheap dubs, and it translates the text on screen too.",
+          "use_it_when": "Your video has burned-in captions, slide text or UI labels that would otherwise stay in English after the dub. Visual translate is the reason to be here.",
+          "cost": "Free tier. Paid $29-$99/mo listed; yearly billing takes 25% off.",
+          "pricing_detail": "Metered in 'AI points', not minutes. Free: 20 points — roughly 6 dubbing minutes or 2 lip sync minutes, watermarked. Creator: $29/mo, 150 points — roughly 50 dubbing minutes, 15 lip sync minutes, 15 visual translate minutes; watermark removed at this tier. Studio: $99/mo, 600 points — roughly 200 dubbing minutes, 60 lip sync, 60 visual translate. Studio XL (1,500 points) and Studio XXL (4,000 points) are listed without prices on the pricing page. A yearly toggle advertises 25% off but does not display the resulting annual totals. Voice cloning across 80 TTS languages.",
+          "good_at": "Visual translate — replacing on-screen text inside the frame — which none of the other four ranked tools do. Cheapest published route to lip-synced output at the $29 tier.",
+          "the_catch": "The points-to-minutes conversion is not published. The plan cards give approximations ('~50 min') and the FAQ has a heading for points expiry with no answer visible on the page, so you cannot work out what a job will cost before you run it, or whether unused points survive the month — assume they do not until Vozo says otherwise. Note also that lip sync and visual translate cost roughly 3x what plain dubbing does per minute from the same pool, so the headline '50 minutes' is 15 if you use the features that make Vozo worth picking. Two of the five paid tiers show no price at all.",
+          "wrong_for": "Anyone who needs to forecast spend or bill a client per minute. The unit economics are unknowable. Go to ElevenLabs, where the per-extra-minute rate is printed."
+        },
+        {
+          "rank": 5,
+          "name": "Kapwing",
+          "maker": "Kapwing",
+          "url": "https://www.kapwing.com/pricing",
+          "one_liner": "Dubbing bolted onto an editor you may already use.",
+          "use_it_when": "You are already cutting social clips in Kapwing and want subtitles, translation and a dub without exporting to a second tool and re-importing.",
+          "cost": "Free tier. Paid $16-$50/mo annually, $24-$64 monthly.",
+          "pricing_detail": "Free: $0, auto-translate up to 5 minutes, no dubbing. Pro: $24/mo or $16/mo billed annually ($192/year) — dubbing up to 50 min/month, translation up to 500 min/month, no lip sync. Business: $64/mo or $50/mo billed annually ($600/year) — dubbing up to 200 min/month, translation up to 2,000 min/month, lip sync up to 130 min/month. Enterprise custom. The pricing page does not state how many languages dubbing supports.",
+          "good_at": "Staying in one timeline. Subtitles, burned-in captions, resizing and the dub happen in the same project, which removes the export-reimport-resync loop that eats the time you saved.",
+          "the_catch": "Lip sync is not on the $24 Pro plan at all. It appears only on Business at $64/mo, a 2.7x jump, and even there it is capped at 130 minutes against 200 dubbing minutes — so you cannot lip sync everything you dub. The supported language count for dubbing is not published on the pricing page, which matters if your target is not a top-20 language. As a general editor its dubbing is a feature, not the product; expect less control over the translated script than ElevenLabs gives you.",
+          "wrong_for": "Anyone whose priority is dub quality rather than workflow convenience, and anyone dubbing into a less common language. Go to ElevenLabs for the voice, Camb.ai for the long tail of languages."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Camb.ai",
+          "why_not": "150+ languages and real broadcast clients (Ligue 1, NASCAR, MLS, IMAX), but the maths is brutal — Pro at $20/mo includes only 3 dubbing minutes, and Advanced at $250/mo gives 45, about $5.50 a minute."
+        },
+        {
+          "name": "sync.so",
+          "why_not": "Not a dubbing tool — a lip-sync layer. Pair it with ElevenLabs: lipsync-2 runs $0.05/sec (~$3/min), sync-3 $0.1334/sec, on plans from $5 to $249/mo with no credits included."
+        },
+        {
+          "name": "Synthesia",
+          "why_not": "Dubbing is secondary to avatars, and the minutes are annual dressed as monthly — Starter at $18/mo billed yearly gives 120 minutes per year, not per month."
+        },
+        {
+          "name": "Papercup",
+          "why_not": "Human translators reviewing every dub, which is genuinely better output, but no self-serve product and no published pricing at all. Enterprise sales cycle."
+        },
+        {
+          "name": "Descript",
+          "why_not": "Dubbing is bundled into general AI credits with no stated minute quota, and the 30+ language dub with proofread is gated to the Business tier."
+        }
+      ],
+      "watch_list": [
+        "ElevenLabs shipping native lip sync inside Dubbing rather than via third-party models in Studio and Flows. That single change would take the top spot.",
+        "EU AI Act Article 50 enforcement biting from 2 August 2026, and the Code of Practice on Transparency of AI-generated Content settling. If vendors start emitting a viewer-visible disclosure label by default instead of leaving the duty to you as deployer, that becomes a ranking criterion.",
+        "Rask dropping the 3x multiplier on enhanced lip sync, or extending minute rollover to monthly plans. Either would move it up two places.",
+        "Vozo publishing an actual points table with expiry rules. The tool is competitive; the pricing opacity is what holds it at four.",
+        "Camb.ai bringing MARS-Instruct to a sane per-minute rate. At 150+ languages it would immediately be the default for anything outside the top 30 languages.",
+        "Any independent, blind-rated dubbing benchmark appearing at all. There is currently nothing, and its arrival would likely reorder this list substantially."
+      ],
+      "sources": [
+        {
+          "label": "HeyGen pricing",
+          "url": "https://www.heygen.com/pricing"
+        },
+        {
+          "label": "HeyGen credit-based pricing plans explained (credit rates per minute, rollover)",
+          "url": "https://help.heygen.com/en/articles/15125761-heygen-credit-based-pricing-plans-explained"
+        },
+        {
+          "label": "HeyGen Video Translate product page",
+          "url": "https://www.heygen.com/video-translate"
+        },
+        {
+          "label": "ElevenLabs pricing",
+          "url": "https://elevenlabs.io/pricing"
+        },
+        {
+          "label": "ElevenLabs Dubbing (per-minute v1/v2 rates)",
+          "url": "https://elevenlabs.io/dubbing"
+        },
+        {
+          "label": "ElevenLabs dubbing docs (no lip sync statement)",
+          "url": "https://elevenlabs.io/docs/product-guides/products/dubbing"
+        },
+        {
+          "label": "Rask AI pricing",
+          "url": "https://www.rask.ai/pricing"
+        },
+        {
+          "label": "Rask AI home (languages, multi-speaker)",
+          "url": "https://www.rask.ai/"
+        },
+        {
+          "label": "Vozo pricing",
+          "url": "https://www.vozo.ai/pricing"
+        },
+        {
+          "label": "Kapwing pricing",
+          "url": "https://www.kapwing.com/pricing"
+        },
+        {
+          "label": "Camb.ai pricing",
+          "url": "https://www.camb.ai/pricing"
+        },
+        {
+          "label": "Camb.ai home (languages, MARS models, clients)",
+          "url": "https://www.camb.ai/"
+        },
+        {
+          "label": "sync.so pricing",
+          "url": "https://sync.so/pricing"
+        },
+        {
+          "label": "Synthesia pricing",
+          "url": "https://www.synthesia.io/pricing"
+        },
+        {
+          "label": "Descript pricing",
+          "url": "https://www.descript.com/pricing"
+        },
+        {
+          "label": "Papercup",
+          "url": "https://www.papercup.com/"
+        },
+        {
+          "label": "European Commission FAQ — Article 50 transparency obligations",
+          "url": "https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act"
+        },
+        {
+          "label": "EU AI Act Article 50 text",
+          "url": "https://artificialintelligenceact.eu/article/50/"
+        }
+      ]
+    },
+    "video.long-to-shorts": {
+      "status": "verified",
+      "last_verified": "2026-08-29",
+      "question": "I have a 90-minute podcast and no time. Which clipper picks the right moments without me babysitting it?",
+      "method": {
+        "how": "Ranked on how honestly each tool handles a long source file, because that is where this job breaks. Tools billed in source hours or uncapped upload length ranked above tools billed in opaque credits or capped at short uploads. Second factor was what happens when the AI picks the wrong moment: text-based correction beat re-rolling the generator. Price transparency on the vendor's own page was a tiebreaker, and two well-known tools lost places for failing it.",
+        "tested_on": "Not independently tested. No clips were generated, no accounts were opened, no output quality was compared. Prices, credit limits and upload caps were read from the vendors' own pricing pages on 2026-08-29 and nothing else was assumed.",
+        "conflicts": "None. No affiliate links, no paid placements, no relationship with any tool listed.",
+        "blind_note": "No blind-vote or independent benchmark exists for clip selection quality. Nobody runs the same podcast through ten tools and scores the picks with the vendor names hidden. Worse, search results for this category are almost entirely vendor-written: Vizard, Choppity, Klap and Quso all publish 'best AI clipping tools 2026' listicles that rank themselves. Treat every ranked list you find here, including this one, as an argument rather than evidence."
+      },
+      "ranked": [
+        {
+          "rank": 1,
+          "name": "OpusClip",
+          "maker": "Opus Pro",
+          "url": "https://www.opus.pro/pricing",
+          "one_liner": "The default. Best clip picking, worst credit arithmetic.",
+          "use_it_when": "You have a backlog of long interviews and want usable clips today without learning an editor.",
+          "cost": "Free tier. Paid $15-$29/mo, or $14.50/mo billed yearly.",
+          "pricing_detail": "Free: 60 credits/month, 1080p, watermarked, and clips stop being exportable after 3 days. Starter: $15/mo, 150 credits/month, monthly billing only, watermark removed, 1 brand template. Pro: $29/mo monthly, or $174 billed yearly which works out at $14.50/mo. Pro adds AI B-roll, 9:16/1:1/16:9 output, export to Premiere Pro and DaVinci Resolve, 2 seats, 6 social accounts, dubbing and limited API access. Business is custom priced and is where full API, priority processing and dedicated storage live.",
+          "good_at": "Choosing which sixty seconds of a two-hour recording is worth posting. That is the whole job and it is still the strongest at it. The Premiere and Resolve export path on Pro also means you are not trapped in its editor when a clip needs real work.",
+          "the_catch": "The annual Pro plan grants 3,600 credits for the year, not 3,600 a month, and they land in one lump. Burn them in March and you pay top-up rates until renewal. The Starter plan is monthly-billed only, so the advertised $14.50 requires committing a year up front. And on the free tier your clips expire in three days, which is long enough to think you have a library and short enough to lose it.",
+          "wrong_for": "Anyone who needs to correct the AI's cut rather than accept it. Go to Descript."
+        },
+        {
+          "rank": 2,
+          "name": "Descript",
+          "maker": "Descript",
+          "url": "https://www.descript.com/pricing",
+          "one_liner": "For when the AI picks the wrong sixty seconds.",
+          "use_it_when": "Your clips need the actual sentence to start in the right place, and you would rather edit a transcript than a timeline.",
+          "cost": "Free tier. Paid $16-$65/mo depending on plan and billing.",
+          "pricing_detail": "Free: 60 minutes of media a month, 100 one-time AI credits, 720p exports with a watermark. Hobbyist: $24/mo billed monthly or $16/mo billed yearly, 10 media hours/month, 400 AI credits/month, 1080p and watermark-free. Creator: $35/mo monthly or $24/mo yearly, 30 media hours/month, 800 AI credits, 4K export, full Underlord AI access. Business: $65/mo monthly or $50/mo yearly, 40 media hours/month, 1,500 AI credits, brand studio, dubbing with proofread. Seats on Creator and Business are billed separately from the plan.",
+          "good_at": "Fixing a bad cut in seconds. Delete a word in the transcript and it leaves the video. No other tool here makes correction this cheap, which matters because auto-selected clips are wrong often enough to be a real workflow cost.",
+          "the_catch": "It is an editor that clips, not a clipper that edits, so the volume play is painful. Media hours and AI credits are two separate meters and you can run out of one while sitting on the other. Team seats are charged on top of the plan price, so a three-person Creator setup is not $35.",
+          "wrong_for": "Anyone who wants twenty clips from one upload with no human in the loop. Use OpusClip or Choppity."
+        },
+        {
+          "rank": 3,
+          "name": "Choppity",
+          "maker": "Choppity",
+          "url": "https://www.choppity.com/pricing",
+          "one_liner": "Billed in hours of source video, not mystery credits.",
+          "use_it_when": "You are clipping for clients or on a schedule and need to predict the monthly bill from the length of the recordings.",
+          "cost": "Free tier. Paid $20-$48/mo, or $14-$33.60/mo billed yearly.",
+          "pricing_detail": "Free: 1 hour of AI video analysis, 2GB storage, projects deleted after 3 days, no exports. Starter: $20/mo monthly or $14/mo yearly, 3 hours of analysis, 40GB storage, 30-day project retention, 1080p exports and social posting. Creator: $32/mo monthly or $22.40/mo yearly, 5+ hours, 100GB, permanent project storage, custom fonts, brand templates and API access. Team: $48/mo monthly or $33.60/mo yearly, 200GB, unlimited seats and roles. Enterprise is custom.",
+          "good_at": "Cost predictability. An hour of podcast costs an hour of quota, so you can quote a client before you upload. Bulk handling and the permanent project storage on Creator and above also beat the three-day retention traps elsewhere.",
+          "the_catch": "Three hours a month on Starter is roughly three podcast episodes, which is far less headroom than the price suggests. API access is gated to Creator, a tier above the one most people sign up for, so if you were planning to automate this the real entry price is $32/mo monthly. It is also a much smaller product than OpusClip, with correspondingly fewer people to ask when something breaks.",
+          "wrong_for": "Anyone who wants the best clip selection regardless of billing model. That is still OpusClip."
+        },
+        {
+          "rank": 4,
+          "name": "Submagic",
+          "maker": "Submagic",
+          "url": "https://www.submagic.co/pricing",
+          "one_liner": "Best captions here. Clipping is an afterthought and an add-on.",
+          "use_it_when": "You already know which moments to cut and you want them captioned and styled to a house look.",
+          "cost": "Free tier. Paid $19-$69/mo, or $12-$41/mo billed yearly. Clipping costs +$19/mo on top.",
+          "pricing_detail": "Free: 3 videos/month, max 1min 30sec, watermarked. Starter: $19/member/mo monthly or $12 yearly, 15 videos/month at max 2 minutes each, 1080p, 10 min/mo API. Pro: $39 monthly or $23 yearly, 40 videos/month at max 5 minutes each, 2K, premium templates, brand kit, caption translation. Business + API: $69 monthly or $41 yearly, 100 videos/month at max 30 minutes each, 4K/60fps, 100 min/mo API. Prices are per member. Magic Clips, the feature that actually cuts a long video into shorts, is a separate +$19/month add-on on every tier and covers 10 long videos a month.",
+          "good_at": "Caption styling and template consistency. If your channel has a look, this reproduces it more reliably than the general-purpose clippers, and the output needs no second pass.",
+          "the_catch": "The plan you buy does not do this job. Base tiers cap uploads at 2 or 5 minutes, so your 90-minute podcast will not even upload on Starter or Pro. The long-video clipping is the +$19/mo Magic Clips add-on, capped at 10 source videos a month, so the honest entry price for this job is $38/mo monthly and you are still limited to ten episodes. Everything is also per member, not per account.",
+          "wrong_for": "Anyone whose primary need is finding the moments rather than dressing them. Start with OpusClip and bring the clips here only if captions are the bottleneck."
+        },
+        {
+          "rank": 5,
+          "name": "Riverside",
+          "maker": "Riverside",
+          "url": "https://riverside.com/pricing",
+          "one_liner": "Record and clip in one place. Only worth it for hosts.",
+          "use_it_when": "You are recording the interviews yourself and want clips from a clean local 4K track rather than a compressed upload.",
+          "cost": "Free tier. Paid $29-$99/mo, or $24-$79/mo billed yearly.",
+          "pricing_detail": "Free: 2 hours of multi-track recording, Magic Clips included, 720p max, watermarked. Pro: $29/mo monthly or $24/mo billed yearly at $288/year, 5 hours/month of separate-track recording, 4K, no watermark, unlimited text-based editing, 1 studio. Grow: $39/mo monthly or $34/mo yearly at $408/year, 15 hours/month, 2 studios, livestreaming, multistreaming and social scheduling. Webinar: $99/mo monthly or $79/mo yearly, unlimited sessions, 3 studios, 100 registrants. Business is custom with unlimited studios and SSO.",
+          "good_at": "Source quality. It clips from separately recorded local tracks, so you are not cutting up a lossy Zoom capture. Magic Clips being on the free tier also makes it the cheapest honest way to try the workflow end to end.",
+          "the_catch": "You are buying a recording studio and getting the clipper thrown in. If your source videos come from anywhere else, most of what you pay for is dead weight, and the clip selection is not as good as the specialists. Recording hours are the real meter and 5 hours a month on Pro goes quickly with multi-guest sessions, since separate tracks consume it faster than you expect.",
+          "wrong_for": "Anyone clipping video they did not record. Every other tool on this list is a better fit."
+        }
+      ],
+      "also_considered": [
+        {
+          "name": "Vizard",
+          "why_not": "Excluded on price transparency. Its pricing page renders every figure as $0 without JavaScript and no dollar amount could be read at source on 2026-08-29. Its credits are also quoted per year while the plan reads as monthly."
+        },
+        {
+          "name": "Klap",
+          "why_not": "Only annual-billed rates are shown ($14, $39, $94/mo billed yearly) with a '50% savings' note and no readable true monthly price, no free tier and no stated upload length limit."
+        },
+        {
+          "name": "Quso.ai",
+          "why_not": "Verified and cheap at $19-$33/mo billed yearly, but nothing it does is better than the five above and its watermark policy is not stated on the pricing page."
+        },
+        {
+          "name": "Munch",
+          "why_not": "Still operating as of 2026-08-29, but the site publishes no readable pricing and one advertised feature is flagged as unavailable in its own FAQ."
+        },
+        {
+          "name": "CapCut",
+          "why_not": "Free and capable, but the licence terms and regional availability are the thing that bites commercial users later, so it is a poor default for anyone billing clients."
+        }
+      ],
+      "watch_list": [
+        "OpusClip moving API access out of Pro and into Business-only, which would remove the cheapest automation path on this list.",
+        "Any vendor switching from credits to plain source-hours billing, which would immediately close the gap on Choppity's main advantage.",
+        "Submagic raising the base-tier upload cap above 5 minutes or folding Magic Clips into the plan, which would move it up several places.",
+        "The first genuinely independent blind test of clip selection quality. That would reorder this list more than any pricing change.",
+        "YouTube or Meta shipping competent native clipping inside their own creator tools, which would collapse the low end of this market."
+      ],
+      "sources": [
+        {
+          "label": "OpusClip pricing page",
+          "url": "https://www.opus.pro/pricing"
+        },
+        {
+          "label": "Descript pricing page",
+          "url": "https://www.descript.com/pricing"
+        },
+        {
+          "label": "Choppity pricing page",
+          "url": "https://www.choppity.com/pricing"
+        },
+        {
+          "label": "Submagic pricing page",
+          "url": "https://www.submagic.co/pricing"
+        },
+        {
+          "label": "Riverside pricing page",
+          "url": "https://riverside.com/pricing"
+        },
+        {
+          "label": "Quso.ai pricing page",
+          "url": "https://quso.ai/pricing"
+        },
+        {
+          "label": "Klap pricing page",
+          "url": "https://klap.app/pricing"
+        },
+        {
+          "label": "Vizard pricing page (figures not readable)",
+          "url": "https://vizard.ai/pricing"
+        },
+        {
+          "label": "Munch homepage (status check)",
+          "url": "https://www.getmunch.com/"
+        }
+      ]
     }
   }
 }
