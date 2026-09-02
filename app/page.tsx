@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
-import { allJobs, reviewedCount, domains } from "@/lib/data";
+import { allJobs, reviewedCount } from "@/lib/data";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = {
@@ -39,8 +39,7 @@ export default function Home() {
             <div className="tool-main">
               <h3>AI Tool Finder</h3>
               <p>
-                Start from the job, not the tool. {allJobs.length} jobs across {domains.length}{" "}categories,
-                each with five ranked picks — what they cost, what they&apos;re good at, and the catch nobody mentions.
+                Start from the job, not the tool. {allJobs.length} jobs, each with five ranked picks — what they cost, what they&apos;re good at, and the catch nobody mentions.
               </p>
             </div>
             <div className="tool-meta">

@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Domain } from "@/lib/data";
 
 // Words people type that carry no signal. "make reels" should find the
@@ -18,24 +18,31 @@ function tokens(s: string) {
 // Loose stem so "reels" finds "reel", "backgrounds" finds "background".
 const stem = (t: string) => t.replace(/(ing|ers|er|es|s)$/,"");
 
-const pad = (n: number) => String(n).padStart(2, "0");
-
 export default function JobList({
   domains, reviewed, total,
 }: { domains: Domain[]; reviewed: string[]; total: number }) {
   const [q, setQ] = useState("");
-  // Panels a reader has opened by hand. Only matters under 860px — the CSS
-  // ignores the collapsed state on wider screens, so the server render (all
-  // collapsed) is correct everywhere and nothing jumps after hydration.
-  const [opened, setOpened] = useState<Set<string>>(() => new Set());
   const done = useMemo(() => new Set(reviewed), [reviewed]);
+  const box = useRef<HTMLInputElement>(null);
 
+  // The page is the search box. Put the cursor in it — but not on phones,
+  // where a keyboard jumping up over the list is the wrong first impression.
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 861px)").matches) box.current?.focus();
+  }, []);
+
+  // One flat list. The domain still feeds the search index so "video"
+  // finds the video jobs, it just isn't a heading anyone has to scan past.
+  const jobs = useMemo(
+    () => domains.flatMap((d) => d.jobs.map((j) => ({ ...j, domain: d.label }))),
+    [domains]
+  );
   const hay = useMemo(() => {
     const m = new Map<string, string>();
-    for (const d of domains) for (const j of d.jobs)
-      m.set(j.id, tokens(`${j.label} ${j.aliases.join(" ")} ${j.id.replace(/[.-]/g," ")} ${d.label}`).map(stem).join(" "));
+    for (const j of jobs)
+      m.set(j.id, tokens(`${j.label} ${j.aliases.join(" ")} ${j.id.replace(/[.-]/g," ")} ${j.domain}`).map(stem).join(" "));
     return m;
-  }, [domains]);
+  }, [jobs]);
 
   const terms = tokens(q).map(stem);
   const hits = (id: string) => terms.filter((t) => hay.get(id)!.includes(t)).length;
@@ -45,30 +52,19 @@ export default function JobList({
   let keep = (id: string) => true;
   if (terms.length) {
     const strict = (id: string) => hits(id) === terms.length;
-    const anyStrict = domains.some((d) => d.jobs.some((j) => strict(j.id)));
-    if (anyStrict) { mode = "strict"; keep = strict; }
+    if (jobs.some((j) => strict(j.id))) { mode = "strict"; keep = strict; }
     else { mode = "loose"; keep = (id) => hits(id) > 0; }
   }
 
-  const filtered = domains
-    .map((d, i) => ({ ...d, index: i + 1, jobs: d.jobs.filter((j) => keep(j.id)) }))
-    .filter((d) => d.jobs.length > 0);
-  const shown = filtered.reduce((n, d) => n + d.jobs.length, 0);
+  const shown = jobs.filter((j) => keep(j.id));
   const href = (id: string) => `/ai-tools/${id.replace(".", "/")}/`;
-
-  // A search opens everything: hiding matches behind a tap defeats the search.
-  const searching = terms.length > 0;
-  const isOpen = (id: string) => searching || opened.has(id);
-  const toggle = (id: string) =>
-    setOpened((s) => { const n = new Set(s); n.has(id) ? n.delete(id) : n.add(id); return n; });
-  const open = (id: string) =>
-    setOpened((s) => (s.has(id) ? s : new Set(s).add(id)));
 
   return (
     <>
       <div className="controls" role="search">
         <div className="search-wrap">
           <input
+            ref={box}
             className="search" type="search" value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="What are you trying to do?" aria-label="Search jobs"
@@ -76,72 +72,36 @@ export default function JobList({
           />
         </div>
         <p className="count" aria-live="polite">
-          {mode === "loose" ? `closest ${shown}` : `${shown} of ${total}`}
+          {mode === "loose" ? `closest ${shown.length}` : `${shown.length} of ${total}`}
         </p>
       </div>
 
-      {mode === "loose" && shown > 0 && (
+      {mode === "loose" && shown.length > 0 && (
         <p className="search-note">
           Nothing matches all of “{q}”. Showing the closest jobs — if yours isn&apos;t here, it&apos;s one we haven&apos;t named yet.
         </p>
       )}
 
-      <div className="grid">
-        <aside className="rail">
-          <p className="rail-head">Categories</p>
-          <nav className="nav" aria-label="Categories">
-            {filtered.map((d) => (
-              <a key={d.id} href={`#${d.id}`} onClick={() => open(d.id)}>
-                <span>{d.label}</span><em>{d.jobs.length}</em>
-              </a>
-            ))}
-          </nav>
-        </aside>
-        <div>
-          {filtered.map((d) => (
-            <section
-              className={`panel${isOpen(d.id) ? " is-open" : ""}`}
-              id={d.id} key={d.id} aria-labelledby={`${d.id}-title`}
-            >
-              <header className="panel-head">
-                <span className="panel-idx" aria-hidden="true">{pad(d.index)}</span>
-                <div className="panel-title">
-                  <h2 id={`${d.id}-title`}>{d.label}</h2>
-                  <p className="blurb">{d.blurb}</p>
-                </div>
-                <span className="panel-count">{d.jobs.length} {d.jobs.length === 1 ? "job" : "jobs"}</span>
-                <button
-                  type="button" className="panel-toggle"
-                  aria-expanded={isOpen(d.id)} aria-controls={`${d.id}-jobs`}
-                  onClick={() => toggle(d.id)} disabled={searching}
-                >
-                  {d.jobs.length}
-                </button>
-              </header>
-              <ol className="jobs" id={`${d.id}-jobs`}>
-                {d.jobs.map((j) => (
-                  <li className={`job${done.has(j.id) ? " is-live" : ""}`} key={j.id}>
-                    <a className="job-link" href={href(j.id)}>
-                      <span className="job-mark" aria-hidden="true" />
-                      <span className="job-main">
-                        <span className="label">{j.label}</span>
-                        <span className="aliases">{j.aliases.join(" · ")}</span>
-                      </span>
-                      <span className="state">{done.has(j.id) ? "5 picks" : "unreviewed"}</span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </section>
-          ))}
-          {shown === 0 && (
-            <div className="empty">
-              <h2>No match</h2>
-              <p>Nothing matches “{q}”. It might be a job we haven&apos;t named yet.</p>
-            </div>
-          )}
+      <ol className="jobs">
+        {shown.map((j) => (
+          <li className={`job${done.has(j.id) ? " is-live" : ""}`} key={j.id}>
+            <a className="job-link" href={href(j.id)}>
+              <span className="job-mark" aria-hidden="true" />
+              <span className="job-main">
+                <span className="label">{j.label}</span>
+                <span className="aliases">{j.aliases.join(" · ")}</span>
+              </span>
+              <span className="state">{done.has(j.id) ? "5 picks" : "unreviewed"}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      {shown.length === 0 && (
+        <div className="empty">
+          <h2>No match</h2>
+          <p>Nothing matches “{q}”. It might be a job we haven&apos;t named yet.</p>
         </div>
-      </div>
+      )}
     </>
   );
 }
