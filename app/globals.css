@@ -169,8 +169,31 @@ h1,h2,h3 { text-wrap:balance; }
 .empty p { margin:0 0 10px; color:var(--muted); font-size:.9rem; }
 .empty p:last-child { margin-bottom:0; }
 
+/* ---- hero: the cave ---- */
+/* The image sets the palette here, not the theme: it is dark in both modes on purpose,
+   and the copy sits where the light hits the ground. */
+.hero { position:relative; min-height:min(78vh, 760px); overflow:hidden; background:#07080a;
+  display:flex; align-items:flex-end; justify-content:center; }
+.hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  object-position:50% 40%; display:block; }
+.hero-shade { position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(7,8,10,.55) 0%, rgba(7,8,10,0) 28%, rgba(7,8,10,0) 55%, rgba(7,8,10,.72) 82%, var(--paper) 100%),
+    radial-gradient(ellipse 42% 30% at 50% 66%, rgba(7,8,10,.55), rgba(7,8,10,0) 70%); }
+.hero-copy { position:relative; text-align:center; padding:0 24px 12vh; max-width:52ch; }
+.hero-copy h1 { font-family:var(--mono); font-weight:700; color:#F4EFE3;
+  font-size:clamp(2rem, 6vw, 4.4rem); line-height:1.02; letter-spacing:-.045em; margin:0 0 14px;
+  text-shadow:0 2px 24px rgba(0,0,0,.65), 0 0 60px rgba(0,0,0,.5); }
+.hero-copy p { margin:0; font-family:var(--mono); font-size:12px; letter-spacing:.04em;
+  color:rgba(244,239,227,.78); text-shadow:0 1px 12px rgba(0,0,0,.8); }
+@media (max-width:640px) {
+  .hero { min-height:72vh; }
+  .hero-img { object-position:50% 45%; }
+  .hero-copy { padding-bottom:9vh; }
+}
+
 /* ---- home shelf ---- */
-.shelf { margin-top:40px; }
+.shelf { margin-top:36px; }
 .shelf-head { font-family:var(--mono); font-size:11px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--muted); margin:0 0 12px; }
 .tool-card { display:flex; flex-wrap:wrap; gap:16px 24px; align-items:flex-end;
