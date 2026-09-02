@@ -31,7 +31,7 @@ export default function Home() {
             </p>
           </div>
           <div className="tool-meta">
-            <span className="tool-stat"><b>{reviewedCount}</b> of {allJobs.length} reviewed</span>
+            <span className="tool-stat"><b>{reviewedCount}</b> of {allJobs.length} researched</span>
             <span className="tool-go">Open →</span>
           </div>
         </a>

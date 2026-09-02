@@ -26,7 +26,7 @@ export default function AiTools() {
         <ul className="stats">
           <li><b>{allJobs.length}</b><span>Jobs</span></li>
           <li><b>{domains.length}</b><span>Categories</span></li>
-          <li><b>{reviewedCount}</b><span>Reviewed</span></li>
+          <li><b>{reviewedCount}</b><span>Researched</span></li>
         </ul>
       </header>
 

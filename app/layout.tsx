@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a className="brand" href="/">
               build<span className="dot">.</span>unfiltered
             </a>
-            <span className="brand-note">{reviewedCount}/{allJobs.length} jobs reviewed · updated {new Date().getFullYear()}</span>
+            <span className="brand-note">{reviewedCount}/{allJobs.length} jobs researched · updated {new Date().getFullYear()}</span>
           </div>
         </header>
         {children}

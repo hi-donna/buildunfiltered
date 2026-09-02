@@ -34,7 +34,8 @@
           "aliases": [
             "cutout",
             "transparent png",
-            "batch background removal"
+            "batch background removal",
+            "remove background"
           ]
         },
         {
@@ -75,7 +76,9 @@
           "aliases": [
             "clipping",
             "repurpose podcast",
-            "auto shorts"
+            "auto shorts",
+            "make reels",
+            "tiktok clips"
           ]
         },
         {
@@ -118,7 +121,9 @@
           "aliases": [
             "speech to text",
             "transcription",
-            "asr"
+            "asr",
+            "transcribe a podcast",
+            "podcast transcript"
           ]
         }
       ]
@@ -486,7 +491,9 @@
           "aliases": [
             "hosting",
             "deployment",
-            "paas"
+            "paas",
+            "deploy my app",
+            "host my app"
           ]
         }
       ]
