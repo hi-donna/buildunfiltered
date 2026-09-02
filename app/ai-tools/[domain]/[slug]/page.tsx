@@ -59,7 +59,7 @@ export default async function JobPage({ params }: { params: Promise<Params> }) {
 
             {entry.ranked.map((p) => (
               <section className="pick" key={p.rank}>
-                <div className="rank">{p.rank}</div>
+                <div className="rank">[{String(p.rank).padStart(2, "0")}]</div>
                 <div className="pick-head">
                   <h2>{p.name}</h2>
                   <span className="maker">{p.maker}</span>

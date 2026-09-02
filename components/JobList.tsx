@@ -54,7 +54,7 @@ export default function JobList({
                         <span className="label">{j.label}</span>
                         <span className="aliases">{j.aliases.join(" · ")}</span>
                       </span>
-                      <span className="state">{done.has(j.id) ? "5 picks" : "not reviewed"}</span>
+                      <span className="state">{done.has(j.id) ? "[5 picks]" : "[unreviewed]"}</span>
                     </a>
                   </li>
                 ))}

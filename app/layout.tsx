@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/site.config";
+import { allJobs, reviewedCount } from "@/lib/data";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Karla:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Archivo:wght@400;500;600;700&display=swap"
         />
       </head>
       <body>
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a className="brand" href="/">
               build<span className="dot">.</span>unfiltered
             </a>
-            <span className="brand-note">Tools for people who build things</span>
+            <span className="brand-note">{reviewedCount}/{allJobs.length} jobs reviewed · updated {new Date().getFullYear()}</span>
           </div>
         </header>
         {children}
