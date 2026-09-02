@@ -18,10 +18,16 @@ function tokens(s: string) {
 // Loose stem so "reels" finds "reel", "backgrounds" finds "background".
 const stem = (t: string) => t.replace(/(ing|ers|er|es|s)$/,"");
 
+const pad = (n: number) => String(n).padStart(2, "0");
+
 export default function JobList({
   domains, reviewed, total,
 }: { domains: Domain[]; reviewed: string[]; total: number }) {
   const [q, setQ] = useState("");
+  // Panels a reader has opened by hand. Only matters under 860px — the CSS
+  // ignores the collapsed state on wider screens, so the server render (all
+  // collapsed) is correct everywhere and nothing jumps after hydration.
+  const [opened, setOpened] = useState<Set<string>>(() => new Set());
   const done = useMemo(() => new Set(reviewed), [reviewed]);
 
   const hay = useMemo(() => {
@@ -45,20 +51,31 @@ export default function JobList({
   }
 
   const filtered = domains
-    .map((d) => ({ ...d, jobs: d.jobs.filter((j) => keep(j.id)) }))
+    .map((d, i) => ({ ...d, index: i + 1, jobs: d.jobs.filter((j) => keep(j.id)) }))
     .filter((d) => d.jobs.length > 0);
   const shown = filtered.reduce((n, d) => n + d.jobs.length, 0);
   const href = (id: string) => `/ai-tools/${id.replace(".", "/")}/`;
 
+  // A search opens everything: hiding matches behind a tap defeats the search.
+  const searching = terms.length > 0;
+  const isOpen = (id: string) => searching || opened.has(id);
+  const toggle = (id: string) =>
+    setOpened((s) => { const n = new Set(s); n.has(id) ? n.delete(id) : n.add(id); return n; });
+  const open = (id: string) =>
+    setOpened((s) => (s.has(id) ? s : new Set(s).add(id)));
+
   return (
     <>
-      <div className="controls">
-        <input
-          className="search" type="search" value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="What are you trying to do?" aria-label="Search jobs"
-        />
-        <p className="count">
+      <div className="controls" role="search">
+        <div className="search-wrap">
+          <input
+            className="search" type="search" value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="What are you trying to do?" aria-label="Search jobs"
+            autoComplete="off" spellCheck={false}
+          />
+        </div>
+        <p className="count" aria-live="polite">
           {mode === "loose" ? `closest ${shown}` : `${shown} of ${total}`}
         </p>
       </div>
@@ -70,27 +87,47 @@ export default function JobList({
       )}
 
       <div className="grid">
-        <nav className="nav" aria-label="Categories">
+        <aside className="rail">
+          <p className="rail-head">Categories</p>
+          <nav className="nav" aria-label="Categories">
+            {filtered.map((d) => (
+              <a key={d.id} href={`#${d.id}`} onClick={() => open(d.id)}>
+                <span>{d.label}</span><em>{d.jobs.length}</em>
+              </a>
+            ))}
+          </nav>
+        </aside>
+        <div>
           {filtered.map((d) => (
-            <a key={d.id} href={`#${d.id}`}><span>{d.label}</span><em>{d.jobs.length}</em></a>
-          ))}
-        </nav>
-        <main>
-          {filtered.map((d) => (
-            <section className="dom" id={d.id} key={d.id}>
-              <header className="dom-head">
-                <h2>{d.label}</h2>
-                <p className="blurb">{d.blurb}</p>
+            <section
+              className={`panel${isOpen(d.id) ? " is-open" : ""}`}
+              id={d.id} key={d.id} aria-labelledby={`${d.id}-title`}
+            >
+              <header className="panel-head">
+                <span className="panel-idx" aria-hidden="true">{pad(d.index)}</span>
+                <div className="panel-title">
+                  <h2 id={`${d.id}-title`}>{d.label}</h2>
+                  <p className="blurb">{d.blurb}</p>
+                </div>
+                <span className="panel-count">{d.jobs.length} {d.jobs.length === 1 ? "job" : "jobs"}</span>
+                <button
+                  type="button" className="panel-toggle"
+                  aria-expanded={isOpen(d.id)} aria-controls={`${d.id}-jobs`}
+                  onClick={() => toggle(d.id)} disabled={searching}
+                >
+                  {d.jobs.length}
+                </button>
               </header>
-              <ol className="jobs">
+              <ol className="jobs" id={`${d.id}-jobs`}>
                 {d.jobs.map((j) => (
                   <li className={`job${done.has(j.id) ? " is-live" : ""}`} key={j.id}>
                     <a className="job-link" href={href(j.id)}>
+                      <span className="job-mark" aria-hidden="true" />
                       <span className="job-main">
                         <span className="label">{j.label}</span>
                         <span className="aliases">{j.aliases.join(" · ")}</span>
                       </span>
-                      <span className="state">{done.has(j.id) ? "[5 picks]" : "[unreviewed]"}</span>
+                      <span className="state">{done.has(j.id) ? "5 picks" : "unreviewed"}</span>
                     </a>
                   </li>
                 ))}
@@ -98,11 +135,12 @@ export default function JobList({
             </section>
           ))}
           {shown === 0 && (
-            <p className="blurb" style={{ marginTop: 24 }}>
-              Nothing matches “{q}”. It might be a job we haven&apos;t named yet.
-            </p>
+            <div className="empty">
+              <h2>No match</h2>
+              <p>Nothing matches “{q}”. It might be a job we haven&apos;t named yet.</p>
+            </div>
           )}
-        </main>
+        </div>
       </div>
     </>
   );

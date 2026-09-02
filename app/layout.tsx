@@ -15,22 +15,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <meta name="theme-color" content="#0A0A0B" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* Display: Barlow Condensed. Body: Archivo. Metadata only: JetBrains Mono. */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Archivo:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         />
       </head>
       <body>
         <header className="site-head">
           <div className="wrap head-inner">
-            <a className="brand" href="/">
-              build<span className="dot">.</span>unfiltered
+            <a className="brand" href="/" aria-label={`${site.name} home`}>
+              <span className="brand-mark" aria-hidden="true" />
+              <span>build<span className="dot">.</span>unfiltered</span>
             </a>
-            <span className="brand-note">{reviewedCount}/{allJobs.length} jobs researched · updated {new Date().getFullYear()}</span>
+            <div className="head-right">
+              <nav className="head-nav" aria-label="Site">
+                <a href="/ai-tools/">AI Tool Finder</a>
+              </nav>
+              <span className="brand-note">
+                {reviewedCount}/{allJobs.length} jobs researched · {new Date().getFullYear()}
+              </span>
+            </div>
           </div>
         </header>
-        {children}
+        <main>{children}</main>
         <footer className="site-foot">
           <div className="wrap">
             <p>
