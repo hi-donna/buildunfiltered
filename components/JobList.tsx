@@ -22,6 +22,10 @@ export default function JobList({
   domains, reviewed, total,
 }: { domains: Domain[]; reviewed: string[]; total: number }) {
   const [q, setQ] = useState("");
+  // Panels a reader has opened by hand. Only matters on phones — CSS ignores
+  // the collapsed state on wider screens, so the server render (all
+  // collapsed) is right everywhere and nothing jumps after hydration.
+  const [opened, setOpened] = useState<Set<string>>(() => new Set());
   const done = useMemo(() => new Set(reviewed), [reviewed]);
   const box = useRef<HTMLInputElement>(null);
 
@@ -31,8 +35,7 @@ export default function JobList({
     if (window.matchMedia("(min-width: 861px)").matches) box.current?.focus();
   }, []);
 
-  // One flat list. The domain still feeds the search index so "video"
-  // finds the video jobs, it just isn't a heading anyone has to scan past.
+  // The domain feeds the search index too, so "video" finds the video jobs.
   const jobs = useMemo(
     () => domains.flatMap((d) => d.jobs.map((j) => ({ ...j, domain: d.label }))),
     [domains]
@@ -56,8 +59,18 @@ export default function JobList({
     else { mode = "loose"; keep = (id) => hits(id) > 0; }
   }
 
-  const shown = jobs.filter((j) => keep(j.id));
+  const groups = domains
+    .map((d, i) => ({ ...d, index: i + 1, jobs: d.jobs.filter((j) => keep(j.id)) }))
+    .filter((d) => d.jobs.length > 0);
+  const shown = groups.flatMap((d) => d.jobs);
   const href = (id: string) => `/ai-tools/${id.replace(".", "/")}/`;
+  const pad = (n: number) => String(n).padStart(2, "0");
+
+  // A search opens everything: hiding matches behind a tap defeats the search.
+  const searching = terms.length > 0;
+  const isOpen = (id: string) => searching || opened.has(id);
+  const toggle = (id: string) =>
+    setOpened((s) => { const n = new Set(s); n.has(id) ? n.delete(id) : n.add(id); return n; });
 
   return (
     <>
@@ -82,20 +95,44 @@ export default function JobList({
         </p>
       )}
 
-      <ol className="jobs">
-        {shown.map((j) => (
-          <li className={`job${done.has(j.id) ? " is-live" : ""}`} key={j.id}>
-            <a className="job-link" href={href(j.id)}>
-              <span className="job-mark" aria-hidden="true" />
-              <span className="job-main">
-                <span className="label">{j.label}</span>
-                <span className="aliases">{j.aliases.join(" · ")}</span>
-              </span>
-              <span className="state">{done.has(j.id) ? "5 picks" : "unreviewed"}</span>
-            </a>
-          </li>
+      <div className="panels">
+        {groups.map((d) => (
+          <section
+            className={`panel${isOpen(d.id) ? " is-open" : ""}`}
+            id={d.id} key={d.id} aria-labelledby={`${d.id}-title`}
+          >
+            <header className="panel-head">
+              <span className="panel-idx" aria-hidden="true">{pad(d.index)}</span>
+              <div className="panel-title">
+                <h2 id={`${d.id}-title`}>{d.label}</h2>
+                <p className="blurb">{d.blurb}</p>
+              </div>
+              <span className="panel-count">{d.jobs.length} {d.jobs.length === 1 ? "job" : "jobs"}</span>
+              <button
+                type="button" className="panel-toggle"
+                aria-expanded={isOpen(d.id)} aria-controls={`${d.id}-jobs`}
+                onClick={() => toggle(d.id)} disabled={searching}
+              >
+                {d.jobs.length}
+              </button>
+            </header>
+            <ol className="jobs" id={`${d.id}-jobs`}>
+              {d.jobs.map((j) => (
+                <li className={`job${done.has(j.id) ? " is-live" : ""}`} key={j.id}>
+                  <a className="job-link" href={href(j.id)}>
+                    <span className="job-mark" aria-hidden="true" />
+                    <span className="job-main">
+                      <span className="label">{j.label}</span>
+                      <span className="aliases">{j.aliases.join(" · ")}</span>
+                    </span>
+                    <span className="state">{done.has(j.id) ? "5 picks" : "unreviewed"}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
         ))}
-      </ol>
+      </div>
       {shown.length === 0 && (
         <div className="empty">
           <h2>No match</h2>
