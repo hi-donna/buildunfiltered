@@ -1,5 +1,60 @@
 # Status
 
+## 2026-09-04 — Learning Map: legibility, no-jump open, sticky notes, workshop handwriting
+
+**Shipped (targeted; no content, data, link or interaction changes):**
+- Inactive labels: 17 → 19.5 SVG units (25 on phones), fill `--ink-2` → `--ink`.
+  Every concept reads without hovering.
+- Opening a node no longer moves the page. `show()` focuses the close button
+  and the browser scrolled it into view, pushing "Learning Map" under the
+  sticky header; the scroll position is now restored in the same task
+  (before any paint) and focus is moved with `preventScroll`. Deep links
+  (`#rag`, prerequisite chips) unchanged.
+- Drawer: `position:sticky; top:80px; max-height:calc(100vh - 100px);
+  overflow-y:auto; overscroll-behavior:contain`. Notes scroll inside the
+  paper; the page stays where it is.
+- Lit paths: `--ox-hi` at 3px (was `--ox` at 2.2px); lit nodes filled
+  `--ox`. Unrelated edges dim to .22 and nodes to .28 (were .35).
+- Plate height: on ≥900px the viewBox is 1080×1210 (aspect 1/1.12) with the
+  same map scale, so the plate gains 84px at the 1120px wrap (698 → 780px),
+  and `max-height` is `calc(100vh - 120px)` instead of 80vh. Wheel and pinch
+  keep the box's aspect.
+- Handwriting: Caveat replaced by Kalam (the header aside) and Caveat Brush
+  (ring names, "Start here"). Per-mark tilt (−7° to +4°), tracking and
+  opacity vary; an SVG "chalk" filter roughens edges and knocks grain out of
+  the fill; the header arrow is two overlaid irregular strokes through a
+  displacement filter; the notes title underline is a drawn two-stroke SVG
+  rather than a ruled box. Headings, node names, hints and resource text
+  keep their fonts.
+- Paper texture, pin, "Pick a node" card, stamp, colours: untouched.
+
+**Verified:**
+- `npm run build` green. Lighthouse desktop: accessibility 100,
+  best-practices 100. No console errors.
+- Desktop 1920×929: scrolled to 140px, click RAG → scrollY still 140, drawer
+  top at 80px, drawer height 829px (= 100vh − 100), notes scroll internally.
+  Keyboard: Tab reaches nodes, Enter opens with focus on the close button
+  (oxblood focus ring on paper, bone ring on the map), Esc closes and clears
+  the hash. `#tokens`, `#rag`, `#embeddings` on load open the right notes.
+- Hover: lit path 3px `--ox-hi`, unrelated nodes at .28.
+- 820px (iframe): map full width, notes as a centred modal sheet.
+- 390px (iframe): no horizontal scroll, labels 25 units, Caveat Brush ring
+  names, controls bar above the plate, sheet full screen on tap.
+- Reduced motion: the global rule kills every transition; the learn block
+  also removes the decorative tilts under it.
+- Fonts: Kalam and Caveat Brush load from the existing Google Fonts link.
+
+**Note:** the drawn underline is a CSS data-URI SVG, which cannot read
+`var(--ox)`, so it carries the oxblood value `#7A2229` literally (the same
+value as the token). No new colour.
+
+**Half-done:** nothing.
+
+**Needs the owner:** unchanged from the previous note (41 edges; text-list
+fallback; phone inner-ring label overlap at the starting zoom).
+
+**Next:** Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-04 — Learning Map restyled: Batcave builder's field notes
 
 **Shipped:** `/tools/learn/` rebuilt to the field-notes mockup, on the same

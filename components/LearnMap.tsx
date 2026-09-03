@@ -17,9 +17,15 @@ const INIT = { x: -PAD, y: -PAD, w: SIZE + 2 * PAD, h: SIZE + 2 * PAD };
 const MIN_W = INIT.w / 3; // 3× in
 const MAX_W = INIT.w * 2; // 0.5× out
 const NARROW = "(max-width: 640px)";
+// Wide screens get a taller plate: the viewBox keeps the map's scale and adds
+// vertical room above and below the rings (see .learn-map svg aspect-ratio).
+const WIDE_ASPECT = 1.12;
 // Where each ring's handwritten name sits (degrees, 0 = east, clockwise): a
 // gap in that ring's node angles so it never overlaps a label.
 const RING_LABEL_ANGLE: Record<string, number> = { foundations: 275, core: 255, applied: 205, frontier: 125 };
+// Each handwritten ring name sits a little differently: tilt (degrees) and
+// tracking, so the four do not read as one typeset row.
+const RING_LABEL_TILT: Record<string, number> = { foundations: -4, core: 3, applied: -6, frontier: 4 };
 const WIDE = "(min-width: 900px)";
 
 type Box = typeof INIT;
@@ -30,6 +36,10 @@ function homeBox(): Box {
   if (typeof window !== "undefined" && window.matchMedia(NARROW).matches) {
     const w = INIT.w / 1.6;
     return { x: CENTRE - w / 2, y: CENTRE - w / 2, w, h: w };
+  }
+  if (typeof window !== "undefined" && window.matchMedia(WIDE).matches) {
+    const h = INIT.w * WIDE_ASPECT;
+    return { x: INIT.x, y: CENTRE - h / 2, w: INIT.w, h };
   }
   return INIT;
 }
@@ -101,7 +111,17 @@ export default function LearnMap() {
     const want = selected ? document.getElementById(`dialog-${selected}`) as HTMLDialogElement | null : null;
     reopening.current = true;
     for (const d of dialogs) if (d.open) d.close();
-    if (want) { if (wide) want.show(); else want.showModal(); }
+    if (want) {
+      // show() focuses the first control and the browser scrolls it into
+      // view, which would push "Learning Map" under the sticky header. Put
+      // the scroll position back in the same task, before any paint, then
+      // move focus without scrolling. The drawer is sticky, so it is in view.
+      const sx = window.scrollX, sy = window.scrollY;
+      if (wide) want.show(); else want.showModal();
+      window.scrollTo(sx, sy);
+      want.scrollTop = 0;
+      (want.querySelector<HTMLElement>(".learn-close") ?? want).focus({ preventScroll: true });
+    }
     // The observer below sees the attribute flip in a microtask; clear the
     // flag after it has had the chance to run.
     const t = setTimeout(() => { reopening.current = false; }, 0);
@@ -190,10 +210,11 @@ export default function LearnMap() {
       const k = w / p.vb.w;
       const px = p.vb.x + ((p.mid.x - rect.left) / rect.width) * p.vb.w;
       const py = p.vb.y + ((p.mid.y - rect.top) / rect.height) * p.vb.h;
+      const h = w * (p.vb.h / p.vb.w);
       setVb({
         x: px - (px - p.vb.x) * k - ((mid.x - p.mid.x) * w) / rect.width,
-        y: py - (py - p.vb.y) * k - ((mid.y - p.mid.y) * w) / rect.height,
-        w, h: w,
+        y: py - (py - p.vb.y) * k - ((mid.y - p.mid.y) * h) / rect.height,
+        w, h,
       });
       return;
     }
@@ -238,6 +259,15 @@ export default function LearnMap() {
             <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" result="n" />
             <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G" />
           </filter>
+          {/* Chalk: roughen the edge a touch and knock grain out of the fill, so
+              handwritten marks read as dry marker on a plate, not smooth vector.
+              Also referenced from CSS by the header aside. */}
+          <filter id="learn-chalk" x="-10%" y="-25%" width="120%" height="150%">
+            <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="3" result="grain" />
+            <feColorMatrix in="grain" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.7 -0.2" result="mask" />
+            <feDisplacementMap in="SourceGraphic" in2="grain" scale="1.4" xChannelSelector="R" yChannelSelector="G" result="rough" />
+            <feComposite in="rough" in2="mask" operator="in" />
+          </filter>
         </defs>
 
         <rect className="learn-ground" x={-9000} y={-9000} width={18000} height={18000} />
@@ -245,11 +275,12 @@ export default function LearnMap() {
         <g className="learn-rings" aria-hidden="true" filter="url(#learn-pencil)">
           {LEVELS.map((l) => <circle key={l} cx={CENTRE} cy={CENTRE} r={RING_RADII[l]} />)}
         </g>
-        <g className="learn-ring-labels" aria-hidden="true">
+        <g className="learn-ring-labels" aria-hidden="true" filter="url(#learn-chalk)">
           {LEVELS.map((l) => {
             const t = (RING_LABEL_ANGLE[l] * Math.PI) / 180, r = RING_RADII[l] + 14;
+            const x = CENTRE + r * Math.cos(t), y = CENTRE + r * Math.sin(t) + 6;
             return (
-              <text key={l} x={CENTRE + r * Math.cos(t)} y={CENTRE + r * Math.sin(t) + 6} textAnchor="middle">{LEVEL_LABEL[l]}</text>
+              <text key={l} x={x} y={y} textAnchor="middle" transform={`rotate(${RING_LABEL_TILT[l]} ${x} ${y})`}>{LEVEL_LABEL[l]}</text>
             );
           })}
         </g>
@@ -264,8 +295,8 @@ export default function LearnMap() {
         </g>
 
         {/* START HERE: handwritten annotation with a drawn arrow to the start node. */}
-        <g className="learn-start-note" aria-hidden="true">
-          <text x={sp.x + 26} y={sp.y - 34}>Start here</text>
+        <g className="learn-start-note" aria-hidden="true" filter="url(#learn-chalk)">
+          <text x={sp.x + 26} y={sp.y - 34} transform={`rotate(-7 ${sp.x + 26} ${sp.y - 34})`}>Start here</text>
           <path d={`M ${sp.x + 30} ${sp.y - 28} C ${sp.x + 18} ${sp.y - 26}, ${sp.x + 12} ${sp.y - 20}, ${sp.x + 8} ${sp.y - 11}`}
             fill="none" strokeLinecap="round" />
           <path d={`M ${sp.x + 3} ${sp.y - 17} L ${sp.x + 8} ${sp.y - 10} L ${sp.x + 15} ${sp.y - 14}`}

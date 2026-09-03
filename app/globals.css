@@ -386,11 +386,13 @@ h1,h2,h3 { text-wrap:balance; }
 /* ---- learn: field notes, plate 01 ---- */
 /* The map is a blueprint plate on the cave wall; a node's notes open on bone
    paper pinned to the right (a full-screen sheet on phones). Handwriting
-   (Caveat) is used only for arrows and annotations. Lit paths use --ox /
+   (Kalam for sentences, Caveat Brush for short marks) is used only for arrows
+   and annotations. Lit paths use --ox /
    --ox-hi. No new colour tokens: paper is --ink, ink-on-paper is --bg, and
    softer paper tones are color-mix() of those two. */
 .learn {
-  --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --hand:"Kalam", "Segoe Print", "Bradley Hand", cursive;          /* longer notes */
+  --hand-mark:"Caveat Brush", "Segoe Print", "Bradley Hand", cursive; /* short marks */
   --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.10 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   --paper-ink:var(--bg);
   --paper-ink-2:color-mix(in srgb, var(--bg) 78%, var(--ink));
@@ -415,7 +417,10 @@ body:has(.learn) { --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w
 .learn-method-link:hover { color:var(--ink); }
 .learn-note { display:flex; align-items:flex-start; gap:8px; color:var(--ox-hi); padding-bottom:24px; }
 .learn-note-arrow { flex:none; margin-top:14px; }
-.learn-note-text { font-family:var(--hand); font-size:1.5rem; line-height:1.15; transform:rotate(-4deg); white-space:nowrap; }
+.learn-note-text { display:flex; flex-direction:column; font-family:var(--hand); font-weight:400; font-size:1.3rem; line-height:1.1;
+  white-space:nowrap; filter:url(#learn-chalk); }
+.learn-note-line { display:block; transform:rotate(-3deg); letter-spacing:.01em; opacity:.92; }
+.learn-note-line + .learn-note-line { transform:rotate(-2deg) translate(6px, 1px); letter-spacing:.035em; opacity:.84; }
 
 /* stage: map two thirds, drawer one third */
 .learn-stage { display:grid; grid-template-columns:minmax(0,2fr) minmax(320px,1fr); gap:24px; align-items:start; margin-bottom:40px; }
@@ -427,7 +432,7 @@ body:has(.learn) { --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w
     linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px),
     var(--noise);
   background-size:44px 44px, 44px 44px, 180px 180px; }
-.learn-map svg { display:block; width:100%; aspect-ratio:1; max-height:80vh; cursor:grab;
+.learn-map svg { display:block; width:100%; aspect-ratio:1; max-height:calc(100vh - 120px); cursor:grab;
   touch-action:none; user-select:none; -webkit-user-select:none; -webkit-tap-highlight-color:transparent; }
 .learn-map svg:active { cursor:grabbing; }
 .learn-corner { position:absolute; width:14px; height:14px; pointer-events:none; opacity:.7; }
@@ -441,26 +446,30 @@ body:has(.learn) { --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w
 
 .learn-ground { fill:transparent; }
 .learn-rings circle { fill:none; stroke:var(--muted); stroke-width:1.2; opacity:.55; }
-.learn-ring-labels text { font-family:var(--hand); font-size:24px; fill:var(--ink-2); letter-spacing:.02em; }
+.learn-ring-labels text { font-family:var(--hand-mark); font-size:27px; fill:var(--ink-2); opacity:.82; }
+.learn-ring-labels text:nth-child(1) { letter-spacing:.03em; }
+.learn-ring-labels text:nth-child(2) { letter-spacing:.09em; opacity:.74; }
+.learn-ring-labels text:nth-child(3) { letter-spacing:.01em; }
+.learn-ring-labels text:nth-child(4) { letter-spacing:.06em; opacity:.78; }
 .learn-edges line { stroke:var(--rule); stroke-width:1.2; transition:opacity .15s ease; }
 .learn-map[data-active] .learn-edges line { stroke:var(--rule); }
-.learn-edges line.lit { stroke:var(--ox); stroke-width:2.2; }
-.learn-edges line.dim { opacity:.35; }
+.learn-edges line.lit { stroke:var(--ox-hi); stroke-width:3; }
+.learn-edges line.dim { opacity:.22; }
 .learn-node { cursor:pointer; transition:opacity .15s ease; }
-.learn-node.dim { opacity:.35; }
+.learn-node.dim { opacity:.28; }
 .learn-hit { fill:transparent; }
 .learn-dot { fill:var(--surface); stroke:var(--muted); stroke-width:1.6; }
-.learn-node.lit .learn-dot { stroke:var(--ox-hi); fill:var(--ox-soft); }
+.learn-node.lit .learn-dot { stroke:var(--ox-hi); fill:var(--ox); stroke-width:2; }
 .learn-node.selected .learn-dot { fill:var(--ox); stroke:var(--ink); }
 .learn-node:focus-visible { outline:none; }
 .learn-node:focus-visible .learn-dot { stroke:var(--focus); stroke-width:2.5; }
 .learn-node:focus-visible .learn-label { text-decoration:underline; text-underline-offset:3px; }
-.learn-label { font-family:var(--sans); font-size:17px; fill:var(--ink-2);
+.learn-label { font-family:var(--sans); font-size:19.5px; fill:var(--ink);
   paint-order:stroke; stroke:var(--surface); stroke-width:4px; stroke-linejoin:round; }
 .learn-node.lit .learn-label { fill:var(--ink); }
 .learn-start { fill:none; stroke:var(--ox); stroke-width:1.2; }
-.learn-start-note text { font-family:var(--hand); font-size:22px; fill:var(--ox-hi); }
-.learn-start-note path { stroke:var(--ox-hi); stroke-width:1.6; }
+.learn-start-note text { font-family:var(--hand-mark); font-size:25px; fill:var(--ox-hi); letter-spacing:.04em; opacity:.92; }
+.learn-start-note path { stroke:var(--ox-hi); stroke-width:1.8; }
 
 /* controls bottom-left, title block bottom-right */
 .learn-controls { position:absolute; left:14px; bottom:14px; z-index:2; display:flex; flex-direction:column; align-items:flex-start;
@@ -482,8 +491,8 @@ body:has(.learn) { --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w
   font-family:var(--display); font-weight:800; font-size:1.05rem; letter-spacing:.06em; color:var(--ink); }
 
 /* the drawer: bone paper, pinned, sticky within the viewport */
-.learn-drawer { position:sticky; top:calc(var(--head-h) + 16px); max-height:calc(100vh - var(--head-h) - 32px);
-  overflow:auto; scrollbar-gutter:stable; }
+.learn-drawer { position:sticky; top:80px; max-height:calc(100vh - 100px);
+  overflow-y:auto; overscroll-behavior:contain; scrollbar-gutter:stable; }
 .paper { background:var(--ink); background-image:var(--noise),
     linear-gradient(180deg, color-mix(in srgb, var(--ink) 92%, var(--bg)) 0%, var(--ink) 12%, var(--ink) 88%, color-mix(in srgb, var(--ink) 94%, var(--bg)) 100%);
   color:var(--paper-ink); box-shadow:0 1px 0 color-mix(in srgb, var(--bg) 30%, transparent), 0 14px 30px color-mix(in srgb, var(--bg) 60%, transparent); }
@@ -509,7 +518,9 @@ body:has(.learn) { --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w
 .learn-dialog-head form { margin:0; flex:none; margin-top:-6px; }
 .learn-dialog h2 { font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:2.4rem; letter-spacing:.02em;
   line-height:.95; margin:0 0 10px; padding-bottom:10px; position:relative; }
-.learn-dialog h2::after { content:""; position:absolute; left:0; bottom:0; width:120px; height:3px; background:var(--ox);
+/* hand-drawn underline: one uneven stroke, drawn as SVG so it is not a ruled box */
+.learn-dialog h2::after { content:""; position:absolute; left:0; bottom:-2px; width:132px; height:8px;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 132 8' preserveAspectRatio='none'><path d='M1 5.5 C 18 3.2, 34 2.6, 52 4.1 S 88 6.4, 106 4.2 S 124 2.8, 131 3.6' fill='none' stroke='%237A2229' stroke-width='2.6' stroke-linecap='round'/><path d='M4 6.8 C 30 5.8, 60 6.9, 92 5.6 S 120 5.2, 128 6' fill='none' stroke='%237A2229' stroke-width='1.1' stroke-linecap='round' opacity='.55'/></svg>") no-repeat left bottom / 132px 8px;
   transform:rotate(-1deg); transform-origin:left; }
 .learn-level { margin:0 0 14px; font-family:var(--mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ox); }
 .learn-close { width:30px; height:30px; background:transparent; border:1px solid var(--paper-rule);
@@ -548,6 +559,11 @@ body:has(.learn) { --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w
 .learn-stamp span { padding:8px 14px; }
 .learn-stamp span + span { border-left:2px solid var(--ox); }
 
+/* wide: a taller plate (same map scale, more room top and bottom) */
+@media (min-width:900px) {
+  .learn-map svg { aspect-ratio:1 / 1.12; }
+}
+
 /* below 900px: the map is full width and the notes open as a sheet */
 @media (max-width:899px) {
   .learn-stage { display:block; }
@@ -575,9 +591,9 @@ body:has(.learn) { --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w
   .learn-plate { right:10px; bottom:10px; font-size:9px; }
   .learn-plate-cell { padding:6px 9px; }
   .learn-corner { display:none; }
-  .learn-label { font-size:22px; stroke-width:5px; }
-  .learn-ring-labels text { font-size:30px; }
-  .learn-start-note text { font-size:28px; }
+  .learn-label { font-size:25px; stroke-width:5px; }
+  .learn-ring-labels text { font-size:34px; }
+  .learn-start-note text { font-size:32px; }
   .learn-dot { r:8px; }
   .learn-hit { r:24px; }
   .learn-start { r:15px; }
@@ -587,5 +603,5 @@ body:has(.learn) { --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w
   .learn-close { width:36px; height:36px; font-size:18px; }
 }
 @media (prefers-reduced-motion:reduce) {
-  .learn-note-text, .learn-dialog h2::after, .learn-stamp { transform:none; }
+  .learn-note-line, .learn-dialog h2::after, .learn-stamp { transform:none; }
 }

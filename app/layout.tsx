@@ -18,10 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         {/* Display: Barlow Condensed. Body: Archivo. Metadata only: JetBrains Mono.
-            Caveat: handwriting, used only for arrows and annotations on the Learning Map. */}
+            Kalam + Caveat Brush: workshop handwriting, used only for arrows and annotations on the Learning Map. */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Kalam:wght@300;400&family=Caveat+Brush&display=swap"
         />
       </head>
       <body>

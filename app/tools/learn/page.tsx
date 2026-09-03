@@ -30,10 +30,22 @@ export default function LearnPage() {
         {/* Annotation: handwriting is allowed here and nowhere in body text. */}
         <div className="learn-note" aria-hidden="true">
           <svg className="learn-note-arrow" viewBox="0 0 120 60" width="120" height="60">
-            <path d="M112 8 C 90 12, 60 22, 14 44" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            <path d="M28 46 L 12 45 L 22 33" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <defs>
+              <filter id="learn-note-rough" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="11" result="n" />
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+            </defs>
+            <g filter="url(#learn-note-rough)">
+              <path d="M113 7 C 96 9, 74 17, 52 27 S 24 40, 15 45" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+              <path d="M110 9 C 90 13, 66 22, 40 34" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" opacity=".55" />
+              <path d="M29 47 L 12 46 L 21 32" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </g>
           </svg>
-          <span className="learn-note-text">Start with the foundations.<br />Build your way out.</span>
+          <span className="learn-note-text">
+            <span className="learn-note-line">Start with the foundations.</span>
+            <span className="learn-note-line">Build your way out.</span>
+          </span>
         </div>
       </header>
 
