@@ -384,19 +384,26 @@ h1,h2,h3 { text-wrap:balance; }
 }
 
 /* ---- learn: the constellation ---- */
-/* The list is the content; the map is a view of it, shown at ≥900px only.
-   Lit nodes and edges use --ox / --ox-hi. No new tokens. */
-.learn-stage { display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:20px; align-items:start;
-  margin:0 0 36px; }
-.learn-map { position:relative; background:var(--surface); border:1px solid var(--rule); }
+/* The map is the page. Every concept lives in a native <dialog> that opens on
+   click (a full-screen sheet on phones). Lit nodes and edges use --ox / --ox-hi.
+   No new tokens. */
+.learn-method-link { display:block; margin-top:6px; font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); text-decoration:none; }
+.learn-method-link:hover { color:var(--ink); }
+.learn-map { position:relative; background:var(--surface); border:1px solid var(--rule); margin:0 0 36px; }
 .learn-map svg { display:block; width:100%; aspect-ratio:1; max-height:80vh; cursor:grab;
-  touch-action:none; user-select:none; -webkit-user-select:none; }
+  touch-action:none; user-select:none; -webkit-user-select:none; -webkit-tap-highlight-color:transparent; }
 .learn-map svg:active { cursor:grabbing; }
 .learn-controls { position:absolute; top:10px; right:12px; z-index:2; display:flex; gap:14px; align-items:center;
   font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
 .learn-controls button { background:var(--surface); border:1px solid var(--rule); color:var(--ink-2); font:inherit;
   padding:5px 9px; cursor:pointer; border-radius:0; }
 .learn-controls button:hover { border-color:var(--ox-hi); color:var(--ink); }
+.learn-hint-touch { display:none; }
+@media (hover:none) and (pointer:coarse) {
+  .learn-hint-mouse { display:none; }
+  .learn-hint-touch { display:inline; }
+}
 
 .learn-ground { fill:transparent; }
 .learn-rings circle { fill:none; stroke:var(--rule-soft); stroke-width:1; stroke-dasharray:3 7; }
@@ -418,26 +425,29 @@ h1,h2,h3 { text-wrap:balance; }
 .learn-start { fill:none; stroke:var(--ox); stroke-width:1; }
 .learn-start-label { font-family:var(--mono); font-size:10px; letter-spacing:.16em; fill:var(--ox-hi); }
 
-/* side panel: sticky within the map's height, scrolls inside itself */
-.learn-panel { position:sticky; top:calc(var(--head-h) + 12px); max-height:80vh; overflow:auto;
-  background:var(--surface); border:1px solid var(--rule); padding:18px 22px 22px; }
-.learn-panel-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-.learn-panel .eyebrow { margin-bottom:12px; }
-.learn-panel h2 { font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:1.7rem;
-  letter-spacing:.02em; line-height:1; margin:0 0 12px; }
-.learn-close { flex:none; width:28px; height:28px; background:transparent; border:1px solid var(--rule);
-  color:var(--muted); font-family:var(--mono); font-size:15px; line-height:1; cursor:pointer; border-radius:0; }
+/* the pop-up: one native dialog per concept */
+.learn-dialog { padding:0; border:1px solid var(--rule); background:var(--surface); color:var(--ink);
+  width:min(680px, calc(100vw - 32px)); max-height:min(86dvh, 920px); margin:auto; overflow:auto; }
+.learn-dialog::backdrop { background:rgba(10,10,11,.82); }
+body:has(.learn-dialog[open]) { overflow:hidden; }
+.learn-dialog-inner { padding:20px 26px 28px; }
+.learn-dialog-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+.learn-dialog-head .eyebrow { margin-bottom:12px; }
+.learn-dialog-head form { margin:0; flex:none; }
+.learn-dialog h2 { font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:2rem;
+  letter-spacing:.02em; line-height:1; margin:0 0 14px; }
+.learn-dialog .meta { padding-top:4px; }
+.learn-close { width:30px; height:30px; background:transparent; border:1px solid var(--rule);
+  color:var(--muted); font-family:var(--mono); font-size:16px; line-height:1; cursor:pointer; border-radius:0; }
 .learn-close:hover { color:var(--ink); border-color:var(--ox-hi); }
-.learn-panel-empty p:last-child { margin:0; color:var(--muted); font-size:.92rem; }
 
 .learn-explain { margin:0 0 14px; font-size:.95rem; color:var(--ink-2); }
-.learn-panel .learn-explain { font-size:.9rem; }
 .learn-needs { margin:0 0 6px; display:flex; flex-wrap:wrap; gap:6px; align-items:center;
   font-family:var(--mono); font-size:11px; }
 .learn-needs > span { color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-right:4px; }
-.learn-needs a, .learn-needs button { font:inherit; color:var(--ink-2); text-decoration:none; border:1px solid var(--rule);
-  background:var(--bg); padding:4px 8px; cursor:pointer; border-radius:0; }
-.learn-needs a:hover, .learn-needs button:hover { border-color:var(--ox-hi); color:var(--ink); }
+.learn-needs a { font:inherit; color:var(--ink-2); text-decoration:none; border:1px solid var(--rule);
+  background:var(--bg); padding:4px 8px; cursor:pointer; }
+.learn-needs a:hover { border-color:var(--ox-hi); color:var(--ink); }
 .learn-res-groups { margin-top:8px; }
 .learn-res-group { margin-top:14px; }
 .res-group-head { margin:0 0 2px; font-family:var(--mono); font-size:10px; letter-spacing:.14em;
@@ -451,36 +461,49 @@ h1,h2,h3 { text-wrap:balance; }
 .res-link::after { content:" ↗"; color:var(--ox-hi); font-family:var(--mono); font-size:11px; }
 .res-meta { display:block; margin-top:4px; font-family:var(--mono); font-size:11px; color:var(--muted); }
 .res-why { margin:6px 0 0; font-size:.88rem; color:var(--ink-2); }
-.learn-panel .catch-block, .learn-row-body .catch-block { margin-top:14px; }
+.learn-dialog .catch-block { margin-top:14px; }
 .learn-stamp { margin:14px 0 0; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
   text-transform:uppercase; color:var(--muted); }
 
-/* the list: grouped by level, one <details> per concept */
-.learn-level { margin:0 0 20px; background:var(--surface); border:1px solid var(--rule);
-  scroll-margin-top:calc(var(--head-h) + 16px); }
-.learn-level-head { display:grid; grid-template-columns:auto 1fr auto; align-items:center;
-  background:var(--surface-3); border-bottom:1px solid var(--rule); }
-.learn-level-head h2 { padding:14px 18px; font-family:var(--display); font-weight:700; text-transform:uppercase;
-  font-size:1.55rem; letter-spacing:.03em; line-height:1; margin:0; }
-.learn-row { border-bottom:1px solid var(--rule-soft); scroll-margin-top:calc(var(--head-h) + 16px); }
-.learn-row:last-child { border-bottom:0; }
-.learn-row summary { list-style:none; cursor:pointer; display:flex; flex-direction:column; gap:3px;
-  padding:15px 18px 15px 16px; position:relative; }
-.learn-row summary::-webkit-details-marker { display:none; }
-.learn-row summary::before { content:""; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--ox);
-  opacity:0; }
-.learn-row summary:hover { background:var(--surface-2); }
-.learn-row summary:hover::before, .learn-row[open] summary::before { opacity:1; }
-.learn-row-title { font-weight:600; font-size:1.02rem; line-height:1.35; color:var(--ink); }
-.learn-row-meta { font-family:var(--mono); font-size:11px; color:var(--muted); }
-.learn-row-body { padding:2px 18px 18px 16px; }
-
-@media (max-width:899px) {
-  .learn-stage { display:none; }
-}
+/* phone: the map fills the width, labels and dots scale up, the dialog is a
+   full-screen sheet. The map starts zoomed in (see homeBox in LearnMap). */
 @media (max-width:640px) {
-  .learn-level-head h2 { font-size:1.3rem; padding:12px 14px; }
-  .learn-row summary { padding:13px 14px 13px 12px; }
-  .learn-row-body { padding:0 14px 16px 12px; }
-  .learn-row-title { font-size:.96rem; }
+  .learn-map { margin-left:calc(-1 * var(--gutter)); margin-right:calc(-1 * var(--gutter)); border-left:0; border-right:0; }
+  .learn-map svg { max-height:none; aspect-ratio:1 / 1.15; }
+  .learn-controls { position:static; justify-content:flex-end; padding:8px 12px; gap:10px; font-size:9.5px;
+    border-bottom:1px solid var(--rule-soft); }
+  .learn-hint { text-align:right; line-height:1.4; }
+  .learn-label { font-size:22px; stroke-width:5px; }
+  .learn-rings text { font-size:13px; }
+  .learn-dot { r:7px; }
+  .learn-hit { r:24px; }
+  .learn-start { r:13px; }
+  .learn-start-label { font-size:12px; }
+  .learn-dialog { width:100vw; max-width:100vw; height:100dvh; max-height:100dvh; margin:0; border:0; }
+  .learn-dialog-inner { padding:16px 18px 48px; }
+  .learn-dialog h2 { font-size:1.7rem; }
+  .learn-close { width:36px; height:36px; font-size:18px; }
+}
+
+/* ---- newsletter ---- */
+.news { margin-top:48px; border:1px solid var(--rule); background:var(--surface); padding:26px; }
+.news h2 { font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:1.5rem;
+  letter-spacing:.03em; margin:0 0 8px; line-height:1; }
+.news p { margin:0 0 14px; color:var(--ink-2); font-size:.92rem; max-width:58ch; }
+.news form { display:flex; gap:8px; flex-wrap:wrap; }
+.news input { flex:1 1 240px; height:40px; padding:0 12px; font-family:var(--sans); font-size:15px;
+  background:var(--bg); color:var(--ink); border:1px solid var(--rule); border-radius:0; }
+.news button { height:40px; padding:0 20px; font-family:var(--mono); font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; font-weight:500; cursor:pointer; background:var(--ink); color:var(--bg);
+  border:1px solid var(--ink); border-radius:0; }
+.news button:hover { background:var(--ink-2); border-color:var(--ink-2); }
+
+@media (max-width:860px) {
+  .pick { grid-template-columns:1fr; gap:0; }
+  .rank { margin-bottom:10px; font-size:1.6rem; }
+  .oneliner,.facts,.visit { grid-column:1; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  * { transition:none !important; animation:none !important; }
 }

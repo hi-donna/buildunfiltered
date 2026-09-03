@@ -1,5 +1,64 @@
 # Status
 
+## 2026-09-04 — Learning Map: the map is the page, pop-ups instead of a list
+
+**Shipped:** On the owner's instruction, nothing sits below the map any more.
+Clicking a node opens a pop-up with that concept's explanation, prerequisites,
+resources (grouped, start-here tag) and the catch. The pop-ups are native
+`<dialog>` elements, one per concept plus one for "How we picked", rendered
+server-side by `components/LearnDialogs.tsx`, so all 133 resource links and
+every explanation are still in the static HTML. `components/LearnList.tsx` is
+deleted. `LearnMap.tsx` now opens dialogs with `showModal()`, mirrors the open
+dialog in the URL hash (`#rag` opens RAG on load; prerequisite links inside a
+pop-up are plain `#id` links that switch pop-ups), closes on Esc, the × button
+or a backdrop click, and clears the hash when closed. The map is full `.wrap`
+width on desktop.
+
+**Phone:** the map is shown at every width now (the spec's list fallback is
+gone). Under 640px: the map bleeds edge to edge, starts zoomed 1.6× on the
+centre, labels are 22 SVG units and dots r=7 so they read at 390px, the
+hint/reset controls sit in a bar above the map instead of over it, one finger
+pans, two fingers pinch-zoom about the midpoint, tap opens, and the pop-up is
+a full-screen sheet with a 36px close button. `touch-action:none` on the SVG
+so the page does not scroll while panning the map.
+
+**Verified:**
+- `npm run build` green; 32 `<dialog>` elements and 133 resource links in
+  `out/tools/learn/index.html`; no list markup left.
+- Desktop (1920): click on `agents` → `dialog-agents` open, hash `#agents`.
+  Fresh load of `#rag` → RAG open. Clicking "Vector search" inside the RAG
+  pop-up closes it and opens Vector search, hash follows. × button and backdrop
+  click close and clear the hash and the selected node. No console errors.
+- Phone (390px iframe): map visible, no horizontal scroll, labels 22px units,
+  dots r=7, controls bar static above the map, tap on Agents opens a
+  390×844 sheet, × closes and clears.
+- No new colour hex in the diff.
+
+**Two things found and fixed on the way:**
+- `setPointerCapture` on pointerdown retargeted pointerup to the SVG, so a
+  mouse click never reached the node link (the old panel version had the same
+  bug; it was only ever tested with the keyboard). Capture now starts only once
+  a drag exceeds 3px.
+- The dialog `close` event was not observed reliably in Chrome 152 via the
+  automation, so selection clearing watches the `open` attribute with a
+  MutationObserver instead. Esc closing is native dialog behaviour; the
+  automation tool's synthetic Esc was inconsistent and is not counted as
+  verified either way.
+
+**Half-done:** nothing.
+
+**Needs the owner:**
+- The spec's "list is the content" fallback is gone by request. The content
+  is still server-rendered inside closed dialogs, which Google indexes but
+  weighs less than visible text. If organic search matters for this page, say
+  so and I will add a plain "all 31 as text" page at `/tools/learn/list/`.
+- Inner-ring labels overlap a little on phones at the starting zoom (Embeddings /
+  Attention / Fine-tuning). Pinch fixes it; a phone-specific angle set would
+  fix it properly. Not done.
+- Still: confirm 41 edges (spec said 45).
+
+**Next:** Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-04 — Learning Map resources: 3–5 per node, grouped, start-here marker
 
 **Shipped:** `data/learn.json` now carries 133 resources across 31 nodes (130
