@@ -5,17 +5,22 @@ import {
   RING_RADII, LEVELS, LEVEL_LABEL, SIZE, CENTRE,
 } from "@/lib/learn";
 
-// The constellation is the page. Positions and ancestor sets come precomputed
-// from lib/learn.ts; this component holds one hover id, one selected id and a
+// The blueprint plate. Positions and ancestor sets come precomputed from
+// lib/learn.ts; this component holds one hover id, one selected id and a
 // viewBox. Clicking a node opens that node's <dialog> (rendered by
-// LearnDialogs); the URL hash mirrors the open dialog. Mouse: wheel zooms,
-// drag pans. Touch: one finger pans, two fingers pinch-zoom, tap opens.
+// LearnDialogs): with show() inside the drawer on wide screens, with
+// showModal() as a sheet on phones. The URL hash mirrors the open dialog.
+// Mouse: wheel zooms, drag pans. Touch: one finger pans, two fingers pinch.
 
 const PAD = 40;
 const INIT = { x: -PAD, y: -PAD, w: SIZE + 2 * PAD, h: SIZE + 2 * PAD };
 const MIN_W = INIT.w / 3; // 3× in
 const MAX_W = INIT.w * 2; // 0.5× out
 const NARROW = "(max-width: 640px)";
+// Where each ring's handwritten name sits (degrees, 0 = east, clockwise): a
+// gap in that ring's node angles so it never overlaps a label.
+const RING_LABEL_ANGLE: Record<string, number> = { foundations: 275, core: 255, applied: 205, frontier: 125 };
+const WIDE = "(min-width: 900px)";
 
 type Box = typeof INIT;
 type Pt = { x: number; y: number };
@@ -34,9 +39,9 @@ function homeBox(): Box {
 function labelFor(p: Pt, outer: boolean) {
   const t = Math.atan2(p.y - CENTRE, p.x - CENTRE);
   const c = Math.cos(t), s = Math.sin(t);
-  if (outer || Math.abs(c) <= 0.3) return { dx: 0, dy: s > 0 ? 22 : -13, anchor: "middle" as const };
-  if (c > 0) return { dx: 11, dy: 5, anchor: "start" as const };
-  return { dx: -11, dy: 5, anchor: "end" as const };
+  if (outer || Math.abs(c) <= 0.3) return { dx: 0, dy: s > 0 ? 24 : -15, anchor: "middle" as const };
+  if (c > 0) return { dx: 13, dy: 5, anchor: "start" as const };
+  return { dx: -13, dy: 5, anchor: "end" as const };
 }
 
 const dist = (a: Pt, b: Pt) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -45,12 +50,14 @@ const isDialogId = (id: string) => id === "method" || !!getNode(id);
 export default function LearnMap() {
   const [hover, setHover] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
+  const [wide, setWide] = useState(true);
   const [vb, setVb] = useState<Box>(INIT);
   const svgRef = useRef<SVGSVGElement>(null);
   const drag = useRef<{ x: number; y: number; vx: number; vy: number } | null>(null);
   const pts = useRef(new Map<number, Pt>());
   const pinch = useRef<{ d: number; mid: Pt; vb: Box } | null>(null);
   const moved = useRef(false);
+  const reopening = useRef(false);
 
   const active = hover ?? (selected && getNode(selected) ? selected : null);
   const lit = useMemo(() => {
@@ -66,7 +73,7 @@ export default function LearnMap() {
     history.replaceState(null, "", id ? `#${id}` : location.pathname + location.search);
   }, []);
 
-  // Hash → selection, on load and on back/forward and on the prereq links
+  // Hash → selection, on load, on back/forward, and on the prereq links
   // inside a dialog.
   useEffect(() => {
     const read = () => {
@@ -78,20 +85,36 @@ export default function LearnMap() {
     return () => window.removeEventListener("hashchange", read);
   }, []);
 
-  // Selection → the one open dialog. Closing a dialog by any route (Esc, ×,
-  // backdrop) clears the selection unless the hash has already moved on.
+  // Drawer (wide) or sheet (narrow). Tracked so a resize re-opens the dialog
+  // the right way.
+  useEffect(() => {
+    const mq = window.matchMedia(WIDE);
+    const on = () => setWide(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+
+  // Selection → the one open dialog, in the mode the viewport wants.
   useEffect(() => {
     const dialogs = Array.from(document.querySelectorAll<HTMLDialogElement>("dialog.learn-dialog"));
     const want = selected ? document.getElementById(`dialog-${selected}`) as HTMLDialogElement | null : null;
-    for (const d of dialogs) if (d !== want && d.open) d.close();
-    if (want && !want.open) want.showModal();
-  }, [selected]);
+    reopening.current = true;
+    for (const d of dialogs) if (d.open) d.close();
+    if (want) { if (wide) want.show(); else want.showModal(); }
+    // The observer below sees the attribute flip in a microtask; clear the
+    // flag after it has had the chance to run.
+    const t = setTimeout(() => { reopening.current = false; }, 0);
+    return () => clearTimeout(t);
+  }, [selected, wide]);
 
+  // Closing a dialog by any route (Esc, ×, backdrop) clears the selection.
+  // Watches the `open` attribute rather than the `close` event: it covers
+  // every route and does not depend on event timing.
   useEffect(() => {
     const dialogs = Array.from(document.querySelectorAll<HTMLDialogElement>("dialog.learn-dialog"));
-    // Watch the `open` attribute rather than the `close` event: it covers Esc,
-    // the × button and the backdrop alike, and does not depend on event timing.
     const mo = new MutationObserver((records) => {
+      if (reopening.current) return;
       for (const r of records) {
         const d = r.target as HTMLDialogElement;
         if (d.open) continue;
@@ -100,13 +123,21 @@ export default function LearnMap() {
     });
     const onClick = (e: MouseEvent) => {
       // The inner wrapper fills the dialog, so a click whose target is the
-      // dialog itself is a click on the backdrop.
+      // dialog itself is a click on the backdrop (modal mode only).
       const d = e.currentTarget as HTMLDialogElement;
-      if (e.target === d) d.close();
+      if (e.target === d && d.matches(":modal")) d.close();
     };
     for (const d of dialogs) { mo.observe(d, { attributes: true, attributeFilter: ["open"] }); d.addEventListener("click", onClick); }
     return () => { mo.disconnect(); for (const d of dialogs) d.removeEventListener("click", onClick); };
   }, [select]);
+
+  // Esc closes the drawer. (Modal sheets close on Esc natively.)
+  useEffect(() => {
+    if (!selected || !wide) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") select(null); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selected, wide, select]);
 
   // Start view depends on viewport width; set after mount so SSR matches.
   useEffect(() => { setVb(homeBox()); }, []);
@@ -131,12 +162,12 @@ export default function LearnMap() {
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
-  // One pointer = pan. Two pointers = pinch zoom about the midpoint.
+  // One pointer = pan. Two pointers = pinch zoom about the midpoint. Pointer
+  // capture starts only once a drag starts; capturing on pointerdown would
+  // retarget pointerup to the svg and swallow clicks on node links.
   const onPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
     if (e.pointerType === "mouse" && e.button !== 0) return;
     pts.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    // Capture only once a drag starts (see onPointerMove): capturing here
-    // would retarget pointerup to the svg and swallow clicks on node links.
     if (pts.current.size === 2) {
       e.currentTarget.setPointerCapture(e.pointerId);
       const [a, b] = Array.from(pts.current.values());
@@ -182,13 +213,15 @@ export default function LearnMap() {
     drag.current = null;
   };
 
+  const sp = positions.get(learnStart)!;
+
   return (
-    <div className="learn-map">
-      <div className="learn-controls">
-        <span className="learn-hint learn-hint-mouse">scroll to zoom · drag to pan · click a node</span>
-        <span className="learn-hint learn-hint-touch">pinch to zoom · drag to pan · tap a node</span>
-        <button type="button" onClick={() => setVb(homeBox())}>reset view</button>
-      </div>
+    <div className="learn-map" data-active={active ? "true" : undefined}>
+      <span className="learn-corner learn-corner-tl" aria-hidden="true" />
+      <span className="learn-corner learn-corner-tr" aria-hidden="true" />
+      <span className="learn-corner learn-corner-bl" aria-hidden="true" />
+      <span className="learn-corner learn-corner-br" aria-hidden="true" />
+
       <svg
         ref={svgRef}
         viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`}
@@ -199,15 +232,26 @@ export default function LearnMap() {
         onPointerCancel={onPointerUp}
         onDoubleClick={() => setVb(homeBox())}
       >
+        <defs>
+          {/* Graphite wobble for the ring guides only; nodes and edges stay crisp. */}
+          <filter id="learn-pencil" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" result="n" />
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+
         <rect className="learn-ground" x={-9000} y={-9000} width={18000} height={18000} />
 
-        <g className="learn-rings" aria-hidden="true">
-          {LEVELS.map((l) => (
-            <g key={l}>
-              <circle cx={CENTRE} cy={CENTRE} r={RING_RADII[l]} />
-              <text x={CENTRE} y={CENTRE - RING_RADII[l] - 8} textAnchor="middle">{LEVEL_LABEL[l].toUpperCase()}</text>
-            </g>
-          ))}
+        <g className="learn-rings" aria-hidden="true" filter="url(#learn-pencil)">
+          {LEVELS.map((l) => <circle key={l} cx={CENTRE} cy={CENTRE} r={RING_RADII[l]} />)}
+        </g>
+        <g className="learn-ring-labels" aria-hidden="true">
+          {LEVELS.map((l) => {
+            const t = (RING_LABEL_ANGLE[l] * Math.PI) / 180, r = RING_RADII[l] + 14;
+            return (
+              <text key={l} x={CENTRE + r * Math.cos(t)} y={CENTRE + r * Math.sin(t) + 6} textAnchor="middle">{LEVEL_LABEL[l]}</text>
+            );
+          })}
         </g>
 
         <g className="learn-edges" aria-hidden="true">
@@ -217,6 +261,15 @@ export default function LearnMap() {
             const cls = on ? "lit" : lit ? "dim" : undefined;
             return <line key={`${e.from}-${e.to}`} className={cls} x1={a.x} y1={a.y} x2={b.x} y2={b.y} />;
           })}
+        </g>
+
+        {/* START HERE: handwritten annotation with a drawn arrow to the start node. */}
+        <g className="learn-start-note" aria-hidden="true">
+          <text x={sp.x + 26} y={sp.y - 34}>Start here</text>
+          <path d={`M ${sp.x + 30} ${sp.y - 28} C ${sp.x + 18} ${sp.y - 26}, ${sp.x + 12} ${sp.y - 20}, ${sp.x + 8} ${sp.y - 11}`}
+            fill="none" strokeLinecap="round" />
+          <path d={`M ${sp.x + 3} ${sp.y - 17} L ${sp.x + 8} ${sp.y - 10} L ${sp.x + 15} ${sp.y - 14}`}
+            fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </g>
 
         <g className="learn-nodes">
@@ -237,20 +290,32 @@ export default function LearnMap() {
                 onBlur={() => setHover(null)}
                 onClick={(e) => { e.preventDefault(); if (!moved.current) select(n.id); }}
               >
-                {n.id === learnStart && (
-                  <>
-                    <circle className="learn-start" cx={p.x} cy={p.y} r={10} />
-                    <text className="learn-start-label" x={p.x} y={p.y - 18} textAnchor="middle">START HERE</text>
-                  </>
-                )}
-                <circle className="learn-hit" cx={p.x} cy={p.y} r={16} />
-                <circle className="learn-dot" cx={p.x} cy={p.y} r={5} />
+                {n.id === learnStart && <circle className="learn-start" cx={p.x} cy={p.y} r={12} />}
+                <circle className="learn-hit" cx={p.x} cy={p.y} r={18} />
+                <circle className="learn-dot" cx={p.x} cy={p.y} r={6} />
                 <text className="learn-label" x={p.x + lb.dx} y={p.y + lb.dy} textAnchor={lb.anchor}>{n.title}</text>
               </a>
             );
           })}
         </g>
       </svg>
+
+      <div className="learn-controls">
+        <span className="learn-hint learn-hint-mouse">scroll to zoom · drag to pan · click a node</span>
+        <span className="learn-hint learn-hint-touch">pinch to zoom · drag to pan · tap a node</span>
+        <button type="button" onClick={() => setVb(homeBox())}>reset view</button>
+      </div>
+
+      <div className="learn-plate" aria-hidden="true">
+        <div className="learn-plate-cell">
+          <span>build.unfiltered</span>
+          <span>Learning Map v1.0</span>
+        </div>
+        <div className="learn-plate-cell learn-plate-row2">
+          <span>{learnNodes.length} nodes · prereq order</span>
+        </div>
+        <div className="learn-plate-mark">BU</div>
+      </div>
     </div>
   );
 }

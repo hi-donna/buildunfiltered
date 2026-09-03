@@ -1,5 +1,65 @@
 # Status
 
+## 2026-09-04 — Learning Map restyled: Batcave builder's field notes
+
+**Shipped:** `/tools/learn/` rebuilt to the field-notes mockup, on the same
+data, map, dialogs and behaviour. Eyebrow "FIELD NOTES / 01" above the title;
+a handwritten aside ("Start with the foundations. Build your way out.") with a
+drawn arrow; the map as a blueprint plate (subtle grid, paper-grain noise,
+corner marks, graphite ring guides with a pencil wobble filter, handwritten
+ring names placed in a gap of each ring, a handwritten "Start here" arrow to
+tokens, hollow graphite nodes, oxblood lit paths, a title-block stamp bottom
+right and the zoom/pan controls bottom left). Desktop: map two thirds, and a
+bone-paper drawer on the right (pinned, sticky) that shows an empty
+"Pick a node" card until a node is selected, then that node's `<dialog>`
+opened non-modally with `show()`. Phone/tablet (<900px): the same `<dialog>`
+opens with `showModal()` as a sheet (full screen under 640px). Caveat added to
+the font link for handwriting; used only for the aside, ring names and the
+start arrow. Paper colours are the existing tokens (`--ink` paper, `--bg`
+ink) plus `color-mix()` of the two; no new colour token, no new hex.
+
+**Verified:**
+- `npm run build` green. Lighthouse desktop: accessibility 100,
+  best-practices 100. No console errors. No new hex in the diff.
+- Desktop 1920: `#tokens` on load opens the drawer (non-modal), the empty
+  card hides; × closes and clears the hash; Esc closes the drawer (own
+  keydown handler, since non-modal dialogs do not close on Esc natively).
+- Keyboard: Tab from "How we picked" reaches the nodes in order; the focused
+  node shows a bone ring and an underlined label; Enter opens its drawer and
+  focus moves into the dialog (close button first); Esc closes.
+- Hover on Agents lights the path back to tokens in oxblood; the rest dims.
+- 1280 (iframe): two-thirds / one-third grid, sticky drawer.
+- 820 (iframe): map full width, `#rag` opens as a centred modal sheet.
+- 390 (iframe): map edge to edge, controls bar above the plate, labels 22
+  units, no horizontal scroll (`scrollWidth == 390`). An earlier full-bleed
+  texture pseudo-element caused overflow; the texture now sits on `body`
+  while the page is open.
+- Reduced motion: the global `prefers-reduced-motion` rule already disables
+  every transition; the learn block additionally removes the decorative
+  rotations (aside, title underline, stamp) under it. Nothing animates
+  otherwise.
+
+**Decisions made:**
+- Header kept exactly as it is (the mockup's TOOLS / ABOUT nav links have no
+  pages behind them; not added).
+- The lede is Archivo, not mono as drawn: the brief says mono is for
+  metadata only.
+- Resource type icons from the mockup are not drawn; the mono `type ·
+  author · length` line carries the same information.
+- "Start here" is pulled out as its own section at the top of the notes,
+  above Papers / Watch / Read / Docs, matching the mockup.
+
+**Half-done:** nothing.
+
+**Needs the owner:**
+- The mockup's mockup-only bits (the curled page corner, distressed title
+  texture) were left out on purpose; say if you want them.
+- Inner-ring labels still overlap a little on phones at the starting zoom.
+- Still: confirm 41 edges (spec said 45); the text-list fallback question
+  from the previous note stands.
+
+**Next:** Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-04 — Learning Map: the map is the page, pop-ups instead of a list
 
 **Shipped:** On the owner's instruction, nothing sits below the map any more.
