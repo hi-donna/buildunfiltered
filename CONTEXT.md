@@ -69,6 +69,12 @@ The page is the distribution layer, not a separate product. The plan is:
   a read/write/delete strip, the catch, and a named server to avoid for 29 of them.
   Data in `data/mcp.json`. Shipped 2026-09-03, commit `32ebeb9`.
 
+**Field Notes** — `/field-notes/`. Written pieces, one JSON per post in
+`data/field-notes/`, rendered by one renderer with a fixed set of eight block types.
+First post: Local n8n at `/field-notes/local-n8n/`. The Learning Map is "plate 01"
+of the same visual language but stays a tool at `/tools/learn/`. Rules for adding a
+post, including the mandatory screenshot privacy check: `docs/FIELD_NOTES_SPEC.md`.
+
 **Roadmap (`docs/ROADMAP.md`, in ship order):** Model Picker, Free Tier Tracker,
 Licence Checker, Learning Map (a constellation, not a list), Deprecation Watch, The
 Wire (auto-collected feed via GitHub Action), Will It Run? (local model fit), Agent

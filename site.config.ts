@@ -21,4 +21,11 @@ export const site = {
     { slug: "learn", name: "Learning Map",
       blurb: "31 things to understand before you build on an LLM, in the order they depend on each other.", status: "live" },
   ] as { slug: string; name: string; href?: string; blurb: string; status: "live" | "building" | "planned" }[],
+
+  // Field Notes: written pieces at /field-notes/<slug>/, one JSON each in
+  // data/field-notes/ (rules in docs/FIELD_NOTES_SPEC.md). The section is
+  // registered here so the home shelf and the sitemap find it; the posts
+  // themselves are discovered from the data folder, never listed here.
+  fieldNotes: { href: "/field-notes/", name: "Field Notes",
+    blurb: "Things built and run on a real machine, written up with the plates to show it." },
 };

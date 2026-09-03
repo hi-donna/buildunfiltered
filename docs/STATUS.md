@@ -1,67 +1,84 @@
 # Status
 
-## 2026-09-04 — Field Notes, phase 1: renderer, invariants, post 02
+## 2026-09-04 — Field Notes shipped: the writing section, post 02 Local n8n
 
-**Shipped:** `lib/fieldNotes.ts` (types, loader, build-time invariants), `app/field-notes/[slug]/page.tsx` (eight block types, in spec order), `/* ---- field notes ---- */` in `globals.css` on existing tokens only, `data/field-notes/local-n8n.json` and its five plates under `public/field-notes/local-n8n/`.
-**Verified:** all five plates opened and checked for private content (none: empty setup form, empty canvas, node panels; no email, token, client name or path); 172,302 bytes total, max 1400px wide. Three invariants broken one at a time (unknown block type, plate with no file on disk, verified date in the future): each fails `npm run build` with a named error; reverted, build green.
-**Verified:** `out/field-notes/local-n8n/index.html` exists; 1920px renders every block; 390px (iframe) body scrollWidth 390, terminals, tables and the figure scroll inside their own boxes; no console errors.
-**Half-done:** phase 2 (index, sitemap, site.config, home shelf, FIELD_NOTES_SPEC.md) is next in this session.
-**Needs the owner:** nothing new yet; see the phase 2 note when it lands.
+**Shipped:** a second content type. `/field-notes/` (index, one `.tool-card`
+per post, newest first) and `/field-notes/<slug>/` (the renderer). One JSON
+per post in `data/field-notes/`; `lib/fieldNotes.ts` types it, validates it
+at build, and reads plate sizes off disk. Eight block types, the complete
+set: prose, heading, terminal, paper, table, plate, figure, spec. Post 02,
+Local n8n, at `/field-notes/local-n8n/` with five plates. Registered as
+`site.fieldNotes` in `site.config.ts`; index and post in the sitemap; a
+"Field notes" shelf on the home page under Tools with one card linking to
+`/field-notes/`. `/* ---- field notes ---- */` in `globals.css` composed of
+existing tokens only; the `--paper-*`, `--hand` and `--noise` declarations
+moved from `.learn` to `.learn, .fn` (same values) so both sections share
+them. Rulebook at `docs/FIELD_NOTES_SPEC.md`, linked from `CONTEXT.md`.
+Commits `9294197` (phase 1) and this one (phase 2).
 
-## 2026-09-04 — Phone sign-in (OTP, no password) with codenames
+**Verified (spec §7):**
+- `npm run build` green; `out/field-notes/index.html` and
+  `out/field-notes/local-n8n/index.html` exist; sitemap lists both URLs;
+  home has the `/field-notes/` card.
+- Plates opened and looked at one by one before copying: `setup.jpg` (empty
+  owner-account form, no email), `trigger.jpg` (empty canvas, trigger list),
+  `edit-fields.jpg` (empty node panel), `execute.jpg` (node run, output
+  "Hello from n8n running on my Mac", success toast), `canvas.jpg` (two
+  nodes). No email, token, key, client name or private path in any.
+- Image weight: 172,302 bytes for five plates (canvas 41,301; trigger
+  45,417; execute 38,990; edit-fields 31,468; setup 15,126), under the
+  200,000-byte budget; widest 1400px; no data URIs in the output.
+- Invariants proved: unknown block type (`"specs"`), plate with no file on
+  disk, `verified` in the future each fail the build with a named error
+  (`data/field-notes: local-n8n: block 63 has unknown type "specs"; …`);
+  reverted, build green.
+- No new colour or font token: `git diff 36e8842..HEAD -- app/globals.css |
+  grep '^+' | grep -iE '#[0-9a-f]{3,8}\b|font-family:\s*"'` is empty, and
+  no `+ --name:` declaration appears in the diff. `app/layout.tsx`'s font
+  link is untouched (its only diff since the base is the AuthLink import
+  from the auth commit).
+- 1920px: header with kicker, title, dek, dates and the handwritten aside;
+  figure and plates on the blueprint ground with corner marks; terminal with
+  drawn `$` and `#` marks (not in the copied text); table; pinned paper;
+  spec strip with the stamp; sources. No console errors.
+- 390px (iframe emulation): post, index and home all have
+  `scrollWidth == 390`. Terminals (482/352, 410/352, 489/352), tables
+  (540/352) and the two figures (700/352) scroll inside their own boxes.
+  Aside stacks under the dates. All five plates load at 330px wide.
 
-**Shipped (code; not switched on until the owner adds keys):**
-- `/account/`: one flow for sign-in and sign-up. Phone number → six-digit SMS
-  code → in. A number not seen before becomes an account on its first good
-  code; first time in it is asked for an email. After that, phone + code only.
-  Resend with a 30s cooldown, "wrong number" back-step, masked phone,
-  sign out, session resumes on return. Page is `noindex`.
-- Header: "Sign in" link, which becomes the codename once signed in.
-- `data/codenames.json`: 100 assignable Batman-universe names in order
-  (Robin, Nightwing, Batgirl, Oracle, Red Hood, …, Gotham Girl) plus the four
-  reserved ones (Bruce Wayne, Bruce, Batman, Alfred) flagged
-  `reserved: true` so they are never handed out. `lib/codenames.ts` checks
-  the list at build time (positions in order, no duplicates, reserved names
-  present and flagged, at least 100 assignable).
-- `supabase/schema.sql` (generated from the JSON): `profiles` and
-  `codenames` tables, row-level security (a user reads only their own
-  profile and can change only its email; nobody can read `codenames` from
-  the browser), and a trigger on new auth users that claims the next free,
-  unreserved name with a row lock, falling back to "Gothamite N" when the
-  100 run out. `supabase/README.md` has the ten-minute setup.
-- `lib/supabase.ts`: browser client from `NEXT_PUBLIC_SUPABASE_URL` and
-  `NEXT_PUBLIC_SUPABASE_ANON_KEY`; with them absent the page says
-  "Not switched on". `.env.example` added; `.env*.local` ignored.
-- Dependency added: `@supabase/supabase-js` 2.115.0. The site stays a static
-  export; there is no server of ours and no secret in the repo.
+**Decisions made (the spec lets me):**
+- Paper `html` may use `<p>`: the post's paper blocks are several short
+  paragraphs. Everywhere else the allow-list is `strong em code a b i`.
+  The build refuses any other tag; the renderer strips again anyway.
+- Figure SVGs are checked at build (no script, `on*=`, `javascript:`,
+  `foreignObject`, or `http`/`data:` href) and then rendered inline.
+- The post's top-level `sources` field is not in the spec's field list but
+  is the site's standing principle (every claim carries a source). It is
+  optional, validated, and rendered as the existing `.srcs` strip.
+- The index card number is the kicker's number ("FIELD NOTES / 02" → 02),
+  so the Learning Map keeps 01 without being in this section.
+- Figures scroll sideways on phones (min 680px) rather than shrinking to
+  unreadable 4px text.
+- Plates are never upscaled: `setup.jpg` (540px) sits centred in its frame.
+- Image budget enforced at build as 200,000 bytes; max width 1400px.
+- The post page has no Newsletter block (spec §8); the index has the same
+  hidden-until-configured block as the other indexes.
 
-**Verified:** build green with and without keys; `/account/` renders at 390
-and 1920 with no console errors; with placeholder keys the phone form
-validates E.164, sends, and shows a readable error when the service cannot
-be reached; the clean build contains no placeholder URL. The OTP round trip
-itself cannot be tested without a project and an SMS provider.
-
-**Update, same day:** the header "Sign in" link now renders only when the
-Supabase keys are present at build time (owner's call: no button until it
-works). `/account/` is still built, unlinked and `noindex`.
-
-**Two rules this bends, on the owner's instruction (roadmap §0):**
-- §0.2 "no logins": there is now a login, on a third-party backend
-  (Supabase) rather than one of ours. Content is not gated.
-- §0.7 "Batman characters must not appear on the public site": the
-  codenames are Batman characters. Today they appear only to their owner
-  on `/account/`; nothing public shows them. If codenames are ever shown
-  publicly, that rule needs a decision.
+**Half-done:** nothing.
 
 **Needs the owner:**
-1. Create the Supabase project, enable Phone auth with an SMS provider
-   (Twilio or similar; per-SMS cost), run `supabase/schema.sql`, put the two
-   public keys in `.env.local` and Cloudflare Pages, redeploy. Steps in
-   `supabase/README.md`. I cannot create accounts or handle keys.
-2. Decide whether codenames may appear publicly (see the IP note above).
-3. Email is stored but not verified; say if you want a confirmation mail.
+- The URL is `/field-notes/<slug>/`. Nothing in the repo assumed another
+  path for writing (grepped for writing / notes / blog / posts). Once this is
+  shared it is expensive to move; say now if you want `/notes/` or
+  `/writing/`.
+- The home "Field notes" shelf carries one card linking to the section, as
+  asked, numbered 01 like the tools. If you would rather it list posts
+  directly, that is a two-line change.
+- `CONTEXT.md` still says "Live tools (2 of a planned 10)"; it is three.
+  Not mine to rewrite; flagging.
 
-**Next:** Tool 3 per `docs/ROADMAP.md`, or wiring the keys above.
+**Next:** Tool 3 per `docs/ROADMAP.md`. Post 03 costs one JSON file and a
+plate check, per `docs/FIELD_NOTES_SPEC.md`.
 
 ## 2026-09-04 — QA pass, phone and laptop, all tools
 

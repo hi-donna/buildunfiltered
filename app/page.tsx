@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
 import { site } from "@/site.config";
+import { fieldNotes } from "@/lib/fieldNotes";
 
 export const metadata: Metadata = {
   title: `${site.name} — ${site.tagline}`,
@@ -35,6 +36,20 @@ export default function Home() {
               </div>
             </a>
           ))}
+        </section>
+
+        <section className="shelf" aria-labelledby="notes-title">
+          <div className="shelf-head">
+            <h2 id="notes-title">Field notes</h2>
+            <span>{fieldNotes.length} {fieldNotes.length === 1 ? "post" : "posts"}</span>
+          </div>
+          <a className="tool-card" href={site.fieldNotes.href}>
+            <span className="tool-idx" aria-hidden="true">01</span>
+            <div className="tool-main">
+              <h3>{site.fieldNotes.name}</h3>
+              <p>{site.fieldNotes.blurb}</p>
+            </div>
+          </a>
         </section>
 
         <Newsletter />
