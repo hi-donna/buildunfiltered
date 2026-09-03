@@ -7,7 +7,7 @@
       "id": "tokens",
       "title": "Tokens",
       "level": "foundations",
-      "angle": 305,
+      "angle": 318,
       "explain": "A model never sees words. It sees tokens: chunks of text, usually three or four characters, cut by a fixed tokeniser before anything else happens. Every limit you will hit is counted in tokens. The context window, the bill, the rate limit, the max output. Two things bite builders. First, tokenisers are not shared, so a prompt that is 900 tokens on one vendor may be 1,200 on another. Second, code, numbers and non-English text tokenise badly, so they cost more and truncate sooner than the same amount of prose. Count before you ship.",
       "resources": [
         {
@@ -43,7 +43,7 @@
       "id": "next-token-prediction",
       "title": "Next-token prediction",
       "level": "foundations",
-      "angle": 55,
+      "angle": 50,
       "explain": "Every LLM does one thing: given the tokens so far, output a probability for each possible next token. Then it picks one, appends it, and does it again. That is the whole trick. Chat, code, tool calls, reasoning traces are all this loop wearing different clothes. It matters to you because it explains the failure modes. The model has no plan beyond the next token, no notion of true or false, and no way to say 'I don't know' unless that phrase happened to be the likeliest continuation. Once you see the loop, hallucination and sampling stop being mysteries.",
       "resources": [
         {
@@ -70,7 +70,7 @@
       "id": "embeddings",
       "title": "Embeddings",
       "level": "foundations",
-      "angle": 255,
+      "angle": 240,
       "explain": "An embedding is a list of numbers that stands in for a piece of text, an image, or anything else, placed so that similar things sit near each other. Distance becomes meaning. That single idea powers semantic search, recommendations, clustering, deduplication and RAG. You will use embeddings long before you train anything. The catch people miss: an embedding is only comparable to other embeddings from the same model. Change the model and every stored vector is worthless. Pick one, version it, and plan the re-index before you need it.",
       "resources": [
         {
@@ -97,7 +97,7 @@
       "id": "attention",
       "title": "Attention",
       "level": "foundations",
-      "angle": 225,
+      "angle": 215,
       "explain": "Attention is how a token looks at the other tokens in the context and decides which ones matter for predicting what comes next. Each token asks a question, every other token offers an answer, and the model weights them. It is the mechanism that lets 'it' in sentence twelve refer back to 'the invoice' in sentence one. You care because attention is why context windows are expensive: cost grows with the square of the length, and it is also why models lose track of things buried in the middle of long prompts.",
       "resources": [
         {
@@ -124,7 +124,7 @@
       "id": "transformers",
       "title": "Transformers",
       "level": "foundations",
-      "angle": 200,
+      "angle": 195,
       "explain": "The transformer is the architecture every current LLM is built on: stacked layers of attention and small feed-forward networks, run over all tokens at once. It replaced recurrent networks because it trains in parallel, which is what made scaling possible. You do not need to implement one to build on LLMs, but you should have seen the inside once. It makes the rest of this map legible: why there is a context window, why generation is sequential and slow while prompt processing is fast, and what quantisation is actually shrinking.",
       "resources": [
         {
@@ -151,7 +151,7 @@
       "id": "pretraining",
       "title": "Pretraining",
       "level": "foundations",
-      "angle": 170,
+      "angle": 160,
       "explain": "Pretraining is the expensive part: run next-token prediction over trillions of tokens of internet text until the model has compressed most of what is written down. The result is a base model. It completes text, it does not answer questions, and it will happily continue your prompt with a fake forum thread. Nobody reading this will pretrain a model. You still need the concept, because it tells you what the model knows (whatever was in the corpus, up to a cutoff) and why the knowledge is fuzzy, undated, and impossible to patch without another training run.",
       "resources": [
         {
@@ -178,7 +178,7 @@
       "id": "scaling-laws",
       "title": "Scaling laws",
       "level": "foundations",
-      "angle": 130,
+      "angle": 118,
       "explain": "Scaling laws are the empirical finding that model loss falls predictably as you add parameters, data and compute, and that the three trade off in a measurable way. This is why labs spend billions with a straight face: the return on the next order of magnitude was known before the cheque was written. For a builder it sets expectations. Capability jumps track compute, not cleverness, and the compute-optimal recipe changed once already (Chinchilla showed models were undertrained). Expect the frontier to keep moving and price your product on what the model does today, not what it might.",
       "resources": [
         {
@@ -205,7 +205,7 @@
       "id": "sampling",
       "title": "Sampling: temperature, top-p",
       "level": "core",
-      "angle": 30,
+      "angle": 38,
       "explain": "The model gives you a probability for every next token. Sampling is how you pick one. Temperature flattens or sharpens that distribution; top-p cuts off the unlikely tail. At temperature zero you get the single likeliest token every time, which is reproducible but not more correct. Builders get this wrong in both directions: shipping creative tasks at zero and getting the same dull sentence for every user, or leaving extraction tasks at the default and wondering why the JSON keys drift. Set it per call, on purpose, and never raise both knobs at once.",
       "resources": [
         {
@@ -232,7 +232,7 @@
       "id": "context-windows",
       "title": "Context windows",
       "level": "core",
-      "angle": 300,
+      "angle": 297,
       "explain": "The context window is everything the model can see on this call: system prompt, conversation so far, tool results, documents, and the answer it is writing. Nothing else exists to it. Bigger windows are sold as a feature, but two things stay true. Every token in the window is paid for on every call, so a long chat gets dearer with each turn. And models do not read the middle as well as the edges; a fact buried at token 40,000 is more likely to be missed than one at token 400. Design for what needs to be in context, not what could fit.",
       "resources": [
         {
@@ -259,7 +259,7 @@
       "id": "prompting",
       "title": "Prompting",
       "level": "core",
-      "angle": 100,
+      "angle": 95,
       "explain": "Prompting is writing the input so the likeliest continuation is the output you want. It is not magic words. It is being specific about the task, the format, the audience and the edge cases, giving an example or two, and putting the important instruction where the model will see it. Most 'the model is bad at X' complaints are prompts that would confuse a competent human too. The builder's discipline is to treat the prompt as code: version it, test it against a fixed set of inputs, and change one thing at a time.",
       "resources": [
         {
@@ -286,7 +286,7 @@
       "id": "post-training",
       "title": "Post-training: SFT + RLHF",
       "level": "core",
-      "angle": 190,
+      "angle": 180,
       "explain": "A base model completes text. Post-training turns it into something that answers you. First supervised fine-tuning on example conversations, then reinforcement learning from human (or AI) feedback that rewards answers people prefer. This stage is where the helpfulness, the refusals, the tone and the formatting habits come from. It is why two models with similar pretraining feel completely different to use. When a model is 'sycophantic' or over-hedges, that is post-training, and it means the behaviour is a choice the vendor made and can change between versions without telling you.",
       "resources": [
         {
@@ -313,7 +313,7 @@
       "id": "fine-tuning",
       "title": "Fine-tuning",
       "level": "core",
-      "angle": 215,
+      "angle": 212,
       "explain": "Fine-tuning continues training a model on your own examples so it learns a style, a format or a narrow task without being told every time. It is the right tool less often than people think. It does not teach facts reliably (use retrieval for that), it costs money to re-run when the base model changes, and it needs hundreds of clean examples you probably have not written yet. Try a better prompt and a few examples first. Fine-tune when the prompt is long, the task is repetitive, and you have measured that the prompt has plateaued.",
       "resources": [
         {
@@ -368,7 +368,7 @@
       "id": "inference-cost",
       "title": "Inference cost",
       "level": "core",
-      "angle": 340,
+      "angle": 342,
       "explain": "You pay per token, input and output priced separately, and output usually costs several times more. That is the whole pricing model, and it has consequences people only discover on the invoice. A chat app resends the entire history every turn, so cost grows with conversation length, not message count. Long documents in the prompt are paid for on every call unless cached. Reasoning models bill their hidden thinking as output. Before you pick a model, work out tokens per request and requests per day, and read the vendor's pricing page yourself. Prices change; do not trust a blog post.",
       "resources": [
         {
@@ -422,7 +422,7 @@
       "id": "vector-search",
       "title": "Vector search",
       "level": "applied",
-      "angle": 258,
+      "angle": 245,
       "explain": "Vector search finds the stored embeddings nearest to a query embedding. Exact nearest-neighbour over millions of vectors is too slow, so real systems use approximate indexes, most often HNSW, that trade a little recall for a lot of speed. You need this to build retrieval of any kind. The practical points: you almost certainly do not need a dedicated vector database at the start (Postgres with pgvector or SQLite handles a lot), metadata filtering is where most products differ, and 'approximate' means the right document is sometimes not in the top ten. Measure recall on your data.",
       "resources": [
         {
@@ -450,7 +450,7 @@
       "id": "rag",
       "title": "RAG",
       "level": "applied",
-      "angle": 278,
+      "angle": 285,
       "explain": "Retrieval-augmented generation: find the relevant documents first, put them in the context, then ask the model. It is how you get answers grounded in your data without training anything, and it is the default architecture for 'chat with our docs'. It is also where most LLM products quietly fail, because the model can only answer from what retrieval found. A bad chunk, a stale index, or a query that embeds differently from the passage means a confident wrong answer. RAG is a search problem wearing an LLM costume. Spend your effort on the search.",
       "resources": [
         {
@@ -478,7 +478,7 @@
       "id": "chunking",
       "title": "Chunking & retrieval quality",
       "level": "applied",
-      "angle": 298,
+      "angle": 305,
       "explain": "Documents are too long to embed whole, so you cut them into chunks. How you cut decides what retrieval can find. Cut too small and a chunk loses the sentence that gives it meaning; too large and the embedding averages away the detail. Fixed-size chunks with overlap are the sane default. Then measure: build a set of questions with known source passages and check recall at k. Most RAG debugging is chunking debugging, and you cannot debug what you do not measure. If you tune the prompt before you tune retrieval, you are polishing the wrong end.",
       "resources": [
         {
@@ -506,7 +506,7 @@
       "id": "tool-use",
       "title": "Tool use / function calling",
       "level": "applied",
-      "angle": 172,
+      "angle": 175,
       "explain": "Tool use lets the model ask your code to do something. You describe functions with a name, a description and a JSON schema; the model replies with a structured call instead of prose; you run it and hand the result back. The model never executes anything itself. This is how an LLM reads a database, sends an email or books a slot. Two builder truths: the description is a prompt, so write it like one, and the model will call tools with plausible but wrong arguments, so validate every input as if a stranger typed it.",
       "resources": [
         {
@@ -534,7 +534,7 @@
       "id": "agents",
       "title": "Agents",
       "level": "applied",
-      "angle": 128,
+      "angle": 125,
       "explain": "An agent is a loop: the model picks a tool, you run it, the result goes back into context, repeat until the model says it is done. That is all. The hard part is not the loop, it is that every iteration compounds error, cost and latency. A ten-step agent with a 95% per-step success rate finishes correctly about 60% of the time. Most products called agents should be workflows: fixed code paths with an LLM at one or two steps. Reach for a real agent only when the path genuinely cannot be known in advance, and cap the steps.",
       "resources": [
         {
@@ -562,7 +562,7 @@
       "id": "react",
       "title": "ReAct and agent loops",
       "level": "applied",
-      "angle": 105,
+      "angle": 100,
       "explain": "ReAct is the pattern of making the model write a short thought, then an action, then read the observation, and repeat. It came from a 2022 paper and it is the shape of nearly every agent loop since, including the ones inside coding assistants. You should implement it once by hand, in a few dozen lines, with no framework. Doing so shows you where the prompt goes, how tool results re-enter context, and why a loop with no termination condition will run until your budget is gone. After that, frameworks are a convenience, not a mystery.",
       "resources": [
         {
@@ -590,7 +590,7 @@
       "id": "memory",
       "title": "Memory",
       "level": "applied",
-      "angle": 232,
+      "angle": 235,
       "explain": "Models forget everything between calls. Memory is whatever you build to carry state across them: the conversation history you resend, a summary you maintain, notes the agent writes to files, or facts you retrieve when relevant. It is retrieval plus a write path. There is no built-in memory; anything a vendor calls memory is one of these under the hood. The design question is what to keep, what to summarise and what to drop, because the context window is finite and every remembered token is paid for on every turn. Start with a summary and a scratch file. Add retrieval when that fails.",
       "resources": [
         {
@@ -618,7 +618,7 @@
       "id": "evals",
       "title": "Evals",
       "level": "applied",
-      "angle": 55,
+      "angle": 52,
       "explain": "An eval is a fixed set of inputs with a way to score the outputs, run every time you change anything. Without one, every prompt tweak is a guess and every model upgrade is a gamble. Start small and cheap: assertions on a few dozen real examples, run in CI. Then add a step where a human or a model grades a sample of real traces. Only later, if ever, do A/B tests. The important habit is looking at your data. Most teams that say evals are hard have never read a hundred of their own outputs.",
       "resources": [
         {
@@ -646,7 +646,7 @@
       "id": "guardrails",
       "title": "Guardrails",
       "level": "applied",
-      "angle": 80,
+      "angle": 72,
       "explain": "Guardrails are the checks around the model: on the way in (prompt injection, off-topic, personal data), on the way out (unsafe content, leaked secrets, broken format), and on actions (may this tool be called with these arguments). The model cannot be trusted to police itself, because anything in its context is an instruction to it, including a web page it just fetched. Treat model output as untrusted input to the rest of your system. Most guardrails are ordinary code: allow-lists, schemas, rate limits, permissions. The LLM-based ones are a layer on top, not a replacement.",
       "resources": [
         {
@@ -674,7 +674,7 @@
       "id": "mcp",
       "title": "MCP",
       "level": "applied",
-      "angle": 150,
+      "angle": 148,
       "explain": "The Model Context Protocol is a standard for how an AI application discovers and calls tools, so a tool server written once works in any client that speaks it. It is function calling with a plug. For a builder that means you can wire an existing server for GitHub, Postgres or Slack into your agent without writing the integration, and you can publish one server instead of one per client. The security model is thin by default: a server gets whatever access its credentials have. Our MCP Connect tool at /tools/mcp/ lists 57 targets and exactly what each server can read, write and delete.",
       "resources": [
         {
@@ -702,7 +702,7 @@
       "id": "prompt-caching",
       "title": "Prompt caching",
       "level": "applied",
-      "angle": 325,
+      "angle": 335,
       "explain": "If the start of your prompt is the same across calls (a long system prompt, a document, a tool list), the vendor can cache the processed prefix and charge you a fraction for reading it back. This is the single cheapest cost cut available, often the difference between a viable product and not. It only works on an exact prefix match, so put the stable content first and the changing content last, and do not put a timestamp at the top. Caches expire in minutes. Structure the prompt for it from day one; retrofitting means rewriting.",
       "resources": [
         {
@@ -730,7 +730,7 @@
       "id": "lora",
       "title": "LoRA & parameter-efficient tuning",
       "level": "frontier",
-      "angle": 205,
+      "angle": 210,
       "explain": "Full fine-tuning updates every weight and needs the memory to hold them all plus their gradients. LoRA freezes the model and trains small low-rank matrices alongside a few layers instead. The adapter is a few megabytes, trains on one GPU, and can be swapped in and out at runtime. This is what makes fine-tuning open-weights models practical for a small team. Quality is close to full fine-tuning for most style and format tasks. Combined with a quantised base model (QLoRA) it fits on consumer hardware. Learn this before renting a cluster.",
       "resources": [
         {
@@ -786,7 +786,7 @@
       "id": "local-models",
       "title": "Local models",
       "level": "frontier",
-      "angle": 15,
+      "angle": 5,
       "explain": "Running an open-weights model on your own machine or server. No per-token bill, no data leaving the building, no vendor deprecating your model. The tools have matured: Ollama pulls and runs a model in one command, llama.cpp runs underneath it and on almost any hardware. The cost moves from the invoice to your time and your GPU. Local models are smaller and weaker than the frontier, so they suit narrow, high-volume or private tasks rather than general assistants. Check the licence before you ship one; open weights is not the same as free to use commercially.",
       "resources": [
         {
@@ -842,7 +842,7 @@
       "id": "multimodal",
       "title": "Multimodal models",
       "level": "frontier",
-      "angle": 245,
+      "angle": 250,
       "explain": "A multimodal model takes images (and increasingly audio and video) alongside text. The trick underneath is the same one as embeddings: map pixels into the same vector space as tokens, then let the transformer attend across both. CLIP showed the shared space in 2021; current models fold it into the language model directly. For builders it means screenshots, receipts, charts and forms are inputs now, without a separate OCR pipeline. Images are billed as tokens, and a large one costs more than a page of prose. Resize before you send.",
       "resources": [
         {
@@ -875,7 +875,6 @@
     { "from": "next-token-prediction", "to": "transformers" },
     { "from": "transformers", "to": "pretraining" },
     { "from": "pretraining", "to": "scaling-laws" },
-
     { "from": "next-token-prediction", "to": "sampling" },
     { "from": "tokens", "to": "context-windows" },
     { "from": "transformers", "to": "context-windows" },
@@ -887,7 +886,6 @@
     { "from": "tokens", "to": "inference-cost" },
     { "from": "context-windows", "to": "inference-cost" },
     { "from": "next-token-prediction", "to": "hallucination" },
-
     { "from": "embeddings", "to": "vector-search" },
     { "from": "vector-search", "to": "rag" },
     { "from": "context-windows", "to": "rag" },
@@ -903,7 +901,6 @@
     { "from": "agents", "to": "guardrails" },
     { "from": "tool-use", "to": "mcp" },
     { "from": "inference-cost", "to": "prompt-caching" },
-
     { "from": "fine-tuning", "to": "lora" },
     { "from": "inference-cost", "to": "quantisation" },
     { "from": "transformers", "to": "quantisation" },

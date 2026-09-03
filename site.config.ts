@@ -18,5 +18,7 @@ export const site = {
       blurb: "Which AI tool to use for the job you actually have.", status: "live" },
     { slug: "mcp", name: "MCP Connect",
       blurb: "Which MCP server to use, and what it gets access to.", status: "live" },
+    { slug: "learn", name: "Learning Map",
+      blurb: "31 things to understand before you build on an LLM, in the order they depend on each other.", status: "live" },
   ] as { slug: string; name: string; href?: string; blurb: string; status: "live" | "building" | "planned" }[],
 };

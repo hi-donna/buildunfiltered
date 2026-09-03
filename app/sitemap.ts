@@ -15,5 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
     { url: `${site.url}/tools/mcp/`, priority: 0.9 },
     ...mcpTargets.map((t) => ({ url: `${site.url}/tools/mcp/${t.id}/`, priority: 0.8 })),
+    { url: `${site.url}/tools/learn/`, priority: 0.9 },
   ];
 }
