@@ -1,5 +1,12 @@
 # Status
 
+## 2026-09-04 — Learning Map, phase 1 (data)
+
+**Data:** `data/learn.json` written to spec §4: 31 nodes, 41 edges, 61 distinct resource URLs, all opened on 2026-09-04 and confirmed to be what the entry says (scripted: 61/61 return 200). `lib/learn.ts` enforces the §7 invariants; a broken edge fails `npm run build` (tested, reverted).
+**Edge count:** the spec says 45 but its §5 prerequisite table yields 41. No edges were invented; the table is the source of truth. Owner to confirm.
+**Leads replaced (2, both confident):** OpenAI "Why language models hallucinate" → the same authors' arXiv paper 2509.04664 (openai.com blocks automated reads). OpenAI fine-tuning guide → Hugging Face TRL SFT Trainer docs (OpenAI's own docs say its fine-tuning platform is winding down and closed to new users). Vendor docs URLs recorded at their final redirect targets (platform.claude.com, developers.openai.com).
+**Not done yet:** renderer, page, list, CSS, site.config, sitemap (phase 2 next).
+
 ## 2026-09-03 — MCP Connect shipped
 
 **Shipped:** Tool 2, MCP Connect, live at `/tools/mcp/` (commit `32ebeb9`).

@@ -1,0 +1,921 @@
+{
+  "version": 1,
+  "generated": "2026-09-04",
+  "start": "tokens",
+  "nodes": [
+    {
+      "id": "tokens",
+      "title": "Tokens",
+      "level": "foundations",
+      "angle": 305,
+      "explain": "A model never sees words. It sees tokens: chunks of text, usually three or four characters, cut by a fixed tokeniser before anything else happens. Every limit you will hit is counted in tokens. The context window, the bill, the rate limit, the max output. Two things bite builders. First, tokenisers are not shared, so a prompt that is 900 tokens on one vendor may be 1,200 on another. Second, code, numbers and non-English text tokenise badly, so they cost more and truncate sooner than the same amount of prose. Count before you ship.",
+      "resources": [
+        {
+          "title": "Let's build the GPT Tokenizer",
+          "url": "https://www.youtube.com/watch?v=zduSFxRajkE",
+          "type": "video",
+          "author": "Andrej Karpathy",
+          "length": "2h 13m",
+          "why_this_one": "He builds byte-pair encoding from nothing. After this you understand why 'strawberry' has three r's the model can't see. Long, but there is no shorter version that leaves you actually knowing it.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Tokenizers (LLM Course, chapter 2)",
+          "url": "https://huggingface.co/learn/llm-course/chapter2/4",
+          "type": "course",
+          "author": "Hugging Face",
+          "length": "~15 min read",
+          "why_this_one": "The short version: word, character and subword tokenisers, and why everyone settled on subword. Read this first if two hours is too many.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Token counting",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/token-counting",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~5 min read",
+          "why_this_one": "How to count before you send. It also states plainly that newer Claude models use a different tokeniser that produces more tokens for the same text, which is the whole point about tokenisers not being shared.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "next-token-prediction",
+      "title": "Next-token prediction",
+      "level": "foundations",
+      "angle": 55,
+      "explain": "Every LLM does one thing: given the tokens so far, output a probability for each possible next token. Then it picks one, appends it, and does it again. That is the whole trick. Chat, code, tool calls, reasoning traces are all this loop wearing different clothes. It matters to you because it explains the failure modes. The model has no plan beyond the next token, no notion of true or false, and no way to say 'I don't know' unless that phrase happened to be the likeliest continuation. Once you see the loop, hallucination and sampling stop being mysteries.",
+      "resources": [
+        {
+          "title": "[1hr Talk] Intro to Large Language Models",
+          "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+          "type": "video",
+          "author": "Andrej Karpathy",
+          "length": "59m 48s",
+          "why_this_one": "The one talk to send someone who has never opened a paper. Covers what a model file actually is, how it was trained, and what next-token prediction buys you.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5",
+          "url": "https://www.youtube.com/watch?v=wjZofJX0v4M",
+          "type": "video",
+          "author": "3Blue1Brown",
+          "length": "27m 14s",
+          "why_this_one": "Formerly titled 'But what is a GPT?'. The clearest picture of tokens becoming vectors becoming a probability over the next token. Watch before the attention video.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "embeddings",
+      "title": "Embeddings",
+      "level": "foundations",
+      "angle": 255,
+      "explain": "An embedding is a list of numbers that stands in for a piece of text, an image, or anything else, placed so that similar things sit near each other. Distance becomes meaning. That single idea powers semantic search, recommendations, clustering, deduplication and RAG. You will use embeddings long before you train anything. The catch people miss: an embedding is only comparable to other embeddings from the same model. Change the model and every stored vector is worthless. Pick one, version it, and plan the re-index before you need it.",
+      "resources": [
+        {
+          "title": "Embeddings: What they are and why they matter",
+          "url": "https://simonwillison.net/2023/Oct/23/embeddings/",
+          "type": "post",
+          "author": "Simon Willison",
+          "length": "~30 min read",
+          "why_this_one": "Written by someone who built search over his own site with them. Practical from the first paragraph, and the related-content and RAG sections are exactly what a builder does next.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "The Illustrated Word2vec",
+          "url": "https://jalammar.github.io/illustrated-word2vec/",
+          "type": "post",
+          "author": "Jay Alammar",
+          "length": "~25 min read",
+          "why_this_one": "Where the idea came from, with pictures. Word2vec is old, but the intuition about vectors and analogies is the same one modern embedding models rely on.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "attention",
+      "title": "Attention",
+      "level": "foundations",
+      "angle": 225,
+      "explain": "Attention is how a token looks at the other tokens in the context and decides which ones matter for predicting what comes next. Each token asks a question, every other token offers an answer, and the model weights them. It is the mechanism that lets 'it' in sentence twelve refer back to 'the invoice' in sentence one. You care because attention is why context windows are expensive: cost grows with the square of the length, and it is also why models lose track of things buried in the middle of long prompts.",
+      "resources": [
+        {
+          "title": "Attention in transformers, step-by-step | Deep Learning Chapter 6",
+          "url": "https://www.youtube.com/watch?v=eMlx5fFNoYc",
+          "type": "video",
+          "author": "3Blue1Brown",
+          "length": "26m 09s",
+          "why_this_one": "Queries, keys and values drawn as what they are. The best 26 minutes on the subject. Watch chapter 5 first.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762",
+          "type": "paper",
+          "author": "Vaswani et al. (Google)",
+          "length": "15 pages",
+          "why_this_one": "The paper that introduced the transformer. Read section 3 and figure 1; skip the translation benchmarks. Short for a paper this important.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "transformers",
+      "title": "Transformers",
+      "level": "foundations",
+      "angle": 200,
+      "explain": "The transformer is the architecture every current LLM is built on: stacked layers of attention and small feed-forward networks, run over all tokens at once. It replaced recurrent networks because it trains in parallel, which is what made scaling possible. You do not need to implement one to build on LLMs, but you should have seen the inside once. It makes the rest of this map legible: why there is a context window, why generation is sequential and slow while prompt processing is fast, and what quantisation is actually shrinking.",
+      "resources": [
+        {
+          "title": "Let's build GPT: from scratch, in code, spelled out.",
+          "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+          "type": "video",
+          "author": "Andrej Karpathy",
+          "length": "1h 56m",
+          "why_this_one": "A working GPT in about a hundred lines of PyTorch, written live. The single best investment of two hours on this map.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "The Illustrated Transformer",
+          "url": "https://jalammar.github.io/illustrated-transformer/",
+          "type": "post",
+          "author": "Jay Alammar",
+          "length": "~30 min read",
+          "why_this_one": "The diagrams everyone else copies. Read it if you want the architecture without the code.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "pretraining",
+      "title": "Pretraining",
+      "level": "foundations",
+      "angle": 170,
+      "explain": "Pretraining is the expensive part: run next-token prediction over trillions of tokens of internet text until the model has compressed most of what is written down. The result is a base model. It completes text, it does not answer questions, and it will happily continue your prompt with a fake forum thread. Nobody reading this will pretrain a model. You still need the concept, because it tells you what the model knows (whatever was in the corpus, up to a cutoff) and why the knowledge is fuzzy, undated, and impossible to patch without another training run.",
+      "resources": [
+        {
+          "title": "Neural Networks: Zero To Hero",
+          "url": "https://karpathy.ai/zero-to-hero.html",
+          "type": "course",
+          "author": "Andrej Karpathy",
+          "length": "8 lectures, ~12h",
+          "why_this_one": "The course. From backpropagation by hand to a trained GPT. Do not try to finish it in a week; do the first four and the GPT one.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Deep Dive into LLMs like ChatGPT",
+          "url": "https://www.youtube.com/watch?v=7xTGNNLPyMI",
+          "type": "video",
+          "author": "Andrej Karpathy",
+          "length": "3h 31m",
+          "why_this_one": "The full pipeline from raw web crawl to chat model, including what the data looks like and why base models behave the way they do. Long. Worth it.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "scaling-laws",
+      "title": "Scaling laws",
+      "level": "foundations",
+      "angle": 130,
+      "explain": "Scaling laws are the empirical finding that model loss falls predictably as you add parameters, data and compute, and that the three trade off in a measurable way. This is why labs spend billions with a straight face: the return on the next order of magnitude was known before the cheque was written. For a builder it sets expectations. Capability jumps track compute, not cleverness, and the compute-optimal recipe changed once already (Chinchilla showed models were undertrained). Expect the frontier to keep moving and price your product on what the model does today, not what it might.",
+      "resources": [
+        {
+          "title": "Scaling Laws for Neural Language Models",
+          "url": "https://arxiv.org/abs/2001.08361",
+          "type": "paper",
+          "author": "Kaplan et al. (OpenAI)",
+          "length": "19 pages",
+          "why_this_one": "The original. Read the introduction and the summary figures; the power laws are the whole message.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Training Compute-Optimal Large Language Models",
+          "url": "https://arxiv.org/abs/2203.15556",
+          "type": "paper",
+          "author": "Hoffmann et al. (DeepMind)",
+          "length": "~36 pages",
+          "why_this_one": "The Chinchilla paper. It corrected Kaplan: for a fixed budget, use a smaller model and far more data. Explains why capable small models exist.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "sampling",
+      "title": "Sampling: temperature, top-p",
+      "level": "core",
+      "angle": 30,
+      "explain": "The model gives you a probability for every next token. Sampling is how you pick one. Temperature flattens or sharpens that distribution; top-p cuts off the unlikely tail. At temperature zero you get the single likeliest token every time, which is reproducible but not more correct. Builders get this wrong in both directions: shipping creative tasks at zero and getting the same dull sentence for every user, or leaving extraction tasks at the default and wondering why the JSON keys drift. Set it per call, on purpose, and never raise both knobs at once.",
+      "resources": [
+        {
+          "title": "How to generate text: using different decoding methods for language generation with Transformers",
+          "url": "https://huggingface.co/blog/how-to-generate",
+          "type": "post",
+          "author": "Patrick von Platen (Hugging Face)",
+          "length": "~20 min read",
+          "why_this_one": "Greedy, beam, top-k, top-p and temperature, each with runnable code and the output it produces. Still the reference walkthrough.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Reasoning models",
+          "url": "https://developers.openai.com/api/docs/guides/reasoning",
+          "type": "docs",
+          "author": "OpenAI",
+          "length": "~10 min read",
+          "why_this_one": "Included here for one reason: it documents that reasoning models ignore or restrict the sampling parameters you have just learnt. Know which models still honour temperature before you set it.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "context-windows",
+      "title": "Context windows",
+      "level": "core",
+      "angle": 300,
+      "explain": "The context window is everything the model can see on this call: system prompt, conversation so far, tool results, documents, and the answer it is writing. Nothing else exists to it. Bigger windows are sold as a feature, but two things stay true. Every token in the window is paid for on every call, so a long chat gets dearer with each turn. And models do not read the middle as well as the edges; a fact buried at token 40,000 is more likely to be missed than one at token 400. Design for what needs to be in context, not what could fit.",
+      "resources": [
+        {
+          "title": "Lost in the Middle: How Language Models Use Long Contexts",
+          "url": "https://arxiv.org/abs/2307.03172",
+          "type": "paper",
+          "author": "Liu et al. (Stanford)",
+          "length": "18 pages",
+          "why_this_one": "The paper that measured the U-shaped curve: accuracy is highest for information at the start and end of the context and drops in the middle. Read section 2 and figure 1.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Context windows",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~10 min read",
+          "why_this_one": "What actually counts toward the window, including thinking tokens and tool definitions, and what happens when you overflow it. Vendor-specific, but the accounting is the same everywhere.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "prompting",
+      "title": "Prompting",
+      "level": "core",
+      "angle": 100,
+      "explain": "Prompting is writing the input so the likeliest continuation is the output you want. It is not magic words. It is being specific about the task, the format, the audience and the edge cases, giving an example or two, and putting the important instruction where the model will see it. Most 'the model is bad at X' complaints are prompts that would confuse a competent human too. The builder's discipline is to treat the prompt as code: version it, test it against a fixed set of inputs, and change one thing at a time.",
+      "resources": [
+        {
+          "title": "Prompt engineering overview",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~5 min read, then follow the links",
+          "why_this_one": "Starts with the right question: do you have success criteria and a way to test them? Then links to the techniques. Read the best-practices page it points to.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Prompt engineering",
+          "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+          "type": "docs",
+          "author": "OpenAI",
+          "length": "~15 min read",
+          "why_this_one": "Message roles, structure, examples, and the advice to keep prompts in version control. Read both vendors' pages; the overlap is what is actually true.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "post-training",
+      "title": "Post-training: SFT + RLHF",
+      "level": "core",
+      "angle": 190,
+      "explain": "A base model completes text. Post-training turns it into something that answers you. First supervised fine-tuning on example conversations, then reinforcement learning from human (or AI) feedback that rewards answers people prefer. This stage is where the helpfulness, the refusals, the tone and the formatting habits come from. It is why two models with similar pretraining feel completely different to use. When a model is 'sycophantic' or over-hedges, that is post-training, and it means the behaviour is a choice the vendor made and can change between versions without telling you.",
+      "resources": [
+        {
+          "title": "Training language models to follow instructions with human feedback",
+          "url": "https://arxiv.org/abs/2203.02155",
+          "type": "paper",
+          "author": "Ouyang et al. (OpenAI)",
+          "length": "~68 pages",
+          "why_this_one": "The InstructGPT paper: the recipe that made GPT-3 usable. Read sections 1 to 3 and figure 2; the appendices are labelling guidelines you can skip.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Constitutional AI: Harmlessness from AI Feedback",
+          "url": "https://arxiv.org/abs/2212.08073",
+          "type": "paper",
+          "author": "Bai et al. (Anthropic)",
+          "length": "~34 pages",
+          "why_this_one": "How to replace most human labelling with a written set of principles and a model critiquing itself. Read section 1 and the diagram. Explains where refusals come from.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "fine-tuning",
+      "title": "Fine-tuning",
+      "level": "core",
+      "angle": 215,
+      "explain": "Fine-tuning continues training a model on your own examples so it learns a style, a format or a narrow task without being told every time. It is the right tool less often than people think. It does not teach facts reliably (use retrieval for that), it costs money to re-run when the base model changes, and it needs hundreds of clean examples you probably have not written yet. Try a better prompt and a few examples first. Fine-tune when the prompt is long, the task is repetitive, and you have measured that the prompt has plateaued.",
+      "resources": [
+        {
+          "title": "Finetuning Large Language Models",
+          "url": "https://magazine.sebastianraschka.com/p/finetuning-large-language-models",
+          "type": "post",
+          "author": "Sebastian Raschka",
+          "length": "~20 min read",
+          "why_this_one": "Lays out every option from in-context learning to full fine-tuning, with numbers from his own experiments. Read this to decide whether you need to fine-tune at all.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "SFT Trainer",
+          "url": "https://huggingface.co/docs/trl/sft_trainer",
+          "type": "docs",
+          "author": "Hugging Face (TRL)",
+          "length": "~20 min read",
+          "why_this_one": "The library most open-weights fine-tuning runs through. Shows the dataset formats and a training loop in a dozen lines. Chosen over a vendor guide because vendor fine-tuning products come and go.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "Hosted fine-tuning is a product, not a capability: OpenAI's docs now say its fine-tuning platform is winding down and closed to new users, so a fine-tune you cannot re-run on open weights is a dependency you do not control."
+    },
+    {
+      "id": "structured-output",
+      "title": "Structured output",
+      "level": "core",
+      "angle": 150,
+      "explain": "Structured output means getting JSON (or another schema) back that your code can parse without a regex and a prayer. Every vendor now offers some form of it: a JSON mode, a schema you pass in, or a forced tool call whose arguments are the structure you want. Use the strict schema option where it exists; plain 'reply in JSON' still returns prose around the braces one call in fifty. This is the bridge from chat to software. Once the model returns a typed object, it can drive a function, and that is where tool use and agents begin.",
+      "resources": [
+        {
+          "title": "Tool use with Claude",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~15 min read",
+          "why_this_one": "Anthropic's route to guaranteed structure is a tool with a JSON schema and strict mode. This page shows the round trip and where strict schema conformance is switched on.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Structured model outputs",
+          "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+          "type": "docs",
+          "author": "OpenAI",
+          "length": "~15 min read",
+          "why_this_one": "Explains the difference between JSON mode (valid JSON) and structured outputs (matches your schema). That distinction is the one people trip on.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "inference-cost",
+      "title": "Inference cost",
+      "level": "core",
+      "angle": 340,
+      "explain": "You pay per token, input and output priced separately, and output usually costs several times more. That is the whole pricing model, and it has consequences people only discover on the invoice. A chat app resends the entire history every turn, so cost grows with conversation length, not message count. Long documents in the prompt are paid for on every call unless cached. Reasoning models bill their hidden thinking as output. Before you pick a model, work out tokens per request and requests per day, and read the vendor's pricing page yourself. Prices change; do not trust a blog post.",
+      "resources": [
+        {
+          "title": "Pricing",
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~10 min read",
+          "why_this_one": "A complete vendor pricing page: per-model input and output rates, cache write and read multipliers, batch discount, and per-tool charges. Read the structure, not the numbers; the numbers will have moved by the time you read this.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Transformer Inference Arithmetic",
+          "url": "https://kipp.ly/transformer-inference-arithmetic/",
+          "type": "post",
+          "author": "kipply",
+          "length": "~40 min read",
+          "why_this_one": "Why generation is memory-bandwidth bound, what the KV cache costs, and how latency and throughput trade off. The post behind every 'tokens per second' number you will ever be quoted.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "hallucination",
+      "title": "Hallucination",
+      "level": "core",
+      "angle": 70,
+      "explain": "A hallucination is fluent, confident output that is false: a citation that does not exist, an API parameter that was never there, a date that is wrong. It is not a bug to be patched. It falls out of next-token prediction: the model is rewarded for a plausible continuation, and 'I don't know' is rarely the most plausible one. You reduce it, you do not remove it. Give the model the facts in context, ask for citations you can check, use a schema so it cannot invent fields, and evaluate on the cases where you know the truth. Never ship an LLM answer as a fact without a source.",
+      "resources": [
+        {
+          "title": "Why Language Models Hallucinate",
+          "url": "https://arxiv.org/abs/2509.04664",
+          "type": "paper",
+          "author": "Kalai, Nachum, Vempala, Zhang (OpenAI)",
+          "length": "~36 pages",
+          "why_this_one": "The argument that hallucination is a statistical consequence of training and of benchmarks that reward guessing over abstaining. Read the introduction; that is where the argument lives.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions",
+          "url": "https://arxiv.org/abs/2311.05232",
+          "type": "paper",
+          "author": "Huang et al.",
+          "length": "~58 pages",
+          "why_this_one": "The taxonomy: factual versus faithfulness hallucination, causes at each stage, and the detection and mitigation methods. Use the table of contents; do not read it front to back.",
+          "last_verified": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "vector-search",
+      "title": "Vector search",
+      "level": "applied",
+      "angle": 258,
+      "explain": "Vector search finds the stored embeddings nearest to a query embedding. Exact nearest-neighbour over millions of vectors is too slow, so real systems use approximate indexes, most often HNSW, that trade a little recall for a lot of speed. You need this to build retrieval of any kind. The practical points: you almost certainly do not need a dedicated vector database at the start (Postgres with pgvector or SQLite handles a lot), metadata filtering is where most products differ, and 'approximate' means the right document is sometimes not in the top ten. Measure recall on your data.",
+      "resources": [
+        {
+          "title": "Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs",
+          "url": "https://arxiv.org/abs/1603.09320",
+          "type": "paper",
+          "author": "Malkov & Yashunin",
+          "length": "13 pages",
+          "why_this_one": "HNSW, the index inside nearly every vector store. Read section 3 for the layered graph idea; the intuition is enough to tune the parameters later.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "What is a Vector Database & How Does it Work? Use Cases + Examples",
+          "url": "https://www.pinecone.io/learn/vector-database/",
+          "type": "post",
+          "author": "Roie Schwaber-Cohen (Pinecone)",
+          "length": "~20 min read",
+          "why_this_one": "Vendor-written but genuinely explanatory: the index types, filtering, and what a vector database adds over an index. Discount the parts that argue you need their product.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "Approximate search silently misses: the document you needed can be absent from the top-k with no error, and you will only find out by measuring recall against a labelled set."
+    },
+    {
+      "id": "rag",
+      "title": "RAG",
+      "level": "applied",
+      "angle": 278,
+      "explain": "Retrieval-augmented generation: find the relevant documents first, put them in the context, then ask the model. It is how you get answers grounded in your data without training anything, and it is the default architecture for 'chat with our docs'. It is also where most LLM products quietly fail, because the model can only answer from what retrieval found. A bad chunk, a stale index, or a query that embeds differently from the passage means a confident wrong answer. RAG is a search problem wearing an LLM costume. Spend your effort on the search.",
+      "resources": [
+        {
+          "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+          "url": "https://arxiv.org/abs/2005.11401",
+          "type": "paper",
+          "author": "Lewis et al. (Meta AI)",
+          "length": "~19 pages",
+          "why_this_one": "The paper that named it. Read section 2 only; the rest is 2020 benchmarks.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Introducing Contextual Retrieval",
+          "url": "https://www.anthropic.com/engineering/contextual-retrieval",
+          "type": "post",
+          "author": "Anthropic",
+          "length": "~15 min read",
+          "why_this_one": "A concrete, measured improvement: prepend chunk-specific context before embedding, combine with BM25, rerank. Vendor claims a large reduction in retrieval failures on its own benchmark. The recipe is reusable with any model.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "When retrieval misses, the model does not say so; it answers from whatever came back, so a RAG system with no retrieval evals is a hallucination generator with extra steps."
+    },
+    {
+      "id": "chunking",
+      "title": "Chunking & retrieval quality",
+      "level": "applied",
+      "angle": 298,
+      "explain": "Documents are too long to embed whole, so you cut them into chunks. How you cut decides what retrieval can find. Cut too small and a chunk loses the sentence that gives it meaning; too large and the embedding averages away the detail. Fixed-size chunks with overlap are the sane default. Then measure: build a set of questions with known source passages and check recall at k. Most RAG debugging is chunking debugging, and you cannot debug what you do not measure. If you tune the prompt before you tune retrieval, you are polishing the wrong end.",
+      "resources": [
+        {
+          "title": "Chunking Strategies for LLM Applications",
+          "url": "https://www.pinecone.io/learn/chunking-strategies/",
+          "type": "post",
+          "author": "Roie Schwaber-Cohen, Arjun Patel (Pinecone)",
+          "length": "~15 min read",
+          "why_this_one": "Fixed-size, recursive, document-structure, semantic and contextual chunking, with the honest advice to start with fixed-size. The one page to read before writing a splitter.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Evaluation Measures in Information Retrieval",
+          "url": "https://www.pinecone.io/learn/offline-evaluation/",
+          "type": "post",
+          "author": "Laura Carnevali (Pinecone)",
+          "length": "~20 min read",
+          "why_this_one": "Recall@k, MRR, MAP and NDCG with worked examples and Python. These are the numbers that tell you whether your chunking change helped.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "Every chunking change invalidates the whole index, so re-embedding is a cost you pay each time you experiment; budget for it or you will stop experimenting."
+    },
+    {
+      "id": "tool-use",
+      "title": "Tool use / function calling",
+      "level": "applied",
+      "angle": 172,
+      "explain": "Tool use lets the model ask your code to do something. You describe functions with a name, a description and a JSON schema; the model replies with a structured call instead of prose; you run it and hand the result back. The model never executes anything itself. This is how an LLM reads a database, sends an email or books a slot. Two builder truths: the description is a prompt, so write it like one, and the model will call tools with plausible but wrong arguments, so validate every input as if a stranger typed it.",
+      "resources": [
+        {
+          "title": "Tool use with Claude",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~15 min read",
+          "why_this_one": "The full round trip in one page: define, receive the call, execute, return the result. Also shows how to force a tool call and how to guarantee the schema.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Function calling",
+          "url": "https://developers.openai.com/api/docs/guides/function-calling",
+          "type": "docs",
+          "author": "OpenAI",
+          "length": "~15 min read",
+          "why_this_one": "Same idea, other vendor. Read both and notice that the shape is identical; that shared shape is what MCP standardises.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "The model chooses when to call a tool, so a tool that can delete or pay is a tool that will eventually be called wrongly; permissions belong in your code, not in the prompt."
+    },
+    {
+      "id": "agents",
+      "title": "Agents",
+      "level": "applied",
+      "angle": 128,
+      "explain": "An agent is a loop: the model picks a tool, you run it, the result goes back into context, repeat until the model says it is done. That is all. The hard part is not the loop, it is that every iteration compounds error, cost and latency. A ten-step agent with a 95% per-step success rate finishes correctly about 60% of the time. Most products called agents should be workflows: fixed code paths with an LLM at one or two steps. Reach for a real agent only when the path genuinely cannot be known in advance, and cap the steps.",
+      "resources": [
+        {
+          "title": "Building Effective AI Agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents",
+          "type": "post",
+          "author": "Erik Schluntz, Barry Zhang (Anthropic)",
+          "length": "~20 min read",
+          "why_this_one": "Draws the line between workflows and agents and names five workflow patterns to try first. The most-cited practical piece on the subject, and it argues for less autonomy, not more.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "LLM Powered Autonomous Agents",
+          "url": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+          "type": "post",
+          "author": "Lilian Weng",
+          "length": "31 min read",
+          "why_this_one": "Planning, memory, tool use: the three-part framing everyone still uses, with the research behind each. Dated in its examples, current in its structure.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "Cost and failure compound per step, so an agent that works in the demo will, in production, sometimes loop forty times and bill you for it; put a hard step limit and a budget on every run."
+    },
+    {
+      "id": "react",
+      "title": "ReAct and agent loops",
+      "level": "applied",
+      "angle": 105,
+      "explain": "ReAct is the pattern of making the model write a short thought, then an action, then read the observation, and repeat. It came from a 2022 paper and it is the shape of nearly every agent loop since, including the ones inside coding assistants. You should implement it once by hand, in a few dozen lines, with no framework. Doing so shows you where the prompt goes, how tool results re-enter context, and why a loop with no termination condition will run until your budget is gone. After that, frameworks are a convenience, not a mystery.",
+      "resources": [
+        {
+          "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+          "url": "https://arxiv.org/abs/2210.03629",
+          "type": "paper",
+          "author": "Yao et al. (Princeton, Google)",
+          "length": "~33 pages",
+          "why_this_one": "The paper. Read section 2 and the worked examples in the appendix; the trajectory transcripts teach more than the benchmark tables.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "A simple Python implementation of the ReAct pattern for LLMs",
+          "url": "https://til.simonwillison.net/llms/python-react-pattern",
+          "type": "post",
+          "author": "Simon Willison",
+          "length": "~10 min read",
+          "why_this_one": "The whole loop in a few dozen lines with no library. Type it out yourself; it is the fastest way to stop being afraid of agents.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "The loop has no natural end, so without a max-iterations guard and a stop condition you have written a machine for spending money."
+    },
+    {
+      "id": "memory",
+      "title": "Memory",
+      "level": "applied",
+      "angle": 232,
+      "explain": "Models forget everything between calls. Memory is whatever you build to carry state across them: the conversation history you resend, a summary you maintain, notes the agent writes to files, or facts you retrieve when relevant. It is retrieval plus a write path. There is no built-in memory; anything a vendor calls memory is one of these under the hood. The design question is what to keep, what to summarise and what to drop, because the context window is finite and every remembered token is paid for on every turn. Start with a summary and a scratch file. Add retrieval when that fails.",
+      "resources": [
+        {
+          "title": "MemGPT: Towards LLMs as Operating Systems",
+          "url": "https://arxiv.org/abs/2310.08560",
+          "type": "paper",
+          "author": "Packer et al. (UC Berkeley)",
+          "length": "~13 pages",
+          "why_this_one": "Treats the context window as RAM and external storage as disk, with the model paging between them. The framing that most later memory designs borrow.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Memory tool",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~20 min read",
+          "why_this_one": "A concrete, shipped design: the model reads and writes files in a directory you control, and the page shows exactly which commands you must implement. Shows that 'memory' is a tool plus your storage, nothing more.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "Memory that is never pruned grows until it crowds out the task, and memory that stores a wrong fact repeats it forever; you need an expiry and a way to correct it."
+    },
+    {
+      "id": "evals",
+      "title": "Evals",
+      "level": "applied",
+      "angle": 55,
+      "explain": "An eval is a fixed set of inputs with a way to score the outputs, run every time you change anything. Without one, every prompt tweak is a guess and every model upgrade is a gamble. Start small and cheap: assertions on a few dozen real examples, run in CI. Then add a step where a human or a model grades a sample of real traces. Only later, if ever, do A/B tests. The important habit is looking at your data. Most teams that say evals are hard have never read a hundred of their own outputs.",
+      "resources": [
+        {
+          "title": "Your AI Product Needs Evals",
+          "url": "https://hamel.dev/blog/posts/evals/",
+          "type": "post",
+          "author": "Hamel Husain",
+          "length": "~30 min read",
+          "why_this_one": "The three levels (unit tests, human and model grading, A/B) and why looking at traces is the job. Written from consulting on real products. The one piece to read on this node.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~15 min read",
+          "why_this_one": "Grading methods with code: exact match, similarity, LLM-graded Likert scales, binary classifiers. Useful as a menu once you know why you need one.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "An LLM grading another LLM inherits the same blind spots, so check your model grader against human judgement on a sample before you trust its numbers."
+    },
+    {
+      "id": "guardrails",
+      "title": "Guardrails",
+      "level": "applied",
+      "angle": 80,
+      "explain": "Guardrails are the checks around the model: on the way in (prompt injection, off-topic, personal data), on the way out (unsafe content, leaked secrets, broken format), and on actions (may this tool be called with these arguments). The model cannot be trusted to police itself, because anything in its context is an instruction to it, including a web page it just fetched. Treat model output as untrusted input to the rest of your system. Most guardrails are ordinary code: allow-lists, schemas, rate limits, permissions. The LLM-based ones are a layer on top, not a replacement.",
+      "resources": [
+        {
+          "title": "OWASP Top 10 for LLM Applications (2025)",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "type": "docs",
+          "author": "OWASP Gen AI Security Project",
+          "length": "~20 min read",
+          "why_this_one": "The threat list, starting with prompt injection and excessive agency. Read it before you ship an agent with write access to anything.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "NeMo Guardrails: Overview",
+          "url": "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+          "type": "docs",
+          "author": "NVIDIA",
+          "length": "~10 min read",
+          "why_this_one": "A working implementation with the five rail types named: input, retrieval, dialog, execution, output. Even if you never install it, that taxonomy is the right way to think about where checks go.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "Prompt injection has no complete fix; any text the model reads can redirect it, so the only reliable guardrail on a dangerous action is that the model cannot take it without your code's permission."
+    },
+    {
+      "id": "mcp",
+      "title": "MCP",
+      "level": "applied",
+      "angle": 150,
+      "explain": "The Model Context Protocol is a standard for how an AI application discovers and calls tools, so a tool server written once works in any client that speaks it. It is function calling with a plug. For a builder that means you can wire an existing server for GitHub, Postgres or Slack into your agent without writing the integration, and you can publish one server instead of one per client. The security model is thin by default: a server gets whatever access its credentials have. Our MCP Connect tool at /tools/mcp/ lists 57 targets and exactly what each server can read, write and delete.",
+      "resources": [
+        {
+          "title": "What is the Model Context Protocol (MCP)?",
+          "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+          "type": "docs",
+          "author": "Model Context Protocol",
+          "length": "~5 min read, then the architecture page",
+          "why_this_one": "The official introduction, with links to the architecture and the build-a-server guide. Start here, not with a client's marketing page.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Introducing the Model Context Protocol",
+          "url": "https://www.anthropic.com/news/model-context-protocol",
+          "type": "post",
+          "author": "Anthropic",
+          "length": "~5 min read",
+          "why_this_one": "The November 2024 announcement. Short, and it says what problem the protocol was meant to solve, which is useful when judging whether a given use is a fit.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "An MCP server runs with the credentials you give it and the model decides when to call it, so a community server with delete access is a stranger's code holding your keys."
+    },
+    {
+      "id": "prompt-caching",
+      "title": "Prompt caching",
+      "level": "applied",
+      "angle": 325,
+      "explain": "If the start of your prompt is the same across calls (a long system prompt, a document, a tool list), the vendor can cache the processed prefix and charge you a fraction for reading it back. This is the single cheapest cost cut available, often the difference between a viable product and not. It only works on an exact prefix match, so put the stable content first and the changing content last, and do not put a timestamp at the top. Caches expire in minutes. Structure the prompt for it from day one; retrofitting means rewriting.",
+      "resources": [
+        {
+          "title": "Prompt caching",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~20 min read",
+          "why_this_one": "Explicit cache breakpoints, prefix matching rules, and lifetimes. The most detailed explanation of how a cache actually decides what is reusable.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Prompt caching",
+          "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+          "type": "docs",
+          "author": "OpenAI",
+          "length": "~10 min read",
+          "why_this_one": "The automatic version: on by default above a minimum prompt length, same prefix rule. Read both to see the two designs; your prompt layout should satisfy either.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "One changed byte near the top of the prompt invalidates everything after it, so a dynamic greeting or a date in the system prompt can silently turn your cache hit rate to zero."
+    },
+    {
+      "id": "lora",
+      "title": "LoRA & parameter-efficient tuning",
+      "level": "frontier",
+      "angle": 205,
+      "explain": "Full fine-tuning updates every weight and needs the memory to hold them all plus their gradients. LoRA freezes the model and trains small low-rank matrices alongside a few layers instead. The adapter is a few megabytes, trains on one GPU, and can be swapped in and out at runtime. This is what makes fine-tuning open-weights models practical for a small team. Quality is close to full fine-tuning for most style and format tasks. Combined with a quantised base model (QLoRA) it fits on consumer hardware. Learn this before renting a cluster.",
+      "resources": [
+        {
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "url": "https://arxiv.org/abs/2106.09685",
+          "type": "paper",
+          "author": "Hu et al. (Microsoft)",
+          "length": "~26 pages",
+          "why_this_one": "The paper. Section 4 explains the low-rank idea in a page; section 7 shows which layers to apply it to. Readable without the maths.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "PEFT documentation",
+          "url": "https://huggingface.co/docs/peft/index",
+          "type": "docs",
+          "author": "Hugging Face",
+          "length": "~10 min read, then the quicktour",
+          "why_this_one": "The library that implements LoRA and its relatives. The quicktour trains an adapter in a few lines, which is how you will actually use the paper.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "An adapter is tied to the exact base model it was trained on, so when the base is updated or deprecated your adapter goes with it; keep the training data and the script, not just the weights."
+    },
+    {
+      "id": "quantisation",
+      "title": "Quantisation",
+      "level": "frontier",
+      "angle": 350,
+      "explain": "Model weights are stored as 16-bit numbers. Quantisation rounds them to 8, 4 or fewer bits, shrinking the file and the memory needed to run it by two to four times, with a small loss in quality. It is why a 70-billion-parameter model can run on a laptop. For builders it is the lever between 'needs a data-centre GPU' and 'runs on the machine we have'. The trade-off is real but usually acceptable at 4 bits for chat; it bites harder on maths, code and long generations. Test your task at each level; do not trust the perplexity table alone.",
+      "resources": [
+        {
+          "title": "Quantization: Overview (Transformers docs)",
+          "url": "https://huggingface.co/docs/transformers/quantization/overview",
+          "type": "docs",
+          "author": "Hugging Face",
+          "length": "~10 min read",
+          "why_this_one": "What quantisation is in three paragraphs, then a comparison table of every supported method by hardware and bit width. The right page for choosing a method.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "llama.cpp quantize README",
+          "url": "https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md",
+          "type": "docs",
+          "author": "ggml-org",
+          "length": "~10 min read",
+          "why_this_one": "The table of GGUF quant types with size and speed for a real 8B model. This is what the Q4_K_M in every model filename refers to.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "Quality loss is uneven: a 4-bit model that chats fine can fall apart on arithmetic or long code, and no benchmark number will tell you that about your task."
+    },
+    {
+      "id": "local-models",
+      "title": "Local models",
+      "level": "frontier",
+      "angle": 15,
+      "explain": "Running an open-weights model on your own machine or server. No per-token bill, no data leaving the building, no vendor deprecating your model. The tools have matured: Ollama pulls and runs a model in one command, llama.cpp runs underneath it and on almost any hardware. The cost moves from the invoice to your time and your GPU. Local models are smaller and weaker than the frontier, so they suit narrow, high-volume or private tasks rather than general assistants. Check the licence before you ship one; open weights is not the same as free to use commercially.",
+      "resources": [
+        {
+          "title": "Ollama documentation",
+          "url": "https://docs.ollama.com/",
+          "type": "docs",
+          "author": "Ollama",
+          "length": "~10 min read, then the quickstart",
+          "why_this_one": "The fastest path from nothing to a model answering on localhost. The quickstart is one command; the API pages show how to call it from your code.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "llama.cpp",
+          "url": "https://github.com/ggml-org/llama.cpp",
+          "type": "docs",
+          "author": "ggml-org",
+          "length": "~15 min read",
+          "why_this_one": "The engine under most local tooling, with the backend table (Metal, CUDA, CPU) and a CLI and server. Read this when Ollama's defaults stop being enough.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "Free per token is not free: you now own uptime, GPU memory limits, model updates and the licence check, and a small local model will fail on tasks the hosted one handled."
+    },
+    {
+      "id": "reasoning-models",
+      "title": "Reasoning models",
+      "level": "frontier",
+      "angle": 40,
+      "explain": "Reasoning models are trained, largely with reinforcement learning, to produce a long chain of thought before the answer. They do better on maths, code and multi-step problems, and worse on latency and cost, because the thinking is billed as output tokens you mostly cannot see. They also change the rules you learnt earlier: sampling controls may be ignored, and telling the model to 'think step by step' is redundant or harmful. Use them for hard, well-defined problems where a wrong answer is expensive. Do not use them for a chat greeting.",
+      "resources": [
+        {
+          "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+          "url": "https://arxiv.org/abs/2501.12948",
+          "type": "paper",
+          "author": "DeepSeek-AI",
+          "length": "~86 pages",
+          "why_this_one": "The first open account of training reasoning with reinforcement learning on verifiable answers. Read section 2 on R1-Zero; the 'aha moment' example shows what the training actually produces.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Reasoning models",
+          "url": "https://developers.openai.com/api/docs/guides/reasoning",
+          "type": "docs",
+          "author": "OpenAI",
+          "length": "~10 min read",
+          "why_this_one": "The practical side: reasoning tokens, effort levels, how they count toward context and billing, and which parameters no longer apply.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "You pay for thinking you cannot read, and it varies per request, so the same prompt can cost five times more one call to the next; set a budget and log usage from the first day."
+    },
+    {
+      "id": "multimodal",
+      "title": "Multimodal models",
+      "level": "frontier",
+      "angle": 245,
+      "explain": "A multimodal model takes images (and increasingly audio and video) alongside text. The trick underneath is the same one as embeddings: map pixels into the same vector space as tokens, then let the transformer attend across both. CLIP showed the shared space in 2021; current models fold it into the language model directly. For builders it means screenshots, receipts, charts and forms are inputs now, without a separate OCR pipeline. Images are billed as tokens, and a large one costs more than a page of prose. Resize before you send.",
+      "resources": [
+        {
+          "title": "Learning Transferable Visual Models From Natural Language Supervision",
+          "url": "https://arxiv.org/abs/2103.00020",
+          "type": "paper",
+          "author": "Radford et al. (OpenAI)",
+          "length": "~48 pages",
+          "why_this_one": "CLIP: images and captions embedded into one space by contrastive training. Read sections 1 and 2 and figure 1; the rest is evaluation.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Vision",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/vision",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~15 min read",
+          "why_this_one": "How images are sent, how they are turned into tokens and priced, and the limits (formats, counts, sizes). The billing section is the part you will wish you had read first.",
+          "last_verified": "2026-09-04"
+        }
+      ],
+      "the_catch": "An unresized photo costs more tokens than the question you ask about it, and models still misread small text and miscount objects, so verify anything numeric a vision call returns."
+    }
+  ],
+  "edges": [
+    { "from": "tokens", "to": "next-token-prediction" },
+    { "from": "tokens", "to": "embeddings" },
+    { "from": "embeddings", "to": "attention" },
+    { "from": "attention", "to": "transformers" },
+    { "from": "next-token-prediction", "to": "transformers" },
+    { "from": "transformers", "to": "pretraining" },
+    { "from": "pretraining", "to": "scaling-laws" },
+
+    { "from": "next-token-prediction", "to": "sampling" },
+    { "from": "tokens", "to": "context-windows" },
+    { "from": "transformers", "to": "context-windows" },
+    { "from": "next-token-prediction", "to": "prompting" },
+    { "from": "context-windows", "to": "prompting" },
+    { "from": "pretraining", "to": "post-training" },
+    { "from": "post-training", "to": "fine-tuning" },
+    { "from": "prompting", "to": "structured-output" },
+    { "from": "tokens", "to": "inference-cost" },
+    { "from": "context-windows", "to": "inference-cost" },
+    { "from": "next-token-prediction", "to": "hallucination" },
+
+    { "from": "embeddings", "to": "vector-search" },
+    { "from": "vector-search", "to": "rag" },
+    { "from": "context-windows", "to": "rag" },
+    { "from": "rag", "to": "chunking" },
+    { "from": "structured-output", "to": "tool-use" },
+    { "from": "tool-use", "to": "agents" },
+    { "from": "agents", "to": "react" },
+    { "from": "prompting", "to": "react" },
+    { "from": "rag", "to": "memory" },
+    { "from": "agents", "to": "memory" },
+    { "from": "prompting", "to": "evals" },
+    { "from": "evals", "to": "guardrails" },
+    { "from": "agents", "to": "guardrails" },
+    { "from": "tool-use", "to": "mcp" },
+    { "from": "inference-cost", "to": "prompt-caching" },
+
+    { "from": "fine-tuning", "to": "lora" },
+    { "from": "inference-cost", "to": "quantisation" },
+    { "from": "transformers", "to": "quantisation" },
+    { "from": "quantisation", "to": "local-models" },
+    { "from": "post-training", "to": "reasoning-models" },
+    { "from": "sampling", "to": "reasoning-models" },
+    { "from": "embeddings", "to": "multimodal" },
+    { "from": "transformers", "to": "multimodal" }
+  ],
+  "method": {
+    "how": "Nodes and prerequisite edges were fixed in a written spec before any research: 31 concepts a builder must understand, from tokens to agents, each with only its direct prerequisites. Resources were chosen by one person reading each candidate and keeping the primary source (the paper, the author's own post or video, the vendor's own docs) that a builder would actually finish. Vendor pages were kept where they are the clearest explanation of a mechanism; none is an endorsement.",
+    "tested_on": "We did not complete every course listed. Every URL was opened on 2026-09-04 and confirmed to be live and to be what its entry says. Lengths marked with ~ are estimates; the rest are as the source states them. Two leads from the spec were replaced: OpenAI's hallucination post (its site blocks automated reads; the underlying arXiv paper is used instead) and OpenAI's fine-tuning guide (OpenAI's own docs say the platform is winding down and closed to new users).",
+    "conflicts": "None. No affiliate links, no paid placements, no relationship with any vendor or author listed."
+  }
+}
