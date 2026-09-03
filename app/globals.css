@@ -17,6 +17,8 @@
   --ox-hi:#A6353D;         /* oxblood hover on large type / borders */
   --ox-soft:#221214;       /* oxblood tint */
   --focus:#E8E3D5;
+  --ok:#5F7A4E;            /* maintained: active. muted moss, not a traffic light */
+  --slow:#8F8B82;          /* maintained: slow */
 
   --display:"Barlow Condensed", "Arial Narrow", Impact, sans-serif;
   --sans:"Archivo", ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -90,7 +92,7 @@ h1,h2,h3 { text-wrap:balance; }
   font-size:1.6rem; letter-spacing:.04em; margin:0; line-height:1; }
 .shelf-head span { font-family:var(--mono); font-size:11px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--muted); }
-.tool-card { display:grid; grid-template-columns:auto 1fr; gap:0; text-decoration:none;
+.tool-card { display:grid; grid-template-columns:auto 1fr; margin-bottom:12px; gap:0; text-decoration:none;
   background:var(--surface); border:1px solid var(--rule); position:relative;
   transition:border-color .15s ease, background .15s ease; }
 .tool-card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--ox);
@@ -271,6 +273,92 @@ h1,h2,h3 { text-wrap:balance; }
 .empty p { margin:0 0 10px; color:var(--ink-2); font-size:.92rem; }
 .empty p:last-child { margin-bottom:0; }
 .empty a { color:var(--ink); }
+
+/* ---- MCP Connect ---- */
+.finder-lede { margin:-8px 0 22px; color:var(--ink-2); max-width:60ch; }
+
+/* preamble: a warning strip, not a wall */
+.preamble { margin:0 0 26px; background:var(--ox-soft); border:1px solid var(--rule);
+  box-shadow:inset 3px 0 0 var(--ox); padding:0; }
+.preamble summary { list-style:none; cursor:default; display:flex; align-items:center; gap:12px;
+  padding:14px 18px; }
+.preamble summary::-webkit-details-marker { display:none; }
+.preamble-title { font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:1.25rem;
+  letter-spacing:.03em; line-height:1; }
+.preamble-hint { display:none; }
+.preamble-points { margin:0; padding:0 18px 4px 36px; color:var(--ink-2); font-size:.92rem; }
+.preamble-points li { margin:0 0 8px; padding-left:4px; }
+.preamble-points li::marker { font-family:var(--mono); font-size:11px; color:var(--muted); }
+.preamble-srcs { padding:6px 18px 16px; margin-top:0; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0; }
+.chip { font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  background:var(--surface); color:var(--ink-2); border:1px solid var(--rule); padding:7px 11px;
+  cursor:pointer; border-radius:0; }
+.chip:hover { border-color:#3A3A40; color:var(--ink); }
+.chip[aria-pressed="true"] { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+
+/* official / community */
+.tag { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); border:1px solid var(--rule); padding:3px 6px; white-space:nowrap; line-height:1; }
+.tag-official { color:var(--ink); border-color:var(--ink-2); }
+
+/* access strip: three cells, filled or hollow. The point of the page. */
+.access { display:inline-flex; gap:3px; }
+.cell { width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center;
+  font-family:var(--mono); font-size:10px; font-weight:500; color:var(--muted);
+  border:1px solid var(--rule); background:transparent; }
+.cell.on { color:var(--bg); background:var(--ink-2); border-color:var(--ink-2); }
+.cell-delete.on { background:var(--ox-hi); border-color:var(--ox-hi); color:var(--ink); }
+.access-big .cell { width:40px; height:40px; font-size:14px; font-weight:700; }
+.kept { font-family:var(--mono); text-transform:uppercase; letter-spacing:.06em; display:inline-flex;
+  align-items:center; gap:6px; }
+.kept::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--slow); }
+.kept-active::before { background:var(--ok); }
+
+/* index rows: tag · name · strip · transport + maintained */
+.mcp-row .job-link { grid-template-columns:auto 1fr auto auto; gap:0 18px; }
+.mcp-row .state { gap:14px; }
+.mcp-row .state::after { content:none; }
+.mcp-row .state > span:first-child { min-width:9ch; }
+
+/* target page */
+.server { margin-top:14px; padding:22px; background:var(--surface); border:1px solid var(--rule); }
+.server .pick-head { margin-bottom:6px; }
+.server .facts { margin-top:14px; background:var(--bg); }
+.server .facts > div:last-child { border-bottom:0; }
+.server .facts .span-all { grid-column:1 / -1; }
+.clients { display:flex; flex-wrap:wrap; gap:5px; }
+.clients span { font-family:var(--mono); font-size:10.5px; color:var(--ink-2); border:1px solid var(--rule);
+  padding:2px 6px; }
+.access-block { margin-top:18px; display:grid; grid-template-columns:auto 1fr; gap:0 18px; align-items:start; }
+.scope { margin:0; font-size:.92rem; color:var(--ink-2); }
+.catch-block { margin-top:18px; background:var(--ox-soft); box-shadow:inset 3px 0 0 var(--ox);
+  padding:14px 16px; }
+.catch-label { margin:0 0 6px; font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-2); }
+.catch-block p:last-child { margin:0; font-size:.95rem; }
+.server .visit { margin-top:16px; }
+.server-small { padding:18px; }
+.server-small .pick-head h2 { font-size:1.35rem; }
+.server-small .catch-block p:last-child { font-size:.9rem; }
+.avoid { margin-top:40px; border:1px solid var(--ox); padding:18px 20px; }
+.avoid h2 { font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:1.4rem;
+  letter-spacing:.03em; margin:0 0 8px; line-height:1; color:var(--ox-hi); }
+.avoid p { margin:0; font-size:.95rem; }
+
+@media (max-width:860px) {
+  .access-block { grid-template-columns:1fr; gap:12px; }
+  .mcp-row .job-link { grid-template-columns:auto 1fr; }
+  .mcp-row .access { grid-column:2; margin-top:8px; }
+  .mcp-row .state { grid-column:2; margin-top:8px; }
+}
+@media (max-width:640px) {
+  .preamble summary { cursor:pointer; }
+  .preamble-hint { display:block; margin-left:auto; width:7px; height:7px; border-right:1px solid var(--muted);
+    border-bottom:1px solid var(--muted); transform:rotate(45deg); }
+  .preamble[open] .preamble-hint { transform:rotate(-135deg); }
+  .preamble-points { padding-left:32px; font-size:.9rem; }
+}
 
 /* ---- newsletter ---- */
 .news { margin-top:48px; border:1px solid var(--rule); background:var(--surface); padding:26px; }

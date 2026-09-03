@@ -2,21 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Domain } from "@/lib/data";
 
-// Words people type that carry no signal. "make reels" should find the
-// reels job; "make" matches nothing and must not block it.
-const STOP = new Set([
-  "a","an","the","my","me","i","to","for","of","in","on","with","from","into",
-  "make","create","build","get","do","want","need","help","how","can","some",
-  "using","use","ai","tool","tools","best","good","free",
-]);
-
-function tokens(s: string) {
-  return s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/)
-    .filter((t) => t && !STOP.has(t));
-}
-
-// Loose stem so "reels" finds "reel", "backgrounds" finds "background".
-const stem = (t: string) => t.replace(/(ing|ers|er|es|s)$/,"");
+import { index, matcher, byScore } from "@/lib/search";
 
 export default function JobList({
   domains, reviewed, total,
@@ -40,34 +26,25 @@ export default function JobList({
     () => domains.flatMap((d) => d.jobs.map((j) => ({ ...j, domain: d.label }))),
     [domains]
   );
-  const hay = useMemo(() => {
-    const m = new Map<string, string>();
-    for (const j of jobs)
-      m.set(j.id, tokens(`${j.label} ${j.aliases.join(" ")} ${j.id.replace(/[.-]/g," ")} ${j.domain}`).map(stem).join(" "));
-    return m;
+  const [hay, title] = useMemo(() => {
+    const m = new Map<string, string>(), n = new Map<string, string>();
+    for (const j of jobs) {
+      m.set(j.id, index(`${j.label} ${j.aliases.join(" ")} ${j.id.replace(/[.-]/g," ")} ${j.domain}`));
+      n.set(j.id, index(j.label));
+    }
+    return [m, n];
   }, [jobs]);
 
-  const terms = tokens(q).map(stem);
-  const hits = (id: string) => terms.filter((t) => hay.get(id)!.includes(t)).length;
-
-  // Strict: every meaningful word matches. Loose: any word matches.
-  let mode: "all" | "strict" | "loose" = "all";
-  let keep = (id: string) => true;
-  if (terms.length) {
-    const strict = (id: string) => hits(id) === terms.length;
-    if (jobs.some((j) => strict(j.id))) { mode = "strict"; keep = strict; }
-    else { mode = "loose"; keep = (id) => hits(id) > 0; }
-  }
+  const { mode, keep, searching, score } = matcher(q, hay, jobs.map((j) => j.id), title);
 
   const groups = domains
-    .map((d, i) => ({ ...d, index: i + 1, jobs: d.jobs.filter((j) => keep(j.id)) }))
+    .map((d, i) => ({ ...d, index: i + 1, jobs: byScore(d.jobs.filter((j) => keep(j.id)), (j) => j.id, score, mode) }))
     .filter((d) => d.jobs.length > 0);
   const shown = groups.flatMap((d) => d.jobs);
   const href = (id: string) => `/ai-tools/${id.replace(".", "/")}/`;
   const pad = (n: number) => String(n).padStart(2, "0");
 
   // A search opens everything: hiding matches behind a tap defeats the search.
-  const searching = terms.length > 0;
   const isOpen = (id: string) => searching || opened.has(id);
   const toggle = (id: string) =>
     setOpened((s) => { const n = new Set(s); n.has(id) ? n.delete(id) : n.add(id); return n; });

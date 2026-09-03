@@ -26,13 +26,15 @@ export default function Home() {
           <div className="shelf-head">
             <h2 id="shelf-title">Tools</h2>
           </div>
-          <a className="tool-card" href="/ai-tools/">
-            <span className="tool-idx" aria-hidden="true">01</span>
-            <div className="tool-main">
-              <h3>AI Tool Finder</h3>
-              <p>Which AI tool to use for the job you actually have.</p>
-            </div>
-          </a>
+          {site.tools.filter((t) => t.status === "live").map((t, i) => (
+            <a className="tool-card" href={t.href} key={t.id}>
+              <span className="tool-idx" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <div className="tool-main">
+                <h3>{t.name}</h3>
+                <p>{t.blurb}</p>
+              </div>
+            </a>
+          ))}
         </section>
 
         <Newsletter />
