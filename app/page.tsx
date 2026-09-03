@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
-import { allJobs, reviewedCount } from "@/lib/data";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function Home() {
           <ul className="hero-meta" aria-label="At a glance">
             <li>Free</li>
             <li>No login</li>
-            <li>{allJobs.length} jobs researched</li>
           </ul>
         </div>
       </section>
@@ -32,18 +30,14 @@ export default function Home() {
         <section className="shelf" aria-labelledby="shelf-title">
           <div className="shelf-head">
             <h2 id="shelf-title">Tools</h2>
-            <span>01 of 01 · more when they earn it</span>
           </div>
           <a className="tool-card" href="/ai-tools/">
             <span className="tool-idx" aria-hidden="true">01</span>
             <div className="tool-main">
               <h3>AI Tool Finder</h3>
-              <p>
-                Start from the job, not the tool. {allJobs.length} jobs, each with five ranked picks — what they cost, what they&apos;re good at, and the catch nobody mentions.
-              </p>
+              <p>Which AI tool to use for the job you actually have.</p>
             </div>
             <div className="tool-meta">
-              <span className="tool-stat"><b>{reviewedCount}</b> of {allJobs.length} researched</span>
               <span className="tool-go">Open</span>
             </div>
           </a>

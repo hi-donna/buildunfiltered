@@ -10,13 +10,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/ai-tools/" },
 };
 
-// The page is the search box. No pitch above it: the header already says
-// where you are, and the placeholder asks the only question that matters.
+// A name, then the search box. No pitch.
 export default function AiTools() {
   const reviewed = allJobs.filter((j) => isReviewed(j.id)).map((j) => j.id);
   return (
     <div className="wrap finder">
-      <h1 className="sr-only">AI Tool Finder</h1>
+      <h1 className="finder-title">AI Tool Finder</h1>
       <JobList domains={domains} reviewed={reviewed} total={allJobs.length} />
       <Newsletter />
     </div>

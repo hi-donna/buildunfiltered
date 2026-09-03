@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { site } from "@/site.config";
-import { allJobs, reviewedCount } from "@/lib/data";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,14 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="brand-mark" aria-hidden="true" />
               <span>build<span className="dot">.</span>unfiltered</span>
             </a>
-            <div className="head-right">
-              <nav className="head-nav" aria-label="Site">
-                <a href="/ai-tools/">AI Tool Finder</a>
-              </nav>
-              <span className="brand-note">
-                {reviewedCount}/{allJobs.length} jobs researched · {new Date().getFullYear()}
-              </span>
-            </div>
           </div>
         </header>
         <main>{children}</main>
