@@ -10,12 +10,13 @@ export const site = {
   // block stays hidden — a form that goes nowhere is worse than no form.
   newsletterAction: null as string | null,
 
-  // The shelf on the homepage, in ship order. A tool is listed here only
-  // once it is live; nothing on the shelf is "coming soon".
+  // The homepage shelf renders from this list, in ship order. Route is
+  // /tools/<slug>/ unless `href` says otherwise (the finder keeps its indexed
+  // URL). Only "live" tools get a card.
   tools: [
-    { id: "ai-tools", name: "AI Tool Finder", href: "/ai-tools/",
+    { slug: "ai-finder", name: "AI Tool Finder", href: "/ai-tools/",
       blurb: "Which AI tool to use for the job you actually have.", status: "live" },
-    { id: "mcp", name: "MCP Connect", href: "/tools/mcp/",
+    { slug: "mcp", name: "MCP Connect",
       blurb: "Which MCP server to use, and what it gets access to.", status: "live" },
-  ] as { id: string; name: string; href: string; blurb: string; status: "live" }[],
+  ] as { slug: string; name: string; href?: string; blurb: string; status: "live" | "building" | "planned" }[],
 };

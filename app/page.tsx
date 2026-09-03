@@ -27,7 +27,7 @@ export default function Home() {
             <h2 id="shelf-title">Tools</h2>
           </div>
           {site.tools.filter((t) => t.status === "live").map((t, i) => (
-            <a className="tool-card" href={t.href} key={t.id}>
+            <a className="tool-card" href={t.href ?? `/tools/${t.slug}/`} key={t.slug}>
               <span className="tool-idx" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
               <div className="tool-main">
                 <h3>{t.name}</h3>

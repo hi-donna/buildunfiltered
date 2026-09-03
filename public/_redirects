@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects. The finder shipped at /ai-tools/ and is indexed
+# there; the roadmap's /tools/<slug>/ convention points at it instead of moving it.
+/tools/ai-finder/*  /ai-tools/  301
+/tools/ai-finder    /ai-tools/  301
