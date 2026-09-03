@@ -34,7 +34,7 @@ type Pt = { x: number; y: number };
 // Phones start zoomed in on the centre so labels are legible; pan to the rest.
 function homeBox(): Box {
   if (typeof window !== "undefined" && window.matchMedia(NARROW).matches) {
-    const w = INIT.w / 1.6;
+    const w = INIT.w / 1.4;
     return { x: CENTRE - w / 2, y: CENTRE - w / 2, w, h: w };
   }
   if (typeof window !== "undefined" && window.matchMedia(WIDE).matches) {

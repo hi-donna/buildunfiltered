@@ -1,5 +1,24 @@
 # Status
 
+## 2026-09-04 — QA pass, phone and laptop, all tools
+
+**Checked (static export served locally, Chrome 152):** home, AI Tool Finder
+index, a finder job page (`/ai-tools/audio/tts/`), MCP Connect index, an MCP
+target page (`/tools/mcp/airtable/`), Learning Map.
+- Phone 390px (iframe emulation), and incidentally 303px when six frames
+  shared the window: no horizontal overflow on any page
+  (`scrollWidth == viewport`), no element wider than the viewport outside
+  the map's SVG. Finder search ("transcribe audio" → 1 of 50, right row
+  first), MCP filter chip (official only → 50 of 57), MCP category toggle
+  opens rows, Learning Map plate and controls bar all work.
+- Laptop 1920: every page renders as designed; home shelf lists the three
+  live tools; no console errors across the pass.
+- One change: the Learning Map's phone start zoom eased from 1.6× to 1.4× so
+  more of the plate is on screen before panning (labels stay 25 units,
+  legible at 390px).
+
+**Half-done:** nothing. **Needs the owner:** unchanged from previous notes.
+
 ## 2026-09-04 — Learning Map: legibility, no-jump open, sticky notes, workshop handwriting
 
 **Shipped (targeted; no content, data, link or interaction changes):**
