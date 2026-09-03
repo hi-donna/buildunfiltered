@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import {
   fieldNotes, getPost, sanitiseInline, INLINE_TAGS, PAPER_TAGS,
   type Block, type TerminalBlock, type PaperBlock, type TableBlock,
-  type PlateBlock, type FigureBlock, type SpecBlock,
+  type PlateBlock, type FigureBlock, type SpecBlock, type StepsBlock,
 } from "@/lib/fieldNotes";
 
 type Params = { slug: string };
@@ -78,18 +78,40 @@ function Paper({ b }: { b: PaperBlock }) {
   );
 }
 
+// A row whose cells after the first are all empty is a group label inside the
+// table (post 03 uses them to split free / capped / paid). Same data, one
+// cell spanning the row, so the empty cells do not read as missing values.
+const isGroupRow = (r: string[]) => r.length > 1 && r.slice(1).every((c) => c.trim() === "");
+
 function Table({ b }: { b: TableBlock }) {
   return (
     <div className="fn-table" role="region" aria-label={b.head.join(" / ")} tabIndex={0}>
       <table>
         <thead><tr>{b.head.map((h) => <th key={h} scope="col">{h}</th>)}</tr></thead>
         <tbody>
-          {b.rows.map((r, i) => (
+          {b.rows.map((r, i) => isGroupRow(r) ? (
+            <tr key={i} className="fn-table-group">
+              <th scope="rowgroup" colSpan={b.head.length} dangerouslySetInnerHTML={inline(r[0])} />
+            </tr>
+          ) : (
             <tr key={i}>{r.map((c, j) => <td key={j} dangerouslySetInnerHTML={inline(c)} />)}</tr>
           ))}
         </tbody>
       </table>
     </div>
+  );
+}
+
+function Steps({ b }: { b: StepsBlock }) {
+  return (
+    <ol className="fn-steps">
+      {b.steps.map((st) => (
+        <li key={st.n}>
+          <span className="fn-step-n" aria-hidden="true">{st.n}</span>
+          <span className="fn-step-text" dangerouslySetInnerHTML={inline(st.text)} />
+        </li>
+      ))}
+    </ol>
   );
 }
 
@@ -148,6 +170,7 @@ function BlockView({ b }: { b: Block }) {
     case "plate": return <Plate b={b} />;
     case "figure": return <Figure b={b} />;
     case "spec": return <Spec b={b} />;
+    case "steps": return <Steps b={b} />;
   }
 }
 
@@ -164,7 +187,7 @@ export default async function FieldNotePage({ params }: { params: Promise<Params
           <div>
             <p className="learn-eyebrow">{p.kicker}</p>
             <h1 className="finder-title">{p.title}</h1>
-            <p className="finder-lede fn-dek">{p.dek}</p>
+            <p className="finder-lede fn-dek" dangerouslySetInnerHTML={inline(p.dek)} />
             <p className="fn-meta">
               <span>Published <b>{p.published}</b></span>
               <span>Verified <b>{p.verified}</b></span>

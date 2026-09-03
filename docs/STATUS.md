@@ -1,5 +1,71 @@
 # Status
 
+## 2026-09-04 — Field Notes 03: OpenClaw Field Manual, and the `steps` block
+
+**Shipped:** `/field-notes/openclaw-field-manual/`, from
+`data/field-notes/openclaw-field-manual.json` (copied unchanged from the
+spec folder; no plates). One authorised schema change: the `steps` block
+(`{type:"steps", steps:[{n, text}]}`), a numbered sequence with the number
+in `--mono` / `--ox-hi`, the text in `--sans`, no box. Added to the type
+union, the validator, the renderer and the block table in
+`docs/FIELD_NOTES_SPEC.md`. Nine types now; the spec says no tenth.
+
+**Verified:**
+- No images in the post: zero `plate` blocks, zero `<img>`, zero
+  `data:image` in the JSON and in the built HTML. Nothing to privacy-check.
+- The index picks it up without a code change: `out/field-notes/index.html`
+  lists both posts, the sitemap has both URLs, the home shelf says
+  "2 posts". Both posts carry the same date, so ordering now tie-breaks on
+  the kicker number (03 above 02), then slug.
+- The seven terminal blocks (the prompt said four) read against the
+  rendered page: every `comment` line renders as `# …` in `--muted`
+  directly under the command it annotates (doctor / gateway status /
+  dashboard; `ollama signin` → "browser opens — click Connect"). Nothing
+  mis-kinded.
+- Invariants: a step with no `n` and a step whose text uses `<div>` each
+  fail the build with a named error; reverted, JSON byte-identical to the
+  source, build green.
+- No new colour or font token: the same grep on the `globals.css` diff is
+  empty, no `--name:` declaration added.
+- 1920px: kicker, title, dek with its `<strong>`, aside, steps, terminals,
+  the model table with three group rows, both papers, sources. 390px
+  (iframe): post and index `scrollWidth == 390`; the table (540/352) and
+  the two wider terminals scroll inside their boxes; steps wrap cleanly.
+  No console errors.
+
+**Decisions made:**
+- `dek` is now an inline-html field (the post's dek carries `<strong>`):
+  validated against the same allow-list at build, sanitised on render.
+  Rulebook updated.
+- A table row whose cells after the first are all empty renders as a group
+  label spanning the row (the post's "Free forever / Free tier / Paid"
+  rows). Same data, no new type; the validator allows empty cells for it.
+- The prose block "Ways to give OpenClaw a model — checked September 2026"
+  sits just above the table and reads as its caption. Left as written.
+
+**Half-done:** nothing.
+
+**Needs the owner:**
+- Numbering: the source arrived as `FIELD NOTES / 02` and was renumbered
+  to 03 because n8n holds 02. If OpenClaw should be 02 and n8n 03, both
+  kickers and both slugs change; both URLs are already pushed. Say which.
+- The post has two gaps that look like the machine conversion dropped a
+  block, and I did not fill them:
+  - "Paste this into the chat once, then save it to `AGENTS.md` so it
+    survives:" is followed directly by "Then ask it to research
+    something". The thing to paste is missing.
+  - "It's a reason to be deliberate about what yours can reach:" is
+    followed directly by "Run it on a personal machine with a small blast
+    radius". The list it introduces is missing.
+  Both would fit existing blocks (a `paper` or `terminal` for the first, a
+  `steps` or `prose` for the second) once the text exists.
+- Source labels "rate limits" and "the OpenClaw Ollama provider docs" read
+  as fragments on the sources strip. Data, not touched.
+- Prices and rate limits in the model table are the post's claims, not
+  re-verified here.
+
+**Next:** Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-04 — Field Notes shipped: the writing section, post 02 Local n8n
 
 **Shipped:** a second content type. `/field-notes/` (index, one `.tool-card`

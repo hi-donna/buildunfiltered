@@ -1,0 +1,594 @@
+{
+ "slug": "openclaw-field-manual",
+ "kicker": "FIELD NOTES / 03",
+ "title": "OpenClaw Field Manual",
+ "dek": "By the end of this you'll have an AI agent running on your own machine, connected to a model you chose on purpose, reachable from your phone. More usefully, you'll understand <strong>why each piece exists</strong> — which is what makes it fixable when it breaks. Budget about thirty quiet minutes.",
+ "summary": "Running your own AI agent on your machine — the loop it runs on, choosing a model, and giving it a phone.",
+ "published": "2026-09-03",
+ "verified": "2026-09-03",
+ "hand": [
+  "Written after actually",
+  "installing it — so the",
+  "gotchas are the real ones."
+ ],
+ "blocks": [
+  {
+   "type": "prose",
+   "html": "You can already chat with an AI. What you probably can't do is say \"go read five articles about error-correcting codes and leave me notes in a folder on my laptop\" — and then close the lid, and find the notes there tomorrow, written by something that still remembers what you asked for last week."
+  },
+  {
+   "type": "prose",
+   "html": "That gap is what OpenClaw fills. It's free, open-source software you run on your own computer. It gives a language model a body: access to your files, the ability to search the web, a memory that survives restarts, and a phone number you can message it at."
+  },
+  {
+   "type": "prose",
+   "html": "Most of the confusion around agents comes from one wrong assumption — that an agent is a chatbot with extra features bolted on. It isn't. It's a different shape entirely, and once you see the shape, everything else in this guide follows from it. So let's start there, before installing anything."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "An agent is a loop"
+  },
+  {
+   "type": "prose",
+   "html": "Suppose you message your agent: <em>\"Research quantum error correction for me.\"</em> Here is what actually happens — and I want to walk one message all the way through, because every other thing in this article is a consequence of this sequence."
+  },
+  {
+   "type": "steps",
+   "steps": [
+    {
+     "n": "1",
+     "text": "OpenClaw sends the model two things: <em>your message</em>, and a list of tools it's allowed to use — search the web, read a file, write a file."
+    },
+    {
+     "n": "2",
+     "text": "The model replies. Not with an answer — with a <em>request</em>: \"call web_search with the query 'quantum error correction 2026'.\""
+    },
+    {
+     "n": "3",
+     "text": "OpenClaw runs that search itself and gets back a page of results."
+    },
+    {
+     "n": "4",
+     "text": "OpenClaw sends the model <em>everything again</em> — your original message, the tool request it made, and the results it got."
+    },
+    {
+     "n": "5",
+     "text": "The model reads the results and asks for something else: \"fetch this URL.\""
+    },
+    {
+     "n": "6",
+     "text": "And round again. Message, plus every request so far, plus every result so far."
+    },
+    {
+     "n": "7",
+     "text": "Eventually the model produces ordinary prose instead of a tool request. That's the signal the loop is finished, and what you see as the reply."
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "The important thing here is what the model never does. It never touches the internet. It never touches your disk. It only ever produces text. Sometimes that text happens to be shaped like a request, and <strong>OpenClaw is the part that honours it</strong> — runs the search, opens the file, writes the note, and reports back."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>The model does the thinking. The framework does the doing. Everything else is detail.</strong>"
+  },
+  {
+   "type": "prose",
+   "html": "Two consequences fall out of this immediately, and they're the two things worth carrying through the rest of the article."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>First: the model is replaceable.</strong> If all it does is produce text, and the framework does everything else, then swapping one model for another changes nothing structural. Your agent's personality, its tools, its memory, the channels it listens on — all of that lives in OpenClaw, not in the model. Changing brains is a config edit and a restart. This is why choosing a provider is a low-stakes decision, and why you should start on something free."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>Second: look at step 4 again.</strong> Every single time round the loop, the entire conversation goes back to the model — including everything it has read so far. Hold onto that. It's the reason your agent will cost more than you expect, and we'll come back to it once you've got one running."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Getting the body running"
+  },
+  {
+   "type": "prose",
+   "html": "Before anything else, one honest warning. OpenClaw reads and writes your files and runs commands on your machine. That's the point of it, but it means you should install it on a <strong>personal computer, not a locked-down work laptop</strong>. If your IT policy forbids global installs or filesystem-access tools, that policy is correct and you should use a personal device rather than route around it."
+  },
+  {
+   "type": "prose",
+   "html": "OpenClaw ships as a Node package, so you need Node 22.19 or newer — Node 24 is the comfortable choice. Check what you have:"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "node --version"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "If that comes back missing or old, install the LTS release from <a href=\"https://nodejs.org\">nodejs.org</a> or run <code>brew install node</code> on macOS, then check again. A stale Node is the quietest way to make the next step fail in a confusing way."
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "npm install -g openclaw@latest"
+    },
+    {
+     "kind": "cmd",
+     "text": "openclaw --version"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "The official site also offers a <code>curl … | bash</code> one-liner. That pipes a remote script straight into your shell, and given the security history we'll get to at the end, npm is the better habit — or at minimum download the script and read it before running it. On Windows, use PowerShell and follow the platform notes on the official site; the steps differ slightly."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "The onboarding wizard"
+  },
+  {
+   "type": "prose",
+   "html": "Now the setup itself, which is a single interactive command:"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "openclaw onboard --install-daemon"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "It asks a lot of questions. Acknowledge the risk warning, confirm personal use, and choose <strong>QuickStart</strong> as the setup mode. When it asks for a model provider, that's the subject of the next section — if you want to get through onboarding first, pick anything and change it later, because none of these answers are permanent. Everything here can be revisited with <code>openclaw configure</code>."
+  },
+  {
+   "type": "prose",
+   "html": "For the rest: <strong>skip</strong> adding a channel (we'll do that deliberately later), choose <strong>DuckDuckGo</strong> as the search provider since it needs no key, <strong>skip</strong> skills and hooks, and say <strong>yes</strong> to installing the daemon — that's the background process that keeps your agent alive when your terminal isn't open."
+  },
+  {
+   "type": "prose",
+   "html": "Then confirm it actually worked before going further:"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "openclaw doctor"
+    },
+    {
+     "kind": "comment",
+     "text": "mostly green is good"
+    },
+    {
+     "kind": "cmd",
+     "text": "openclaw gateway status"
+    },
+    {
+     "kind": "comment",
+     "text": "should be listening on 18789"
+    },
+    {
+     "kind": "cmd",
+     "text": "openclaw dashboard"
+    },
+    {
+     "kind": "comment",
+     "text": "opens http://127.0.0.1:18789"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Say hello in the dashboard. If something answers, the hard part is behind you."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Choosing a brain"
+  },
+  {
+   "type": "prose",
+   "html": "Every hosted provider connects the same way, so it's worth learning the shape once rather than memorising four sets of instructions."
+  },
+  {
+   "type": "prose",
+   "html": "You make an account with the provider, open their console, and generate an <strong>API key</strong> — a long random string that identifies you and bills you. Treat it exactly like a password: it belongs in a config file or a password manager, never in a screenshot, a git repo, or a chat message. Then you hand it to OpenClaw through <code>openclaw configure</code> → Model → provider → API key, pick your model, and restart the gateway. Self-hosted models are the exception to all of this — nothing to sign up for, no key at all."
+  },
+  {
+   "type": "prose",
+   "html": "Two small things save real time here. <strong>Pick the model from the browse list rather than typing its name</strong> — a single wrong character produces an <code>unknown model</code> error that reads like a broken install. And after restarting, actually verify with <code>openclaw models list</code> that the default is what you think it is. The config on disk and the process in memory are two different things, which is a trap we'll return to."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "What's actually on offer"
+  },
+  {
+   "type": "prose",
+   "html": "There are three genuinely different categories, and the useful way to tell them apart isn't price. It's <strong>what runs out</strong>. Self-hosted models run out of speed. Free tiers run out of requests. Paid models run out of money — but predictably, which turns out to matter more than being cheap."
+  },
+  {
+   "type": "prose",
+   "html": "Ways to give OpenClaw a model — checked September 2026"
+  },
+  {
+   "type": "table",
+   "head": [
+    "Option",
+    "What you get",
+    "What runs out",
+    "Cost"
+   ],
+   "rows": [
+    [
+     "<strong>Free forever — runs on your hardware</strong>",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Ollama <em>self-hosted</em>",
+     "Llama, Qwen, Gemma, DeepSeek running locally. Nothing leaves your machine — no key, no account, no metering.",
+     "Your RAM. An 8B model wants ~6&nbsp;GB free; 14B is tight on 16&nbsp;GB; 30B+ needs a real GPU.",
+     "$0"
+    ],
+    [
+     "<strong>Free tier — hosted, capped</strong>",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Ollama Cloud <em>hosted</em>",
+     "Same tooling as local, but the model runs on their GPUs — so your laptop's specs stop mattering.",
+     "1 request at a time. Credits reset monthly. Six starter models only.",
+     "$0"
+    ],
+    [
+     "Google Gemini <em>ai studio</em>",
+     "The most generous free tier by sheer volume. Flash models are the workhorses. No credit card.",
+     "1,500 requests/day, 15/min. Google may train on your prompts.",
+     "$0"
+    ],
+    [
+     "Groq <em>inference</em>",
+     "Dramatically the fastest here — custom inference hardware running open models.",
+     "1,000 requests/day and only 6,000 tokens/min, which is the real ceiling.",
+     "$0"
+    ],
+    [
+     "OpenRouter <em>aggregator</em>",
+     "One key, ~28 free models from many vendors, one endpoint. A good bench for trying things.",
+     "50 requests/day — rising to 1,000 once you've ever spent $10.",
+     "$0"
+    ],
+    [
+     "<strong>Paid — per million tokens, input / output</strong>",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Claude Haiku 4.5 <em>anthropic</em>",
+     "The value pick for agents: fast, dependable at multi-step tool calling, cheap enough to stop thinking about.",
+     "1,000 requests/min. Cached input at $0.10/M.",
+     "$1 / $5"
+    ],
+    [
+     "Claude Sonnet 5 <em>anthropic</em>",
+     "Better at long plans. Worth the upgrade when Haiku starts fumbling chains of five or more tool calls.",
+     "1,000 requests/min. Cached input $0.20/M.",
+     "$2 / $10"
+    ],
+    [
+     "Claude Opus 5 <em>anthropic</em>",
+     "The heavy option — rarely right for an always-on agent doing routine dispatch.",
+     "1,000 requests/min.",
+     "$5 / $25"
+    ],
+    [
+     "Grok 4.6 <em>xai</em>",
+     "xAI's flagship. Mind the name collision — <strong>Groq</strong> above runs other people's models; <strong>Grok</strong> is xAI's own. Different companies.",
+     "Promotional credits come and go; no dependable free tier.",
+     "$2 / $6"
+    ],
+    [
+     "Grok 4.3 <em>xai</em>",
+     "The cheaper xAI tier, and the more sensible one for agent work.",
+     "Cached input $0.20/M.",
+     "$1.25 / $2.50"
+    ]
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Those paid prices are per <em>million</em> tokens, which is roughly 750,000 words. That's why paid models are far cheaper than most people assume, and why free tiers' request caps bite long before any token bill would."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Ollama, which is two things wearing one name"
+  },
+  {
+   "type": "prose",
+   "html": "This trips people up constantly, so it's worth separating clearly. <strong>Ollama local</strong> downloads model weights and runs them on your own silicon: free forever, completely private, no account. <strong>Ollama Cloud</strong> uses identical tooling and an identical interface, but the model runs on their GPUs. Installing the Ollama command-line tool does <em>not</em> commit you to running anything locally."
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "curl -fsSL https://ollama.com/install.sh | sh"
+    },
+    {
+     "kind": "cmd",
+     "text": "ollama signin"
+    },
+    {
+     "kind": "comment",
+     "text": "browser opens — click Connect"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Because both speak the same protocol on the same port, you can set a cloud model as your primary and a local one as automatic fallback. When the quota runs out, the agent keeps working — just slower. That's the most robust free setup available, and it costs nothing to have both wired."
+  },
+  {
+   "type": "prose",
+   "html": "One more option people forget: you can <strong>rent a GPU by the hour</strong>. An RTX 4090 runs about $0.25–0.40 an hour, so a few dollars buys an afternoon with a model far larger than your laptop could hold, and there's nothing to uninstall afterwards."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Why your agent costs more than you expect"
+  },
+  {
+   "type": "prose",
+   "html": "Now back to step 4 of that loop, because this is where people get an unpleasant surprise."
+  },
+  {
+   "type": "prose",
+   "html": "A chat message costs roughly what it looks like it costs. An agent turn does not. Every time round the loop, <strong>the entire conversation is resent</strong> — and the conversation has been growing. The search results joined it. The page it fetched joined it. By turn ten you aren't paying for a 5,000-token prompt; you're paying for a 50,000-token one, and you paid for the 45,000-token version on the turn before that, and the 40,000-token version before that."
+  },
+  {
+   "type": "prose",
+   "html": "Cost grows with roughly the <em>square</em> of the number of tool calls, not in a straight line. A research-and-summarise task firing a dozen tool calls can cost twenty to fifty times a single short exchange. This is not a flaw in OpenClaw; it's inherent to how the loop works."
+  },
+  {
+   "type": "prose",
+   "html": "Two things bring it back under control, and both are worth doing from the start."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>Prompt caching</strong> is the big one. The stable part of every request — the system prompt, the tool definitions, the early turns — doesn't change between loops, so providers let you cache it and re-read it at about a tenth of the price. On Haiku that's $0.10 per million instead of $1.00, which turns a $0.40 research run into roughly $0.14."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>Bounding the loop</strong> is the other. A rule as simple as \"search at most four times, then write\" caps your worst case. An unbounded agent that decides to read twenty pages will happily spend twenty times your estimate — and constraining it produces better output anyway, because a focused answer beats a sprawling one."
+  },
+  {
+   "type": "paper",
+   "title": "The number that matters",
+   "label": "Worth knowing",
+   "html": "<p>With caching, a full research-and-write run costs about <strong>$0.14 on Haiku</strong>. Twenty of them — a solid week of experimenting — is around <strong>three dollars</strong>. People avoid paid keys because they picture a runaway bill; the real figure is usually less than a coffee, and it buys you rate limits that don't collapse mid-demo.</p>"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Where your agent's personality lives"
+  },
+  {
+   "type": "prose",
+   "html": "Something that sounds mystical — the agent's \"personality\", its \"memory\", its \"rules\" — turns out to be a folder of plain Markdown files you can open in any editor."
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "cd ~/.openclaw/workspace && ls -la"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "The one that matters most is <code>AGENTS.md</code>: the rulebook, the closest thing to a system prompt, where your persistent ground rules go. Alongside it, <code>SOUL.md</code> holds personality and tone, <code>IDENTITY.md</code> its name, <code>USER.md</code> what it knows about you, and <code>MEMORY.md</code> what it has picked up over time — that last one grows on its own. <code>HEARTBEAT.md</code> is the checklist it works through when it wakes itself up, and <code>TOOLS.md</code> lists the skills it has."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Giving it a phone"
+  },
+  {
+   "type": "prose",
+   "html": "This is optional, and it's also the step that changes what the thing is <em>for</em>. An agent you have to open a laptop to reach is a tool. An agent you can message from a train is something else. You add channels through <code>openclaw configure</code> → Channels."
+  },
+  {
+   "type": "prose",
+   "html": "Keep the safety default switched on: <strong>unknown senders must be paired or approved</strong> before they can give your agent instructions. Anyone who can message it can attempt to command it."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Telegram is the easiest"
+  },
+  {
+   "type": "prose",
+   "html": "Message <strong>@BotFather</strong> on Telegram, send <code>/newbot</code>, give it a name and a unique username ending in <code>bot</code>. It hands you a token that looks like <code>123456:ABC…</code>. Paste that into <code>openclaw configure</code> → Channels → Telegram, and you're done. Worth knowing: Telegram is blocked in some regions, India among them, so it isn't universally usable."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Discord takes longer, and has one step everyone misses"
+  },
+  {
+   "type": "prose",
+   "html": "Go to <a href=\"https://discord.com/developers/applications\">the Discord developer portal</a>, create a New Application and name it. Under the <strong>Bot</strong> tab, reset and copy the token — that's the bot's password, so treat it accordingly. On the same page, find <strong>Privileged Gateway Intents</strong> and turn <strong>Message Content Intent</strong> on, then save. Without that, your bot will connect successfully and then sit there in complete silence, which is a genuinely maddening way to spend twenty minutes."
+  },
+  {
+   "type": "prose",
+   "html": "If you also switch Public Bot off, saving may fail with a complaint about a default authorization link. Either leave Public Bot on, or go to Installation and set the Install Link to None."
+  },
+  {
+   "type": "prose",
+   "html": "Then make a private server for it. And here's the step that's easy to miss entirely: the bot doesn't join by itself. Go to <strong>OAuth2 → URL Generator</strong>, tick the <code>bot</code> scope, tick <strong>Send Messages</strong> and <strong>Read Message History</strong>, copy the generated URL, open it in a browser, pick your server, and authorize. Only now will the bot appear in your member list. Finally, in OpenClaw, add the token under Channels → Discord and use an <strong>allowlist</strong> pointing at your server and channel."
+  },
+  {
+   "type": "prose",
+   "html": "If it's still silent, check those two things in order: is the bot actually in the server's member list, and did Message Content Intent really save?"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "WhatsApp works, with a real caveat"
+  },
+  {
+   "type": "prose",
+   "html": "OpenClaw connects to WhatsApp by linking as a WhatsApp Web device via QR code, using a real phone number. This is unofficial automation, and <strong>Meta bans numbers for it</strong>. Use a spare phone or an eSIM — never your personal WhatsApp account."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Building the thing from the top of this article"
+  },
+  {
+   "type": "prose",
+   "html": "Let's actually make the research helper we've been talking about. Paste this into the chat once, then save it to <code>AGENTS.md</code> so it survives:"
+  },
+  {
+   "type": "prose",
+   "html": "Then ask it to research something, and go look at what it produced:"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "cat ~/.openclaw/workspace/study-notes/<topic>.md"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Watch the loop happen while it works — search, read, search again, write. That's steps one through seven, running in front of you. And if it reports that it couldn't save the file, that's not a bug: that's the filesystem permission boundary doing its job. Grant write access to one specific folder rather than opening everything up."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "What actually goes wrong"
+  },
+  {
+   "type": "prose",
+   "html": "These are the failures worth knowing in advance, because each one looks like a different problem than it is."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "You change the model and nothing changes"
+  },
+  {
+   "type": "prose",
+   "html": "You set a new model, restart the gateway, and the restart fails with something about the port being busy and not verifiably owned. The config file on disk now names your new model — but the <strong>old process is still running, still using the old model and the old key</strong>. Nothing looks broken. You keep testing and keep getting the previous brain, and you start doubting the model rather than the process. Kill the stale gateway explicitly, start it fresh, and confirm with <code>openclaw models list</code>."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Your agent replies with raw JSON instead of doing things"
+  },
+  {
+   "type": "prose",
+   "html": "If you're using Ollama, this is almost certainly the endpoint. Ollama exposes an OpenAI-compatible path at <code>/v1</code>, and pointing OpenClaw at it <strong>breaks tool calling</strong> — the model stops making real tool requests and starts printing what look like them into the chat. Use the native endpoint with no <code>/v1</code> on the end. The symptom looks like a stupid model rather than a wrong URL, which is what makes it expensive to diagnose."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Everything stalls when several people use it"
+  },
+  {
+   "type": "prose",
+   "html": "Free tiers usually allow one request at a time. That's invisible when it's just you, and very visible the moment a few people message the bot at once — they queue, and past a certain depth they're rejected. If you're demoing to a room or sharing the agent with a team, this alone justifies a paid key, not for the tokens but for the parallelism."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "It works perfectly until the moment it matters"
+  },
+  {
+   "type": "prose",
+   "html": "Per-minute rate caps are invisible right up until an agent fires five calls in ten seconds and trips one. Then you're standing in front of people watching a spinner. Rehearse on a free tier; <strong>demo on a paid key</strong>. Three dollars is cheap insurance against a dead room."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "The config file breaks after you edit it"
+  },
+  {
+   "type": "prose",
+   "html": "Text editors with smart quotes turn a valid config into an invalid one, and the error just says the file is malformed. Edit from the terminal, run <code>openclaw config validate</code> afterwards, and remember there's a <code>.bak</code> file sitting next to the config for exactly this situation. Roll back rather than debug."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "The part you shouldn't skip"
+  },
+  {
+   "type": "prose",
+   "html": "An agent with a model attached is software that reads your files and runs commands based on text it found on the internet. Read that sentence again, because it describes a genuinely new category of risk, and 2026 supplied the case studies: a prompt-injection vulnerability that executed attacker instructions arriving inside an email, tens of thousands of instances left exposed on the public internet, and community-published \"skills\" that quietly stole API keys."
+  },
+  {
+   "type": "prose",
+   "html": "None of that is a reason to avoid agents. It's a reason to be deliberate about what yours can reach:"
+  },
+  {
+   "type": "prose",
+   "html": "Run it on a personal machine with a small blast radius until you know exactly what it can touch. Then widen it deliberately, one thing at a time."
+  },
+  {
+   "type": "paper",
+   "title": "The whole thing in four sentences",
+   "label": "Carry this",
+   "html": "<p>An agent is a loop: the model asks for a tool, the framework runs it, and the results go back to the model along with everything that came before — round and round until the model writes prose instead of a request.</p><p>Because the model only ever produces text, it's a replaceable part; swapping brains changes nothing about your agent's tools, memory or channels.</p><p>Because the whole conversation is resent every time round, cost grows with roughly the square of the tool calls — which caching and a bounded loop keep in hand.</p><p>And because the framework is what actually touches your files and runs your commands, the security work isn't optional decoration — it's the thing that makes the rest of it a good idea.</p>"
+  }
+ ],
+ "sources": [
+  {
+   "label": "Anthropic pricing",
+   "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+   "label": "rate limits",
+   "url": "https://platform.claude.com/docs/en/api/rate-limits"
+  },
+  {
+   "label": "Ollama pricing",
+   "url": "https://ollama.com/pricing"
+  },
+  {
+   "label": "the OpenClaw Ollama provider docs",
+   "url": "https://docs.openclaw.ai/providers/ollama"
+  },
+  {
+   "label": "Gemini rate limits",
+   "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+  }
+ ]
+}

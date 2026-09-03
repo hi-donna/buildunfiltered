@@ -24,12 +24,15 @@ export interface FigureBlock { type: "figure"; svg: string; caption: string }
 export interface SpecBlock {
   type: "spec"; rows: { k: string; v: string }[]; stamp: { label: string; date: string };
 }
+// An ordered sequence where the order carries meaning (one message through a
+// loop). Not a table: a table is a mapping you look up; this is read top to bottom.
+export interface StepsBlock { type: "steps"; steps: { n: string; text: string }[] }
 export type Block =
   | ProseBlock | HeadingBlock | TerminalBlock | PaperBlock
-  | TableBlock | PlateBlock | FigureBlock | SpecBlock;
+  | TableBlock | PlateBlock | FigureBlock | SpecBlock | StepsBlock;
 
 export const BLOCK_TYPES: Block["type"][] =
-  ["prose", "heading", "terminal", "paper", "table", "plate", "figure", "spec"];
+  ["prose", "heading", "terminal", "paper", "table", "plate", "figure", "spec", "steps"];
 
 export interface Source { label: string; url: string }
 export interface Post {
@@ -171,7 +174,12 @@ function validateBlock(slug: string, raw: unknown, i: number, imagesSeen: { byte
       const rows = (b.rows as unknown[]).map((r, j) => {
         check(Array.isArray(r) && r.length === head.length,
           `${where} (table): row ${j} has ${Array.isArray(r) ? r.length : 0} cells, head has ${head.length}`);
-        r.forEach((cell, k) => checkHtml(`${where} (table): row ${j} cell ${k}`, cell, INLINE_TAGS));
+        r.forEach((cell, k) => {
+          // an empty cell is allowed: a row whose cells after the first are
+          // all empty renders as a group label (see the renderer)
+          check(typeof cell === "string", `${where} (table): row ${j} cell ${k} is not a string`);
+          if (cell !== "") checkHtml(`${where} (table): row ${j} cell ${k}`, cell, INLINE_TAGS);
+        });
         return r as string[];
       });
       return { type: "table", head, rows };
@@ -210,6 +218,17 @@ function validateBlock(slug: string, raw: unknown, i: number, imagesSeen: { byte
       check(isDate(stamp.date), `${where} (spec): stamp.date "${String(stamp.date)}" is not YYYY-MM-DD`);
       return { type: "spec", rows, stamp: { label: stamp.label, date: stamp.date } };
     }
+    case "steps": {
+      check(Array.isArray(b.steps) && b.steps.length > 0, `${where} (steps): steps is missing or empty`);
+      const steps = (b.steps as unknown[]).map((st, j) => {
+        check(typeof st === "object" && st !== null, `${where} (steps): step ${j} is not an object`);
+        const { n, text } = st as Record<string, unknown>;
+        check(isStr(n), `${where} (steps): step ${j} has no n`);
+        checkHtml(`${where} (steps): step ${j}`, text, INLINE_TAGS);
+        return { n, text };
+      });
+      return { type: "steps", steps };
+    }
   }
 }
 
@@ -223,6 +242,7 @@ function validatePost(file: string, raw: unknown): Post {
   const slug = p.slug;
   for (const f of ["kicker", "title", "dek", "summary"] as const)
     check(isStr(p[f]), `${slug}: ${f} is missing`);
+  checkHtml(`${slug}: dek`, p.dek, INLINE_TAGS);
   check(isDate(p.published), `${slug}: published "${String(p.published)}" is not YYYY-MM-DD`);
   check(isDate(p.verified), `${slug}: verified "${String(p.verified)}" is not YYYY-MM-DD`);
   check(p.verified <= todayLocal, `${slug}: verified ${p.verified} is in the future (today is ${todayLocal})`);
@@ -267,13 +287,17 @@ function load(): Post[] {
     slugs.add(post.slug);
     posts.push(post);
   }
-  // newest first; ties broken by slug so the order is stable
-  return posts.sort((a, b) => (a.published === b.published ? a.slug.localeCompare(b.slug) : b.published.localeCompare(a.published)));
+  // newest first. Same day: the higher kicker number is the later post
+  // (posts 02 and 03 share a date); then slug, so the order is stable.
+  return posts.sort((a, b) =>
+    b.published.localeCompare(a.published) ||
+    (Number(kickerNo(b)) || 0) - (Number(kickerNo(a)) || 0) ||
+    a.slug.localeCompare(b.slug));
 }
 
 // ---- exports
+/** The number in the kicker ("FIELD NOTES / 02" → "02"), for the index card and ordering. */
+export const kickerNo = (p: Post) => /(\d+)\s*$/.exec(p.kicker)?.[1] ?? "";
+
 export const fieldNotes: Post[] = load();
 export const getPost = (slug: string) => fieldNotes.find((p) => p.slug === slug) ?? null;
-
-/** The number in the kicker ("FIELD NOTES / 02" → "02"), for the index card. */
-export const kickerNo = (p: Post) => /(\d+)\s*$/.exec(p.kicker)?.[1] ?? "";

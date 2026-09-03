@@ -32,8 +32,15 @@ future), `hand` (two or three short handwritten lines), `blocks`, optional `sour
 | `plate` | `src`, `alt`, `no`, `caption` | screenshot in a corner-marked frame |
 | `figure` | `svg`, `caption` | inline SVG on the blueprint ground |
 | `spec` | `rows[] {k, v}`, `stamp {label, date}` | the "performed on" strip |
+| `steps` | `steps[] {n, text}` | a numbered sequence, no box: the number in `--mono` and `--ox`, the text in `--sans` |
 
-Do not invent a ninth. A post that needs one is a conversation, not a commit.
+Nine types. `steps` was added for post 03 because its argument is one message
+travelling through a loop, read top to bottom; a table is a mapping you look up, and
+would have been the wrong shape. Do not invent a tenth. A post that needs one is a
+conversation, not a commit.
+
+A `table` row whose cells after the first are all empty renders as a group label
+spanning the row (post 03 splits free / capped / paid that way). Same data, no new type.
 
 ## Which surface
 
@@ -43,8 +50,8 @@ never used for ordinary prose because it looks nice. Paper means *this one matte
 
 ## HTML in a post
 
-`html` fields and captions take inline tags only: `strong em code a b i`. Paper `html`
-may also use `p`. Links keep only `href`, and only `http(s)`, site-relative or `#`. The
+`html` fields, captions, step text and the `dek` take inline tags only: `strong em code
+a b i`. Paper `html` may also use `p`. Links keep only `href`, and only `http(s)`, site-relative or `#`. The
 build refuses anything else, and the renderer strips it again anyway. That habit is the
 point: a JSON file is the easiest thing to paste something into carelessly.
 
