@@ -33,14 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
         <main>{children}</main>
-        <footer className="site-foot">
-          <div className="wrap">
-            <p>
-              {site.name}{" "}&mdash; built in the open. Rankings are opinions with dates on
-              them; when we haven&apos;t done the work, the page says so.
-            </p>
-          </div>
-        </footer>
+        <footer className="site-foot" aria-hidden="true" />
       </body>
     </html>
   );

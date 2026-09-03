@@ -18,11 +18,6 @@ export default function Home() {
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-copy">
           <h1>A place for builders.</h1>
-          <p>Small, free, no login. Things I needed that didn&apos;t exist yet, or existed badly.</p>
-          <ul className="hero-meta" aria-label="At a glance">
-            <li>Free</li>
-            <li>No login</li>
-          </ul>
         </div>
       </section>
 
@@ -37,13 +32,7 @@ export default function Home() {
               <h3>AI Tool Finder</h3>
               <p>Which AI tool to use for the job you actually have.</p>
             </div>
-            <div className="tool-meta">
-              <span className="tool-go">Open</span>
-            </div>
           </a>
-          <p className="shelf-note">
-            One tool so far. More when they&apos;re worth shipping, not before.
-          </p>
         </section>
 
         <Newsletter />
