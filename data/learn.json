@@ -26,7 +26,8 @@
           "author": "Hugging Face",
           "length": "~15 min read",
           "why_this_one": "The short version: word, character and subword tokenisers, and why everyone settled on subword. Read this first if two hours is too many.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Token counting",
@@ -35,6 +36,24 @@
           "author": "Anthropic",
           "length": "~5 min read",
           "why_this_one": "How to count before you send. It also states plainly that newer Claude models use a different tokeniser that produces more tokens for the same text, which is the whole point about tokenisers not being shared.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Neural Machine Translation of Rare Words with Subword Units",
+          "url": "https://arxiv.org/abs/1508.07909",
+          "type": "paper",
+          "author": "Sennrich, Haddow, Birch (Edinburgh)",
+          "length": "11 pages",
+          "why_this_one": "The paper that brought byte-pair encoding to NLP; every modern tokeniser descends from it. Read section 3 and the worked example. Skip the translation results.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "tiktoken",
+          "url": "https://github.com/openai/tiktoken",
+          "type": "docs",
+          "author": "OpenAI",
+          "length": "~5 min read",
+          "why_this_one": "The tokeniser OpenAI models use, as a library. The README's counting example is the three lines you will paste into your cost estimator.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -53,7 +72,8 @@
           "author": "Andrej Karpathy",
           "length": "59m 48s",
           "why_this_one": "The one talk to send someone who has never opened a paper. Covers what a model file actually is, how it was trained, and what next-token prediction buys you.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Transformers, the tech behind LLMs | Deep Learning Chapter 5",
@@ -62,6 +82,24 @@
           "author": "3Blue1Brown",
           "length": "27m 14s",
           "why_this_one": "Formerly titled 'But what is a GPT?'. The clearest picture of tokens becoming vectors becoming a probability over the next token. Watch before the attention video.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "A Neural Probabilistic Language Model",
+          "url": "https://www.jmlr.org/papers/v3/bengio03a.html",
+          "type": "paper",
+          "author": "Bengio, Ducharme, Vincent, Jauvin",
+          "length": "19 pages (JMLR 3, 1137–1155)",
+          "why_this_one": "The 2003 paper that framed language modelling as a neural network predicting the next word from learnt embeddings. Read sections 1 and 2; the architecture is one figure and it is still the shape of an LLM.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "The Illustrated GPT-2 (Visualizing Transformer Language Models)",
+          "url": "https://jalammar.github.io/illustrated-gpt2/",
+          "type": "post",
+          "author": "Jay Alammar",
+          "length": "~25 min read",
+          "why_this_one": "Watches a decoder-only model produce one token at a time, with the tensors drawn. Read the first half; the second half on applications is dated.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -80,7 +118,8 @@
           "author": "Simon Willison",
           "length": "~30 min read",
           "why_this_one": "Written by someone who built search over his own site with them. Practical from the first paragraph, and the related-content and RAG sections are exactly what a builder does next.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "The Illustrated Word2vec",
@@ -89,6 +128,33 @@
           "author": "Jay Alammar",
           "length": "~25 min read",
           "why_this_one": "Where the idea came from, with pictures. Word2vec is old, but the intuition about vectors and analogies is the same one modern embedding models rely on.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Efficient Estimation of Word Representations in Vector Space",
+          "url": "https://arxiv.org/abs/1301.3781",
+          "type": "paper",
+          "author": "Mikolov, Chen, Corrado, Dean (Google)",
+          "length": "~12 pages",
+          "why_this_one": "Word2vec. Twelve pages, and the 'king − man + woman = queen' result is in section 5. Read it for the idea; the training tricks are obsolete.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Embeddings: What they are and why they matter (talk)",
+          "url": "https://www.youtube.com/watch?v=ArnMdc-ICCM",
+          "type": "video",
+          "author": "Simon Willison",
+          "length": "38m 38s",
+          "why_this_one": "The talk version of the post above. Pick one; the post is easier to search, the talk is easier to finish on a train.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Vector embeddings",
+          "url": "https://developers.openai.com/api/docs/guides/embeddings",
+          "type": "docs",
+          "author": "OpenAI",
+          "length": "~10 min read",
+          "why_this_one": "A vendor's embedding API in one page: models, use cases, and shortening dimensions to trade accuracy for storage. Read the use-case list, skip the pricing.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -107,7 +173,8 @@
           "author": "3Blue1Brown",
           "length": "26m 09s",
           "why_this_one": "Queries, keys and values drawn as what they are. The best 26 minutes on the subject. Watch chapter 5 first.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Attention Is All You Need",
@@ -116,6 +183,24 @@
           "author": "Vaswani et al. (Google)",
           "length": "15 pages",
           "why_this_one": "The paper that introduced the transformer. Read section 3 and figure 1; skip the translation benchmarks. Short for a paper this important.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+          "url": "https://arxiv.org/abs/1409.0473",
+          "type": "paper",
+          "author": "Bahdanau, Cho, Bengio",
+          "length": "~15 pages",
+          "why_this_one": "Where attention was invented, three years before the transformer. Read section 3 and figure 1; the alignment plots in section 5 show what attention weights actually look like.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Visualizing A Neural Machine Translation Model (Mechanics of Seq2seq Models With Attention)",
+          "url": "https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/",
+          "type": "post",
+          "author": "Jay Alammar",
+          "length": "~10 min read",
+          "why_this_one": "The Bahdanau paper as animations. Ten minutes, and the 'context vector bottleneck' problem that attention solves becomes obvious.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -134,7 +219,8 @@
           "author": "Andrej Karpathy",
           "length": "1h 56m",
           "why_this_one": "A working GPT in about a hundred lines of PyTorch, written live. The single best investment of two hours on this map.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "The Illustrated Transformer",
@@ -143,6 +229,24 @@
           "author": "Jay Alammar",
           "length": "~30 min read",
           "why_this_one": "The diagrams everyone else copies. Read it if you want the architecture without the code.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762",
+          "type": "paper",
+          "author": "Vaswani et al. (Google)",
+          "length": "15 pages",
+          "why_this_one": "The paper. Keep figure 1 open while you watch Karpathy build the same thing; every block in his code is a box in that figure.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "The Annotated Transformer",
+          "url": "https://nlp.seas.harvard.edu/annotated-transformer/",
+          "type": "post",
+          "author": "Sasha Rush; 2022 revision by Austin Huang et al. (Harvard NLP)",
+          "length": "~45 min read",
+          "why_this_one": "The paper reproduced as a runnable PyTorch notebook, paragraph by paragraph. Read it after Karpathy's video if you want the encoder-decoder version he skips.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -170,6 +274,34 @@
           "author": "Andrej Karpathy",
           "length": "3h 31m",
           "why_this_one": "The full pipeline from raw web crawl to chat model, including what the data looks like and why base models behave the way they do. Long. Worth it.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "Language Models are Few-Shot Learners",
+          "url": "https://arxiv.org/abs/2005.14165",
+          "type": "paper",
+          "author": "Brown et al. (OpenAI)",
+          "length": "~75 pages",
+          "why_this_one": "The GPT-3 paper: the moment scale alone produced in-context learning. Read sections 1 to 3 and figure 1.1; the remaining 60 pages are benchmarks.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "FineWeb: decanting the web for the finest text data at scale",
+          "url": "https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1",
+          "type": "post",
+          "author": "Penedo, Kydlíček, Ben Allal, Lozhkov et al. (Hugging Face)",
+          "length": "~40 min read",
+          "why_this_one": "What a pretraining corpus actually is: a web crawl, then filter after filter, each one measured. Read this to stop imagining pretraining data as 'books'.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "nanochat",
+          "url": "https://github.com/karpathy/nanochat",
+          "type": "docs",
+          "author": "Andrej Karpathy",
+          "length": "~15 min read",
+          "why_this_one": "The whole pipeline, tokeniser to chat model, in one readable repo that trains for about a hundred dollars. Read the README and the speedrun script; you do not have to run it.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -188,7 +320,8 @@
           "author": "Kaplan et al. (OpenAI)",
           "length": "19 pages",
           "why_this_one": "The original. Read the introduction and the summary figures; the power laws are the whole message.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Training Compute-Optimal Large Language Models",
@@ -197,6 +330,24 @@
           "author": "Hoffmann et al. (DeepMind)",
           "length": "~36 pages",
           "why_this_one": "The Chinchilla paper. It corrected Kaplan: for a fixed budget, use a smaller model and far more data. Explains why capable small models exist.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Emergent Abilities of Large Language Models",
+          "url": "https://arxiv.org/abs/2206.07682",
+          "type": "paper",
+          "author": "Wei et al. (Google, DeepMind, Stanford)",
+          "length": "~30 pages",
+          "why_this_one": "The claim that some abilities appear suddenly with scale, and the plots behind it. Read sections 1 and 2, then look for the later argument that the jumps are artefacts of the metrics.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Chinchilla scaling: A replication attempt",
+          "url": "https://epoch.ai/publications/chinchilla-scaling-a-replication-attempt",
+          "type": "post",
+          "author": "Besiroglu, Erdil, Barnett, You (Epoch AI)",
+          "length": "~15 min read",
+          "why_this_one": "Reconstructs Hoffmann's data and finds a fitting error. Read it to see how fragile a scaling law fit is before you plan a budget around one.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -215,7 +366,8 @@
           "author": "Patrick von Platen (Hugging Face)",
           "length": "~20 min read",
           "why_this_one": "Greedy, beam, top-k, top-p and temperature, each with runnable code and the output it produces. Still the reference walkthrough.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Reasoning models",
@@ -224,6 +376,24 @@
           "author": "OpenAI",
           "length": "~10 min read",
           "why_this_one": "Included here for one reason: it documents that reasoning models ignore or restrict the sampling parameters you have just learnt. Know which models still honour temperature before you set it.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "The Curious Case of Neural Text Degeneration",
+          "url": "https://arxiv.org/abs/1904.09751",
+          "type": "paper",
+          "author": "Holtzman et al. (Washington, AI2)",
+          "length": "~16 pages",
+          "why_this_one": "The paper that introduced top-p (nucleus) sampling and showed why greedy decoding loops. Read section 1 and figure 1; the repetition plots make the case.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Generation strategies",
+          "url": "https://huggingface.co/docs/transformers/generation_strategies",
+          "type": "docs",
+          "author": "Hugging Face (Transformers)",
+          "length": "~15 min read",
+          "why_this_one": "Greedy, sampling and beam search as actual `generate()` arguments. Read the basic methods section; skip custom generation methods unless you are writing a decoder.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -252,6 +422,25 @@
           "length": "~10 min read",
           "why_this_one": "What actually counts toward the window, including thinking tokens and tool definitions, and what happens when you overflow it. Vendor-specific, but the accounting is the same everywhere.",
           "last_verified": "2026-09-04"
+        },
+        {
+          "title": "RULER: What's the Real Context Size of Your Long-Context Language Models?",
+          "url": "https://arxiv.org/abs/2404.06654",
+          "type": "paper",
+          "author": "Hsieh et al. (NVIDIA)",
+          "length": "~27 pages",
+          "why_this_one": "Shows that the advertised window and the usable window are different numbers. Read section 4's table; it is the reason to test your own documents at your own lengths.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "type": "post",
+          "author": "Anthropic Applied AI (Rajasekaran, Dixon, Ryan, Hadfield)",
+          "length": "~20 min read",
+          "why_this_one": "Treats the window as a budget to curate, not a bucket to fill. Read the sections on compaction and note-taking; that is the practical answer to 'lost in the middle'.",
+          "last_verified": "2026-09-04",
+          "start": true
         }
       ]
     },
@@ -269,7 +458,8 @@
           "author": "Anthropic",
           "length": "~5 min read, then follow the links",
           "why_this_one": "Starts with the right question: do you have success criteria and a way to test them? Then links to the techniques. Read the best-practices page it points to.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Prompt engineering",
@@ -278,6 +468,33 @@
           "author": "OpenAI",
           "length": "~15 min read",
           "why_this_one": "Message roles, structure, examples, and the advice to keep prompts in version control. Read both vendors' pages; the overlap is what is actually true.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+          "url": "https://arxiv.org/abs/2201.11903",
+          "type": "paper",
+          "author": "Wei et al. (Google)",
+          "length": "~43 pages",
+          "why_this_one": "The most-cited prompting technique, with the evidence. Read sections 1 to 3 and figure 1; note that reasoning models now do this by default and telling them to can hurt.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Prompt Engineering",
+          "url": "https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/",
+          "type": "post",
+          "author": "Lilian Weng",
+          "length": "21 min read",
+          "why_this_one": "A survey of the techniques with the papers behind each, by someone who read them. Read the zero-shot to few-shot sections; the tool-use section is now its own node on this map.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Anthropic's Interactive Prompt Engineering Tutorial",
+          "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+          "type": "course",
+          "author": "Anthropic",
+          "length": "9 chapters, ~3h",
+          "why_this_one": "Nine notebooks with exercises against a live model. Do chapters 1 to 6; the advanced chapters are worth it only when you have a real prompt to fix.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -306,6 +523,34 @@
           "length": "~34 pages",
           "why_this_one": "How to replace most human labelling with a written set of principles and a model critiquing itself. Read section 1 and the diagram. Explains where refusals come from.",
           "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+          "url": "https://arxiv.org/abs/2305.18290",
+          "type": "paper",
+          "author": "Rafailov et al. (Stanford)",
+          "length": "~27 pages",
+          "why_this_one": "Replaces the reward model and PPO loop with a single loss on preference pairs. Read section 4 and the derivation; it is why most open-weights models now skip classic RLHF.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Illustrating Reinforcement Learning from Human Feedback (RLHF)",
+          "url": "https://huggingface.co/blog/rlhf",
+          "type": "post",
+          "author": "Lambert, Castricato, von Werra, Havrilla (Hugging Face)",
+          "length": "~15 min read",
+          "why_this_one": "The three stages drawn as one diagram: pretrain, reward model, RL fine-tune. Read this before the InstructGPT paper and the paper becomes a footnote to the picture.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "State of GPT",
+          "url": "https://www.youtube.com/watch?v=bZQun8Y4L2A",
+          "type": "video",
+          "author": "Andrej Karpathy (Microsoft Build 2023)",
+          "length": "42m 40s",
+          "why_this_one": "The pipeline from base model to assistant in forty minutes, including why base models are better at some things than the chat model built on them. Watch the first 25 minutes.",
+          "last_verified": "2026-09-04"
         }
       ]
     },
@@ -323,7 +568,8 @@
           "author": "Sebastian Raschka",
           "length": "~20 min read",
           "why_this_one": "Lays out every option from in-context learning to full fine-tuning, with numbers from his own experiments. Read this to decide whether you need to fine-tune at all.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "SFT Trainer",
@@ -332,6 +578,24 @@
           "author": "Hugging Face (TRL)",
           "length": "~20 min read",
           "why_this_one": "The library most open-weights fine-tuning runs through. Shows the dataset formats and a training loop in a dozen lines. Chosen over a vendor guide because vendor fine-tuning products come and go.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "LIMA: Less Is More for Alignment",
+          "url": "https://arxiv.org/abs/2305.11206",
+          "type": "paper",
+          "author": "Zhou et al. (Meta AI)",
+          "length": "~15 pages",
+          "why_this_one": "A thousand carefully written examples matched models trained on far more. Read sections 1, 2 and 5; it sets the expectation that data quality, not volume, is your job.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Fine-tuning a pretrained model (LLM Course, chapter 3)",
+          "url": "https://huggingface.co/learn/llm-course/chapter3/1",
+          "type": "course",
+          "author": "Hugging Face",
+          "length": "~1h",
+          "why_this_one": "The Trainer API end to end on a real dataset. Do this once so the TRL docs make sense; skip the sections on custom training loops.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -360,6 +624,34 @@
           "author": "OpenAI",
           "length": "~15 min read",
           "why_this_one": "Explains the difference between JSON mode (valid JSON) and structured outputs (matches your schema). That distinction is the one people trip on.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "Efficient Guided Generation for Large Language Models",
+          "url": "https://arxiv.org/abs/2307.09702",
+          "type": "paper",
+          "author": "Willard, Louf (Normal Computing / .txt)",
+          "length": "~18 pages",
+          "why_this_one": "How to guarantee a schema by masking tokens at each step instead of hoping. Read sections 1 to 3; this is the mechanism behind every 'strict' mode.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Structured outputs",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~15 min read",
+          "why_this_one": "Schema-constrained JSON and strict tool use on the Claude API. Read the JSON schema limitations section before you design the schema, not after.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Instructor",
+          "url": "https://python.useinstructor.com/",
+          "type": "docs",
+          "author": "Jason Liu and contributors",
+          "length": "~10 min read",
+          "why_this_one": "Pydantic models in, validated objects out, across providers, with retries on validation failure. The library most builders reach for when the vendor's strict mode is not enough.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -387,6 +679,25 @@
           "author": "kipply",
           "length": "~40 min read",
           "why_this_one": "Why generation is memory-bandwidth bound, what the KV cache costs, and how latency and throughput trade off. The post behind every 'tokens per second' number you will ever be quoted.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+          "url": "https://arxiv.org/abs/2309.06180",
+          "type": "paper",
+          "author": "Kwon et al. (Berkeley)",
+          "length": "~16 pages",
+          "why_this_one": "The vLLM paper: why the KV cache dominates serving cost and how paging it lifts throughput. Read sections 2 and 3; then the price per token on any vendor page makes sense.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Large Transformer Model Inference Optimization",
+          "url": "https://lilianweng.github.io/posts/2023-01-10-inference-optimization/",
+          "type": "post",
+          "author": "Lilian Weng",
+          "length": "~30 min read",
+          "why_this_one": "Every lever that cuts inference cost, catalogued: distillation, quantisation, pruning, sparsity, KV tricks. Read the overview and the sections on quantisation; skip the architecture changes.",
           "last_verified": "2026-09-04"
         }
       ]
@@ -415,6 +726,25 @@
           "length": "~58 pages",
           "why_this_one": "The taxonomy: factual versus faithfulness hallucination, causes at each stage, and the detection and mitigation methods. Use the table of contents; do not read it front to back.",
           "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Extrinsic Hallucinations in LLMs",
+          "url": "https://lilianweng.github.io/posts/2024-07-07-hallucination/",
+          "type": "post",
+          "author": "Lilian Weng",
+          "length": "29 min read",
+          "why_this_one": "Causes, detection and mitigation, each with the papers. Read the sections on causes and on retrieval-based mitigation; skip the benchmark tables.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~5 min read",
+          "why_this_one": "Five minutes of prompt patterns that work: permission to say 'I don't know', quote-then-answer, cite-then-verify. Read the whole page; there is no filler.",
+          "last_verified": "2026-09-04"
         }
       ]
     },
@@ -441,6 +771,25 @@
           "author": "Roie Schwaber-Cohen (Pinecone)",
           "length": "~20 min read",
           "why_this_one": "Vendor-written but genuinely explanatory: the index types, filtering, and what a vector database adds over an index. Discount the parts that argue you need their product.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "The Faiss library",
+          "url": "https://arxiv.org/abs/2401.08281",
+          "type": "paper",
+          "author": "Douze et al. (Meta AI)",
+          "length": "~25 pages",
+          "why_this_one": "The library paper for the index most vector databases wrap or copy. Read section 3 on the trade-offs between index types; it is the honest version of every vendor comparison chart.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "pgvector",
+          "url": "https://github.com/pgvector/pgvector",
+          "type": "docs",
+          "author": "Andrew Kane and contributors",
+          "length": "~15 min read",
+          "why_this_one": "Vector search inside Postgres, with HNSW and IVFFlat indexes and six distance operators. Read the indexing section; for most products this is where you should start, not a new database.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -470,6 +819,25 @@
           "length": "~15 min read",
           "why_this_one": "A concrete, measured improvement: prepend chunk-specific context before embedding, combine with BM25, rerank. Vendor claims a large reduction in retrieval failures on its own benchmark. The recipe is reusable with any model.",
           "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+          "url": "https://arxiv.org/abs/2312.10997",
+          "type": "paper",
+          "author": "Gao et al. (Tongji, Fudan)",
+          "length": "~21 pages",
+          "why_this_one": "Naive, advanced and modular RAG in one taxonomy, with the papers for each piece. Read section 2 and figure 3; use the rest as an index.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Question answering using embeddings-based search",
+          "url": "https://developers.openai.com/cookbook/examples/question_answering_using_embeddings",
+          "type": "post",
+          "author": "OpenAI Cookbook",
+          "length": "~30 min, runnable",
+          "why_this_one": "Search, then ask, in one notebook you can run this afternoon. Build this before you read anything else on RAG; the mechanism is small and the rest is tuning.",
+          "last_verified": "2026-09-04",
+          "start": true
         }
       ],
       "the_catch": "When retrieval misses, the model does not say so; it answers from whatever came back, so a RAG system with no retrieval evals is a hallucination generator with extra steps."
@@ -488,7 +856,8 @@
           "author": "Roie Schwaber-Cohen, Arjun Patel (Pinecone)",
           "length": "~15 min read",
           "why_this_one": "Fixed-size, recursive, document-structure, semantic and contextual chunking, with the honest advice to start with fixed-size. The one page to read before writing a splitter.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Evaluation Measures in Information Retrieval",
@@ -497,6 +866,24 @@
           "author": "Laura Carnevali (Pinecone)",
           "length": "~20 min read",
           "why_this_one": "Recall@k, MRR, MAP and NDCG with worked examples and Python. These are the numbers that tell you whether your chunking change helped.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+          "url": "https://arxiv.org/abs/2004.04906",
+          "type": "paper",
+          "author": "Karpukhin et al. (Meta AI)",
+          "length": "~13 pages",
+          "why_this_one": "The paper that made learned dense retrieval beat BM25 on passages. Read sections 3 and 5; note the passage length they chose, because that is where chunk size defaults come from.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Evaluating Chunking Strategies for Retrieval",
+          "url": "https://www.trychroma.com/research/evaluating-chunking",
+          "type": "post",
+          "author": "Brandon Smith, Anton Troynikov (Chroma)",
+          "length": "~20 min read",
+          "why_this_one": "A measured comparison of chunkers with token-level recall and precision. Read the results table; the spread between strategies is the size of the win you are playing for.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -516,7 +903,8 @@
           "author": "Anthropic",
           "length": "~15 min read",
           "why_this_one": "The full round trip in one page: define, receive the call, execute, return the result. Also shows how to force a tool call and how to guarantee the schema.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Function calling",
@@ -525,6 +913,33 @@
           "author": "OpenAI",
           "length": "~15 min read",
           "why_this_one": "Same idea, other vendor. Read both and notice that the shape is identical; that shared shape is what MCP standardises.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+          "url": "https://arxiv.org/abs/2302.04761",
+          "type": "paper",
+          "author": "Schick et al. (Meta AI)",
+          "length": "~17 pages",
+          "why_this_one": "The paper that showed a model can learn when to call an API. Read sections 1 and 2; the training method is not what vendors use now, but the framing is.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Writing effective tools for agents — with agents",
+          "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+          "type": "post",
+          "author": "Ken Aizawa et al. (Anthropic)",
+          "length": "~15 min read",
+          "why_this_one": "How to write the tool description, which is the part that decides whether the model calls it right. Read the section on naming and descriptions; then rewrite yours.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Claude cookbook: tool use notebooks",
+          "url": "https://github.com/anthropics/claude-cookbooks/tree/main/tool_use",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "13 notebooks",
+          "why_this_one": "Runnable examples: a calculator tool, parallel calls, tool_choice, Pydantic-typed tools, memory. Run calculator_tool first, then tool_choice.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -544,7 +959,8 @@
           "author": "Erik Schluntz, Barry Zhang (Anthropic)",
           "length": "~20 min read",
           "why_this_one": "Draws the line between workflows and agents and names five workflow patterns to try first. The most-cited practical piece on the subject, and it argues for less autonomy, not more.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "LLM Powered Autonomous Agents",
@@ -553,6 +969,24 @@
           "author": "Lilian Weng",
           "length": "31 min read",
           "why_this_one": "Planning, memory, tool use: the three-part framing everyone still uses, with the research behind each. Dated in its examples, current in its structure.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+          "type": "post",
+          "author": "Hadfield, Zhang, Lien, Scholz, Fox, Ford (Anthropic)",
+          "length": "~20 min read",
+          "why_this_one": "A real production agent system described honestly, including the line that multi-agent systems use about fifteen times the tokens of a chat. Read the architecture and the 'lessons' sections.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Hugging Face Agents Course",
+          "url": "https://huggingface.co/learn/agents-course/unit0/introduction",
+          "type": "course",
+          "author": "Hugging Face",
+          "length": "5 units + bonus, free",
+          "why_this_one": "Free and hands-on, using smolagents, LangGraph and LlamaIndex. Do unit 1 and the first framework unit; do not do all three frameworks.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -581,6 +1015,25 @@
           "author": "Simon Willison",
           "length": "~10 min read",
           "why_this_one": "The whole loop in a few dozen lines with no library. Type it out yourself; it is the fastest way to stop being afraid of agents.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+          "url": "https://arxiv.org/abs/2303.11366",
+          "type": "paper",
+          "author": "Shinn et al. (Northeastern, MIT)",
+          "length": "~19 pages",
+          "why_this_one": "The next step after ReAct: the agent writes down what went wrong and tries again with that note in context. Read sections 1 and 3; it is a memory trick, not RL.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "How tool use works",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~10 min read",
+          "why_this_one": "The loop as a vendor documents it: while stop_reason is tool_use, run the tool and continue. Read 'The agentic loop'; that section is your while loop.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -609,6 +1062,25 @@
           "author": "Anthropic",
           "length": "~20 min read",
           "why_this_one": "A concrete, shipped design: the model reads and writes files in a directory you control, and the page shows exactly which commands you must implement. Shows that 'memory' is a tool plus your storage, nothing more.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+          "url": "https://arxiv.org/abs/2304.03442",
+          "type": "paper",
+          "author": "Park et al. (Stanford, Google)",
+          "length": "~22 pages",
+          "why_this_one": "The paper with the memory stream: observations scored by recency, importance and relevance, plus periodic reflection. Read section 4; the retrieval function is a page and it is reusable.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Effective harnesses for long-running agents",
+          "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+          "type": "post",
+          "author": "Justin Young (Anthropic)",
+          "length": "~15 min read",
+          "why_this_one": "Memory as files and a progress log that each new session reads first. Read it as a worked example of what a memory design looks like when it has to survive a context reset.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -628,7 +1100,8 @@
           "author": "Hamel Husain",
           "length": "~30 min read",
           "why_this_one": "The three levels (unit tests, human and model grading, A/B) and why looking at traces is the job. Written from consulting on real products. The one piece to read on this node.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Define success criteria and build evaluations",
@@ -637,6 +1110,24 @@
           "author": "Anthropic",
           "length": "~15 min read",
           "why_this_one": "Grading methods with code: exact match, similarity, LLM-graded Likert scales, binary classifiers. Useful as a menu once you know why you need one.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+          "url": "https://arxiv.org/abs/2306.05685",
+          "type": "paper",
+          "author": "Zheng et al. (LMSYS, Berkeley)",
+          "length": "~29 pages",
+          "why_this_one": "The paper that measured how well a model grader agrees with humans, and named its biases: position, verbosity, self-preference. Read section 3 before you trust a model to grade another.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Demystifying evals for AI agents",
+          "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+          "type": "post",
+          "author": "Grace, Hadfield, Olivares, De Jonghe (Anthropic)",
+          "length": "~25 min read",
+          "why_this_one": "Code graders, model graders and human graders, and capability versus regression evals, from a team that runs them. Read the grader taxonomy; skip the agent-type section if you are not building one.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -666,6 +1157,25 @@
           "length": "~10 min read",
           "why_this_one": "A working implementation with the five rail types named: input, retrieval, dialog, execution, output. Even if you never install it, that taxonomy is the right way to think about where checks go.",
           "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection",
+          "url": "https://arxiv.org/abs/2302.12173",
+          "type": "paper",
+          "author": "Greshake et al. (CISPA, Saarland)",
+          "length": "~33 pages",
+          "why_this_one": "The paper that defined indirect prompt injection: instructions hidden in content the model retrieves. Read sections 1 to 3; the attack taxonomy is still the one everyone uses.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "The lethal trifecta for AI agents: private data, untrusted content, and external communication",
+          "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/",
+          "type": "post",
+          "author": "Simon Willison",
+          "length": "~10 min read",
+          "why_this_one": "Three capabilities that, combined, mean your data walks out. Read it, then list which of the three your agent has; if all three, you have a problem no prompt fixes.",
+          "last_verified": "2026-09-04",
+          "start": true
         }
       ],
       "the_catch": "Prompt injection has no complete fix; any text the model reads can redirect it, so the only reliable guardrail on a dangerous action is that the model cannot take it without your code's permission."
@@ -684,7 +1194,8 @@
           "author": "Model Context Protocol",
           "length": "~5 min read, then the architecture page",
           "why_this_one": "The official introduction, with links to the architecture and the build-a-server guide. Start here, not with a client's marketing page.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Introducing the Model Context Protocol",
@@ -693,6 +1204,33 @@
           "author": "Anthropic",
           "length": "~5 min read",
           "why_this_one": "The November 2024 announcement. Short, and it says what problem the protocol was meant to solve, which is useful when judging whether a given use is a fit.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Model Context Protocol specification (2026-07-28)",
+          "url": "https://modelcontextprotocol.io/specification/2026-07-28",
+          "type": "docs",
+          "author": "Model Context Protocol",
+          "length": "~30 min read",
+          "why_this_one": "The protocol itself: JSON-RPC, hosts, clients, servers, and the security principles that a good client is supposed to enforce. Read the overview and the security section; the schema is reference material.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Build an MCP server",
+          "url": "https://modelcontextprotocol.io/docs/develop/build-server",
+          "type": "docs",
+          "author": "Model Context Protocol",
+          "length": "~45 min, runnable",
+          "why_this_one": "A weather server with two tools, in Python or TypeScript, connected to a desktop client. Do this once; after it, every MCP server you read is familiar.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Building Agents with Model Context Protocol — full workshop",
+          "url": "https://www.youtube.com/watch?v=kQmXtrmQ5Zg",
+          "type": "video",
+          "author": "Mahesh Murag (Anthropic), at AI Engineer",
+          "length": "1h 44m",
+          "why_this_one": "The protocol explained by one of its authors, with the design reasoning that the docs leave out. Watch the first hour; the second is live coding you can skim.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -712,7 +1250,8 @@
           "author": "Anthropic",
           "length": "~20 min read",
           "why_this_one": "Explicit cache breakpoints, prefix matching rules, and lifetimes. The most detailed explanation of how a cache actually decides what is reusable.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "Prompt caching",
@@ -721,6 +1260,15 @@
           "author": "OpenAI",
           "length": "~10 min read",
           "why_this_one": "The automatic version: on by default above a minimum prompt length, same prefix rule. Read both to see the two designs; your prompt layout should satisfy either.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Prompt caching with the Claude API (cookbook)",
+          "url": "https://github.com/anthropics/claude-cookbooks/blob/main/misc/prompt_caching.ipynb",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~20 min, runnable",
+          "why_this_one": "A notebook that caches a long document and shows the token counts and latency before and after. Run it; seeing cache_read_input_tokens go up is the fastest way to learn the prefix rule.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -750,6 +1298,25 @@
           "length": "~10 min read, then the quicktour",
           "why_this_one": "The library that implements LoRA and its relatives. The quicktour trains an adapter in a few lines, which is how you will actually use the paper.",
           "last_verified": "2026-09-04"
+        },
+        {
+          "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+          "url": "https://arxiv.org/abs/2305.14314",
+          "type": "paper",
+          "author": "Dettmers, Pagnoni, Holtzman, Zettlemoyer (Washington)",
+          "length": "~26 pages",
+          "why_this_one": "LoRA on a 4-bit base model, which is what lets a 65B model fine-tune on one GPU. Read sections 1 and 3; the 4-bit NormalFloat detail matters less than the memory table.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Practical Tips for Finetuning LLMs Using LoRA (Low-Rank Adaptation)",
+          "url": "https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms",
+          "type": "post",
+          "author": "Sebastian Raschka",
+          "length": "~20 min read",
+          "why_this_one": "Rank, alpha, which layers, and whether QLoRA is worth the slowdown, from hundreds of his own runs. Read this before you set a single hyperparameter.",
+          "last_verified": "2026-09-04",
+          "start": true
         }
       ],
       "the_catch": "An adapter is tied to the exact base model it was trained on, so when the base is updated or deprecated your adapter goes with it; keep the training data and the script, not just the weights."
@@ -778,6 +1345,34 @@
           "length": "~10 min read",
           "why_this_one": "The table of GGUF quant types with size and speed for a real 8B model. This is what the Q4_K_M in every model filename refers to.",
           "last_verified": "2026-09-04"
+        },
+        {
+          "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+          "url": "https://arxiv.org/abs/2210.17323",
+          "type": "paper",
+          "author": "Frantar, Ashkboos, Hoefler, Alistarh (IST Austria, ETH)",
+          "length": "~16 pages",
+          "why_this_one": "The method behind most 4-bit GPU checkpoints. Read sections 1 and 3; the perplexity tables in section 4 are what 'small quality loss' actually means in numbers.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "A Gentle Introduction to 8-bit Matrix Multiplication for transformers at scale",
+          "url": "https://huggingface.co/blog/hf-bitsandbytes-integration",
+          "type": "post",
+          "author": "Younes Belkada, Tim Dettmers (Hugging Face)",
+          "length": "~20 min read",
+          "why_this_one": "LLM.int8() explained by its author, with the outlier problem that makes naive 8-bit fail. Read the first half; the second half is library integration.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "A Visual Guide to Quantization",
+          "url": "https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization",
+          "type": "post",
+          "author": "Maarten Grootendorst",
+          "length": "~30 min read",
+          "why_this_one": "Every quantisation idea drawn: symmetric versus asymmetric, GPTQ, GGUF blocks, 1-bit. Read this first, then the papers are readable.",
+          "last_verified": "2026-09-04",
+          "start": true
         }
       ],
       "the_catch": "Quality loss is uneven: a 4-bit model that chats fine can fall apart on arithmetic or long code, and no benchmark number will tell you that about your task."
@@ -796,7 +1391,8 @@
           "author": "Ollama",
           "length": "~10 min read, then the quickstart",
           "why_this_one": "The fastest path from nothing to a model answering on localhost. The quickstart is one command; the API pages show how to call it from your code.",
-          "last_verified": "2026-09-04"
+          "last_verified": "2026-09-04",
+          "start": true
         },
         {
           "title": "llama.cpp",
@@ -805,6 +1401,33 @@
           "author": "ggml-org",
           "length": "~15 min read",
           "why_this_one": "The engine under most local tooling, with the backend table (Metal, CUDA, CPU) and a CLI and server. Read this when Ollama's defaults stop being enough.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "LLaMA: Open and Efficient Foundation Language Models",
+          "url": "https://arxiv.org/abs/2302.13971",
+          "type": "paper",
+          "author": "Touvron et al. (Meta AI)",
+          "length": "~27 pages",
+          "why_this_one": "The weights that started local models. Read sections 1 and 2 for the argument that a smaller model trained longer is what you want to run yourself.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Large language models are having their Stable Diffusion moment",
+          "url": "https://simonwillison.net/2023/Mar/11/llama/",
+          "type": "post",
+          "author": "Simon Willison",
+          "length": "~10 min read",
+          "why_this_one": "Written the week llama.cpp first ran on a laptop. Read it for the why; the how has changed, the reasons to run locally have not.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Ollama API: Introduction",
+          "url": "https://docs.ollama.com/api/introduction",
+          "type": "docs",
+          "author": "Ollama",
+          "length": "~10 min read",
+          "why_this_one": "The local HTTP API on port 11434 that your code will call. Read the endpoint list; then swap your vendor client's base URL and see what breaks.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -833,6 +1456,25 @@
           "author": "OpenAI",
           "length": "~10 min read",
           "why_this_one": "The practical side: reasoning tokens, effort levels, how they count toward context and billing, and which parameters no longer apply.",
+          "last_verified": "2026-09-04",
+          "start": true
+        },
+        {
+          "title": "Why We Think",
+          "url": "https://lilianweng.github.io/posts/2025-05-01-thinking/",
+          "type": "post",
+          "author": "Lilian Weng",
+          "length": "40 min read",
+          "why_this_one": "Test-time compute from chain-of-thought to RL-trained reasoning, with the papers. Read the sections on RL for reasoning and on faithfulness; skip the latent-variable maths.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Thinking",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/thinking",
+          "type": "docs",
+          "author": "Anthropic",
+          "length": "~20 min read",
+          "why_this_one": "How a vendor exposes reasoning: effort levels, thinking blocks, what is billed, what is kept between turns. Read the budgeting and the tool-use sections.",
           "last_verified": "2026-09-04"
         }
       ],
@@ -862,6 +1504,25 @@
           "length": "~15 min read",
           "why_this_one": "How images are sent, how they are turned into tokens and priced, and the limits (formats, counts, sizes). The billing section is the part you will wish you had read first.",
           "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Visual Instruction Tuning",
+          "url": "https://arxiv.org/abs/2304.08485",
+          "type": "paper",
+          "author": "Liu, Li, Wu, Lee (Wisconsin, Microsoft)",
+          "length": "~25 pages",
+          "why_this_one": "LLaVA: bolt a vision encoder onto a language model with a small projector and instruction-tune it. Read sections 3 and 4; it is the recipe most open vision models still follow.",
+          "last_verified": "2026-09-04"
+        },
+        {
+          "title": "Vision Language Models Explained",
+          "url": "https://huggingface.co/blog/vlms",
+          "type": "post",
+          "author": "Merve Noyan, Edward Beeching (Hugging Face)",
+          "length": "~15 min read",
+          "why_this_one": "The three-part architecture (encoder, projector, decoder) in plain terms, then a tour of the open models. Read the architecture section; the model list dates fast.",
+          "last_verified": "2026-09-04",
+          "start": true
         }
       ],
       "the_catch": "An unresized photo costs more tokens than the question you ask about it, and models still misread small text and miscount objects, so verify anything numeric a vision call returns."
@@ -911,8 +1572,8 @@
     { "from": "transformers", "to": "multimodal" }
   ],
   "method": {
-    "how": "Nodes and prerequisite edges were fixed in a written spec before any research: 31 concepts a builder must understand, from tokens to agents, each with only its direct prerequisites. Resources were chosen by one person reading each candidate and keeping the primary source (the paper, the author's own post or video, the vendor's own docs) that a builder would actually finish. Vendor pages were kept where they are the clearest explanation of a mechanism; none is an endorsement.",
-    "tested_on": "We did not complete every course listed. Every URL was opened on 2026-09-04 and confirmed to be live and to be what its entry says. Lengths marked with ~ are estimates; the rest are as the source states them. Two leads from the spec were replaced: OpenAI's hallucination post (its site blocks automated reads; the underlying arXiv paper is used instead) and OpenAI's fine-tuning guide (OpenAI's own docs say the platform is winding down and closed to new users).",
+    "how": "Nodes and prerequisite edges were fixed in a written spec before any research: 31 concepts a builder must understand, from tokens to agents, each with only its direct prerequisites. Each node carries three to five resources chosen by one person reading each candidate, shaped the same way where the shape exists: the paper that started it (arXiv or the venue page), the video or course that explains it best, and the docs or post a builder actually builds on. One per node is marked start here. Vendor pages were kept where they are the clearest explanation of a mechanism; none is an endorsement.",
+    "tested_on": "We did not complete every course listed. Every URL was opened on 2026-09-04 and confirmed to be live and to be what its entry says. Lengths marked with ~ are estimates; the rest are as the source states them. Some concepts have no defining paper and we did not pad with a weak one: evals (the LLM-as-judge paper covers model grading only), guardrails (the indirect prompt injection paper defines the threat, not the defence), agents (ReAct sits on its own node; Lilian Weng's post is the reference), MCP (a specification, not a paper), prompt caching (vendor prefix caching has no paper of its own). Two leads from the spec were replaced: OpenAI's hallucination post (its site blocks automated reads; the underlying arXiv paper is used instead) and OpenAI's fine-tuning guide (OpenAI's own docs say the platform is winding down and closed to new users). OpenAI's evals guide was considered and dropped for the same reason: its docs give a shutdown date of 30 November 2026.",
     "conflicts": "None. No affiliate links, no paid placements, no relationship with any vendor or author listed."
   }
 }

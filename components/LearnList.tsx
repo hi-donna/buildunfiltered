@@ -1,20 +1,32 @@
-import { nodesByLevel, prereqs, getNode, learnStart, type LearnNode } from "@/lib/learn";
+import { nodesByLevel, prereqs, getNode, learnStart, groupResources, type LearnNode } from "@/lib/learn";
 
 // The list is the content. It is server-rendered, always in the DOM, and
 // carries every explanation and resource link, so it indexes, reads aloud,
 // and works with JS off. The constellation (LearnMap) is a view of this.
 
+// Grouped by type: Papers, Watch, Read, Docs. The one marked `start` carries
+// a "start here" tag. Shared by the list row and the map panel.
 export function ResourceList({ node }: { node: LearnNode }) {
   return (
-    <ol className="learn-res">
-      {node.resources.map((r) => (
-        <li key={r.url}>
-          <a className="res-link" href={r.url} target="_blank" rel="noopener">{r.title}</a>
-          <span className="res-meta">{r.type} · {r.author} · {r.length}</span>
-          <p className="res-why">{r.why_this_one}</p>
-        </li>
+    <div className="learn-res-groups">
+      {groupResources(node.resources).map((g) => (
+        <section className="learn-res-group" key={g.label}>
+          <h3 className="res-group-head">{g.label}</h3>
+          <ol className="learn-res">
+            {g.items.map((r) => (
+              <li key={r.url}>
+                <span className="res-title">
+                  <a className="res-link" href={r.url} target="_blank" rel="noopener">{r.title}</a>
+                  {r.start && <span className="tag tag-official res-start">start here</span>}
+                </span>
+                <span className="res-meta">{r.type} · {r.author} · {r.length}</span>
+                <p className="res-why">{r.why_this_one}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
       ))}
-    </ol>
+    </div>
   );
 }
 

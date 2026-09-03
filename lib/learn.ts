@@ -1,6 +1,7 @@
 import learnData from "@/data/learn.json";
 
-// Learning Map: 31 concepts as a prerequisite graph. The JSON is content only;
+// Learning Map: 31 concepts as a prerequisite graph. Each node carries 3–5
+// resources, exactly one marked `start` (the one to open first). The JSON is content only;
 // this file types it, checks it at build time, and derives the layout. Nothing
 // here invents a fact that isn't in the JSON. If the data is wrong, `npm run
 // build` fails here rather than shipping a half-drawn map.
@@ -10,7 +11,7 @@ export type ResourceType = "video" | "paper" | "course" | "post" | "docs";
 
 export interface Resource {
   title: string; url: string; type: ResourceType; author: string; length: string;
-  why_this_one: string; last_verified: string;
+  why_this_one: string; last_verified: string; start?: boolean;
 }
 export interface LearnNode {
   id: string; title: string; level: Level; angle?: number; explain: string;
@@ -47,8 +48,10 @@ function validate(d: LearnData) {
     check(!ids.has(n.id), `duplicate id "${n.id}"`);
     ids.add(n.id);
     check(LEVELS.includes(n.level), `node "${n.id}" has unknown level "${n.level}"`);
-    check(n.resources.length >= 2 && n.resources.length <= 3,
-      `node "${n.id}" has ${n.resources.length} resources; must be 2 or 3`);
+    check(n.resources.length >= 3 && n.resources.length <= 5,
+      `node "${n.id}" has ${n.resources.length} resources; must be 3 to 5`);
+    const starts = n.resources.filter((r) => r.start === true).length;
+    check(starts === 1, `node "${n.id}" has ${starts} resources marked start; must be exactly 1`);
     for (const r of n.resources) {
       check(typeof r.url === "string" && r.url.length > 0, `node "${n.id}": resource with empty url`);
       check(typeof r.why_this_one === "string" && r.why_this_one.length > 0,
@@ -100,6 +103,18 @@ export const learnMethod: LearnMethod = data.method;
 export const learnGenerated: string = data.generated;
 
 export const getNode = (id: string) => learnNodes.find((n) => n.id === id) ?? null;
+
+// Resources grouped for display: Papers, Watch (video + course), Read (post),
+// Docs. Order within a group is the order in the JSON. Empty groups are omitted.
+export const RESOURCE_GROUPS: { label: string; types: ResourceType[] }[] = [
+  { label: "Papers", types: ["paper"] },
+  { label: "Watch", types: ["video", "course"] },
+  { label: "Read", types: ["post"] },
+  { label: "Docs", types: ["docs"] },
+];
+export const groupResources = (rs: Resource[]) =>
+  RESOURCE_GROUPS.map((g) => ({ label: g.label, items: rs.filter((r) => g.types.includes(r.type)) }))
+    .filter((g) => g.items.length > 0);
 
 export const nodesByLevel: { level: Level; label: string; nodes: LearnNode[] }[] =
   LEVELS.map((level) => ({ level, label: LEVEL_LABEL[level], nodes: learnNodes.filter((n) => n.level === level) }));

@@ -1,5 +1,67 @@
 # Status
 
+## 2026-09-04 — Learning Map resources: 3–5 per node, grouped, start-here marker
+
+**Shipped:** `data/learn.json` now carries 133 resources across 31 nodes (130
+distinct URLs, up from 61), 3 to 5 per node, each node shaped where the shape
+exists: the defining paper, the best video or course, and a builder-facing docs
+page or post. Mix: 41 papers, 40 docs, 38 posts, 9 videos, 5 courses. Every
+node has exactly one resource with `start: true`. `lib/learn.ts` enforces 3–5
+and exactly-one-start at build, and exports `groupResources` (Papers, Watch,
+Read, Docs; empty groups omitted). `components/LearnList.tsx` renders the
+grouped list with a `start here` tag in the existing `.tag.tag-official`
+style; the map panel shares the same component. `LearnMap.tsx` unchanged.
+Lede and meta description updated to say three to five. All 61 existing URLs
+kept.
+
+**Verified:**
+- `npm run build` green; `out/tools/learn/index.html` contains all 31 titles,
+  all 130 URLs, and 31 `start here` tags in plain HTML.
+- URLs: 130/130 return 200 (same curl-backed node script as before).
+- Every node has 3–5 resources and exactly one start (scripted).
+- Broke the start rule on `rag` (two starts): build fails with
+  `data/learn.json: node "rag" has 2 resources marked start; must be exactly 1`.
+  Reverted; build green.
+- `/tools/learn/#agents`: panel shows Watch and Read headings, `start here`
+  on Building Effective AI Agents. No console errors.
+- 390px (iframe emulation): list reads cleanly, headings and tag wrap
+  correctly, no horizontal scroll. `#agents` opens the list row.
+- No new colour hex in the diff.
+
+**Decisions made:**
+- 69 new URLs, all opened today; author's own page or venue page only. Vendor
+  pages recorded at their redirect targets (developers.openai.com,
+  platform.claude.com, trychroma.com/research, modelcontextprotocol.io
+  spec 2026-07-28).
+- Two candidates dropped after reading them: OpenAI's evals guide (its own
+  page gives a platform shutdown date of 30 November 2026) and Karpathy's
+  nanoGPT (its README says it is deprecated; nanochat is used instead).
+- Videos where a canonical one exists: Karpathy (State of GPT on
+  post-training), Willison's embeddings talk, Anthropic's MCP workshop at
+  AI Engineer. Most nodes have no single best video and were not padded.
+- The Vaswani paper appears on both `attention` and `transformers`; it is the
+  defining paper for both and the `why_this_one` differs.
+- Two Pinecone posts on `chunking` and one on `vector-search` were kept as
+  the clearest explanations; the method block says vendor pages are not
+  endorsements.
+
+**No defining paper (stated in the method block):** evals (LLM-as-judge covers
+model grading only), guardrails (Greshake defines the threat, not the
+defence), agents (ReAct is its own node; Weng's post is the reference), MCP
+(a spec), prompt caching (vendor prefix caching has no paper; the academic
+"Prompt Cache" paper was considered and left out as not what vendors ship).
+
+**Half-done:** nothing.
+
+**Needs the owner:**
+- Still: confirm 41 edges (spec said 45).
+- Two YouTube resources sit on third-party channels that are the venue
+  (Microsoft Developer for State of GPT, AI Engineer for the MCP workshop).
+  Fine by the rule; flagging in case you want author channels only.
+- Instagram square: unchanged advice; the map itself did not change.
+
+**Next:** Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-04 — Learning Map shipped
 
 **Shipped:** Tool 5, Learning Map, at `/tools/learn/`. `data/learn.json`: 31 nodes,

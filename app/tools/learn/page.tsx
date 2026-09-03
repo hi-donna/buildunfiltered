@@ -7,7 +7,7 @@ import { learnNodes, learnEdges, learnMethod, learnGenerated } from "@/lib/learn
 export const metadata: Metadata = {
   title: "Learning Map",
   description:
-    "31 things to understand before you build on an LLM, drawn as a prerequisite map from tokens to agents. Two or three verified resources for each.",
+    "31 things to understand before you build on an LLM, as a prerequisite map from tokens to agents. Three to five verified resources each, one marked start here.",
   alternates: { canonical: "/tools/learn/" },
 };
 
@@ -17,7 +17,7 @@ export default function LearnPage() {
       <h1 className="finder-title">Learning Map</h1>
       <p className="finder-lede">
         {learnNodes.length} things to understand before you build on an LLM, in the order they depend on each other.
-        Two or three things worth finishing for each.
+        Three to five things worth finishing for each, and which one to open first.
       </p>
 
       <LearnMap />
