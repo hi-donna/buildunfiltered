@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { supabase, authConfigured } from "@/lib/supabase";
 
 // Header link: "Sign in" until there is a session, then the codename. Reads the
-// profile once; nothing else on the site depends on being signed in.
+// profile once; nothing else on the site depends on being signed in. Renders
+// nothing at all until the Supabase keys are set at build time, so the button
+// does not show on a site where sign-in cannot work yet.
 export default function AuthLink() {
   const [label, setLabel] = useState("Sign in");
 
@@ -23,5 +25,6 @@ export default function AuthLink() {
     return () => { live = false; sub.subscription.unsubscribe(); };
   }, []);
 
+  if (!authConfigured) return null;
   return <a className="head-auth" href="/account/">{label}</a>;
 }

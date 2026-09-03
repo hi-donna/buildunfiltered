@@ -33,6 +33,10 @@ validates E.164, sends, and shows a readable error when the service cannot
 be reached; the clean build contains no placeholder URL. The OTP round trip
 itself cannot be tested without a project and an SMS provider.
 
+**Update, same day:** the header "Sign in" link now renders only when the
+Supabase keys are present at build time (owner's call: no button until it
+works). `/account/` is still built, unlinked and `noindex`.
+
 **Two rules this bends, on the owner's instruction (roadmap §0):**
 - §0.2 "no logins": there is now a login, on a third-party backend
   (Supabase) rather than one of ours. Content is not gated.
