@@ -1,5 +1,13 @@
 # Status
 
+## 2026-09-04 — Field Notes, phase 1: renderer, invariants, post 02
+
+**Shipped:** `lib/fieldNotes.ts` (types, loader, build-time invariants), `app/field-notes/[slug]/page.tsx` (eight block types, in spec order), `/* ---- field notes ---- */` in `globals.css` on existing tokens only, `data/field-notes/local-n8n.json` and its five plates under `public/field-notes/local-n8n/`.
+**Verified:** all five plates opened and checked for private content (none: empty setup form, empty canvas, node panels; no email, token, client name or path); 172,302 bytes total, max 1400px wide. Three invariants broken one at a time (unknown block type, plate with no file on disk, verified date in the future): each fails `npm run build` with a named error; reverted, build green.
+**Verified:** `out/field-notes/local-n8n/index.html` exists; 1920px renders every block; 390px (iframe) body scrollWidth 390, terminals, tables and the figure scroll inside their own boxes; no console errors.
+**Half-done:** phase 2 (index, sitemap, site.config, home shelf, FIELD_NOTES_SPEC.md) is next in this session.
+**Needs the owner:** nothing new yet; see the phase 2 note when it lands.
+
 ## 2026-09-04 — Phone sign-in (OTP, no password) with codenames
 
 **Shipped (code; not switched on until the owner adds keys):**

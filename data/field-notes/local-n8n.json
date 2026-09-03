@@ -1,0 +1,150 @@
+{
+  "slug": "local-n8n",
+  "kicker": "FIELD NOTES / 02",
+  "title": "Local n8n",
+  "dek": "Four commands put a working automation server on your own machine. This is what each one does, why the defaults in most guides will lose your work, and how to fix it when it stops.",
+  "summary": "Installing and running n8n locally on a Mac, with the mental model first.",
+  "published": "2026-09-03",
+  "verified": "2026-09-03",
+  "hand": ["Everything here was", "actually run. The plates", "are from that machine."],
+  "blocks": [
+    { "type": "heading", "level": 2, "text": "The thing you actually want" },
+    { "type": "prose", "html": "Say it's this: <strong>every weekday at 7am, pull yesterday's orders out of a spreadsheet, add them up, and post the total to Slack.</strong> Ten seconds of work. Ten seconds you do three hundred times a year, and forget twice a month." },
+    { "type": "prose", "html": "n8n is a tool for building that once and letting it run. You lay out the steps on a canvas, connect them with lines, and it fires on whatever schedule you give it." },
+    { "type": "prose", "html": "You can rent it. This runs it on your own machine instead — free, and your spreadsheet credentials never leave your disk. The trade is that it only runs while the machine is awake, which we come back to at the end when you have enough context to judge whether that's a dealbreaker." },
+    { "type": "prose", "html": "Hold on to the 7am Slack job. Every piece below exists to serve it, and we build a stripped-down version of it further down." },
+
+    { "type": "heading", "level": 2, "text": "Three ideas before any typing" },
+    { "type": "prose", "html": "You can install this by pasting commands you don't understand — plenty of guides work that way. But two of the four commands contain a flag that decides whether your work survives next month, and you can't see which unless you hold the model first. It takes about two minutes." },
+
+    { "type": "heading", "level": 3, "text": "One · A workflow is a chain of steps" },
+    { "type": "prose", "html": "Each step is called a <strong>node</strong>. The first node decides <em>when</em> the chain runs — a time of day, an incoming message, a button. Every node after it decides <em>what happens</em>, and hands its result to the next one along the wire." },
+    { "type": "prose", "html": "Our 7am job is four nodes: a schedule, a spreadsheet read, a sum, a Slack post. That's the whole shape of n8n, and it doesn't get more complicated as jobs get bigger — just longer." },
+
+    { "type": "heading", "level": 3, "text": "Two · It runs inside a sealed box" },
+    { "type": "prose", "html": "Rather than installing n8n onto your Mac directly, you run it inside a <strong>container</strong> — a sealed box holding the program and every version of every dependency it needs. Nothing inside can collide with anything you already have, and deleting the box leaves no residue." },
+    { "type": "prose", "html": "The sealed-box picture is worth holding, but here is where it stops being exact: a container isn't a second computer. It shares your Mac's operating system core rather than booting its own. That's why it starts in about a second instead of the minute a virtual machine would take, and why it costs almost nothing to leave running." },
+    { "type": "prose", "html": "Something has to run these boxes. On a Mac that's <strong>OrbStack</strong> — lighter and faster than Docker Desktop on Apple Silicon, and it understands the same <code>docker</code> commands, so every Docker instruction you find online still applies." },
+
+    { "type": "heading", "level": 3, "text": "Three · Your work does not live in the box" },
+    { "type": "prose", "html": "This is the idea that saves you, and the one most quick-start guides skip." },
+    { "type": "prose", "html": "The container is disposable on purpose. You throw it away and rebuild it every time you update n8n — that <em>is</em> the update procedure. So if your workflows lived inside it, updating would delete them." },
+    { "type": "prose", "html": "They don't, because you point the container at a <strong>volume</strong>: a patch of storage that sits outside the box and stays put when the box is destroyed. Your workflows, credentials and run history live there." },
+
+    { "type": "figure", "caption": "The line between them is a single flag — <b>-v n8n_data:/home/node/.n8n</b> — which appears in the install command below. It reads: <i>mount the volume called n8n_data at the place inside the box where n8n writes its files.</i> Leave it out and n8n writes into the box instead, where it looks fine until the first rebuild.",
+      "svg": "<svg viewBox='0 0 900 250' role='img' aria-label='The n8n container is disposable; the n8n_data volume is persistent; the -v flag joins them.'><rect x='60' y='58' width='290' height='96' fill='var(--surface)' stroke='var(--muted)' stroke-width='1.2' stroke-dasharray='6 4'/><g font-family='var(--mono)' text-anchor='middle'><text x='205' y='92' font-size='13' fill='var(--ink)'>CONTAINER</text><text x='205' y='113' font-size='12' fill='var(--muted)'>n8nio/n8n</text><text x='205' y='136' font-size='11' fill='var(--ox-hi)' letter-spacing='1.2'>DISPOSABLE</text></g><g fill='var(--surface)' stroke='var(--ok)' stroke-width='1.3'><path d='M550 74 L550 138 A 60 16 0 0 0 670 138 L670 74 Z'/><ellipse cx='610' cy='74' rx='60' ry='16'/></g><g font-family='var(--mono)' text-anchor='middle'><text x='610' y='108' font-size='13' fill='var(--ink)'>n8n_data</text><text x='610' y='128' font-size='11' fill='var(--ok)' letter-spacing='1.2'>PERSISTENT</text></g><path d='M350 106 L544 106' stroke='var(--muted)' stroke-width='1.3' fill='none'/><text x='447' y='96' font-family='var(--mono)' font-size='10.5' fill='var(--muted)' text-anchor='middle'>-v n8n_data:/home/node/.n8n</text><g font-family='var(--mono)' font-size='11' text-anchor='middle'><text x='205' y='186' fill='var(--ox-hi)'>docker rm n8n → destroyed</text><text x='205' y='205' fill='var(--muted)'>rebuilt from the image in seconds</text><text x='610' y='186' fill='var(--ok)'>survives every rebuild</text><text x='610' y='205' fill='var(--muted)'>workflows · credentials · history</text></g></svg>" },
+
+    { "type": "heading", "level": 2, "text": "The build" },
+    { "type": "prose", "html": "You need macOS 14 or newer, about 3 GB free, and Homebrew — the command-line installer for Mac software. Check for it with <code>brew --version</code>. A version number means you're ready; <code>command not found</code> means start at <a href=\"https://brew.sh\">brew.sh</a> and come back." },
+
+    { "type": "heading", "level": 3, "text": "Plate 01 · Install the thing that runs boxes" },
+    { "type": "prose", "html": "OrbStack, from above. It <strong>will ask for your Mac password</strong> partway through, because it installs a privileged networking helper. The characters won't appear as you type — that's normal for a password prompt in a terminal, not a frozen screen." },
+    { "type": "terminal", "label": "Terminal", "lines": [
+      { "kind": "cmd", "text": "brew install --cask orbstack" },
+      { "kind": "comment", "text": "start it, give it 20s, then ask the engine to identify itself" },
+      { "kind": "cmd", "text": "open -a OrbStack && sleep 20 && docker version" }
+    ]},
+    { "type": "prose", "html": "You should see a long block of version text that includes a <strong>Server: Docker Engine</strong> section. If you only get client information plus an error about a daemon, OrbStack hasn't finished waking up. Wait ten seconds and run <code>docker version</code> again." },
+
+    { "type": "heading", "level": 3, "text": "Plate 02 · Create the storage, then the container" },
+    { "type": "prose", "html": "Two commands, in this order. The first makes the volume; the second downloads n8n and starts it with that volume attached." },
+    { "type": "terminal", "label": "Terminal", "lines": [
+      { "kind": "comment", "text": "the storage that outlives the container" },
+      { "kind": "cmd", "text": "docker volume create n8n_data" },
+      { "kind": "comment", "text": "download n8n and start it" },
+      { "kind": "cmd", "text": "docker run -d --name n8n --restart unless-stopped \\" },
+      { "kind": "cmd", "text": "    -p 5678:5678 \\" },
+      { "kind": "cmd", "text": "    -e GENERIC_TIMEZONE=\"Asia/Kolkata\" \\" },
+      { "kind": "cmd", "text": "    -e TZ=\"Asia/Kolkata\" \\" },
+      { "kind": "cmd", "text": "    -e N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true \\" },
+      { "kind": "cmd", "text": "    -e N8N_RUNNERS_ENABLED=true \\" },
+      { "kind": "cmd", "text": "    -v n8n_data:/home/node/.n8n \\" },
+      { "kind": "cmd", "text": "    n8nio/n8n" }
+    ]},
+    { "type": "prose", "html": "Four parts of that command are worth reading rather than pasting blind:" },
+    { "type": "table", "head": ["Flag", "What it does, and what happens without it"], "rows": [
+      ["<code>-d</code>", "Runs n8n in the background. Without it, n8n holds your terminal window open and dies when you close it."],
+      ["<code>-p 5678:5678</code>", "Publishes the box's port 5678 to your Mac, which is what makes <code>localhost:5678</code> reachable. Without it, n8n runs but nothing can see it."],
+      ["<code>-v n8n_data:…</code>", "The volume from above. Without it, every workflow you build dies with the container."],
+      ["<code>--restart unless-stopped</code>", "Brings n8n back after a reboot. It has a sharp edge, covered below."]
+    ]},
+    { "type": "paper", "title": "Set your timezone first", "label": "Change this before you run the command",
+      "html": "<p>Replace <strong>both</strong> instances of <code>Asia/Kolkata</code> with your own — <code>Europe/London</code>, <code>America/New_York</code>, whatever applies. These two variables are the reason a workflow scheduled for 7am fires at your 7am rather than somewhere else's.</p><p>Our example job is a 7am job. Get this wrong and it silently becomes a 1:30am job.</p>" },
+    { "type": "prose", "html": "The first run downloads roughly 500 MB, so give it a minute or two. When the prompt comes back, check what's running:" },
+    { "type": "terminal", "label": "verify", "lines": [
+      { "kind": "cmd", "text": "docker ps" },
+      { "kind": "out", "text": "CONTAINER ID   IMAGE       STATUS         PORTS" },
+      { "kind": "out", "text": "6298901d43b4   n8nio/n8n   Up 31 seconds  0.0.0.0:5678->5678/tcp" }
+    ]},
+    { "type": "prose", "html": "One line, status <strong>Up</strong>, port mapped. That's a working install." },
+
+    { "type": "heading", "level": 3, "text": "Plate 03 · Make your account" },
+    { "type": "prose", "html": "Open <a href=\"http://localhost:5678\">localhost:5678</a>. The word <code>localhost</code> means <em>this machine and nowhere else</em> — the page isn't published to the internet, and nobody outside your Mac can reach it." },
+    { "type": "plate", "no": "PLATE 03 · /setup", "src": "/field-notes/local-n8n/setup.jpg", "alt": "The n8n owner account setup form with fields for email, first name, last name and password.", "caption": "This account exists only on your disk, so the email is never verified and never mailed — but it is your username, so pick a real one. The password needs eight characters, one number, one capital." },
+
+    { "type": "heading", "level": 2, "text": "What keeps it running" },
+    { "type": "prose", "html": "A 7am job is worthless if the thing running it quietly died on Tuesday. So it's worth knowing exactly what brings n8n back, and the one case where it deliberately won't. Three things have to be alive, and each one starts the next." },
+    { "type": "figure", "caption": "Reading left to right: your Mac starts OrbStack, OrbStack starts the container, the container publishes the port. A normal reboot needs nothing from you.",
+      "svg": "<svg viewBox='0 0 900 330' role='img' aria-label='Boot chain: a powered Mac starts OrbStack, which restarts the n8n container, which publishes port 5678. A manual docker stop breaks the chain and persists across reboots.'><g font-family='var(--mono)' font-size='11' fill='var(--muted)' letter-spacing='1.4'><text x='34' y='42'>LAYER 1</text><text x='254' y='42'>LAYER 2</text><text x='494' y='42'>LAYER 3</text><text x='724' y='42'>OUTPUT</text></g><g fill='var(--surface)' stroke='var(--muted)' stroke-width='1.2'><rect x='30' y='60' width='180' height='62'/><rect x='250' y='60' width='196' height='62'/><rect x='490' y='60' width='182' height='62'/></g><rect x='720' y='60' width='160' height='62' fill='var(--surface)' stroke='var(--ox)' stroke-width='1.4'/><g font-family='var(--mono)' font-size='13' fill='var(--ink)' text-anchor='middle'><text x='120' y='88'>MAC</text><text x='120' y='107'>POWERED ON</text><text x='348' y='88'>ORBSTACK</text><text x='348' y='107'>ENGINE</text><text x='581' y='88'>n8n</text><text x='581' y='107'>CONTAINER</text><text x='800' y='88' fill='var(--ox-hi)'>localhost</text><text x='800' y='107' fill='var(--ox-hi)'>:5678</text></g><g stroke='var(--muted)' stroke-width='1.3' fill='none'><path d='M210 91 L244 91'/><path d='M446 91 L484 91'/><path d='M672 91 L714 91'/></g><g fill='var(--muted)' stroke='none'><path d='M236 85 L246 91 L236 97'/><path d='M476 85 L486 91 L476 97'/><path d='M706 85 L716 91 L706 97'/></g><g font-family='var(--mono)' font-size='10.5' fill='var(--muted)' text-anchor='middle'><text x='227' y='147'>starts</text><text x='465' y='147'>restarts</text><text x='693' y='147'>publishes</text></g><g stroke='var(--rule)' stroke-width='1' stroke-dasharray='3 4'><path d='M348 122 L348 176'/><path d='M581 122 L581 232'/></g><rect x='238' y='176' width='228' height='52' fill='var(--surface-2)' stroke='var(--ox-hi)' stroke-width='1.2'/><g font-family='var(--mono)' font-size='11'><text x='250' y='196' fill='var(--ox-hi)'>WEAK LINK</text><text x='250' y='215' fill='var(--ink-2)'>Settings → Start at login</text></g><rect x='470' y='232' width='290' height='70' fill='var(--surface-2)' stroke='var(--rule)' stroke-width='1'/><g font-family='var(--mono)' font-size='11'><text x='482' y='252' fill='var(--ok)'>--restart unless-stopped</text><text x='482' y='271' fill='var(--ink-2)'>reboot → comes back on its own</text><text x='482' y='290' fill='var(--ox-hi)'>docker stop → stays down. by design.</text></g></svg>" },
+    { "type": "prose", "html": "That leaves one link doing more work than it looks: <strong>OrbStack has to launch itself at login</strong>. If it doesn't, layer 2 never starts, and a restart policy with no engine to enforce it does nothing at all. Open OrbStack's settings and confirm <em>Start at login</em> is ticked. It's the cheapest reliability you'll buy today." },
+
+    { "type": "heading", "level": 3, "text": "The sharp edge on --restart unless-stopped" },
+    { "type": "prose", "html": "<strong>What it is:</strong> a standing instruction to the engine — if this container isn't running, start it." },
+    { "type": "prose", "html": "<strong>Why you want it:</strong> without it, every reboot leaves n8n switched off until you notice, and a 7am job that needs you to remember something at 6:55 isn't automation." },
+    { "type": "prose", "html": "<strong>Where it bites:</strong> read the words literally. The engine restarts the container <em>unless you stopped it yourself</em>. Run <code>docker stop n8n</code> and the engine records that as a deliberate decision and respects it — through the next reboot, and every reboot after that, indefinitely." },
+    { "type": "prose", "html": "<strong>What people get wrong:</strong> they assume \"restart\" means \"always restart\", stop the container to quiet it down for an afternoon, reboot a few days later, and conclude the install is broken. It isn't. It's obeying an instruction they forgot they gave. The cure is one word: <code>docker start n8n</code>." },
+    { "type": "paper", "title": "When the page won't load", "label": "Run this before diagnosing anything",
+      "html": "<p><code>open -a OrbStack &amp;&amp; docker start n8n</code></p><p>It covers both failure modes at once — engine not running, container not running — and it's safe when things are already up, because starting something that's already started does nothing.</p><p>If that doesn't do it, <code>docker ps -a</code> tells you whether the container is <strong>Up</strong> or <strong>Exited</strong>, and <code>docker logs n8n</code> puts the reason in the last few lines. A daemon connection error from either command means you're missing layer 2, not layer 3.</p>" },
+
+    { "type": "heading", "level": 2, "text": "Build the smallest version" },
+    { "type": "prose", "html": "Back to the 7am Slack job. It's four nodes, two of which need account credentials — so before wiring those up, build the two-node skeleton that proves the machinery works. Same shape, nothing to connect, about a minute." },
+    { "type": "plate", "no": "PLATE 04 · THE TRIGGER", "src": "/field-notes/local-n8n/trigger.jpg", "alt": "The n8n trigger panel listing Trigger manually, On app event, On a schedule, On webhook call and other options.", "caption": "Click <b>Build a workflow</b>, then <b>Add first step</b>. The real job would take <b>On a schedule</b>. Take <b>Trigger manually</b> instead, so it runs only when you press the button and you can watch it work." },
+    { "type": "plate", "no": "PLATE 05 · THE STEP", "src": "/field-notes/local-n8n/edit-fields.jpg", "alt": "The Edit Fields node with an empty name field, a String type dropdown, and an empty value field.", "caption": "Press <b>+</b>, search <b>Edit Fields</b>. In the real job this position holds the spreadsheet read. Edit Fields just invents a piece of data, which is exactly what you want when testing — no account, no credentials, no chance of emailing anyone." },
+    { "type": "plate", "no": "PLATE 06 · THE RUN", "src": "/field-notes/local-n8n/execute.jpg", "alt": "The Edit Fields node after running, showing output containing a greeting field.", "caption": "Hit <b>Execute step</b>. The output panel fills in on the right. What you see there is precisely what the next node would receive — which is how you debug a chain that isn't behaving." },
+    { "type": "plate", "no": "PLATE 07 · THE SHAPE", "src": "/field-notes/local-n8n/canvas.jpg", "alt": "The n8n canvas showing a manual trigger connected to an Edit Fields node, both outlined in green, with a 1 item label on the connecting line.", "caption": "Green outlines mean both nodes ran. The <b>1 item</b> on the wire is the data crossing between them. Your 7am job is this picture with four nodes instead of two." },
+    { "type": "prose", "html": "To finish the real thing: swap the manual trigger for <strong>On a schedule</strong> set to 07:00, and replace Edit Fields with Google Sheets, then a Code or Summarize node, then Slack. The two account nodes will ask you to sign in the first time and store the token in the volume. Check <strong>Templates</strong> in the sidebar first — a spreadsheet-to-Slack digest is common enough that a starting point already exists." },
+
+    { "type": "heading", "level": 2, "text": "Running it" },
+    { "type": "table", "head": ["Operation", "Command"], "rows": [
+      ["Stop", "<code>docker stop n8n</code> — remember: this survives reboots"],
+      ["Start", "<code>docker start n8n</code>"],
+      ["Restart", "<code>docker restart n8n</code>"],
+      ["Watch logs", "<code>docker logs -f n8n</code> — Ctrl+C stops watching, not the container"],
+      ["Status", "<code>docker ps -a</code>"],
+      ["Update", "<code>docker pull n8nio/n8n</code> → <code>docker stop n8n &amp;&amp; docker rm n8n</code> → re-run the run command"],
+      ["Back up", "<code>docker run --rm -v n8n_data:/data -v \"$HOME/Desktop\":/backup alpine tar czf /backup/n8n-backup.tar.gz -C /data .</code>"],
+      ["Remove it all", "<code>docker stop n8n &amp;&amp; docker rm n8n</code> → <code>docker volume rm n8n_data</code> — the second command cannot be undone"]
+    ]},
+    { "type": "prose", "html": "The update row is the model in practice: destroy the container, build a new one from the newer image, and the volume it reattaches to still holds everything. The backup row mounts your volume and your Desktop into a throwaway container and tars one into the other — worth running before any update, and worth keeping somewhere that isn't this laptop." },
+
+    { "type": "heading", "level": 3, "text": "When something breaks" },
+    { "type": "table", "head": ["Symptom", "Cause, and what to do"], "rows": [
+      ["Cannot connect to the Docker daemon", "Layer 2 is down. <code>open -a OrbStack</code>, wait twenty seconds, try again."],
+      ["Page won't load", "Run <code>docker ps</code>. Not listed → <code>docker start n8n</code>. Listed but blank → <code>docker logs n8n</code>, and the reason is in the last few lines."],
+      ["Port is already allocated", "Something else on your Mac holds 5678. Change the left number only — <code>-p 5679:5678</code> — then use <code>localhost:5679</code>. The right number is inside the box and never changes."],
+      ["Scheduled jobs fire at the wrong hour", "Timezone. Remove the container and re-run the run command with the correct <code>GENERIC_TIMEZONE</code> and <code>TZ</code>. Your workflows are in the volume, so nothing is lost."],
+      ["Everything vanished after a restart", "It was started without <code>-v n8n_data:/home/node/.n8n</code>, so n8n had nowhere permanent to write. Unfortunately the earlier work is gone."],
+      ["Name n8n is already in use", "An old container is still around. <code>docker rm -f n8n</code>, then re-run. Safe, for the same reason the update is safe."]
+    ]},
+
+    { "type": "heading", "level": 2, "text": "The model, in four lines" },
+    { "type": "paper", "title": "Carry this", "label": "Everything else you can look up",
+      "html": "<p><strong>A workflow is a chain of nodes.</strong> The first says when, the rest say what.</p><p><strong>n8n runs in a container</strong>, and the container is disposable — you replace it to update.</p><p><strong>Your work lives in the volume</strong>, not the container, which is the only reason replacing it is safe.</p><p><strong>OrbStack starts the container, and only if OrbStack itself starts.</strong> Everything you'll ever debug is one of those two not running.</p>" },
+    { "type": "prose", "html": "<strong>The honest limit:</strong> this sleeps when your Mac sleeps. Close the lid and the 7am job doesn't fire. That's fine for anything you trigger yourself and fatal for anything genuinely unattended — which is the moment people move to a small always-on machine or a rented instance. Nothing about that migration wastes what you've done here; it's the same container and the same volume, somewhere that stays awake." },
+    { "type": "prose", "html": "<strong>The licence allows this.</strong> n8n's Sustainable Use License permits free self-hosting for your own internal business purposes. What it prohibits is reselling n8n — white-labelling it, or hosting it as a paid service for other people." },
+
+    { "type": "spec", "stamp": { "label": "VERIFIED", "date": "2026-09-03" }, "rows": [
+      { "k": "macOS", "v": "26.3.2 · arm64" },
+      { "k": "Homebrew", "v": "6.0.11" },
+      { "k": "OrbStack", "v": "2.2.3" },
+      { "k": "Docker Engine", "v": "29.4.0" },
+      { "k": "n8n", "v": "latest · 2.37.9" },
+      { "k": "Total time", "v": "~8 minutes" }
+    ]}
+  ],
+  "sources": [
+    { "label": "n8n · Docker install", "url": "https://docs.n8n.io/deploy/host-n8n/install-options/install-with-docker" },
+    { "label": "n8n · Sustainable Use License", "url": "https://docs.n8n.io/privacy-and-security/sustainable-use-license" },
+    { "label": "OrbStack · Homebrew cask", "url": "https://formulae.brew.sh/cask/orbstack" }
+  ]
+}
