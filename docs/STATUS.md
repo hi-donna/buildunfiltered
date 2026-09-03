@@ -1,5 +1,56 @@
 # Status
 
+## 2026-09-04 — Phone sign-in (OTP, no password) with codenames
+
+**Shipped (code; not switched on until the owner adds keys):**
+- `/account/`: one flow for sign-in and sign-up. Phone number → six-digit SMS
+  code → in. A number not seen before becomes an account on its first good
+  code; first time in it is asked for an email. After that, phone + code only.
+  Resend with a 30s cooldown, "wrong number" back-step, masked phone,
+  sign out, session resumes on return. Page is `noindex`.
+- Header: "Sign in" link, which becomes the codename once signed in.
+- `data/codenames.json`: 100 assignable Batman-universe names in order
+  (Robin, Nightwing, Batgirl, Oracle, Red Hood, …, Gotham Girl) plus the four
+  reserved ones (Bruce Wayne, Bruce, Batman, Alfred) flagged
+  `reserved: true` so they are never handed out. `lib/codenames.ts` checks
+  the list at build time (positions in order, no duplicates, reserved names
+  present and flagged, at least 100 assignable).
+- `supabase/schema.sql` (generated from the JSON): `profiles` and
+  `codenames` tables, row-level security (a user reads only their own
+  profile and can change only its email; nobody can read `codenames` from
+  the browser), and a trigger on new auth users that claims the next free,
+  unreserved name with a row lock, falling back to "Gothamite N" when the
+  100 run out. `supabase/README.md` has the ten-minute setup.
+- `lib/supabase.ts`: browser client from `NEXT_PUBLIC_SUPABASE_URL` and
+  `NEXT_PUBLIC_SUPABASE_ANON_KEY`; with them absent the page says
+  "Not switched on". `.env.example` added; `.env*.local` ignored.
+- Dependency added: `@supabase/supabase-js` 2.115.0. The site stays a static
+  export; there is no server of ours and no secret in the repo.
+
+**Verified:** build green with and without keys; `/account/` renders at 390
+and 1920 with no console errors; with placeholder keys the phone form
+validates E.164, sends, and shows a readable error when the service cannot
+be reached; the clean build contains no placeholder URL. The OTP round trip
+itself cannot be tested without a project and an SMS provider.
+
+**Two rules this bends, on the owner's instruction (roadmap §0):**
+- §0.2 "no logins": there is now a login, on a third-party backend
+  (Supabase) rather than one of ours. Content is not gated.
+- §0.7 "Batman characters must not appear on the public site": the
+  codenames are Batman characters. Today they appear only to their owner
+  on `/account/`; nothing public shows them. If codenames are ever shown
+  publicly, that rule needs a decision.
+
+**Needs the owner:**
+1. Create the Supabase project, enable Phone auth with an SMS provider
+   (Twilio or similar; per-SMS cost), run `supabase/schema.sql`, put the two
+   public keys in `.env.local` and Cloudflare Pages, redeploy. Steps in
+   `supabase/README.md`. I cannot create accounts or handle keys.
+2. Decide whether codenames may appear publicly (see the IP note above).
+3. Email is stored but not verified; say if you want a confirmation mail.
+
+**Next:** Tool 3 per `docs/ROADMAP.md`, or wiring the keys above.
+
 ## 2026-09-04 — QA pass, phone and laptop, all tools
 
 **Checked (static export served locally, Chrome 152):** home, AI Tool Finder
