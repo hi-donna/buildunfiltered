@@ -1,6 +1,6 @@
 {
   "slug": "local-n8n",
-  "kicker": "FIELD NOTES / 02",
+  "kicker": "FIELD NOTES / 01",
   "title": "Local n8n",
   "dek": "Four commands put a working automation server on your own machine. This is what each one does, why the defaults in most guides will lose your work, and how to fix it when it stops.",
   "summary": "Installing and running n8n locally on a Mac, with the mental model first.",

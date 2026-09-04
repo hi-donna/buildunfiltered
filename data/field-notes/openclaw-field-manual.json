@@ -1,6 +1,6 @@
 {
  "slug": "openclaw-field-manual",
- "kicker": "FIELD NOTES / 03",
+ "kicker": "FIELD NOTES / 02",
  "title": "OpenClaw Field Manual",
  "dek": "By the end of this you'll have an AI agent running on your own machine, connected to a model you chose on purpose, reachable from your phone. More usefully, you'll understand <strong>why each piece exists</strong> — which is what makes it fixable when it breaks. Budget about thirty quiet minutes.",
  "summary": "Running your own AI agent on your machine — the loop it runs on, choosing a model, and giving it a phone.",

@@ -16,9 +16,14 @@ URL: `/field-notes/<slug>/`. Expensive to change once shared. The Learning Map s
 
 ## The post
 
-Top level: `slug` (matches the filename), `kicker` (`FIELD NOTES / 03`), `title`, `dek`,
+Top level: `slug` (matches the filename), `kicker` (`FIELD NOTES / 02`), `title`, `dek`,
 `summary` (the index card), `published`, `verified` (both `YYYY-MM-DD`, neither in the
 future), `hand` (two or three short handwritten lines), `blocks`, optional `sources`.
+
+Notes are numbered from 01, in publication order, and the number lives only in the
+kicker, never in the URL, so renumbering never breaks a link. The Learning Map at
+`/tools/learn/` shares the visual language but is a tool and holds no number in this
+series.
 
 ## Block types — the complete set
 
@@ -34,13 +39,13 @@ future), `hand` (two or three short handwritten lines), `blocks`, optional `sour
 | `spec` | `rows[] {k, v}`, `stamp {label, date}` | the "performed on" strip |
 | `steps` | `steps[] {n, text}` | a numbered sequence, no box: the number in `--mono` and `--ox`, the text in `--sans` |
 
-Nine types. `steps` was added for post 03 because its argument is one message
+Nine types. `steps` was added for the OpenClaw Field Manual because its argument is one message
 travelling through a loop, read top to bottom; a table is a mapping you look up, and
 would have been the wrong shape. Do not invent a tenth. A post that needs one is a
 conversation, not a commit.
 
 A `table` row whose cells after the first are all empty renders as a group label
-spanning the row (post 03 splits free / capped / paid that way). Same data, no new type.
+spanning the row (the OpenClaw Field Manual splits free / capped / paid that way). Same data, no new type.
 
 ## Which surface
 

@@ -1,5 +1,29 @@
 # Status
 
+## 2026-09-04 — Field Notes: series starts at 01
+
+**Shipped:** kickers renumbered on the owner's instruction: Local n8n is
+`FIELD NOTES / 01`, OpenClaw Field Manual is `FIELD NOTES / 02`. The
+Learning Map is a tool, not a numbered note; the `globals.css` section
+comment now says so ("learn: the field-notes visual language (map is a
+tool, not a numbered note)"). `docs/FIELD_NOTES_SPEC.md` records the rule:
+numbered from 01 in publication order, the number lives only in the
+kicker, never in the URL, so renumbering never breaks a link. Slugs,
+filenames and routes untouched. This closes the numbering question from
+the post 03 note.
+
+**Verified:** `npm run build` green; built pages carry `FIELD NOTES / 01`
+and `/ 02`; index cards show 01 and 02 and the index orders OpenClaw (02)
+above n8n (01), since same-day ordering tie-breaks on the kicker number.
+No CSS beyond the comment changed.
+
+**Needs the owner:** `app/tools/learn/page.tsx` still shows the visible
+eyebrow "Field notes / 01" above the Learning Map title, which now
+collides with the n8n note's 01. Not in the instruction, so not touched;
+dropping the "/ 01" there is a one-line change if you want it.
+
+**Next:** Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-04 — Field Notes 03: OpenClaw Field Manual, and the `steps` block
 
 **Shipped:** `/field-notes/openclaw-field-manual/`, from
