@@ -1,5 +1,58 @@
 # Status
 
+## 2026-09-13 — Field Notes 03: Ollama Field Manual, and the `err` line kind
+
+**Shipped:** `/field-notes/ollama-field-manual/`, from
+`data/field-notes/ollama-field-manual.json` (copied unchanged from
+`specs/field_notes_04_ollama/`; kicker `FIELD NOTES / 03`, dated 2026-09-04;
+no plates). Job 2 of the Ollama prompt; Job 1 shipped on 2026-09-04 as
+`8f4366a`. One authorised schema change: the `terminal` line `kind` now
+allows `err` alongside `cmd | comment | out`. Type union and validator in
+`lib/fieldNotes.ts`, one rule in `app/globals.css`, the block table in
+`docs/FIELD_NOTES_SPEC.md`. Still nine block types; this is an enum value.
+
+**Verified:**
+- No images: zero `plate` blocks, zero `<img>`, zero `data:image` in the
+  JSON and in the built HTML. Nothing to privacy-check.
+- `npm run build` green. `out/field-notes/ollama-field-manual/index.html`
+  carries `FIELD NOTES / 03`; the three `err` lines render with class
+  `t-err` (the sign-in refusal, and the two-line gateway restart failure).
+  Seven terminal blocks in the post, three `err` lines.
+- Index order: 03, 02, 01 (all three posts share 2026-09-04, so the kicker
+  tie-break decides). Sitemap has the URL. Home shelf says "3 posts".
+- Invariant: a line with `kind: "fail"` stops the build with
+  `ollama-field-manual: block 33 (terminal): line 0 kind must be cmd, comment,
+  out or err`; reverted, JSON byte-identical to the source, build green.
+- No new colour or font: the `globals.css` diff grep for hex / `font-family:`
+  is empty, and no `--name:` declaration was added.
+- Prices and model names in the three tables left exactly as written.
+
+**Decisions made:**
+- The prompt said render `err` in `--warn`, "the same amber the callouts
+  use". There is no `--warn` token and no amber anywhere in `globals.css`;
+  the callouts (`.paper`) are bone, and the only warning idiom the site has
+  is the MCP preamble strip: `--ox-soft` ground with an inset oxblood bar.
+  `err` uses that: text in `--ink` on an `--ox-soft` band with a 2px
+  `--ox-hi` bar. Chosen over colouring the text `--ox-hi`, which is 2.9:1
+  on the terminal surface and would fail the contrast audit at 12.5px. No
+  token added, oxblood stays the only red.
+- Prefixing `err` lines with a glyph (as `cmd` gets `$ ` and `comment` gets
+  `# `) was rejected: the gateway error is one message split over two
+  `err` lines, and a glyph on each would break it.
+
+**Half-done:** nothing.
+
+**Needs the owner:**
+- Say if the `err` treatment is right. If you want the text itself in a
+  colour, the rule is one line (`.fn-term .t-err`) and the only candidate
+  is `--ox-hi`, with the contrast cost above.
+- Field Note 04 (fifteen-papers) is now unblocked: re-run
+  `buildunfiltered_field_note_fifteen-papers_prompt_2026-09-13.md` unchanged.
+- The post's `ollama.com/settings` link and the three sources were not
+  re-opened; the prompt fixed the check date at 2026-09-04.
+
+**Next:** Field Note 04, then Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-13 — Field Notes 04: The Fifteen Papers, waiting on 03
 
 **Shipped:** nothing. The prompt's precondition says post 04 goes in only if

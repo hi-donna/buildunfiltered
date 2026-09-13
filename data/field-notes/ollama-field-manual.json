@@ -1,0 +1,494 @@
+{
+ "slug": "ollama-field-manual",
+ "kicker": "FIELD NOTES / 03",
+ "title": "Ollama Field Manual",
+ "dek": "You can run a 120-billion-parameter model, today, for nothing — and you have <strong>two completely different ways</strong> to do it. Picking the wrong one costs you an afternoon. This is the walkthrough, written immediately after doing it, including the three places it broke.",
+ "summary": "Running good models without paying — local versus cloud, what the free tier really gives you, and the three failures that look like a broken install.",
+ "published": "2026-09-04",
+ "verified": "2026-09-04",
+ "hand": [
+  "Total spent getting",
+  "this working: $0.",
+  "No card entered."
+ ],
+ "blocks": [
+  {
+   "type": "prose",
+   "html": "The honest answer to \"can I run a decent model for free?\" is yes, comfortably — but the word \"free\" is doing two very different jobs, and almost every confused setup I have seen comes from not noticing which one is on offer."
+  },
+  {
+   "type": "prose",
+   "html": "Ollama is the tool for both. It is a free, open-source runtime for language models, and its website will happily sell you a paid plan, which makes the free paths harder to spot than they should be. So before any commands, let us separate the two things."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Two kinds of free"
+  },
+  {
+   "type": "prose",
+   "html": "<strong>Local</strong> means Ollama downloads the model’s weights onto your machine and runs them on your own processor. There is no account, no key, no metering and no limit. You can run it on a plane. Nothing you type ever leaves your laptop. The cost is not money — it is memory and speed. A model has to physically fit in RAM, and your laptop is slower than a datacentre."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>Cloud</strong> means the exact same tool, the same commands and the same local port, but the model runs on Ollama’s GPUs. Your laptop’s specifications become irrelevant — a 120B model is as easy as a 3B one. You sign in, you get a monthly allowance of free usage, and when it runs out it stops."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>Same tool, same commands, same port. One is limited by your hardware; the other by a quota.</strong>"
+  },
+  {
+   "type": "prose",
+   "html": "The practical consequence: <strong>installing Ollama does not commit you to running models locally.</strong> People with 8&nbsp;GB laptops skip Ollama entirely, assuming it is only for machines with serious hardware. It is not. And because both modes speak the same protocol, you can configure a cloud model as your primary and a local one as automatic fallback, so running out of quota degrades your setup instead of killing it."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Which one you want"
+  },
+  {
+   "type": "prose",
+   "html": "Choosing between local and cloud"
+  },
+  {
+   "type": "table",
+   "head": [
+    "If you need…",
+    "Use",
+    "Because"
+   ],
+   "rows": [
+    [
+     "Privacy — client work, personal data",
+     "<strong>Local</strong>",
+     "Nothing leaves the machine. The only honest answer for confidential material."
+    ],
+    [
+     "A capable model on a modest laptop",
+     "<strong>Cloud</strong>",
+     "Your RAM stops being the constraint. A 120B model runs the same as a small one."
+    ],
+    [
+     "Unlimited volume",
+     "<strong>Local</strong>",
+     "No quota exists. Slow, but it never says no."
+    ],
+    [
+     "Speed, and no setup fuss",
+     "<strong>Cloud</strong>",
+     "Datacentre GPUs, no multi-gigabyte download, nothing to tune."
+    ],
+    [
+     "To work offline",
+     "<strong>Local</strong>",
+     "Obviously. Also genuinely useful on bad hotel wifi."
+    ]
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "For local, the number that governs everything is RAM. Models are compressed — <em>quantised</em> — to about half a gigabyte per billion parameters, and then you need headroom on top for the conversation itself and for everything else you have open."
+  },
+  {
+   "type": "prose",
+   "html": "What fits, locally"
+  },
+  {
+   "type": "table",
+   "head": [
+    "Your machine",
+    "Comfortable",
+    "Notes"
+   ],
+   "rows": [
+    [
+     "8 GB RAM",
+     "3B, maybe 7B",
+     "Tight. Close other apps."
+    ],
+    [
+     "16 GB RAM",
+     "<strong>7B–8B</strong>",
+     "The sweet spot for most laptops. ~15–25 tokens/sec on Apple silicon."
+    ],
+    [
+     "32 GB RAM",
+     "14B–30B",
+     "Noticeably better reasoning and tool use."
+    ],
+    [
+     "CPU-only server",
+     "8B, slowly",
+     "~4–7 tokens/sec. Painful to watch live."
+    ]
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "One underrated middle option: you can <strong>rent a GPU by the hour</strong>. An RTX 4090 costs roughly $0.25–0.40 per hour, so a couple of dollars buys an afternoon with a model far larger than your laptop could hold, with nothing left installed afterwards."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "What the free cloud tier actually gives you"
+  },
+  {
+   "type": "prose",
+   "html": "Signing up takes a minute and asks for no card. What you get is a monthly allowance of usage credits and access to six specific models. Everything else in the catalogue is locked until you add credit."
+  },
+  {
+   "type": "prose",
+   "html": "Those six, and what each costs against your allowance, per million tokens:"
+  },
+  {
+   "type": "prose",
+   "html": "Free-tier models — September 2026"
+  },
+  {
+   "type": "table",
+   "head": [
+    "Model",
+    "Input",
+    "Output",
+    "Worth knowing"
+   ],
+   "rows": [
+    [
+     "<code>nemotron-3-super</code>",
+     "<strong>$0.015</strong>",
+     "$0.60",
+     "120B mixture-of-experts, built for multi-agent work. Cheapest input by a factor of ten."
+    ],
+    [
+     "<code>nemotron-3-nano:30b</code>",
+     "$0.06",
+     "<strong>$0.24</strong>",
+     "Smallest and fastest. Good for high-volume background jobs."
+    ],
+    [
+     "<code>gpt-oss:20b</code>",
+     "$0.07",
+     "$0.30",
+     "OpenAI’s small open-weight model. Well tested for tool calling."
+    ],
+    [
+     "<code>gemma4:31b</code>",
+     "$0.14",
+     "$0.40",
+     "Adds vision and audio if you need them."
+    ],
+    [
+     "<code>gpt-oss:120b</code>",
+     "$0.15",
+     "$0.60",
+     "The safe default. Most widely exercised for agent tool calling."
+    ],
+    [
+     "<code>nemotron-3-ultra</code>",
+     "$0.10",
+     "$3.00",
+     "Avoid for agents — output is five times the others."
+    ]
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "All six support tool calling, so any of them will drive an agent. If you are just picking one, take <strong>gpt-oss:120b</strong> — it is the best-exercised. If your allowance starts running low, switch to <strong>nemotron-3-super</strong>: its output price is identical but input costs a tenth as much, and in an agent loop input dominates, because the whole conversation gets resent on every turn."
+  },
+  {
+   "type": "paper",
+   "title": "The trap in the official docs",
+   "label": "Read this before following a guide",
+   "html": "<p>Ollama’s own integration guides recommend models like <code>kimi-k2.5:cloud</code>, <code>qwen3.5:cloud</code> and <code>glm-5.1:cloud</code>. <strong>None of those are on the free list.</strong></p><p>Follow the docs literally on a free account and it fails against a $0 balance, with an error that sounds like a broken install rather than a billing problem. Stick to the six above.</p>"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "How much is the allowance, exactly?"
+  },
+  {
+   "type": "prose",
+   "html": "Ollama does not publish it as a number. The pricing page says “a starter amount of usage,” and your dashboard shows a percentage bar rather than a dollar figure. That is mildly annoying, and it means the only way to know what you have is to measure it."
+  },
+  {
+   "type": "prose",
+   "html": "So I did. Three short agent turns through <code>gpt-oss:120b</code> moved the meter to <strong>0.4% used</strong>, each request logged at under a cent. That is roughly <strong>0.13% per turn</strong>, which extrapolates to something like <strong>750 short turns a month</strong>."
+  },
+  {
+   "type": "prose",
+   "html": "Treat that as an order of magnitude, not a promise. Those were small requests; a research task that reads five web pages carries far more context and costs several times more per turn. The useful habit is to check the meter on <a href=\"https://ollama.com/settings\">your settings page</a> right after your first real task — that number is worth more than my extrapolation."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Doing it, and the three ways it broke"
+  },
+  {
+   "type": "prose",
+   "html": "Here is the actual sequence. I will flag each failure where it happened rather than saving them for a troubleshooting section, because the order matters — each one made the next look like a different problem."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Install"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "curl -fsSL https://ollama.com/install.sh | sh"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Worth being upfront: this pipes a remote script into your shell, which is a habit I would normally argue against. Ollama has no npm-style alternative, but on macOS you can download the application from their site instead and get the same command-line tool without the pipe. Your call."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Sign in — and this is failure number one"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "ollama signin"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "This prints a URL and opens your browser, then <strong>waits for you to click Connect</strong>. If the browser does not open, or you glance away and miss it, the command sits there and you wander off assuming it worked. It did not. Every subsequent step then fails in ways that look unrelated:"
+  },
+  {
+   "type": "terminal",
+   "label": "What you get instead",
+   "lines": [
+    {
+     "kind": "err",
+     "text": "You need to be signed in to Ollama to run Cloud models."
+    },
+    {
+     "kind": "out",
+     "text": "If your browser did not open, navigate to:"
+    },
+    {
+     "kind": "out",
+     "text": "  https://ollama.com/connect?name=…&key=…"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Click the link, click Connect, done. What makes this pleasant compared to most setups is that no API key changes hands — signing in registers a <em>device key</em> automatically through the browser, so there is no secret to copy, paste or accidentally commit to a repo."
+  },
+  {
+   "type": "prose",
+   "html": "To confirm it took, just run it again:"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "ollama signin"
+    },
+    {
+     "kind": "out",
+     "text": "You are already signed in as user 'yourname'"
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Failure number two: the empty list"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "ollama list"
+    },
+    {
+     "kind": "out",
+     "text": "NAME    ID    SIZE    MODIFIED"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Column headers and nothing underneath. This looks exactly like a broken installation, and it is not. <code>ollama list</code> shows models <em>downloaded to your disk</em>, and cloud models are not on your disk — that is the entire point of them. An empty list here is correct and expected. If you are going the local route, this is where you would pull something (<code>ollama pull llama3.1:8b</code>) and watch it fill up."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Connecting it to something"
+  },
+  {
+   "type": "prose",
+   "html": "From here it depends on what you are driving. Ollama has one-command launchers for common tools:"
+  },
+  {
+   "type": "terminal",
+   "label": "Terminal",
+   "lines": [
+    {
+     "kind": "cmd",
+     "text": "ollama launch openclaw --model gpt-oss:120b-cloud"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Or you point any tool at the standard endpoint. One thing to get right: use the <strong>native endpoint, not the <code>/v1</code> OpenAI-compatible path</strong>. The <code>/v1</code> route breaks tool calling — the model stops making real tool requests and starts printing what look like them into the chat, which reads as a stupid model rather than a wrong URL."
+  },
+  {
+   "type": "prose",
+   "html": "Also check the exact model ID rather than guessing the suffix. The naming is not consistent — you will see both <code>gpt-oss:120b-cloud</code> and <code>kimi-k2.5:cloud</code> patterns in the wild. Take the ID from a browse list, do not type it from memory."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Failure number three, and the expensive one"
+  },
+  {
+   "type": "prose",
+   "html": "I set the new model. It saved — config updated, backup written, default confirmed. Then I restarted the service, and got this:"
+  },
+  {
+   "type": "terminal",
+   "label": "The restart that did not",
+   "lines": [
+    {
+     "kind": "err",
+     "text": "Gateway restart failed: port 18789 is busy but is not"
+    },
+    {
+     "kind": "err",
+     "text": "verifiably owned by LaunchAgent ai.openclaw.gateway"
+    },
+    {
+     "kind": "out",
+     "text": "Port 18789 is already in use."
+    },
+    {
+     "kind": "out",
+     "text": "— pid 86570  openclaw-gateway (127.0.0.1:18789)"
+    }
+   ]
+  },
+  {
+   "type": "prose",
+   "html": "Here is why this one matters more than it looks. The restart failed, which means <strong>the old process was still running</strong> — still holding the previous model in memory, still using the previous provider’s API key. The config file on disk said Ollama. The thing actually answering my messages was a frontier model on a paid key, quietly billing someone."
+  },
+  {
+   "type": "prose",
+   "html": "Nothing appeared broken. Replies kept arriving. I only caught it because the model was behaving too well for a 120B open-weight model, went looking, and found a paid key doing work I thought was free."
+  },
+  {
+   "type": "paper",
+   "title": "The general lesson",
+   "label": "Carry this into any tool with a background service",
+   "html": "<p><strong>Config on disk and process in memory are two different things.</strong> Any tool with a background service has this failure mode, and a restart command that fails is much more dangerous than one that errors loudly, because the old thing keeps working.</p><p>After any model change: kill the process explicitly if the restart complains, start it fresh, and then <em>verify from the running system</em> — not from the config file — that the model is what you think.</p>"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Confirming it actually worked"
+  },
+  {
+   "type": "prose",
+   "html": "Send one message that forces a tool call — “what time is it right now?” rather than “hello”, because a plain greeting will succeed even on a model whose tool calling is broken. Then open your usage page. Requests should be listed against the model you chose, at under a cent each. That is the real confirmation, and it is the same page you will use to watch your allowance."
+  },
+  {
+   "type": "paper",
+   "title": "Total cost of this setup",
+   "label": "What it came to",
+   "html": "<p><strong>$0.</strong> No card entered, no subscription, no trial. Three requests logged, 0.4% of the monthly allowance consumed, and a 120B model answering on demand.</p><p>The free tier is genuinely free — it just is not infinite.</p>"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "When free stops being enough"
+  },
+  {
+   "type": "prose",
+   "html": "Two ceilings arrive well before you exhaust the credits, and it is worth knowing which one you will hit."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>Concurrency.</strong> The free tier serves <strong>one request at a time</strong>. Invisible when it is just you; very visible the moment several people use the same agent, or you demo to a room and everyone starts messaging it. Requests queue, and past a certain depth they are refused. If other people will touch this, that alone is the reason to add credit — not the tokens, the parallelism."
+  },
+  {
+   "type": "prose",
+   "html": "<strong>Predictability.</strong> A percentage meter with no published total is fine for tinkering and uncomfortable for anything scheduled. If your agent runs on a timer, or you are standing in front of an audience, the ambiguity stops being charming. A one-time $5 credit pack removes the question entirely."
+  },
+  {
+   "type": "prose",
+   "html": "Worth noting on privacy: Ollama states it does not log or train on prompts, and requires its hosting partners to run zero-retention policies — which is a meaningfully stronger position than most free tiers, several of which explicitly reserve the right to train on what you send. For genuinely confidential material, local is still the only answer that needs no trust at all."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "The short version"
+  },
+  {
+   "type": "paper",
+   "title": "Carry this",
+   "label": "Everything else you can look up",
+   "html": "<p>Ollama gives you two different free things through one tool: <strong>local</strong>, limited by your RAM but unlimited in volume and completely private; and <strong>cloud</strong>, limited by a monthly quota but indifferent to your hardware.</p><p>On the free cloud tier you get six models — take <code>gpt-oss:120b</code>, and ignore what the official docs recommend, because those are not included.</p><p>Three things will make a working setup look broken: an unfinished <code>signin</code>, an empty <code>ollama list</code> (which is normal), and a failed service restart that leaves the old model quietly running.</p><p>And measure your own usage after the first real task. The meter is a percentage with no published total, so your number is the only one that means anything.</p>"
+  },
+  {
+   "type": "spec",
+   "stamp": {
+    "label": "VERIFIED",
+    "date": "2026-09-04"
+   },
+   "rows": [
+    {
+     "k": "Scope",
+     "v": "Local & cloud, free tier"
+    },
+    {
+     "k": "Cost to set up",
+     "v": "$0.00"
+    },
+    {
+     "k": "Allowance used",
+     "v": "0.4% (3 requests)"
+    },
+    {
+     "k": "Model",
+     "v": "gpt-oss:120b"
+    },
+    {
+     "k": "Revision",
+     "v": "1.0"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "label": "Ollama pricing",
+   "url": "https://ollama.com/pricing"
+  },
+  {
+   "label": "Ollama Cloud docs",
+   "url": "https://docs.ollama.com/cloud"
+  },
+  {
+   "label": "OpenClaw Ollama provider docs",
+   "url": "https://docs.openclaw.ai/providers/ollama"
+  }
+ ]
+}

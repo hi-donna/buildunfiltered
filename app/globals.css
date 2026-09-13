@@ -689,6 +689,10 @@ body:has(.learn), body:has(.fn) { --noise:url("data:image/svg+xml;utf8,<svg xmln
 .fn-term .t-comment { color:var(--muted); }
 .fn-term .t-comment::before { content:"# "; }
 .fn-term .t-out { color:var(--ink-2); }
+/* err: a failing line. The same warning band the preamble uses (oxblood-soft
+   ground, oxblood bar); text stays --ink so it reads. No new token. */
+.fn-term .t-err { color:var(--ink); background:var(--ox-soft); box-shadow:0 0 0 4px var(--ox-soft), inset 2px 0 0 var(--ox-hi);
+  padding-left:10px; margin-left:-4px; }
 
 /* paper: the warning. Pinned, slightly askew, never for ordinary prose. */
 .fn-paper { position:relative; margin:28px 0 30px; padding:36px 26px 26px; max-width:640px; transform:rotate(-.4deg); }

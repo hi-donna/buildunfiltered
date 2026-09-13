@@ -31,7 +31,7 @@ series.
 |---|---|---|
 | `prose` | `html` | dark, `--sans`, 68ch |
 | `heading` | `text`, `level` 2 or 3 | Barlow Condensed, uppercase |
-| `terminal` | `label`, `lines[] {kind: cmd\|comment\|out, text}` | dark block, `--mono` |
+| `terminal` | `label`, `lines[] {kind: cmd\|comment\|out\|err, text}` | dark block, `--mono`; `err` lines sit on the oxblood-soft warning band |
 | `paper` | `title`, `label`, `html` | bone paper, pinned |
 | `table` | `head[]`, `rows[][]` | dark, scrolls inside its box |
 | `plate` | `src`, `alt`, `no`, `caption` | screenshot in a corner-marked frame |

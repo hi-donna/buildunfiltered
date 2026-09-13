@@ -12,7 +12,9 @@ import path from "node:path";
 // conversation, not a commit.
 export interface ProseBlock { type: "prose"; html: string }
 export interface HeadingBlock { type: "heading"; text: string; level: 2 | 3 }
-export interface TerminalLine { kind: "cmd" | "comment" | "out"; text: string }
+// `err` is a failing line: rendered as the site's warning band (oxblood-soft ground,
+// oxblood bar) so a reader scanning for "what it looks like when it breaks" finds it.
+export interface TerminalLine { kind: "cmd" | "comment" | "out" | "err"; text: string }
 export interface TerminalBlock { type: "terminal"; label: string; lines: TerminalLine[] }
 export interface PaperBlock { type: "paper"; title: string; label: string; html: string }
 export interface TableBlock { type: "table"; head: string[]; rows: string[][] }
@@ -155,8 +157,8 @@ function validateBlock(slug: string, raw: unknown, i: number, imagesSeen: { byte
       const lines = (b.lines as unknown[]).map((l, j) => {
         check(typeof l === "object" && l !== null, `${where} (terminal): line ${j} is not an object`);
         const { kind, text } = l as Record<string, unknown>;
-        check(kind === "cmd" || kind === "comment" || kind === "out",
-          `${where} (terminal): line ${j} kind must be cmd, comment or out`);
+        check(kind === "cmd" || kind === "comment" || kind === "out" || kind === "err",
+          `${where} (terminal): line ${j} kind must be cmd, comment, out or err`);
         check(typeof text === "string", `${where} (terminal): line ${j} has no text`);
         return { kind, text } as TerminalLine;
       });
