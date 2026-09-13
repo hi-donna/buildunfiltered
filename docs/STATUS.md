@@ -1,5 +1,45 @@
 # Status
 
+## 2026-09-13 — Field Notes 04: The Fifteen Papers
+
+**Shipped:** `/field-notes/fifteen-papers/`, from
+`data/field-notes/fifteen-papers.json` (copied unchanged from
+`specs/field_note_04_fifteen_papers/`; kicker `FIELD NOTES / 04`, published
+and verified 2026-09-13). No code change: `lib/`, `app/` and `globals.css`
+untouched. Blocks used: prose, heading, figure, table, paper, spec.
+
+**Verified:**
+- No images: zero `plate` blocks, zero `<img>`, zero `data:image` in the
+  JSON and in the built HTML. Nothing to privacy-check.
+- `npm run build` green on the first run; no validator error, nothing
+  patched around.
+- Index: the new card is first with "04"; order 04, 03, 02, 01. Sitemap has
+  the URL. Home shelf says "4 posts".
+- `out/field-notes/fifteen-papers/index.html`: kicker `FIELD NOTES / 04`;
+  the figure renders with six `<rect>` boxes and the return path (the loop)
+  present; the SVG carries only `var(--ink|--mono|--muted|--ok|--ox|--ox-hi|
+  --surface)`, no literal colour; all five group rows render as
+  `colspan="4"` labels (The block, then the scale / Steering it / Acting /
+  Open weights / Reasoning that is trained, not prompted); the table has 15
+  links, every `href` on `https://arxiv.org/`, one per paper row.
+- Prose, years, authors, numbers and links left exactly as written.
+- `globals.css` did not change, so the colour/font grep on the diff is empty.
+
+**Decisions made:** none beyond the spec.
+
+**Half-done:** nothing.
+
+**Needs the owner:**
+- The post links to arxiv.org 47 times (15 in the table, 15 in "Nearly made
+  it", the rest in the 2026 paragraph and sources) and the site has no
+  written outbound-link policy. Links left as they are.
+- The "Nothing from 2026" paragraph names DeepSeek-V4. When 2026 has a clear
+  entry the list gets a revision, not a patch. Nothing added.
+- Nothing in the table looked wrong to me, but the paper years, authors and
+  arXiv ids were not re-checked; the prompt fixed the check date at 2026-09-13.
+
+**Next:** Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-13 — Field Notes 03: Ollama Field Manual, and the `err` line kind
 
 **Shipped:** `/field-notes/ollama-field-manual/`, from

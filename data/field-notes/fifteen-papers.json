@@ -1,0 +1,323 @@
+{
+ "slug": "fifteen-papers",
+ "kicker": "FIELD NOTES / 04",
+ "title": "The Fifteen Papers",
+ "dek": "Every AI agent you can build today is a stack of about fifteen ideas, published between 2017 and 2025. This is the list: what each one did, in one line, what it is responsible for now, and <strong>the link to the paper itself</strong>. Nothing is here for being famous. It is here because it is in your stack.",
+ "summary": "The fifteen research papers, 2017 to 2025, that a working AI agent is built out of: one line each, the impact in keywords, and the link.",
+ "published": "2026-09-13",
+ "verified": "2026-09-13",
+ "hand": [
+  "Fifteen, not fifty.",
+  "If it isn't in your stack",
+  "today, it isn't here."
+ ],
+ "blocks": [
+  {
+   "type": "prose",
+   "html": "You have heard the names. Someone on a podcast says “since the Chinchilla paper” and everyone nods. A repo README cites ReAct. A model card mentions DPO. You could go and read them all. You will not, and you should not: most papers since 2017 are increments on a handful of others. This is the handful."
+  },
+  {
+   "type": "prose",
+   "html": "The rule for making the list was narrow on purpose. A paper is here if the agent you can build this afternoon would not work, or would not exist, without it. Famous is not enough. Clever is not enough. It has to be load-bearing in your stack today. That gives fifteen, and a second tier that nearly made it, at the end."
+  },
+  {
+   "type": "heading",
+   "text": "The shape of nine years",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "Between 2017 and 2025 the field did about seven things, roughly in order. It found a better building block (the Transformer). It learnt to pre-train that block once and reuse it (BERT). It worked out that making it bigger pays predictably (scaling laws, GPT-3, Chinchilla). It taught the model to take instructions instead of just continuing text (InstructGPT). It got the model to reason and to act in plain text (chain-of-thought, ReAct). It gave the weights away (LoRA, LLaMA, latent diffusion, DPO). And finally it made reasoning itself something you train rather than prompt (test-time compute, DeepSeek-R1). Everything else is plumbing on those seven."
+  },
+  {
+   "type": "prose",
+   "html": "Take one boring thing an agent does. You ask it why last night’s build failed. It reads the log, runs a command, reads the output, and tells you. Every part of that one turn has a paper behind it."
+  },
+  {
+   "type": "figure",
+   "svg": "<svg viewBox='0 0 900 330' role='img' aria-label='One agent turn: your request enters a model built from the Transformer, scaling and alignment papers; chain-of-thought lets it think in text; ReAct lets that text call a tool; the tool output returns to the model as context, the same door retrieval uses; the loop ends when the model writes an answer instead of a request.'><g font-family='var(--mono)' font-size='11' fill='var(--muted)' letter-spacing='1.4'><text x='20' y='26'>ONE AGENT TURN</text></g><g fill='var(--surface)' stroke='var(--muted)' stroke-width='1.2'><rect x='20' y='130' width='140' height='60'/><rect x='500' y='40' width='170' height='64'/><rect x='500' y='176' width='170' height='64'/><rect x='720' y='176' width='160' height='64'/></g><rect x='210' y='95' width='230' height='130' fill='var(--surface)' stroke='var(--ox)' stroke-width='1.4'/><rect x='720' y='40' width='160' height='64' fill='var(--surface)' stroke='var(--ok)' stroke-width='1.4'/><g font-family='var(--mono)' font-size='13' fill='var(--ink)' text-anchor='middle'><text x='90' y='164'>YOUR REQUEST</text><text x='325' y='120'>MODEL</text><text x='585' y='66'>THINKS IN TEXT</text><text x='585' y='202'>CALLS A TOOL</text><text x='800' y='202'>TOOL OUTPUT</text><text x='800' y='66'>ANSWER</text></g><g font-family='var(--mono)' font-size='10' fill='var(--muted)' text-anchor='middle'><text x='325' y='142'>Transformer 2017</text><text x='325' y='158'>Scaling laws 2020 · Chinchilla 2022</text><text x='325' y='174'>InstructGPT 2022 · DPO 2023</text><text x='325' y='190'>LoRA 2021 · LLaMA 2023</text><text x='585' y='86'>CoT 2022 → R1 2025</text><text x='585' y='222'>ReAct 2022</text><text x='800' y='222'>RAG 2020 uses this door</text><text x='800' y='86'>prose, not a request</text></g><text x='325' y='212' font-family='var(--mono)' font-size='10' fill='var(--ox-hi)' letter-spacing='1.2' text-anchor='middle'>THE WEIGHTS</text><g stroke='var(--muted)' stroke-width='1.3' fill='none'><path d='M160 160 L204 160'/><path d='M440 160 L470 160 L470 72 L494 72'/><path d='M585 104 L585 170'/><path d='M670 72 L714 72'/><path d='M670 208 L714 208'/><path d='M800 240 L800 290 L325 290 L325 231'/></g><g fill='var(--muted)'><path d='M197 155 L205 160 L197 165 Z'/><path d='M487 67 L495 72 L487 77 Z'/><path d='M580 163 L585 171 L590 163 Z'/><path d='M707 67 L715 72 L707 77 Z'/><path d='M707 203 L715 208 L707 213 Z'/><path d='M320 238 L325 230 L330 238 Z'/></g><g font-family='var(--mono)' font-size='10' fill='var(--muted)'><text x='596' y='140'>asks for a tool</text><text x='692' y='30' text-anchor='middle'>no tool needed</text><text x='562' y='306' text-anchor='middle'>the observation goes back in as context</text><text x='562' y='321' text-anchor='middle'>round and round, until the model writes prose instead of a request</text></g></svg>",
+   "caption": "One agent turn. The model is the Transformer block, trained to the scaling recipes and then tuned to follow instructions. Chain-of-thought lets it think in text; ReAct lets that text ask for a tool; the tool’s output comes back in as context, through the same door retrieval uses. The loop runs until the model writes an answer instead of a request."
+  },
+  {
+   "type": "heading",
+   "text": "The fifteen",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "Grouped by what they changed, not strictly by year. The middle column is what the paper did, in one breath. The last column is what it is responsible for in your stack today. Every link goes to the paper itself, on arXiv, not to a summary of it."
+  },
+  {
+   "type": "table",
+   "head": [
+    "Year",
+    "Paper",
+    "What it did",
+    "Now responsible for"
+   ],
+   "rows": [
+    [
+     "<strong>The block, then the scale</strong>",
+     "",
+     "",
+     ""
+    ],
+    [
+     "2017",
+     "<a href=\"https://arxiv.org/abs/1706.03762\">Attention Is All You Need</a> · Vaswani et al., Google",
+     "Threw out recurrence. Every token attends to every other token at once, so training parallelises across GPUs instead of crawling along the sequence.",
+     "Transformer · every LLM since · GPU-scale training"
+    ],
+    [
+     "2018",
+     "<a href=\"https://arxiv.org/abs/1810.04805\">BERT</a> · Devlin et al., Google",
+     "Pre-train once on raw text, fine-tune cheaply per task. Made <em>download a pre-trained model</em> the default workflow.",
+     "pre-train / fine-tune · embeddings · search ranking · the Hugging Face era"
+    ],
+    [
+     "2020",
+     "<a href=\"https://arxiv.org/abs/2001.08361\">Scaling Laws for Neural Language Models</a> · Kaplan et al., OpenAI",
+     "Loss falls as a smooth power law in parameters, data and compute. Bigger stopped being a gamble and became a budget line.",
+     "the case for the spend · compute planning · “just scale it”"
+    ],
+    [
+     "2020",
+     "<a href=\"https://arxiv.org/abs/2005.14165\">Language Models are Few-Shot Learners</a> (GPT-3) · Brown et al., OpenAI",
+     "175 billion parameters. A new task from a few examples in the prompt, no fine-tuning. Prompting became programming.",
+     "in-context learning · prompt engineering · the API business model"
+    ],
+    [
+     "2022",
+     "<a href=\"https://arxiv.org/abs/2203.15556\">Training Compute-Optimal Large Language Models</a> (Chinchilla) · Hoffmann et al., DeepMind",
+     "Most models were under-trained. For a fixed budget, use a smaller model and far more tokens; roughly twenty tokens per parameter.",
+     "tokens over parameters · 7B–70B models · why a local model is usable"
+    ],
+    [
+     "<strong>Steering it</strong>",
+     "",
+     "",
+     ""
+    ],
+    [
+     "2022",
+     "<a href=\"https://arxiv.org/abs/2203.02155\">Training language models to follow instructions with human feedback</a> (InstructGPT) · Ouyang et al., OpenAI",
+     "The RLHF recipe: demonstrations, then a reward model from human rankings, then optimise against it. A 1.3B model tuned this way was preferred over the 175B original. ChatGPT is this, applied.",
+     "RLHF · the “assistant” · ChatGPT"
+    ],
+    [
+     "2022",
+     "<a href=\"https://arxiv.org/abs/2201.11903\">Chain-of-Thought Prompting Elicits Reasoning</a> · Wei et al., Google",
+     "Ask for the intermediate steps and reasoning accuracy jumps, but only at scale (around 100B parameters at the time). Reasoning became something a model does in text.",
+     "“think step by step” · reasoning traces · the seed of o1 and R1"
+    ],
+    [
+     "2023",
+     "<a href=\"https://arxiv.org/abs/2305.18290\">Direct Preference Optimization</a> (DPO) · Rafailov et al., Stanford",
+     "Same preference alignment as RLHF with no reward model and no RL loop: a simple loss over pairs of answers. Alignment became something one person with one GPU can do.",
+     "RLHF without RL · every open fine-tune · Zephyr, Llama 3 post-training"
+    ],
+    [
+     "<strong>Acting</strong>",
+     "",
+     "",
+     ""
+    ],
+    [
+     "2020",
+     "<a href=\"https://arxiv.org/abs/2005.11401\">Retrieval-Augmented Generation for Knowledge-Intensive NLP</a> (RAG) · Lewis et al., Facebook AI",
+     "Bolt a retriever onto a generator so the answer comes from fetched documents rather than from memory. Named the pattern.",
+     "“chat with your docs” · vector databases · grounding · citations"
+    ],
+    [
+     "2022",
+     "<a href=\"https://arxiv.org/abs/2210.03629\">ReAct: Synergizing Reasoning and Acting in Language Models</a> · Yao et al., Princeton and Google",
+     "Interleave a thought, an action (a tool call) and the observation that comes back, in one text loop. That loop <em>is</em> the agent.",
+     "the agent loop · tool use · LangChain agents · Claude Code, Codex, OpenClaw"
+    ],
+    [
+     "<strong>Open weights</strong>",
+     "",
+     "",
+     ""
+    ],
+    [
+     "2021",
+     "<a href=\"https://arxiv.org/abs/2106.09685\">LoRA: Low-Rank Adaptation of Large Language Models</a> · Hu et al., Microsoft",
+     "Freeze the model, train two small low-rank matrices per layer. About 10,000× fewer trainable parameters and no extra inference latency.",
+     "cheap fine-tuning · adapters · QLoRA · every community fine-tune"
+    ],
+    [
+     "2021",
+     "<a href=\"https://arxiv.org/abs/2112.10752\">High-Resolution Image Synthesis with Latent Diffusion Models</a> · Rombach et al., LMU Munich and Runway",
+     "Run diffusion in a compressed latent space instead of on pixels, so image generation fits a consumer GPU. Shipped as Stable Diffusion in August 2022.",
+     "Stable Diffusion · open image generation · ControlNet · image LoRAs"
+    ],
+    [
+     "2023",
+     "<a href=\"https://arxiv.org/abs/2302.13971\">LLaMA: Open and Efficient Foundation Language Models</a> · Touvron et al., Meta",
+     "A 13B model trained Chinchilla-style on public data beat GPT-3. The weights got out within a week and the local-model ecosystem appeared in a fortnight.",
+     "open weights · llama.cpp · Ollama · the whole local stack"
+    ],
+    [
+     "<strong>Reasoning that is trained, not prompted</strong>",
+     "",
+     "",
+     ""
+    ],
+    [
+     "2024",
+     "<a href=\"https://arxiv.org/abs/2408.03314\">Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</a> · Snell et al., Berkeley and DeepMind",
+     "Spend more compute at inference (more samples, a verifier, revision) and a small model can beat one 14× larger on the same budget. Named the second scaling axis; OpenAI’s o1 shipped five weeks later with a blog post, not a paper.",
+     "test-time compute · thinking budgets · “reasoning effort”"
+    ],
+    [
+     "2025",
+     "<a href=\"https://arxiv.org/abs/2501.12948\">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</a> · DeepSeek-AI",
+     "Pure RL with checkable rewards on a base model, no reasoning examples, and long chain-of-thought appeared on its own (R1-Zero). The recipe was published, with MIT-licensed weights.",
+     "RL with verifiable rewards · GRPO · open reasoning models · the January 2025 market shock"
+    ]
+   ]
+  },
+  {
+   "type": "paper",
+   "title": "Where these get quoted wrong",
+   "label": "Check before you repeat it",
+   "html": "<p><strong>Chinchilla’s twenty tokens per parameter</strong> is the optimum for <em>training</em> compute. If you will serve the model a billion times, inference dominates and you overtrain on purpose: Llama 3 8B was trained on over 15 trillion tokens, nearer 1,900 per parameter.</p><p><strong>Chain-of-thought in the 2022 paper only helped very large models</strong>; on small ones it made answers worse. Today’s small models reason because R1-style training put it in the weights, not because you typed “think step by step”.</p><p><strong>RAG the paper</strong> trained the retriever and the generator together. RAG the product is usually “paste the top five chunks into the prompt”. Useful, but not what the paper measured.</p><p><strong>ReAct’s numbers</strong> came from a 540B PaLM on question-answering and text-game benchmarks. The benchmarks did not matter. The one idea that did: the tool’s output goes back into the context, so the next thought can see it.</p><p><strong>The 2020 scaling-law constants</strong> were overturned by Chinchilla two years later. The shape held; the numbers did not. Quote the shape.</p>"
+  },
+  {
+   "type": "heading",
+   "text": "Nearly made it",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "These are real and worth your time; they just are not load-bearing for a working agent in the way the fifteen are. <a href=\"https://arxiv.org/abs/1706.03741\">Deep Reinforcement Learning from Human Preferences</a> (2017) is the root RLHF grew from. <a href=\"https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf\">GPT-2</a> (2019) argued that one language model does many tasks, and started the staged-release habit. <a href=\"https://arxiv.org/abs/2010.11929\">ViT</a> (2020) and <a href=\"https://arxiv.org/abs/2103.00020\">CLIP</a> (2021) took the Transformer into images and put text and images in one space; CLIP is what most image generators are steered by. <a href=\"https://arxiv.org/abs/2205.14135\">FlashAttention</a> (2022) is why long context is affordable at all. <a href=\"https://arxiv.org/abs/2212.08073\">Constitutional AI</a> (2022) replaced human harmlessness labels with AI feedback against a written set of rules. <a href=\"https://arxiv.org/abs/2302.04761\">Toolformer</a> (2023) had the model teach itself when to call an API. <a href=\"https://arxiv.org/abs/2305.20050\">Let’s Verify Step by Step</a> (2023) rewarded each reasoning step rather than the final answer. <a href=\"https://arxiv.org/abs/2303.08774\">The GPT-4 Technical Report</a> (2023) is notable for what it withheld: the moment frontier labs stopped publishing architecture. <a href=\"https://arxiv.org/abs/2304.03442\">Generative Agents</a> (2023) gave agents memory and reflection. <a href=\"https://arxiv.org/abs/2310.06770\">SWE-bench</a> (2023) is the exam coding agents are graded on. <a href=\"https://arxiv.org/abs/2312.00752\">Mamba</a> (2023) is the credible non-Transformer. <a href=\"https://arxiv.org/abs/2401.04088\">Mixtral</a> (2024) and <a href=\"https://arxiv.org/abs/2412.19437\">DeepSeek-V3</a> (2024) made mixture-of-experts the open default. <a href=\"https://arxiv.org/abs/2501.19393\">s1</a> (2025) reproduced test-time scaling with a thousand examples and a budget on the word “wait”."
+  },
+  {
+   "type": "prose",
+   "html": "Nothing from 2026 is on the list. Not because nothing happened: <a href=\"https://arxiv.org/abs/2606.19348\">DeepSeek-V4</a> (April 2026) put a million-token context in open weights, and hybrid state-space models are shipping from several labs. “Changed the most” needs about a year to become visible. The list is revised when something earns a place; the stamp below says when it was last checked."
+  },
+  {
+   "type": "paper",
+   "title": "If you only read three",
+   "label": "Twenty minutes each",
+   "html": "<p>Abstract, figure 1, the ablation table. Skip the related work.</p><p><strong>Attention Is All You Need</strong>, section 3 and figure 1. The block. Once you can draw it, every model card makes sense.</p><p><strong>InstructGPT</strong>, figure 2 and section 3.5. The three-step recipe every assistant you have ever talked to was made with.</p><p><strong>ReAct</strong>, section 2 and one full trajectory from the appendix. That trajectory is what your agent framework is doing under the logs.</p>"
+  },
+  {
+   "type": "heading",
+   "text": "The whole thing in three sentences",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "A Transformer trained at scale is the engine. Instruction tuning made it take orders, chain-of-thought made it think in text, and ReAct made that text able to act. Open weights and cheap fine-tuning put the whole thing on your machine, and RL on checkable rewards is now teaching it to think better without being told how."
+  },
+  {
+   "type": "spec",
+   "rows": [
+    {
+     "k": "Window",
+     "v": "2017 – 2025"
+    },
+    {
+     "k": "Papers",
+     "v": "15, plus 15 nearly"
+    },
+    {
+     "k": "Selection rule",
+     "v": "Load-bearing in a working agent today"
+    },
+    {
+     "k": "Links",
+     "v": "Every URL opened and checked"
+    },
+    {
+     "k": "Revision",
+     "v": "1.0"
+    }
+   ],
+   "stamp": {
+    "label": "VERIFIED",
+    "date": "2026-09-13"
+   }
+  }
+ ],
+ "sources": [
+  {
+   "label": "Attention Is All You Need",
+   "url": "https://arxiv.org/abs/1706.03762"
+  },
+  {
+   "label": "BERT",
+   "url": "https://arxiv.org/abs/1810.04805"
+  },
+  {
+   "label": "Scaling Laws for Neural Language Models",
+   "url": "https://arxiv.org/abs/2001.08361"
+  },
+  {
+   "label": "GPT-3",
+   "url": "https://arxiv.org/abs/2005.14165"
+  },
+  {
+   "label": "Chinchilla",
+   "url": "https://arxiv.org/abs/2203.15556"
+  },
+  {
+   "label": "InstructGPT",
+   "url": "https://arxiv.org/abs/2203.02155"
+  },
+  {
+   "label": "Chain-of-Thought Prompting",
+   "url": "https://arxiv.org/abs/2201.11903"
+  },
+  {
+   "label": "DPO",
+   "url": "https://arxiv.org/abs/2305.18290"
+  },
+  {
+   "label": "RAG",
+   "url": "https://arxiv.org/abs/2005.11401"
+  },
+  {
+   "label": "ReAct",
+   "url": "https://arxiv.org/abs/2210.03629"
+  },
+  {
+   "label": "LoRA",
+   "url": "https://arxiv.org/abs/2106.09685"
+  },
+  {
+   "label": "Latent Diffusion",
+   "url": "https://arxiv.org/abs/2112.10752"
+  },
+  {
+   "label": "LLaMA",
+   "url": "https://arxiv.org/abs/2302.13971"
+  },
+  {
+   "label": "Scaling LLM Test-Time Compute",
+   "url": "https://arxiv.org/abs/2408.03314"
+  },
+  {
+   "label": "DeepSeek-R1",
+   "url": "https://arxiv.org/abs/2501.12948"
+  },
+  {
+   "label": "Meta, Introducing Llama 3 (over 15T tokens)",
+   "url": "https://ai.meta.com/blog/meta-llama-3/"
+  },
+  {
+   "label": "The Llama 3 Herd of Models",
+   "url": "https://arxiv.org/abs/2407.21783"
+  },
+  {
+   "label": "OpenAI, Learning to Reason with LLMs (o1)",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/"
+  },
+  {
+   "label": "DeepSeek-V4",
+   "url": "https://arxiv.org/abs/2606.19348"
+  }
+ ]
+}
