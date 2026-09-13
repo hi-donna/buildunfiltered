@@ -1,5 +1,45 @@
 # Status
 
+## 2026-09-13 — Field Notes 04: The Fifteen Papers, waiting on 03
+
+**Shipped:** nothing. The prompt's precondition says post 04 goes in only if
+`data/field-notes/ollama-field-manual.json` (Field Note 03) exists and the
+last build was green. It does not exist, so this stops before Phase 1, per
+the prompt: no renumbering, no copy, no build, no code.
+
+**Verified:**
+- `data/field-notes/` holds `local-n8n.json` (kicker 01) and
+  `openclaw-field-manual.json` (kicker 02) only. No `ollama-field-manual.json`.
+- The Ollama prompt of 2026-09-04 had two jobs. Job 1 (series starts at 01)
+  shipped as commit `8f4366a` and is recorded above. Job 2 (the `err`
+  terminal line kind; post 03 `ollama-field-manual`) did not: `lib/fieldNotes.ts`
+  still allows `cmd | comment | out`, there is no commit
+  "feat(field-notes): err line kind; post 03 ollama-field-manual", and the
+  block table in `docs/FIELD_NOTES_SPEC.md` does not list `err`.
+- The 04 source is in place and reads as 04: `specs/field_note_04_fifteen_papers/
+  fifteen-papers.json`, kicker `FIELD NOTES / 04`, `published` and `verified`
+  2026-09-13, blocks prose / heading / figure / table / paper / spec only, no
+  `plate` blocks, one `figure` whose SVG uses `var(--…)` tokens only, one
+  `table` with five group-label rows. Not copied into the repo.
+- Working tree clean, `master` in sync with origin before this note.
+
+**Half-done:** nothing.
+
+**Needs the owner:**
+- Field Note 04 (fifteen-papers) is waiting on Field Note 03
+  (ollama-field-manual). Run the second job of
+  `buildunfiltered_field_note_ollama_prompt_2026-09-04.md` (add `err` to the
+  terminal line kinds, copy the post, commit
+  "feat(field-notes): err line kind; post 03 ollama-field-manual"), then re-run
+  the fifteen-papers prompt unchanged. If 03 is dropped instead, say so and
+  the 04 post needs its kicker changed to 03 by you, not by the build.
+- Carried from the 04 prompt, for when it ships: the post links to arxiv.org
+  about fifty times and the site has no written outbound-link policy; and the
+  "Nothing from 2026" paragraph names DeepSeek-V4, which gets a revision, not
+  a patch, when 2026 has a clear entry.
+
+**Next:** Field Note 03, then 04. Tool 3 per `docs/ROADMAP.md` after that.
+
 ## 2026-09-04 — Field Notes: series starts at 01
 
 **Shipped:** kickers renumbered on the owner's instruction: Local n8n is
