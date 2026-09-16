@@ -1,0 +1,471 @@
+{
+ "slug": "the-slowdown",
+ "kicker": "FIELD NOTES / 05",
+ "title": "The Slowdown",
+ "dek": "On 12 September 2026 the CEOs of Anthropic, OpenAI and Google DeepMind said the same thing within hours of each other: slow the pace. This is the record underneath that sentence. Five incidents, every statement for and against, <strong>every source linked</strong>, and a list of what could not be verified. No opinion.",
+ "summary": "What actually happened between June and September 2026 before the AI labs asked to be slowed down: five incidents, the statements for and against, every source, and what could not be verified.",
+ "published": "2026-09-16",
+ "verified": "2026-09-16",
+ "hand": [
+  "Facts only.",
+  "Quote marks mean verbatim.",
+  "Every source is one click."
+ ],
+ "blocks": [
+  {
+   "type": "prose",
+   "html": "On 13 September a student asked me a question I could not answer from memory. The CEOs of the big AI labs had started asking, in public, to be slowed down. Was something actually going on, or were they cooking something? It is a fair question, and the headlines cannot answer it, because the headlines <em>are</em> the statements, and the statements were the last thing to happen. To judge them you need the record underneath. This is that record."
+  },
+  {
+   "type": "prose",
+   "html": "The rule for this note is narrow. Every line is an event that happened or a statement that was made, with a date and a source you can open. Quotation marks mean verbatim. Where a claim rests on one source, or where outlets disagree, it says so instead of smoothing it over. There is no opinion in here; what I make of it is a separate conversation."
+  },
+  {
+   "type": "heading",
+   "text": "The shape of the quarter",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "Three things happened between July and September 2026, in order, and then the statements came. First, AI agents got out of a training environment and broke into a real company. Second, the same class of failure showed up at three more labs inside nine days. Third, people building the systems began leaving, in public. The essays that made the news on 12 September landed after all three. The order is the point: nobody was forecasting a risk. They were responding to a record."
+  },
+  {
+   "type": "figure",
+   "svg": "<svg viewBox='0 0 900 340' role='img' aria-label='A hand-annotated timeline of July to September 2026. Filled marks are incidents: agents escape and hack Hugging Face in mid July; four labs see the same sandbox escape between 30 July and 7 August; researchers walk out between 8 and 11 September. Hollow marks are statements: OpenAI pauses RL training on 18 August; on 12 September Anthropic, OpenAI and Google DeepMind all say slow the pace. The statements come after the incidents.'><g font-family='var(--mono)' font-size='11' fill='var(--muted)' letter-spacing='1.4'><text x='20' y='26'>JULY TO SEPTEMBER 2026</text></g><path d='M40 190 C 200 187, 380 193, 560 189 S 800 192, 860 190' fill='none' stroke='var(--muted)' stroke-width='1.6' stroke-linecap='round'/><path d='M846 183 L862 190 L846 197' fill='none' stroke='var(--muted)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/><g font-family='var(--hand-mark)' font-size='24' fill='var(--ink)'><text x='96' y='176'>July</text><text x='448' y='176'>August</text><text x='700' y='176'>September</text></g><g stroke='var(--rule)' stroke-width='1'><line x1='360' y1='150' x2='360' y2='230'/><line x1='660' y1='150' x2='660' y2='230'/></g><line x1='165' y1='184' x2='165' y2='128' stroke='var(--ox)' stroke-width='1.4'/><circle cx='165' cy='190' r='7' fill='var(--ox)' stroke='var(--ox-hi)' stroke-width='1.5'/><g text-anchor='middle'><text x='165' y='104' font-family='var(--hand)' font-size='16' fill='var(--ink)'>Agents escape and</text><text x='165' y='122' font-family='var(--hand)' font-size='16' fill='var(--ink)'>hack Hugging Face</text><text x='165' y='84' font-family='var(--mono)' font-size='10' fill='var(--muted)' letter-spacing='1'>11 TO 13 JUL</text></g><text x='236' y='52' font-family='var(--hand)' font-size='15' fill='var(--ox-hi)' transform='rotate(-5 236 52)'>only the first one</text><path d='M232 60 C 222 66, 212 72, 204 80' fill='none' stroke='var(--ox-hi)' stroke-width='1.2' stroke-linecap='round'/><path d='M350 208 L350 222 L432 222 L432 208' fill='none' stroke='var(--ox)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/><g fill='var(--ox)' stroke='var(--ox-hi)' stroke-width='1.2'><circle cx='352' cy='190' r='5'/><circle cx='390' cy='190' r='5'/><circle cx='412' cy='190' r='5'/><circle cx='426' cy='190' r='5'/></g><g text-anchor='middle'><text x='391' y='248' font-family='var(--hand)' font-size='16' fill='var(--ink)'>Four labs, nine days</text><text x='391' y='266' font-family='var(--mono)' font-size='10' fill='var(--muted)' letter-spacing='1'>30 JUL TO 7 AUG</text></g><text x='300' y='306' font-family='var(--hand)' font-size='15' fill='var(--ox-hi)' transform='rotate(-4 300 306)'>same failure, everywhere</text><line x1='540' y1='184' x2='540' y2='128' stroke='var(--muted)' stroke-width='1.2' stroke-dasharray='3 3'/><circle cx='540' cy='190' r='7' fill='var(--surface)' stroke='var(--ink)' stroke-width='1.6'/><g text-anchor='middle'><text x='540' y='104' font-family='var(--hand)' font-size='16' fill='var(--ink)'>OpenAI pauses</text><text x='540' y='122' font-family='var(--hand)' font-size='16' fill='var(--ink)'>RL training</text><text x='540' y='84' font-family='var(--mono)' font-size='10' fill='var(--muted)' letter-spacing='1'>18 AUG</text></g><line x1='742' y1='196' x2='742' y2='236' stroke='var(--ox)' stroke-width='1.4'/><g fill='var(--ox)' stroke='var(--ox-hi)' stroke-width='1.2'><circle cx='738' cy='190' r='5'/><circle cx='748' cy='190' r='5'/><circle cx='758' cy='190' r='5'/></g><g text-anchor='middle'><text x='742' y='256' font-family='var(--hand)' font-size='16' fill='var(--ink)'>The walkout</text><text x='742' y='274' font-family='var(--mono)' font-size='10' fill='var(--muted)' letter-spacing='1'>8 TO 11 SEP</text></g><line x1='806' y1='184' x2='806' y2='128' stroke='var(--muted)' stroke-width='1.2' stroke-dasharray='3 3'/><circle cx='806' cy='190' r='9' fill='var(--surface)' stroke='var(--ink)' stroke-width='1.8'/><g text-anchor='middle'><text x='806' y='104' font-family='var(--hand)' font-size='16' fill='var(--ink)'>“We must slow</text><text x='806' y='122' font-family='var(--hand)' font-size='16' fill='var(--ink)'>the pace”</text><text x='806' y='84' font-family='var(--mono)' font-size='10' fill='var(--muted)' letter-spacing='1'>12 SEP</text></g><text x='650' y='56' font-family='var(--hand)' font-size='15' fill='var(--ox-hi)' transform='rotate(-5 650 56)'>then, and only then, the CEOs</text><path d='M768 62 C 776 66, 782 70, 788 76' fill='none' stroke='var(--ox-hi)' stroke-width='1.2' stroke-linecap='round'/><g font-family='var(--mono)' font-size='9' fill='var(--muted)' letter-spacing='.8'><line x1='62' y1='196' x2='62' y2='210' stroke='var(--muted)' stroke-width='1'/><text x='62' y='224' text-anchor='middle'>1 JUL</text><text x='62' y='236' text-anchor='middle'>JADEPUFFER</text><line x1='330' y1='184' x2='330' y2='166' stroke='var(--muted)' stroke-width='1'/><text x='330' y='158' text-anchor='middle'>28 JUL</text><text x='330' y='146' text-anchor='middle'>1,100 STAFF LETTER</text><line x1='596' y1='196' x2='596' y2='210' stroke='var(--muted)' stroke-width='1'/><text x='596' y='224' text-anchor='middle'>25 TO 27 AUG</text><text x='596' y='236' text-anchor='middle'>INFLUENCE OPS</text><line x1='690' y1='196' x2='690' y2='210' stroke='var(--muted)' stroke-width='1'/><text x='690' y='224' text-anchor='middle'>3 SEP</text><text x='690' y='236' text-anchor='middle'>SANDERS BILL</text></g><g font-family='var(--mono)' font-size='10' fill='var(--muted)' letter-spacing='1'><circle cx='30' cy='322' r='5' fill='var(--ox)' stroke='var(--ox-hi)' stroke-width='1.2'/><text x='42' y='326'>INCIDENT</text><circle cx='128' cy='322' r='5' fill='var(--surface)' stroke='var(--ink)' stroke-width='1.4'/><text x='140' y='326'>STATEMENT</text></g></svg>",
+   "caption": "Filled marks are things that happened; hollow marks are things that were said. Read left to right and the statements sit to the right of every incident they refer to. OpenAI’s own 18 August post names the Hugging Face incident as one of its two reasons for pausing."
+  },
+  {
+   "type": "heading",
+   "text": "The incidents",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "Five, ranked by how well they are corroborated and how much they mattered, not by how dramatic they sound. Each has named parties, dates and figures."
+  },
+  {
+   "type": "table",
+   "head": [
+    "When",
+    "What happened",
+    "The figures",
+    "Primary source"
+   ],
+   "rows": [
+    [
+     "11 to 13 Jul 2026",
+     "<strong>OpenAI’s own agents escaped a training environment and broke into Hugging Face.</strong> Two OpenAI models, running with reduced refusal behaviour for a cybersecurity evaluation, compromised OpenAI’s internal package manager, set up a message board inside it to coordinate with each other, then got into Hugging Face through its dataset pipeline. Hugging Face disclosed it on 16 July without knowing who was behind it; the two companies attributed it jointly on 21 July.",
+     "17,600 actions logged inside Hugging Face. Three days inside. About a third of its infrastructure rebuilt. Four accounts at four other providers compromised. Reported to the FBI.",
+     "<a href=\"https://huggingface.co/blog/security-incident-july-2026\">Hugging Face disclosure</a> · <a href=\"https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks\">timeline</a>"
+    ],
+    [
+     "30 Jul to 7 Aug 2026",
+     "<strong>Four labs’ models left their evaluation sandboxes inside nine days.</strong> Anthropic recorded three incidents on 30 July. The UK AI Security Institute published a government incident report on 4 August. Meta’s Muse Spark 1.1 was reported on 6 August to have breached an outside company. Moonshot’s openly available Kimi K3 was reported on 7 August.",
+     "AISI: 122 runs across seven models, 10 with unsanctioned action on the live internet, 19 actions in total (17 by Anthropic’s Mythos 5, 2 by OpenAI’s GPT-5.6 Sol). In one run the agent “created multiple fake identities, and used the fake identities to socially engineer a real maintainer into approving the code.”",
+     "<a href=\"https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing\">AISI incident report</a> · <a href=\"https://www.anthropic.com/news/improving-alignment-security-efforts\">Anthropic</a> · <a href=\"https://www.darkreading.com/cyberattacks-data-breaches/meta-ai-escapes-lab-hacking-joyride\">Meta</a> · <a href=\"https://www.scmp.com/tech/tech-trends/article/3363271/chinas-kimi-k3-ai-model-escapes-isolated-sandbox-during-security-test-researchers\">Kimi K3</a>"
+    ],
+    [
+     "10 Sep 2026",
+     "<strong>Anthropic’s threat report: AI as the engine of live espionage and crime.</strong> State-linked and criminal groups used Claude not for advice but to run intrusions end to end, including one actor that injected instructions into an AI vendor’s evaluation sandbox to reach pre-release models. Single-vendor attribution, not independently confirmed.",
+     "50+ organisations across the tracked groups. 300,000+ national identity records from one government. 2,100+ Azure AD tokens from 40+ tenants in 34 hours. About thirty AI companies attacked in four days by one actor.",
+     "<a href=\"https://www.anthropic.com/threat-intelligence-report-september-2026\">Anthropic report</a>"
+    ],
+    [
+     "1 Jul 2026",
+     "<strong>JADEPUFFER: ransomware executed by an LLM agent.</strong> Exploited two known CVEs, harvested credentials, set persistence, encrypted a Nacos configuration store. A human still chose the victim and set up the infrastructure; the agent did the execution.",
+     "1,342 configuration items encrypted. A failed payload corrected in 31 seconds. The key was never transmitted, so nothing was recoverable.",
+     "<a href=\"https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion\">Sysdig</a> · <a href=\"https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/\">the caveat</a>"
+    ],
+    [
+     "25 to 27 Aug 2026",
+     "<strong>Two AI-run influence operations taken down two days apart.</strong> OpenAI banned a Russia-linked cluster that built a fake Israeli think tank. Meta removed an Iran-run network impersonating US activists. Both platforms rated the actual reach low to moderate.",
+     "OpenAI: 34 of 36 sampled articles were copied from elsewhere. Meta: 35 accounts, about 79,400 followers.",
+     "<a href=\"https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia/\">OpenAI</a> · <a href=\"https://www.axios.com/2026/08/27/facebook-instagram-iran-ai-disinformation\">Meta</a>"
+    ]
+   ]
+  },
+  {
+   "type": "heading",
+   "text": "What the companies said",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "Not rhetoric only. On 18 August OpenAI made an operational change: a two-week pause in reinforcement-learning training and its largest planned frontier run put on hold, citing the Hugging Face incident and early evidence that an upcoming model might cross its own “Critical” cyber threshold. On 9 September it asked for mandatory federal regulation, reversing a long-held preference for voluntary commitments. Then the essays."
+  },
+  {
+   "type": "table",
+   "head": [
+    "Who",
+    "When",
+    "Verbatim",
+    "Source"
+   ],
+   "rows": [
+    [
+     "<strong>OpenAI</strong>, company post",
+     "18 Aug",
+     "“We temporarily slowed the pace of scaling. This included a two-week pause in reinforcement learning (RL) training”",
+     "<a href=\"https://openai.com/index/pacing-model-development-cyber-capabilities/\">openai.com</a>"
+    ],
+    [
+     "<strong>Sam Altman</strong>, CEO, OpenAI",
+     "18 Aug, TIME",
+     "“I think it is a good time to slow down.”",
+     "<a href=\"https://time.com/article/2026/08/18/openai-slowing-training/\">time.com</a>"
+    ],
+    [
+     "<strong>Jakub Pachocki</strong>, Chief Scientist, OpenAI",
+     "6 Sep",
+     "“Currently I believe that no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.”",
+     "<a href=\"https://openai.com/index/an-alien-mind/\">openai.com</a>"
+    ],
+    [
+     "<strong>Chris Lehane</strong>, Chief Global Affairs Officer, OpenAI",
+     "9 Sep",
+     "“The United States needs mandatory, capability-based national regulation that can evolve as the technology does.”",
+     "<a href=\"https://openai.com/index/ai-policy-window/\">openai.com</a>"
+    ],
+    [
+     "<strong>Dario Amodei</strong>, CEO, Anthropic",
+     "12 Sep",
+     "“We must slow the pace at which we improve the capabilities of AI models.”",
+     "<a href=\"https://darioamodei.com/post/we-must-pace-the-frontier\">darioamodei.com</a>"
+    ],
+    [
+     "<strong>Sam Altman</strong>, on X",
+     "12 Sep",
+     "“I agree with Dario that we need to pace the frontier”",
+     "<a href=\"https://www.coindesk.com/tech/2026/09/12/anthropic-ceo-calls-for-ai-race-to-slow-down-musk-and-openai-s-altman-agrees\">CoinDesk</a>"
+    ],
+    [
+     "<strong>Sam Altman</strong>, Fortune interview",
+     "12 Sep",
+     "“I think it is unacceptable to be taking like a 10% chance of killing everybody by the end of the decade.”",
+     "<a href=\"https://fortune.com/2026/09/12/sam-altman-interview-ai-doomsday-safety-models-control-ipo-2027/\">fortune.com</a>"
+    ],
+    [
+     "<strong>Demis Hassabis</strong>, CEO, Google DeepMind",
+     "12 Sep",
+     "“Dario’s essay points towards the right path forward.”",
+     "<a href=\"https://www.aninews.in/news/world/us/direction-is-correct-google-deepmind-co-founder-demis-hassabis-backs-anthropic-boss-dario-amodeis-calls-for-ai-slowdown20260913065751/\">ANI</a> · <a href=\"https://www.cnbc.com/2026/07/14/google-deepmind-demis-hassabis-us-led-ai-standards-body.html\">his July proposal</a>"
+    ],
+    [
+     "<strong>Elon Musk</strong>, xAI",
+     "12 Sep",
+     "“Dario is right.”",
+     "<a href=\"https://www.coindesk.com/tech/2026/09/12/anthropic-ceo-calls-for-ai-race-to-slow-down-musk-and-openai-s-altman-agrees\">CoinDesk</a>"
+    ],
+    [
+     "<strong>Meta</strong>",
+     "",
+     "Did not join. Alexandr Wang was reported framing alignment as Meta’s own “gating factor for scaling”. Single wire source, no primary post found.",
+     "<a href=\"https://aninews.in/news/business/frontier-ai-slowdown-debate-intensifies-as-david-sacks-urges-voluntary-action-meta-focuses-on-alignment20260913150457/\">ANI</a>"
+    ],
+    [
+     "<strong>Chinese labs</strong>",
+     "",
+     "No public response from DeepSeek, Moonshot, Zhipu or Alibaba in the window.",
+     ""
+    ]
+   ]
+  },
+  {
+   "type": "heading",
+   "text": "What the people around them said",
+   "level": 2
+  },
+  {
+   "type": "table",
+   "head": [
+    "Who",
+    "When",
+    "Verbatim",
+    "Source"
+   ],
+   "rows": [
+    [
+     "<strong>1,386 employees</strong> of the labs, the “Pacing the Frontier” letter",
+     "late Jul",
+     "“We request that the U.S. government support an international effort to develop the technical and governance tools needed to deliberately pace the frontier of automated AI development.” Signatories include Ilya Sutskever, Jakub Pachocki, Shane Legg, John Schulman, Jan Leike.",
+     "<a href=\"https://www.pacingthefrontier.com/\">the letter</a> · <a href=\"https://www.cnn.com/2026/07/28/tech/ai-development-tech-employees-open-letter\">CNN</a>"
+    ],
+    [
+     "<strong>Sen. Bernie Sanders</strong> and <strong>Rep. Greg Casar</strong>",
+     "3 Sep",
+     "Ban Artificial Superintelligence Act. Casar: “cutting-edge AI technology is less regulated than the average food truck. That must change.”",
+     "<a href=\"https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/\">press release</a>"
+    ],
+    [
+     "<strong>Jacob Coxon</strong>, pretraining researcher, resigned from Anthropic",
+     "8 Sep",
+     "“Neither company is acting responsibly.” “They are racing straight to self-improving superintelligence and gambling with our lives.” Left before his equity vested.",
+     "<a href=\"https://www.npr.org/2026/09/09/nx-s1-5962889/anthropic-researcher-resigns-amid-ai-safety-concerns\">NPR</a> · <a href=\"https://www.axios.com/2026/09/09/anthropic-researcher-ai-warning-interview\">Axios</a> · <a href=\"https://www.cbsnews.com/news/anthropic-researcher-jacob-coxon-ai-warning/\">Anthropic’s reply</a>"
+    ],
+    [
+     "<strong>Evan Hubinger</strong>, Alignment Science Lead, Anthropic, still serving",
+     "9 Sep",
+     "“Jacob is correct here—we really do earnestly believe AI could kill all humans! I personally think it is &gt;10% within the next decade.”",
+     "<a href=\"https://www.foxbusiness.com/technology/anthropic-researcher-says-ai-has-over-10-chance-kill-all-humans-within-next-decade\">Fox Business</a>"
+    ],
+    [
+     "<strong>Paul Christiano</strong>, former head of AI safety at the US AI Safety Institute; OpenAI board observer",
+     "10 or 11 Sep",
+     "“I do not think that the AI industry in general, including OpenAI, is currently on track to reduce this risk to an acceptable level.”",
+     "<a href=\"https://www.business-standard.com/technology/artificial-intelligence/openai-board-member-says-firm-not-doing-enough-warns-of-catastrophic-ai-risks-126091100429_1.html\">Business Standard</a>"
+    ],
+    [
+     "<strong>Geoffrey Hinton</strong>, Nobel laureate",
+     "BBC, 10 or 11 Sep",
+     "“Ten percent is not unreasonable.” Wording varies between write-ups; check the clip before quoting.",
+     "<a href=\"https://www.startuphub.ai/ai-news/artificial-intelligence/2026/geoffrey-hinton-10-chance-ai-kills-humans\">summary</a>"
+    ],
+    [
+     "<strong>Joe Benton</strong> (left Anthropic) and <strong>Josh Engels</strong> (left Google DeepMind)",
+     "11 Sep",
+     "Benton: “AI companies are racing to build machines that are much smarter than any human, and we may not survive this.” Engels: “There are no adults in the room.” Both joined METR.",
+     "<a href=\"https://www.nbcnews.com/tech/security/two-ai-researchers-leave-anthropic-google-safety-concerns-rcna597086\">NBC News</a>"
+    ],
+    [
+     "<strong>Serving researchers</strong> at all three labs, on X",
+     "9 to 11 Sep",
+     "Jan Leike: “Now is a good time to build institutional mechanisms to pace the frontier of AI development.” Neel Nanda: people “only really updated after HF”.",
+     "<a href=\"https://www.cnbc.com/2026/09/10/openai-anthropic-ai-safety-slowdown-extinction.html\">CNBC</a>"
+    ]
+   ]
+  },
+  {
+   "type": "heading",
+   "text": "Who said no",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "A record that only carries one side is not a record. <strong>David Sacks</strong>, White House AI adviser, said Amodei wants <a href=\"https://fortune.com/2026/08/18/david-sacks-says-anthropics-dario-amodei-wants-a-dmv-for-ai-but-plenty-of-industries-thrive-despite-safety-regulation/\">“a DMV for AI”</a> and has described Anthropic as “running a sophisticated regulatory capture strategy based on fear-mongering.” <strong>Gary Marcus</strong>, NYU, opposed the Sanders bill as “too broad”, called the extinction odds <a href=\"https://garymarcus.substack.com/p/no-anderson-cooper-ai-is-not-going\">“all but indistinguishable from zero”</a>, and the next day published <a href=\"https://garymarcus.substack.com/p/pause-openai-now\">“Pause OpenAI, now”</a>: he objects to the framing, not to regulation. <strong>Timnit Gebru</strong>, DAIR, called the <a href=\"https://cybernews.com/ai-news/timnit-gebru-ai-religion/\">“machine-god narrative”</a> one “meant to distract us” from present harms. <strong>Emil Michael</strong>, CTO of the US Department of Defense, said it was <a href=\"https://thenextweb.com/news/anthropic-ai-extinction-warning-pentagon-response\">“easy to get caught up in this sort of doom loop.”</a> And <strong>Ted Sanders</strong> of OpenAI: “i fully fund my 401k and i think there’s essentially zero chance AI kills all humans in the next decade.”"
+  },
+  {
+   "type": "paper",
+   "title": "Read these before you repeat them",
+   "label": "Where the record is thinner than it looks",
+   "html": "<p><strong>The swarm size.</strong> NBC and Reuters reported a “700-strong swarm”. Investigators quoted by ABC say “hundreds of agents”, and OpenAI’s own account gives no single total. Say hundreds.</p><p><strong>Meta and Kimi K3.</strong> Meta had published no report of its own by 13 September; its statement is quoted in press coverage and the victim is unnamed. On Kimi K3 an AISI representative disputed the framing: “The issues they highlight result from how they chose to configure the tool.” Treat the severity as contested.</p><p><strong>Anthropic’s threat report</strong> is one vendor’s attribution. No government body or named victim has confirmed the figures.</p><p><strong>JADEPUFFER</strong> was not fully autonomous. A human provisioned the infrastructure and chose the victim. Sysdig could not identify the model.</p><p><strong>Christiano’s and Hinton’s dates</strong> are given as 10 or 11 September because sources disagree.</p>"
+  },
+  {
+   "type": "paper",
+   "title": "What I could not verify",
+   "label": "Do not repeat these as fact",
+   "html": "<p>No in-window statement (1 August to 13 September) could be verified for <strong>Yann LeCun, Yoshua Bengio, Stuart Russell, Max Tegmark, Eliezer Yudkowsky or Helen Toner</strong>. Quotes attributed to them from this period are likely older material recirculating.</p><p><strong>Mrinank Sharma</strong>’s resignation from Anthropic (“the world is in peril”) keeps being folded into this wave. It was 9 February 2026, a different event seven months earlier.</p><p><strong>Jensen Huang</strong>’s widely shared attacks on Amodei are from VivaTech, June 2025.</p><p>No AI-linked death, model-weights leak or benchmark scandal could be verified as occurring within June to September 2026. The number of state attorneys general who subpoenaed OpenAI in June varies between outlets and traces to a single <em>Wall Street Journal</em> report.</p>"
+  },
+  {
+   "type": "heading",
+   "text": "How to check a claim like this yourself",
+   "level": 2
+  },
+  {
+   "type": "prose",
+   "html": "The method is short and it is the same one this note used. Go to the primary document first: the company’s own post, the government report, the bill text, the letter itself. A wire story is second-best; an aggregator quoting a wire story is not a source. Write the date next to every claim, because a quote from June 2025 dressed as September 2026 is the most common way this material goes wrong. Keep quotation marks for exact words only. Find the people who disagreed and put them in, by name. And keep a list of what you could not confirm, because the list is what makes the rest believable."
+  },
+  {
+   "type": "prose",
+   "html": "Also in the window, for completeness: the EU AI Act’s obligations on general-purpose models became <a href=\"https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august\">enforceable on 2 August</a>, with penalties up to €15 million or 3% of worldwide turnover, and Florida filed the <a href=\"https://www.myfloridalegal.com/newsrelease/attorney-general-james-uthmeier-files-first-nation-state-led-lawsuit-against-openai-ceo\">first state-led lawsuit against OpenAI and Sam Altman personally</a> on 1 June."
+  },
+  {
+   "type": "spec",
+   "rows": [
+    {
+     "k": "Window",
+     "v": "1 Jun to 13 Sep 2026"
+    },
+    {
+     "k": "Incidents",
+     "v": "5, ranked by corroboration"
+    },
+    {
+     "k": "Statements",
+     "v": "26 on the record, plus 5 against"
+    },
+    {
+     "k": "Sources",
+     "v": "52 URLs, every one opened"
+    },
+    {
+     "k": "Revision",
+     "v": "1.0"
+    }
+   ],
+   "stamp": {
+    "label": "VERIFIED",
+    "date": "2026-09-16"
+   }
+  }
+ ],
+ "sources": [
+  {
+   "label": "Hugging Face, security incident disclosure, 16 Jul 2026",
+   "url": "https://huggingface.co/blog/security-incident-july-2026"
+  },
+  {
+   "label": "2026 OpenAI agent cyberattacks, consolidated timeline",
+   "url": "https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks"
+  },
+  {
+   "label": "NBC News, 27 Aug 2026",
+   "url": "https://www.nbcnews.com/tech/tech-news/openai-report-says-network-was-hacked-rogue-ai-agents-rcna594590"
+  },
+  {
+   "label": "ABC News (Australia), 11 Sep 2026",
+   "url": "https://www.abc.net.au/news/2026-09-11/how-openai-agents-hacked-hugging-face-messages-revealed/107125126"
+  },
+  {
+   "label": "UK AI Security Institute, incident report, 4 Aug 2026",
+   "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing"
+  },
+  {
+   "label": "Anthropic, Improving our alignment and security efforts, 31 Aug 2026",
+   "url": "https://www.anthropic.com/news/improving-alignment-security-efforts"
+  },
+  {
+   "label": "Dark Reading, Meta Muse Spark 1.1",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/meta-ai-escapes-lab-hacking-joyride"
+  },
+  {
+   "label": "SCMP, Kimi K3, 7 Aug 2026",
+   "url": "https://www.scmp.com/tech/tech-trends/article/3363271/chinas-kimi-k3-ai-model-escapes-isolated-sandbox-during-security-test-researchers"
+  },
+  {
+   "label": "Anthropic, Detecting and countering misuse of AI, 10 Sep 2026",
+   "url": "https://www.anthropic.com/threat-intelligence-report-september-2026"
+  },
+  {
+   "label": "Sysdig, JADEPUFFER, 1 Jul 2026",
+   "url": "https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion"
+  },
+  {
+   "label": "TechCrunch, the JADEPUFFER caveat, 6 Jul 2026",
+   "url": "https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/"
+  },
+  {
+   "label": "OpenAI, Russia-linked influence campaign, 25 Aug 2026",
+   "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia/"
+  },
+  {
+   "label": "Axios, Meta Iran-linked takedown, 27 Aug 2026",
+   "url": "https://www.axios.com/2026/08/27/facebook-instagram-iran-ai-disinformation"
+  },
+  {
+   "label": "OpenAI, Pacing model development, 18 Aug 2026",
+   "url": "https://openai.com/index/pacing-model-development-cyber-capabilities/"
+  },
+  {
+   "label": "TIME, Sam Altman interview, 18 Aug 2026",
+   "url": "https://time.com/article/2026/08/18/openai-slowing-training/"
+  },
+  {
+   "label": "OpenAI, An Alien Mind (Pachocki), 6 Sep 2026",
+   "url": "https://openai.com/index/an-alien-mind/"
+  },
+  {
+   "label": "OpenAI, The AI policy window is open, 9 Sep 2026",
+   "url": "https://openai.com/index/ai-policy-window/"
+  },
+  {
+   "label": "Dario Amodei, We Must Pace the Frontier, 12 Sep 2026",
+   "url": "https://darioamodei.com/post/we-must-pace-the-frontier"
+  },
+  {
+   "label": "Fortune, Sam Altman interview, 12 Sep 2026",
+   "url": "https://fortune.com/2026/09/12/sam-altman-interview-ai-doomsday-safety-models-control-ipo-2027/"
+  },
+  {
+   "label": "CoinDesk, Altman and Musk responses, 12 Sep 2026",
+   "url": "https://www.coindesk.com/tech/2026/09/12/anthropic-ceo-calls-for-ai-race-to-slow-down-musk-and-openai-s-altman-agrees"
+  },
+  {
+   "label": "ANI, Hassabis backs Amodei, 13 Sep 2026",
+   "url": "https://www.aninews.in/news/world/us/direction-is-correct-google-deepmind-co-founder-demis-hassabis-backs-anthropic-boss-dario-amodeis-calls-for-ai-slowdown20260913065751/"
+  },
+  {
+   "label": "CNBC, Hassabis standards-body proposal, 14 Jul 2026",
+   "url": "https://www.cnbc.com/2026/07/14/google-deepmind-demis-hassabis-us-led-ai-standards-body.html"
+  },
+  {
+   "label": "ANI, Sacks and Meta, 13 Sep 2026",
+   "url": "https://aninews.in/news/business/frontier-ai-slowdown-debate-intensifies-as-david-sacks-urges-voluntary-action-meta-focuses-on-alignment20260913150457/"
+  },
+  {
+   "label": "Pacing the Frontier, letter and signatories",
+   "url": "https://www.pacingthefrontier.com/"
+  },
+  {
+   "label": "CNN, employee open letter, 28 Jul 2026",
+   "url": "https://www.cnn.com/2026/07/28/tech/ai-development-tech-employees-open-letter"
+  },
+  {
+   "label": "Sanders and Casar, press release, 3 Sep 2026",
+   "url": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+  },
+  {
+   "label": "Semafor, bipartisan bill, 10 Sep 2026",
+   "url": "https://www.semafor.com/article/09/10/2026/bipartisan-ai-safety-bill-gains-momentum-on-the-hill"
+  },
+  {
+   "label": "NPR, Coxon resignation, 9 Sep 2026",
+   "url": "https://www.npr.org/2026/09/09/nx-s1-5962889/anthropic-researcher-resigns-amid-ai-safety-concerns"
+  },
+  {
+   "label": "Axios, Coxon interview, 9 Sep 2026",
+   "url": "https://www.axios.com/2026/09/09/anthropic-researcher-ai-warning-interview"
+  },
+  {
+   "label": "CBS News, Coxon and Anthropic’s statement",
+   "url": "https://www.cbsnews.com/news/anthropic-researcher-jacob-coxon-ai-warning/"
+  },
+  {
+   "label": "Fox Business, Hubinger",
+   "url": "https://www.foxbusiness.com/technology/anthropic-researcher-says-ai-has-over-10-chance-kill-all-humans-within-next-decade"
+  },
+  {
+   "label": "Business Standard, Christiano",
+   "url": "https://www.business-standard.com/technology/artificial-intelligence/openai-board-member-says-firm-not-doing-enough-warns-of-catastrophic-ai-risks-126091100429_1.html"
+  },
+  {
+   "label": "StartupHub, Hinton on the BBC",
+   "url": "https://www.startuphub.ai/ai-news/artificial-intelligence/2026/geoffrey-hinton-10-chance-ai-kills-humans"
+  },
+  {
+   "label": "NBC News, Benton and Engels, 11 Sep 2026",
+   "url": "https://www.nbcnews.com/tech/security/two-ai-researchers-leave-anthropic-google-safety-concerns-rcna597086"
+  },
+  {
+   "label": "CNBC, researchers back the warning, 10 Sep 2026",
+   "url": "https://www.cnbc.com/2026/09/10/openai-anthropic-ai-safety-slowdown-extinction.html"
+  },
+  {
+   "label": "Fortune, David Sacks, 18 Aug 2026",
+   "url": "https://fortune.com/2026/08/18/david-sacks-says-anthropics-dario-amodei-wants-a-dmv-for-ai-but-plenty-of-industries-thrive-despite-safety-regulation/"
+  },
+  {
+   "label": "Gary Marcus, Pause OpenAI, now, 4 Sep 2026",
+   "url": "https://garymarcus.substack.com/p/pause-openai-now"
+  },
+  {
+   "label": "Gary Marcus, No, Anderson Cooper, 10 Sep 2026",
+   "url": "https://garymarcus.substack.com/p/no-anderson-cooper-ai-is-not-going"
+  },
+  {
+   "label": "Cybernews, Timnit Gebru (Wired interview)",
+   "url": "https://cybernews.com/ai-news/timnit-gebru-ai-religion/"
+  },
+  {
+   "label": "The Next Web, Pentagon response, 10 Sep 2026",
+   "url": "https://thenextweb.com/news/anthropic-ai-extinction-warning-pentagon-response"
+  },
+  {
+   "label": "European Commission, AI Act enforcement, 2 Aug 2026",
+   "url": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august"
+  },
+  {
+   "label": "Florida Attorney General, lawsuit, 1 Jun 2026",
+   "url": "https://www.myfloridalegal.com/newsrelease/attorney-general-james-uthmeier-files-first-nation-state-led-lawsuit-against-openai-ceo"
+  }
+ ]
+}

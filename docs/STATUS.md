@@ -1,5 +1,65 @@
 # Status
 
+## 2026-09-16 — Field Notes 05: The Slowdown
+
+**Shipped:** `/field-notes/the-slowdown/`, from
+`data/field-notes/the-slowdown.json` (copied byte-identical from
+`specs/field_note_05_the_slowdown/`; kicker `FIELD NOTES / 05`, published
+and verified 2026-09-16). No code change: `lib/`, `app/` and `globals.css`
+untouched. Blocks used: prose (8), heading (6), figure (1), table (3),
+paper (2), spec (1). 42 sources.
+
+**Verified:**
+- No images: zero `plate` blocks in the JSON (read, not assumed), zero
+  `<img>`, zero `data:image` in the built HTML. Nothing to privacy-check.
+- `npm run build` green on the first run; no validator error, nothing
+  patched around. 124 static pages.
+- Index: the new card is first with "05"; order 05, 04, 03, 02, 01. Sitemap
+  has the URL. Home shelf says "5 posts".
+- `out/field-notes/the-slowdown/index.html`: kicker `FIELD NOTES / 05`. The
+  figure renders: one baseline path with an arrowhead, three filled oxblood
+  clusters (1, 4 and 3 marks: Hugging Face, four labs, the walkout), two
+  hollow marks (`--surface` fill, `--ink` stroke: the RL pause and 12 Sep),
+  July / August / September in `--hand-mark`, dates in `--mono`, annotations
+  in `--hand`. The SVG carries only `var(--hand|--hand-mark|--mono|--ox|
+  --ox-hi|--ink|--muted|--surface|--rule)`; no literal colour. The build's
+  SVG checks passed as written.
+- Three tables render (5, 11 and 8 rows), 33 `https://` links in the last
+  column between them, every external `<a>` with `rel="noopener"`. One
+  last-column cell is empty (Chinese labs) and renders as an empty cell,
+  not a group label, because the row's other cells carry text.
+- Both paper blocks render on paper ("Where the record is thinner than it
+  looks", "Do not repeat these as fact") with their `<p>` paragraphs kept.
+- Spec strip reads `VERIFIED 2026-09-16`.
+- Evan Hubinger's 9 Sept quote keeps its em dash.
+- Prose, quotes, dates, figures and names left exactly as written. No typo
+  fixed; none found.
+- `globals.css` did not change, so the colour/font grep on the diff is empty.
+
+**Decisions made:** none beyond the spec.
+
+**Half-done:** nothing.
+
+**Needs the owner:**
+- The post links out 40 times from the blocks (plus 42 sources) to company
+  posts, a UK government report, a US Senate press release and news outlets,
+  and the site still has no written outbound-link policy. Links left as
+  they are.
+- The 15-page PDF the note is built from ("AI-Safety-Facts-Jun-Sep-2026.pdf")
+  is not on the site. The spec allows only images under
+  `public/field-notes/<slug>/`, so it was not added. Decide whether and where
+  to host it.
+- The record is dated 13 September 2026. Anything after that is not in the
+  post by design; when it needs updating it gets a revision, not a patch.
+- The prompt said two last-column cells are empty (Meta and Chinese labs).
+  In the JSON only the Chinese-labs cell is empty; the Meta row carries one
+  link (an ANI news piece dated 13 Sep). Shipped as the data says. Flagging
+  in case the prompt, not the data, was right.
+- Quotes and sources were not re-opened; the prompt fixed the check dates
+  at 13 and 16 September 2026.
+
+**Next:** Tool 3 per `docs/ROADMAP.md`.
+
 ## 2026-09-13 — Field Notes 04: The Fifteen Papers
 
 **Shipped:** `/field-notes/fifteen-papers/`, from
