@@ -1,0 +1,42 @@
+# The Wire: fetch the feeds in data/wire-sources.json every 6 hours and commit
+# data/wire.json. Cloudflare Pages rebuilds on the push, so the page is never
+# older than the last green run (and says so when it is).
+name: wire
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wire
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Fetch
+        run: node scripts/wire.mjs
+        env:
+          # Optional. Reddit sometimes blocks GitHub's IPs on its public feeds;
+          # with these set the script uses Reddit's official API instead.
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+      - name: Commit
+        run: |
+          git config user.name "wire-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/wire.json
+          git diff --cached --quiet && exit 0
+          git commit -m "wire: fetch $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push

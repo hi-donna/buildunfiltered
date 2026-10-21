@@ -1,0 +1,51 @@
+{
+  "about": "Sources for The Wire. scripts/wire.mjs reads this, fetches each one, and writes data/wire.json. Add or drop a source here; nothing else changes. `category` is the default when no keyword rule matches; `fixed: true` skips the keyword rules. `limit` caps how many of the last 7 days' items a source contributes. `ai_only: true` drops titles with no AI term (for general feeds like Hacker News).",
+  "categories": [
+    {"id": "funding", "label": "Funding", "blurb": "Rounds, valuations, acquisitions."},
+    {"id": "launches", "label": "Launches", "blurb": "New models, features and products from AI companies."},
+    {"id": "open-source", "label": "Open source", "blurb": "Open weights, repos and releases."},
+    {"id": "use-cases", "label": "Use cases", "blurb": "Someone figured out a way to do something with it."},
+    {"id": "research", "label": "Research", "blurb": "Papers people are actually reading."},
+    {"id": "policy", "label": "Policy", "blurb": "Law, regulation, lawsuits."},
+    {"id": "other", "label": "Other", "blurb": "Everything that fits nowhere else."}
+  ],
+  "sources": [
+    {"id": "openai", "name": "OpenAI", "group": "Vendors", "kind": "rss", "url": "https://openai.com/news/rss.xml", "home": "https://openai.com/news/", "category": "launches", "limit": 15},
+    {"id": "deepmind", "name": "Google DeepMind", "group": "Vendors", "kind": "rss", "url": "https://deepmind.google/blog/rss.xml", "home": "https://deepmind.google/blog/", "category": "launches", "limit": 10},
+    {"id": "google-ai", "name": "Google AI blog", "group": "Vendors", "kind": "rss", "url": "https://blog.google/technology/ai/rss/", "home": "https://blog.google/technology/ai/", "category": "launches", "limit": 10},
+    {"id": "hf-blog", "name": "Hugging Face", "group": "Vendors", "kind": "rss", "url": "https://huggingface.co/blog/feed.xml", "home": "https://huggingface.co/blog", "category": "open-source", "limit": 10},
+    {"id": "github-ai", "name": "GitHub blog", "group": "Vendors", "kind": "rss", "url": "https://github.blog/ai-and-ml/feed/", "home": "https://github.blog/ai-and-ml/", "category": "launches", "limit": 8},
+    {"id": "techcrunch", "name": "TechCrunch AI", "group": "News", "kind": "rss", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "home": "https://techcrunch.com/category/artificial-intelligence/", "category": "other", "limit": 30},
+    {"id": "verge", "name": "The Verge AI", "group": "News", "kind": "rss", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "home": "https://www.theverge.com/ai-artificial-intelligence", "category": "other", "limit": 30},
+    {"id": "gnews-funding", "name": "Google News: AI funding", "group": "News", "kind": "rss", "url": "https://news.google.com/rss/search?q=AI+startup+(raises+OR+funding+OR+%22series+a%22+OR+%22series+b%22+OR+valuation+OR+acquires)+when:7d&hl=en-US&gl=US&ceid=US:en", "home": "https://news.google.com/", "category": "funding", "fixed": true, "limit": 30},
+    {"id": "gnews-policy", "name": "Google News: AI policy", "group": "News", "kind": "rss", "url": "https://news.google.com/rss/search?q=AI+(regulation+OR+%22AI+Act%22+OR+lawsuit+OR+copyright+OR+legislation)+when:7d&hl=en-US&gl=US&ceid=US:en", "home": "https://news.google.com/", "category": "policy", "fixed": true, "limit": 20},
+    {"id": "hn", "name": "Hacker News", "group": "Community", "kind": "hn", "url": "https://hn.algolia.com/api/v1/search?tags=story&hitsPerPage=200&numericFilters=points%3E150,created_at_i%3E{since}", "home": "https://news.ycombinator.com/", "category": "other", "ai_only": true, "limit": 25},
+    {"id": "show-hn", "name": "Show HN", "group": "Community", "kind": "hn", "url": "https://hn.algolia.com/api/v1/search?tags=show_hn&hitsPerPage=200&numericFilters=points%3E40,created_at_i%3E{since}", "home": "https://news.ycombinator.com/show", "category": "use-cases", "ai_only": true, "limit": 15},
+    {"id": "r-localllama", "name": "r/LocalLLaMA", "group": "Community", "kind": "reddit", "url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=week&limit=25", "home": "https://www.reddit.com/r/LocalLLaMA/", "category": "open-source", "limit": 20},
+    {"id": "r-claudeai", "name": "r/ClaudeAI", "group": "Community", "kind": "reddit", "url": "https://www.reddit.com/r/ClaudeAI/top/.rss?t=week&limit=20", "home": "https://www.reddit.com/r/ClaudeAI/", "category": "use-cases", "limit": 15},
+    {"id": "r-chatgptpro", "name": "r/ChatGPTPro", "group": "Community", "kind": "reddit", "url": "https://www.reddit.com/r/ChatGPTPro/top/.rss?t=week&limit=15", "home": "https://www.reddit.com/r/ChatGPTPro/", "category": "use-cases", "limit": 10},
+    {"id": "r-machinelearning", "name": "r/MachineLearning", "group": "Community", "kind": "reddit", "url": "https://www.reddit.com/r/MachineLearning/top/.rss?t=week&limit=15", "home": "https://www.reddit.com/r/MachineLearning/", "category": "research", "limit": 10},
+    {"id": "hf-papers", "name": "HF Daily Papers", "group": "Community", "kind": "hf-papers", "url": "https://huggingface.co/api/daily_papers?limit=100", "home": "https://huggingface.co/papers", "category": "research", "fixed": true, "limit": 15, "min_score": 10},
+    {"id": "simonw", "name": "Simon Willison", "group": "Writers", "kind": "rss", "url": "https://simonwillison.net/atom/entries/", "home": "https://simonwillison.net/", "category": "use-cases", "limit": 10},
+    {"id": "latent-space", "name": "Latent Space", "group": "Writers", "kind": "rss", "url": "https://www.latent.space/feed", "home": "https://www.latent.space/", "category": "other", "limit": 5},
+    {"id": "one-useful-thing", "name": "One Useful Thing", "group": "Writers", "kind": "rss", "url": "https://www.oneusefulthing.org/feed", "home": "https://www.oneusefulthing.org/", "category": "use-cases", "limit": 5},
+    {"id": "yt-anthropic", "name": "Anthropic", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrDwWp7EBBv4NwvScIpBDOA", "home": "https://www.youtube.com/@anthropic-ai", "category": "launches", "limit": 5},
+    {"id": "yt-openai", "name": "OpenAI", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXZCJLdBC09xxGZ6gcdrc6A", "home": "https://www.youtube.com/@OpenAI", "category": "launches", "limit": 5},
+    {"id": "yt-deepmind", "name": "Google DeepMind", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCP7jMXSY2xbc3KCAE0MHQ-A", "home": "https://www.youtube.com/@GoogleDeepMind", "category": "launches", "limit": 5},
+    {"id": "yt-ai-explained", "name": "AI Explained", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNJ1Ymd5yFuUPtn21xtRbbw", "home": "https://www.youtube.com/@aiexplained-official", "category": "other", "limit": 5},
+    {"id": "yt-two-minute-papers", "name": "Two Minute Papers", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg", "home": "https://www.youtube.com/@TwoMinutePapers", "category": "research", "limit": 5},
+    {"id": "yt-karpathy", "name": "Andrej Karpathy", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ", "home": "https://www.youtube.com/@AndrejKarpathy", "category": "other", "limit": 5},
+    {"id": "yt-ai-engineer", "name": "AI Engineer", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLKPca3kwwd-B59HNr-_lvA", "home": "https://www.youtube.com/@aiDotEngineer", "category": "use-cases", "limit": 8},
+    {"id": "yt-indydevdan", "name": "IndyDevDan", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_x36zCEGilGpB1m-V4gmjg", "home": "https://www.youtube.com/@IndyDevDan", "category": "use-cases", "limit": 5},
+    {"id": "yt-greg-isenberg", "name": "Greg Isenberg", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPjNBjflYl0-HQtUvOx0Ibw", "home": "https://www.youtube.com/@GregIsenberg", "category": "use-cases", "limit": 5},
+    {"id": "yt-riley-brown", "name": "Riley Brown", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMcoud_ZW7cfxeIugBflSBw", "home": "https://www.youtube.com/@rileybrownai", "category": "use-cases", "limit": 5},
+    {"id": "yt-sam-witteveen", "name": "Sam Witteveen", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC55ODQSvARtgSyc8ThfiepQ", "home": "https://www.youtube.com/@samwitteveenai", "category": "open-source", "limit": 5},
+    {"id": "yt-matthew-berman", "name": "Matthew Berman", "group": "YouTube", "kind": "youtube", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCawZsQWqfGSbCI5yjkdVkTA", "home": "https://www.youtube.com/@matthew_berman", "category": "other", "limit": 5}
+  ],
+  "not_connected": [
+    {"name": "X / Twitter", "why": "Reading posts through the official API is paid, and the scrapers that avoid the fee break X's terms."},
+    {"name": "LinkedIn", "why": "There is no API for reading the public feed, and scraping it breaks LinkedIn's terms."},
+    {"name": "Instagram", "why": "The API only reads accounts you manage, so there is no feed to follow."},
+    {"name": "Anthropic, Meta AI, Mistral blogs", "why": "No RSS feed. Their launches still arrive through the news and community sources."}
+  ]
+}

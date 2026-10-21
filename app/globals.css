@@ -790,3 +790,46 @@ body:has(.learn), body:has(.fn) { --noise:url("data:image/svg+xml;utf8,<svg xmln
 @media (prefers-reduced-motion:reduce) {
   .fn-note-line, .fn-paper { transform:none; }
 }
+
+/* ---- The Wire: a log, not a magazine ---- */
+.wire-stamp { margin:-10px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); }
+.wire-stale { margin:12px 0 0; padding:10px 14px; background:var(--ox-soft); border:1px solid var(--rule);
+  box-shadow:inset 3px 0 0 var(--ox); font-size:.9rem; color:var(--ink); max-width:66ch; }
+.wire-chips { margin-top:22px; }
+.chip-n { color:var(--muted); margin-left:4px; }
+.chip[aria-pressed="true"] .chip-n { color:var(--bg); opacity:.6; }
+.wire-blurb { margin:12px 0 0; color:var(--muted); font-size:.88rem; }
+.wire-log { margin-top:18px; border-top:1px solid var(--rule); }
+.wire-day-head { position:sticky; top:var(--head-h); z-index:5; margin:0; padding:14px 0 8px;
+  background:var(--bg); font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-2); border-bottom:1px solid var(--rule); display:flex; gap:10px;
+  align-items:center; }
+.wire-day-head::before { content:""; width:18px; height:1px; background:var(--ox); flex:none; }
+.wire-rows { list-style:none; margin:0; padding:0; }
+.wire-row { display:grid; grid-template-columns:46px 150px 1fr; gap:14px; align-items:baseline;
+  padding:9px 0; border-bottom:1px solid var(--rule-soft); }
+.wire-row:hover { background:var(--surface); }
+.wire-time { font-family:var(--mono); font-size:12px; color:var(--muted); }
+.wire-src { font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--ink-2);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.wire-vid { color:var(--ox-hi); }
+.wire-main { min-width:0; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; }
+.wire-title { color:var(--ink); text-decoration:none; font-size:.95rem; line-height:1.45; }
+.wire-title:hover { text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--ox-hi); }
+.wire-title:visited { color:var(--ink-2); }
+.wire-meta { display:inline-flex; gap:10px; font-family:var(--mono); font-size:10.5px; color:var(--muted);
+  letter-spacing:.04em; }
+.wire-cat { text-transform:uppercase; letter-spacing:.1em; }
+.wire-cat-funding, .wire-cat-launches { color:var(--ink-2); }
+.wire-srclist { list-style:none; margin:0; padding:0; }
+.wire-srclist li { padding:3px 0; border:0; font-size:.88rem; }
+.wire-srclist a { color:var(--ink-2); text-underline-offset:3px; }
+.wire-srclist a:hover { color:var(--ink); }
+.wire-down { color:var(--muted); font-family:var(--mono); font-size:10.5px; }
+@media (max-width:640px) {
+  .wire-row { grid-template-columns:40px 1fr; gap:2px 10px; }
+  .wire-src { grid-column:2; grid-row:1; }
+  .wire-main { grid-column:2; }
+  .wire-time { grid-row:1; }
+}

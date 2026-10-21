@@ -1,5 +1,33 @@
 # Status
 
+## 2026-10-22 — Tool: The Wire
+
+**Shipped (committed, not pushed):** `/tools/wire/`, the roadmap's Tool 7, widened to
+the categories Yash asked for: funding, launches, open source, use cases, research,
+policy, other. Sources in `data/wire-sources.json` (31: vendor blogs, TechCrunch,
+The Verge, Google News searches for funding and policy, Hacker News + Show HN,
+four subreddits, HF Daily Papers, three writers, 12 YouTube channels). Fetcher
+`scripts/wire.mjs` (`npm run wire`, no dependencies, no LLM). Action
+`.github/workflows/wire.yml` runs every 6 hours and commits `data/wire.json`.
+
+**How it decides:** category = source default, overridden by title keyword rules
+(first match wins; `fixed` sources skip the rules). Near-duplicate headlines are
+merged and shown as "+N more". Items from a source that fails a run are kept from
+the last good run. The page shows the real fetch time and a warning if it is >24h old.
+
+**Known limits:** keyword categories are often wrong for vague headlines (expect
+"other" to be big). YouTube's feed endpoint 404s/500s at random; the script retries
+5 times and keeps old items. Reddit may block GitHub's IPs — if those sources show
+"didn't answer last run", add `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET` repo secrets
+(a free Reddit "script" app) and the script switches to the official API.
+Not connected: X (paid API), LinkedIn, Instagram (no usable read API).
+
+**Needs the owner:**
+- Push, then run the action once by hand (Actions → wire → Run workflow) and check
+  it goes green. Done when it has run green twice on schedule.
+- The action commits to `master` 4×/day: `git pull` before pushing local work.
+- Each commit triggers a Cloudflare build (~120/month, inside the free 500).
+
 ## 2026-09-16 — Field Notes 05: The Slowdown
 
 **Shipped:** `/field-notes/the-slowdown/`, from

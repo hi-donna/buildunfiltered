@@ -20,6 +20,8 @@ export const site = {
       blurb: "Which MCP server to use, and what it gets access to.", status: "live" },
     { slug: "learn", name: "Learning Map",
       blurb: "31 things to understand before you build on an LLM, in the order they depend on each other.", status: "live" },
+    { slug: "wire", name: "The Wire",
+      blurb: "What happened in AI this week: funding, launches, open source, use cases. Collected every 6 hours.", status: "live" },
   ] as { slug: string; name: string; href?: string; blurb: string; status: "live" | "building" | "planned" }[],
 
   // Field Notes: written pieces at /field-notes/<slug>/, one JSON each in
