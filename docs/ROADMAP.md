@@ -1,3 +1,7 @@
+> **Retired 2026-10-23.** The site is now The Wire only, on the homepage. The other
+> tools were removed and none of the ones below will be built. Kept for history.
+> Current state: `CONTEXT.md` and `docs/STATUS.md`.
+
 # build.unfiltered — Roadmap
 
 Ten tools for people building with AI. One is live. This document is the plan for

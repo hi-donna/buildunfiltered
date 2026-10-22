@@ -3,8 +3,8 @@ export default function NotFound() {
     <div className="wrap">
       <div className="empty" style={{ marginTop: 60 }}>
         <h2>Nothing here</h2>
-        <p>That page doesn&apos;t exist — or it did, and the job behind it got renamed.</p>
-        <p><a href="/ai-tools/">Back to all jobs →</a></p>
+        <p>That page doesn&apos;t exist.</p>
+        <p><a href="/">Back to the news →</a></p>
       </div>
     </div>
   );

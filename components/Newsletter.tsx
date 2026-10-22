@@ -8,8 +8,8 @@ export default function Newsletter() {
     <section className="news">
       <h2>Get the changes</h2>
       <p>
-        When a ranking moves, or a tool we recommended stops being the right answer,
-        it goes out here. No digest of links you&apos;ve already seen.
+        The week in AI, once a week, from the same sources as this page.
+        No digest of links you&apos;ve already seen.
       </p>
       <form action={site.newsletterAction} method="post">
         <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" />

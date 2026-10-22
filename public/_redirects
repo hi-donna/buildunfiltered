@@ -1,4 +1,11 @@
-# Cloudflare Pages redirects. The finder shipped at /ai-tools/ and is indexed
-# there; the roadmap's /tools/<slug>/ convention points at it instead of moving it.
-/tools/ai-finder/*  /ai-tools/  301
-/tools/ai-finder    /ai-tools/  301
+# Cloudflare Pages redirects. The site is The Wire now. The tools and Field
+# Notes that used to live here were retired on 2026-10-23; their indexed URLs
+# land on the feed instead of a 404. The Wire itself moved from /tools/wire/
+# to the homepage (a #category hash survives the redirect in the browser).
+/tools/wire/*     /  301
+/tools/wire       /  301
+/tools/*          /  301
+/ai-tools/*       /  301
+/ai-tools         /  301
+/field-notes/*    /  301
+/field-notes      /  301

@@ -1,59 +1,69 @@
 import type { Metadata } from "next";
+import WireLog, { FetchStamp } from "@/components/WireLog";
 import Newsletter from "@/components/Newsletter";
 import { site } from "@/site.config";
-import { fieldNotes } from "@/lib/fieldNotes";
+import {
+  wireCategories, wireItems, wireSources, wireFetched, wireWindow, sourceGroups, notConnected,
+} from "@/lib/wire";
 
 export const metadata: Metadata = {
-  title: `${site.name} — ${site.tagline}`,
+  title: { absolute: `The Wire · ${site.name} — ${site.tagline}` },
   description:
-    "Free tools for people who build things. Starting with a finder that tells you which AI tool to use for the job you actually have.",
+    "What happened in AI this week: funding, launches, open source, new use cases, research and policy. Auto-collected every 6 hours from vendor blogs, news, Reddit, Hacker News and YouTube.",
   alternates: { canonical: "/" },
 };
 
 export default function Home() {
+  const names = Object.fromEntries(wireSources.map((s) => [s.id, s.name]));
+  const video = wireSources.filter((s) => s.kind.startsWith("youtube")).map((s) => s.id);
+  const live = wireSources.filter((s) => s.ok).length;
+
   return (
-    <>
-      <section className="hero" aria-label="A place for builders">
-        {/* The cave. Light comes in from the mouth; the line stands where the light lands. */}
-        <img className="hero-img" src="/hero-cave.jpg" alt="" width={1920} height={1072} fetchPriority="high" />
-        <div className="hero-shade" aria-hidden="true" />
-        <div className="hero-copy">
-          <h1>A place for builders.</h1>
-        </div>
+    <div className="wrap finder wire">
+      <h1 className="finder-title">The Wire</h1>
+      <p className="finder-lede">
+        What happened in AI in the last {wireWindow} days. {wireItems.length} items from {wireSources.length} sources,
+        collected every 6 hours.
+      </p>
+      <FetchStamp fetched={wireFetched} />
+
+      <WireLog items={wireItems} categories={wireCategories} names={names} video={video} />
+
+      <section className="sub method" id="sources">
+        <h2>Where this comes from</h2>
+        <p className="hint">
+          Auto-collected from the sources listed here. Not curated. Not endorsed. Categories come from the source
+          and from words in the title, so some will be wrong. {live} of {wireSources.length} sources answered on the
+          last run.
+        </p>
+        <dl className="meta">
+          {sourceGroups.map((g) => (
+            <div key={g.label}>
+              <dt>{g.label}</dt>
+              <dd>
+                <ul className="wire-srclist">
+                  {g.sources.map((s) => (
+                    <li key={s.id}>
+                      <a href={s.home} target="_blank" rel="noopener">{s.name}</a>
+                      {!s.ok && <span className="wire-down"> · didn&apos;t answer last run</span>}
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          ))}
+          <div>
+            <dt>Not connected</dt>
+            <dd>
+              <ul className="wire-srclist">
+                {notConnected.map((n) => <li key={n.name}><b>{n.name}.</b> <span>{n.why}</span></li>)}
+              </ul>
+            </dd>
+          </div>
+        </dl>
       </section>
 
-      <div className="wrap">
-        <section className="shelf" aria-labelledby="shelf-title">
-          <div className="shelf-head">
-            <h2 id="shelf-title">Tools</h2>
-          </div>
-          {site.tools.filter((t) => t.status === "live").map((t, i) => (
-            <a className="tool-card" href={t.href ?? `/tools/${t.slug}/`} key={t.slug}>
-              <span className="tool-idx" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <div className="tool-main">
-                <h3>{t.name}</h3>
-                <p>{t.blurb}</p>
-              </div>
-            </a>
-          ))}
-        </section>
-
-        <section className="shelf" aria-labelledby="notes-title">
-          <div className="shelf-head">
-            <h2 id="notes-title">Field notes</h2>
-            <span>{fieldNotes.length} {fieldNotes.length === 1 ? "post" : "posts"}</span>
-          </div>
-          <a className="tool-card" href={site.fieldNotes.href}>
-            <span className="tool-idx" aria-hidden="true">01</span>
-            <div className="tool-main">
-              <h3>{site.fieldNotes.name}</h3>
-              <p>{site.fieldNotes.blurb}</p>
-            </div>
-          </a>
-        </section>
-
-        <Newsletter />
-      </div>
-    </>
+      <Newsletter />
+    </div>
   );
 }

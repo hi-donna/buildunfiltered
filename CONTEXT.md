@@ -1,7 +1,7 @@
 # build.unfiltered — context
 
 Read this first in any new thread. It says what this thing is, where it lives, and what the
-plan is. Owner: Yash Raj (nameisyash@gmail.com). Last updated 2026-09-03.
+plan is. Owner: Yash Raj (nameisyash@gmail.com). Last updated 2026-10-23.
 
 ## Links
 
@@ -58,27 +58,19 @@ The page is the distribution layer, not a separate product. The plan is:
 
 ## The site, as it stands
 
-**Live tools (2 of a planned 10):**
+**Since 2026-10-23 the site is one thing: The Wire, the AI news feed, on the homepage
+(`/`).** AI Tool Finder, MCP Connect, the Learning Map and Field Notes were removed that
+day (Yash's call: an AI assistant now does what those pages did). Their old URLs, and
+the Wire's old `/tools/wire/`, 301 to `/` (`public/_redirects`). The code is in git
+history before that date if anything needs to come back. The tool roadmap in
+`docs/ROADMAP.md` is retired.
 
-- **AI Tool Finder** — `/ai-tools/`. Start from the job, not the tool. 50 jobs across
-  15 categories, all 50 researched. Five ranked picks per job with cost, what it's good
-  at, and "the catch". Data in `data/jobs.json` (structure — URLs derive from ids, never
-  rename) and `data/picks.json` (the rankings, edited weekly).
-- **MCP Connect** — `/tools/mcp/`. "Which MCP server, and what does it touch?" 57
-  targets in 8 categories, one recommended server each, official over community,
-  a read/write/delete strip, the catch, and a named server to avoid for 29 of them.
-  Data in `data/mcp.json`. Shipped 2026-09-03, commit `32ebeb9`.
-
-**Field Notes** — `/field-notes/`. Written pieces, one JSON per post in
-`data/field-notes/`, rendered by one renderer with a fixed set of eight block types.
-First post: Local n8n at `/field-notes/local-n8n/`. The Learning Map is "plate 01"
-of the same visual language but stays a tool at `/tools/learn/`. Rules for adding a
-post, including the mandatory screenshot privacy check: `docs/FIELD_NOTES_SPEC.md`.
-
-**Roadmap (`docs/ROADMAP.md`, in ship order):** Model Picker, Free Tier Tracker,
-Licence Checker, Learning Map (a constellation, not a list), Deprecation Watch, The
-Wire (auto-collected feed via GitHub Action), Will It Run? (local model fit), Agent
-Stack Picker, Prompting: what still works. Next up is Tool 3, Free Tier Tracker.
+- **The Wire** — `/`. What happened in AI in the last week: funding, launches, open
+  source, use cases, research, policy. Collected every 6 hours by Scout
+  (`github.com/hi-donna/scout`, private), which commits `data/wire.json` here; that
+  push rebuilds the site. Sources are changed in Scout, not here. Page: `app/page.tsx`,
+  `components/WireLog.tsx`, `lib/wire.ts`.
+- **Account** — `/account/`. Phone sign-in via Supabase. Nothing is gated behind it.
 
 **Principles that don't bend:** data first (every tool is one JSON file plus a
 renderer); no backend, static export only; honesty is the product; every tool has a

@@ -58,7 +58,7 @@ export default function OpengraphImage() {
               maxWidth: 940,
             }}
           >
-            Tools for people who build things.
+            AI news, unfiltered.
           </div>
           <div style={{ display: "flex", height: 3, width: 132, background: ACCENT, marginTop: 40 }} />
         </div>
@@ -68,7 +68,7 @@ export default function OpengraphImage() {
           <div style={{ display: "flex", height: 1, width: "100%", background: RULE, marginBottom: 22 }} />
           <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
             <div style={{ display: "flex", fontSize: 22, fontWeight: 700, letterSpacing: "0.14em", color: MUTED }}>
-              AI TOOL FINDER
+              THE WIRE
             </div>
             <div style={{ display: "flex", fontSize: 22, fontWeight: 700, letterSpacing: "0.04em", color: MUTED }}>
               {site.domain}

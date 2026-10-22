@@ -1,5 +1,21 @@
 # Status
 
+## 2026-10-23 — site: The Wire is the whole site
+
+**Shipped:** the homepage is The Wire (moved from `/tools/wire/`). Removed AI Tool
+Finder (`/ai-tools/`), MCP Connect (`/tools/mcp/`), the Learning Map (`/tools/learn/`)
+and Field Notes (`/field-notes/`): pages, components, `lib/` modules, data files, post
+images, the hero image, `docs/FIELD_NOTES_SPEC.md` and `docs/TOOL_MCP.md`. All their URLs
+301 to `/`. Tagline, meta description, OG card and newsletter copy now describe the
+news feed. `globals.css` went from 835 to 200 lines (only rules a remaining page uses).
+`docs/ROADMAP.md` is marked retired. Account sign-in stays.
+
+**Scout is unaffected:** it still commits `data/wire.json`; the path did not change.
+
+**Needs the owner:** Instagram bio/links that point at the old tools should point at
+the homepage. An uncommitted edit to `data/picks.json` was discarded with the finder.
+
+
 ## 2026-10-23 — tool(wire): read the feed from Scout
 
 **Shipped:** The Wire no longer collects anything itself. Scout
