@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-22T19:42:08.530Z",
+ "fetched": "2026-10-22T21:44:54.434Z",
  "window_days": 7,
  "categories": [
   {
@@ -65,7 +65,7 @@
    "home": "https://openai.com/news/",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-10-22T19:39:52.193Z"
+   "last_ok": "2026-10-22T20:59:39.972Z"
   },
   {
    "id": "deepmind",
@@ -75,7 +75,7 @@
    "home": "https://deepmind.google/blog/",
    "ok": true,
    "count": 1,
-   "last_ok": "2026-10-22T19:39:52.200Z"
+   "last_ok": "2026-10-22T20:59:39.883Z"
   },
   {
    "id": "google-ai",
@@ -85,7 +85,7 @@
    "home": "https://blog.google/technology/ai/",
    "ok": true,
    "count": 1,
-   "last_ok": "2026-10-22T19:39:52.218Z"
+   "last_ok": "2026-10-22T20:59:40.007Z"
   },
   {
    "id": "hf-blog",
@@ -95,7 +95,7 @@
    "home": "https://huggingface.co/blog",
    "ok": true,
    "count": 10,
-   "last_ok": "2026-10-22T19:39:51.971Z"
+   "last_ok": "2026-10-22T20:59:39.817Z"
   },
   {
    "id": "github-ai",
@@ -105,7 +105,7 @@
    "home": "https://github.blog/ai-and-ml/",
    "ok": true,
    "count": 2,
-   "last_ok": "2026-10-22T19:39:52.256Z"
+   "last_ok": "2026-10-22T20:59:40.099Z"
   },
   {
    "id": "techcrunch",
@@ -115,7 +115,7 @@
    "home": "https://techcrunch.com/category/artificial-intelligence/",
    "ok": true,
    "count": 21,
-   "last_ok": "2026-10-22T19:39:51.872Z"
+   "last_ok": "2026-10-22T20:59:39.770Z"
   },
   {
    "id": "verge",
@@ -124,8 +124,8 @@
    "kind": "rss",
    "home": "https://www.theverge.com/ai-artificial-intelligence",
    "ok": true,
-   "count": 21,
-   "last_ok": "2026-10-22T19:39:51.998Z"
+   "count": 24,
+   "last_ok": "2026-10-22T20:59:39.870Z"
   },
   {
    "id": "gnews-funding",
@@ -135,7 +135,7 @@
    "home": "https://news.google.com/",
    "ok": true,
    "count": 30,
-   "last_ok": "2026-10-22T19:39:52.301Z"
+   "last_ok": "2026-10-22T20:59:40.244Z"
   },
   {
    "id": "gnews-policy",
@@ -145,7 +145,7 @@
    "home": "https://news.google.com/",
    "ok": true,
    "count": 20,
-   "last_ok": "2026-10-22T19:39:52.481Z"
+   "last_ok": "2026-10-22T20:59:40.267Z"
   },
   {
    "id": "hn",
@@ -154,8 +154,8 @@
    "kind": "hn_search",
    "home": "https://news.ycombinator.com/",
    "ok": true,
-   "count": 4,
-   "last_ok": "2026-10-22T19:39:52.202Z"
+   "count": 5,
+   "last_ok": "2026-10-22T20:59:40.031Z"
   },
   {
    "id": "show-hn",
@@ -164,8 +164,8 @@
    "kind": "hn_search",
    "home": "https://news.ycombinator.com/show",
    "ok": true,
-   "count": 6,
-   "last_ok": "2026-10-22T19:39:52.213Z"
+   "count": 7,
+   "last_ok": "2026-10-22T20:59:40.000Z"
   },
   {
    "id": "r-localllama",
@@ -175,7 +175,7 @@
    "home": "https://www.reddit.com/r/LocalLLaMA/",
    "ok": true,
    "count": 20,
-   "last_ok": "2026-10-22T19:39:52.381Z"
+   "last_ok": "2026-10-22T21:07:02.504Z"
   },
   {
    "id": "r-claudeai",
@@ -185,7 +185,7 @@
    "home": "https://www.reddit.com/r/ClaudeAI/",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-10-22T19:40:00.690Z"
+   "last_ok": "2026-10-22T21:08:00.814Z"
   },
   {
    "id": "r-chatgptpro",
@@ -195,7 +195,7 @@
    "home": "https://www.reddit.com/r/ChatGPTPro/",
    "ok": true,
    "count": 10,
-   "last_ok": "2026-10-22T19:41:01.072Z"
+   "last_ok": "2026-10-22T21:09:01.133Z"
   },
   {
    "id": "r-machinelearning",
@@ -205,7 +205,7 @@
    "home": "https://www.reddit.com/r/MachineLearning/",
    "ok": true,
    "count": 10,
-   "last_ok": "2026-10-22T19:42:01.416Z"
+   "last_ok": "2026-10-22T21:10:01.387Z"
   },
   {
    "id": "hf-papers",
@@ -215,7 +215,7 @@
    "home": "https://huggingface.co/papers",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-10-22T19:39:52.245Z"
+   "last_ok": "2026-10-22T20:59:40.013Z"
   },
   {
    "id": "simonw",
@@ -225,7 +225,7 @@
    "home": "https://simonwillison.net/",
    "ok": true,
    "count": 1,
-   "last_ok": "2026-10-22T19:39:52.241Z"
+   "last_ok": "2026-10-22T20:59:40.049Z"
   },
   {
    "id": "latent-space",
@@ -235,7 +235,7 @@
    "home": "https://www.latent.space/",
    "ok": true,
    "count": 5,
-   "last_ok": "2026-10-22T19:39:52.275Z"
+   "last_ok": "2026-10-22T20:59:40.071Z"
   },
   {
    "id": "one-useful-thing",
@@ -245,7 +245,7 @@
    "home": "https://www.oneusefulthing.org/",
    "ok": true,
    "count": 1,
-   "last_ok": "2026-10-22T19:39:52.264Z"
+   "last_ok": "2026-10-22T20:59:40.089Z"
   },
   {
    "id": "yt-anthropic",
@@ -255,7 +255,7 @@
    "home": "https://www.youtube.com/@anthropic-ai",
    "ok": true,
    "count": 0,
-   "last_ok": "2026-10-22T19:39:52.209Z"
+   "last_ok": "2026-10-22T20:59:39.891Z"
   },
   {
    "id": "yt-openai",
@@ -265,7 +265,7 @@
    "home": "https://www.youtube.com/@OpenAI",
    "ok": true,
    "count": 5,
-   "last_ok": "2026-10-22T19:39:52.055Z"
+   "last_ok": "2026-10-22T20:59:39.892Z"
   },
   {
    "id": "yt-deepmind",
@@ -275,7 +275,7 @@
    "home": "https://www.youtube.com/@GoogleDeepMind",
    "ok": true,
    "count": 0,
-   "last_ok": "2026-10-22T19:39:52.063Z"
+   "last_ok": "2026-10-22T20:59:39.894Z"
   },
   {
    "id": "yt-ai-explained",
@@ -285,7 +285,7 @@
    "home": "https://www.youtube.com/@aiexplained-official",
    "ok": true,
    "count": 0,
-   "last_ok": "2026-10-22T19:39:52.069Z"
+   "last_ok": "2026-10-22T20:59:39.905Z"
   },
   {
    "id": "yt-two-minute-papers",
@@ -295,7 +295,7 @@
    "home": "https://www.youtube.com/@TwoMinutePapers",
    "ok": true,
    "count": 1,
-   "last_ok": "2026-10-22T19:39:52.058Z"
+   "last_ok": "2026-10-22T20:59:39.895Z"
   },
   {
    "id": "yt-karpathy",
@@ -305,7 +305,7 @@
    "home": "https://www.youtube.com/@AndrejKarpathy",
    "ok": true,
    "count": 0,
-   "last_ok": "2026-10-22T19:39:52.215Z"
+   "last_ok": "2026-10-22T20:59:40.005Z"
   },
   {
    "id": "yt-ai-engineer",
@@ -315,7 +315,7 @@
    "home": "https://www.youtube.com/@aiDotEngineer",
    "ok": true,
    "count": 8,
-   "last_ok": "2026-10-22T19:39:52.066Z"
+   "last_ok": "2026-10-22T20:59:39.898Z"
   },
   {
    "id": "yt-indydevdan",
@@ -325,7 +325,7 @@
    "home": "https://www.youtube.com/@IndyDevDan",
    "ok": true,
    "count": 1,
-   "last_ok": "2026-10-22T19:39:52.303Z"
+   "last_ok": "2026-10-22T20:59:39.909Z"
   },
   {
    "id": "yt-greg-isenberg",
@@ -334,8 +334,8 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@GregIsenberg",
    "ok": true,
-   "count": 3,
-   "last_ok": "2026-10-22T19:39:52.075Z"
+   "count": 2,
+   "last_ok": "2026-10-22T20:59:40.026Z"
   },
   {
    "id": "yt-riley-brown",
@@ -345,7 +345,7 @@
    "home": "https://www.youtube.com/@rileybrownai",
    "ok": true,
    "count": 4,
-   "last_ok": "2026-10-22T19:39:52.064Z"
+   "last_ok": "2026-10-22T20:59:39.989Z"
   },
   {
    "id": "yt-sam-witteveen",
@@ -355,7 +355,7 @@
    "home": "https://www.youtube.com/@samwitteveenai",
    "ok": true,
    "count": 2,
-   "last_ok": "2026-10-22T19:39:52.060Z"
+   "last_ok": "2026-10-22T20:59:39.997Z"
   },
   {
    "id": "yt-matthew-berman",
@@ -365,18 +365,82 @@
    "home": "https://www.youtube.com/@matthew_berman",
    "ok": true,
    "count": 5,
-   "last_ok": "2026-10-22T19:39:52.056Z"
+   "last_ok": "2026-10-22T20:59:40.001Z"
   }
  ],
  "items": [
   {
-   "title": "Claude Can Jailbreak Anything You Own (7 Insane Use Cases)",
+   "title": "Sam Altman on AI’s Discovery Era",
+   "url": "https://www.youtube.com/shorts/9WZpou1faFU",
+   "published": "2026-10-22T20:47:14.000Z",
+   "source": "yt-matthew-berman",
+   "outlet": null,
+   "category": "other",
+   "score": 1
+  },
+  {
+   "title": "If an AI agent gets to checkout and the price changes, should it ask you again?",
+   "url": "https://www.reddit.com/r/ChatGPTPro/comments/1xctzhv/if_an_ai_agent_gets_to_checkout_and_the_price/",
+   "published": "2026-10-22T20:32:54.000Z",
+   "source": "r-chatgptpro",
+   "outlet": null,
+   "category": "use-cases",
+   "score": null
+  },
+  {
+   "title": "Meta’s AI could still scrape news sites, legal experts say",
+   "url": "https://www.theverge.com/tech/1017082/meta-terms-update-ai-training-concerns",
+   "published": "2026-10-22T20:32:05.000Z",
+   "source": "verge",
+   "outlet": null,
+   "category": "other",
+   "score": null
+  },
+  {
+   "title": "Meta turns Muse sharing back on",
+   "url": "https://www.theverge.com/tech/1017066/meta-muse-sharing-back-on-artifiacts",
+   "published": "2026-10-22T20:24:04.000Z",
+   "source": "verge",
+   "outlet": null,
+   "category": "other",
+   "score": null,
+   "also": 1
+  },
+  {
+   "title": "Sure, let’s smoosh SpaceX and Tesla together, who cares",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1016879/spacex-tesla-cursed-katamari",
+   "published": "2026-10-22T19:45:00.000Z",
+   "source": "verge",
+   "outlet": null,
+   "category": "other",
+   "score": null
+  },
+  {
+   "title": "a preview of AGI..😭",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xcsmzs/a_preview_of_agi/",
+   "published": "2026-10-22T19:43:08.000Z",
+   "source": "r-claudeai",
+   "outlet": null,
+   "category": "launches",
+   "score": null
+  },
+  {
+   "title": "How Smart People Are Using AI Right Now (7 Insane Use Cases)",
    "url": "https://www.youtube.com/watch?v=4PO0x-myitw",
    "published": "2026-10-22T19:27:08.000Z",
    "source": "yt-riley-brown",
    "outlet": null,
    "category": "use-cases",
-   "score": 193
+   "score": 1616
+  },
+  {
+   "title": "Bill Ackman and Eric Schmidt back secretive Israeli AI startup Two Delta",
+   "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE42eWxsZFdpQVdHbzRHRTZKTy10d1dLRmp2c0hPVnQtSUJaYkdBbngyWmdGbFI5NmZMblRGd2s4a3JwNVVPWXJyNE5QRm1lYXB4RWVCYXU2aGRDYW1BalRvN0oybzgxSW9S?oc=5",
+   "published": "2026-10-22T19:25:00.000Z",
+   "source": "gnews-funding",
+   "outlet": "CTech",
+   "category": "funding",
+   "score": null
   },
   {
    "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
@@ -395,7 +459,16 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "use-cases",
-   "score": 82
+   "score": 253
+  },
+  {
+   "title": "Build more responsive apps with the Decisions API",
+   "url": "https://openai.com/index/decisions-api",
+   "published": "2026-10-22T19:00:00.000Z",
+   "source": "openai",
+   "outlet": null,
+   "category": "launches",
+   "score": null
   },
   {
    "title": "Canva releases its first image generation model",
@@ -450,7 +523,16 @@
    "outlet": "The American Bazaar",
    "category": "funding",
    "score": null,
-   "also": 2
+   "also": 1
+  },
+  {
+   "title": "Show HN: UI micro interactions prompts for AI",
+   "url": "https://news.ycombinator.com/item?id=50199290",
+   "published": "2026-10-22T18:32:57Z",
+   "source": "show-hn",
+   "outlet": null,
+   "category": "use-cases",
+   "score": 50
   },
   {
    "title": "NYC AI startup Qualitate raises $25M, plans to nearly triple local workforce by end of 2027",
@@ -477,7 +559,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "launches",
-   "score": 799,
+   "score": 3906,
    "also": 2
   },
   {
@@ -497,6 +579,15 @@
    "outlet": "Route Fifty",
    "category": "policy",
    "score": null
+  },
+  {
+   "title": "OpenShell – A safe, private runtime for fleets of autonomous AI agents",
+   "url": "https://news.ycombinator.com/item?id=50198675",
+   "published": "2026-10-22T17:44:06Z",
+   "source": "hn",
+   "outlet": null,
+   "category": "other",
+   "score": 170
   },
   {
    "title": "Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal CEO",
@@ -659,6 +750,24 @@
    "source": "gnews-policy",
    "outlet": "Music Business Worldwide",
    "category": "policy",
+   "score": null
+  },
+  {
+   "title": "Voice AI startup Karta AI raises $3 million in seed funding led by PeerCapital and Cedar Hill",
+   "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNbG5pcnJ0b2VJOGVLRGc3Rk9IUHN3UWF5LXRSNktWWGxWak1HXzlCaFhnY0h2NmNSZUJCOHl5UU9tOFFKT3B6SWhIajdGNWJPMWpGc040NEJqaW9ZUWkxNlRaYTNBRV8tdDFHQ0tTTUdYOGlBVDhpXy1qRWFxTDBQUXlLOXlLV2ZYUGNTeHhuNEhlc3E2OUtKLTRYOW1zb3ZxTThxX3hlWXlTUEE5VC1pTmtGWVRzNlVpdTBKZHNHV2lhb2ZESUJlTzNIdEZXdm9Sd1MyWG9R0gHWAUFVX3lxTE1sbmlycnRvZUk4ZUtEZzdGT0hQc3dRYXktdFI2S1ZYbFZqTUdfOUJoWGdjSHY2Y1JlQkI4eXlRT204UUpPcHpJaEhqN0Y1Yk8xakZzTjQ0Qmppb1lRaTE2VFphM0FFXy10MUdDS1NNR1g4aUFUOGlfLWpFYXFMMFBReUs5eUtXZlhQY1N4eG40SGVzcTY5S0otNFg5bXNvdnFNOHFfeGVZeVNQQTlULWlOa0ZZVHM2VWl1MEpkc0dXaWFvZkRJQmVPM0h0Rld2b1J3UzJYb1E?oc=5",
+   "published": "2026-10-22T14:24:02.000Z",
+   "source": "gnews-funding",
+   "outlet": "Indian Startup News",
+   "category": "funding",
+   "score": null
+  },
+  {
+   "title": "Oil and gas companies taking bigger bets on AI and alternative energy startups",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOWHZxdF9SYnFKLUhEaXB6NVViUGUzclB4U3NXTkFOeFJmNTQ3SzJsQmpZTDhKMHE2RnY5UFN2YlNxTU83eG5FVzNpZWM1Rl9GRk9kWWpLYzdPaUdUV3V5Qno0MzB3cGZ3c1NvRC02QUkxTEpoR1hteGxldHNUODR5V1A3akpmTUtxOVB1cDMtN19RUXphOGFKLUhhcnhwazNrb3FsNkh1WWl5dFdYN0tnYmFhQ1lkQkk?oc=5",
+   "published": "2026-10-22T14:08:48.000Z",
+   "source": "gnews-funding",
+   "outlet": "Global Venturing",
+   "category": "funding",
    "score": null
   },
   {
@@ -960,7 +1069,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "use-cases",
-   "score": 3886
+   "score": 4358
   },
   {
    "title": "How to Test AI Agents When No Benchmark Exists — Nathanael Weill, Air Canada",
@@ -1058,15 +1167,6 @@
    "published": "2026-10-22T05:02:44.000Z",
    "source": "gnews-funding",
    "outlet": "Startup Fortune",
-   "category": "funding",
-   "score": null
-  },
-  {
-   "title": "DeepSeek wrapping up $15 billion fundraising to fuel AI race, sources say",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOQkI4b1B0WkYzUnhGdTF6b0VTRnBCWjRxelF3Q2g4VlRjTzNUOFFTZUhrM3VHSWs2M1VpWkZqN0FleF9JREgzdXpEWFNHM0VvSXhhNm5pdHRXZkRrNUR0UGFJVUMzRjNDWWRwZ0ZtOEsyMm93VU82Rno1R3FxQTNxMllyeWh2YnJRY19hUjZMbExjank3YUg5anFYdjRHRUdnSlN3cFMwMU9TLVBDSldIYUpUdy1vYTdtS3RHTnphNU1KYTdtYWVzNFFR?oc=5",
-   "published": "2026-10-22T02:46:00.000Z",
-   "source": "gnews-funding",
-   "outlet": "Reuters",
    "category": "funding",
    "score": null
   },
@@ -1198,24 +1298,6 @@
    "outlet": null,
    "category": "launches",
    "score": null
-  },
-  {
-   "title": "Legora Hits $8.8 Billion Valuation as Legal Professionals Deploy AI Agents",
-   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOeTdNNUpZYXgxSHpPMDVKY2doc0pvS3NHNzAtUDFSTHoxS2tOOGRYcnQ3RTRjczdzSlhxbzZ0SXRwSERzb2VxNVM0akdWaWhWS2dSMXFTNWFhRHNtY3NKbktsMWVoQlpSQTBncy0yZUpPWlk2NHdBc1FlLUNHTHJJY3JvR3dJeDNKMzZUWW1ZQUdlbXd2Vy1zUWNUYk4xMEFTYUdyeUd6SXZ1MTJrTExTZlZRT3VHaHJXUUluYnFFU1oyU3R3OVFyV1BHOA?oc=5",
-   "published": "2026-10-21T20:15:11.000Z",
-   "source": "gnews-funding",
-   "outlet": "PYMNTS.com",
-   "category": "funding",
-   "score": null
-  },
-  {
-   "title": "Actual Robot Bodyguard",
-   "url": "https://www.youtube.com/shorts/5eJnIYrr8rg",
-   "published": "2026-10-21T19:52:18.000Z",
-   "source": "yt-matthew-berman",
-   "outlet": null,
-   "category": "other",
-   "score": 21253
   },
   {
    "title": "While Amazon blocks AI agents, Walmart rolls out the welcome mat",
@@ -1641,15 +1723,6 @@
    "score": null
   },
   {
-   "title": "Meta pauses Muse sharing after researchers find AI chats on the web",
-   "url": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
-   "published": "2026-10-20T18:07:34.000Z",
-   "source": "verge",
-   "outlet": null,
-   "category": "other",
-   "score": null
-  },
-  {
    "title": "Codex vs. Claude for Coding: What's the Real Difference?",
    "url": "https://www.reddit.com/r/ChatGPTPro/comments/1xaymiu/codex_vs_claude_for_coding_whats_the_real/",
    "published": "2026-10-20T17:36:08.000Z",
@@ -1976,15 +2049,6 @@
    "also": 1
   },
   {
-   "title": "Advancing coding in low‑resource programming languages",
-   "url": "https://openai.com/index/low-resource-programming-languages",
-   "published": "2026-10-19T12:00:00.000Z",
-   "source": "openai",
-   "outlet": null,
-   "category": "launches",
-   "score": null
-  },
-  {
    "title": "Claude caught a cryptominer on my Mac whilst building me a temperature monitor app",
    "url": "https://www.reddit.com/r/ClaudeAI/comments/1x9smgq/claude_caught_a_cryptominer_on_my_mac_whilst/",
    "published": "2026-10-19T09:50:49.000Z",
@@ -2202,15 +2266,6 @@
    "score": null
   },
   {
-   "title": "Claude solved a 25 year old NSA cryptography mystery in 30 minutes. Its first reaction was to throw shade at us 🥲 \"is it suspicious that such an obvious thing wasn't discovered in 25 years?\"",
-   "url": "https://www.reddit.com/r/ClaudeAI/comments/1x8v3sn/claude_solved_a_25_year_old_nsa_cryptography/",
-   "published": "2026-10-18T05:31:08.000Z",
-   "source": "r-claudeai",
-   "outlet": null,
-   "category": "launches",
-   "score": null
-  },
-  {
    "title": "Show HN: Sphinx – A hook that quizzes you on your AI's code before shipping",
    "url": "https://news.ycombinator.com/item?id=50137950",
    "published": "2026-10-18T04:33:49Z",
@@ -2265,15 +2320,6 @@
    "score": null
   },
   {
-   "title": "Sudden Spike in Sol 6.1 Usage",
-   "url": "https://www.reddit.com/r/ChatGPTPro/comments/1x8a1ki/sudden_spike_in_sol_61_usage/",
-   "published": "2026-10-17T13:17:46.000Z",
-   "source": "r-chatgptpro",
-   "outlet": null,
-   "category": "use-cases",
-   "score": null
-  },
-  {
    "title": "Show HN: Llmspeed – feel how fast a local LLM runs before you buy the hardware",
    "url": "https://news.ycombinator.com/item?id=50127979",
    "published": "2026-10-17T04:36:53Z",
@@ -2308,15 +2354,6 @@
    "outlet": null,
    "category": "use-cases",
    "score": 254
-  },
-  {
-   "title": "Make cool things with AI that people buy (Gemini 4 Argon)",
-   "url": "https://www.youtube.com/watch?v=jEOUUAPC1sc",
-   "published": "2026-10-15T20:40:35.000Z",
-   "source": "yt-greg-isenberg",
-   "outlet": null,
-   "category": "launches",
-   "score": 87294
   }
  ]
 }
