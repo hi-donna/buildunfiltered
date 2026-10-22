@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 
 export default function Wire() {
   const names = Object.fromEntries(wireSources.map((s) => [s.id, s.name]));
-  const video = wireSources.filter((s) => s.kind === "youtube").map((s) => s.id);
-  const live = sourceGroups.flatMap((g) => g.sources).filter((s) => s.run?.ok).length;
+  const video = wireSources.filter((s) => s.kind.startsWith("youtube")).map((s) => s.id);
+  const live = wireSources.filter((s) => s.ok).length;
 
   return (
     <div className="wrap finder wire">
@@ -44,7 +44,7 @@ export default function Wire() {
                   {g.sources.map((s) => (
                     <li key={s.id}>
                       <a href={s.home} target="_blank" rel="noopener">{s.name}</a>
-                      {s.run && !s.run.ok && <span className="wire-down"> · didn&apos;t answer last run</span>}
+                      {!s.ok && <span className="wire-down"> · didn&apos;t answer last run</span>}
                     </li>
                   ))}
                 </ul>

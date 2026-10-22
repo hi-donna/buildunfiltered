@@ -1,5 +1,29 @@
 # Status
 
+## 2026-10-23 — tool(wire): read the feed from Scout
+
+**Shipped:** The Wire no longer collects anything itself. Scout
+(`github.com/hi-donna/scout`, private) collects every 6 hours and its GitHub
+Action commits `data/wire.json` straight into this repo with a write-only
+deploy key (`scout-feed`, this repo only). That push is what makes Cloudflare
+rebuild `/tools/wire/`. Deleted `scripts/wire.mjs`, `data/wire-sources.json`,
+the `wire` npm script and `.github/workflows/wire.yml`. `lib/wire.ts` now reads
+categories, sources (with last-run health) and the not-connected list from
+`data/wire.json` alone.
+
+**Why no workflow here:** the plan had this repo download the feed from a public
+URL on a `repository_dispatch`. Scout keeps its data in its own private repo
+rather than Supabase, so there is no public URL; pushing the file directly does
+the same job with one fewer hop and no second schedule. Scout refuses to publish
+a feed that doesn't parse, has no items, or isn't newer than this file, and
+leaves the old file in place.
+
+**Changing sources:** in Scout (its dashboard, `npm run dashboard`, or Claude
+Code through its MCP server), not here.
+
+**Needs the owner:** nothing. The bot commits to `master` up to 4×/day:
+`git pull` before pushing local work (as before).
+
 ## 2026-10-22 — Tool: The Wire
 
 **Shipped (committed, not pushed):** `/tools/wire/`, the roadmap's Tool 7, widened to
