@@ -70,6 +70,13 @@ history before that date if anything needs to come back. The tool roadmap in
   (`github.com/hi-donna/scout`, private), which commits `data/wire.json` here; that
   push rebuilds the site. Sources are changed in Scout, not here. Page: `app/page.tsx`,
   `components/WireLog.tsx`, `lib/wire.ts`.
+- **Watch** — `/watch/` (added 2026-11-02). A YouTube-style tab: the latest videos from 20
+  official AI company and framework channels, each video on its own page `/watch/<id>/`
+  playing through YouTube's privacy-enhanced embed. No sign-in. Scout's `watch` project reads
+  each channel's RSS every 6 hours and commits `data/watch.json` alongside `data/wire.json`.
+  Channel list and why: `docs/WATCH_CHANNELS.md`. Page: `app/watch/`, `components/WatchHome.tsx`,
+  `components/VideoCard.tsx`, `lib/watch.ts`. Limits: no durations (RSS doesn't carry them);
+  "Most viewed" is of each channel's last 15 uploads, not all time.
 - **Account** — `/account/`. Phone sign-in via Supabase. Nothing is gated behind it.
 
 **Principles that don't bend:** data first (every tool is one JSON file plus a
