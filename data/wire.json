@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-02T17:14:07.780Z",
+ "fetched": "2026-11-02T23:49:07.870Z",
  "window_days": 7,
  "categories": [
   {
@@ -65,7 +65,7 @@
    "home": "https://openai.com/news/",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-02T15:53:21.244Z"
+   "last_ok": "2026-11-02T22:28:06.966Z"
   },
   {
    "id": "deepmind",
@@ -75,7 +75,7 @@
    "home": "https://deepmind.google/blog/",
    "ok": true,
    "count": 3,
-   "last_ok": "2026-11-02T15:53:21.141Z"
+   "last_ok": "2026-11-02T22:28:06.716Z"
   },
   {
    "id": "google-ai",
@@ -84,8 +84,8 @@
    "kind": "rss",
    "home": "https://blog.google/technology/ai/",
    "ok": true,
-   "count": 0,
-   "last_ok": "2026-11-02T15:53:21.534Z"
+   "count": 1,
+   "last_ok": "2026-11-02T22:28:06.806Z"
   },
   {
    "id": "hf-blog",
@@ -95,7 +95,7 @@
    "home": "https://huggingface.co/blog",
    "ok": true,
    "count": 7,
-   "last_ok": "2026-11-02T15:53:20.896Z"
+   "last_ok": "2026-11-02T22:28:06.682Z"
   },
   {
    "id": "github-ai",
@@ -105,7 +105,7 @@
    "home": "https://github.blog/ai-and-ml/",
    "ok": true,
    "count": 0,
-   "last_ok": "2026-11-02T15:53:21.276Z"
+   "last_ok": "2026-11-02T22:28:07.091Z"
   },
   {
    "id": "techcrunch",
@@ -114,8 +114,8 @@
    "kind": "rss",
    "home": "https://techcrunch.com/category/artificial-intelligence/",
    "ok": true,
-   "count": 25,
-   "last_ok": "2026-11-02T15:53:20.807Z"
+   "count": 30,
+   "last_ok": "2026-11-02T22:28:06.371Z"
   },
   {
    "id": "verge",
@@ -124,8 +124,8 @@
    "kind": "rss",
    "home": "https://www.theverge.com/ai-artificial-intelligence",
    "ok": true,
-   "count": 10,
-   "last_ok": "2026-11-02T15:53:21.034Z"
+   "count": 13,
+   "last_ok": "2026-11-02T22:28:06.458Z"
   },
   {
    "id": "gnews-funding",
@@ -135,7 +135,7 @@
    "home": "https://news.google.com/",
    "ok": true,
    "count": 30,
-   "last_ok": "2026-11-02T15:53:21.366Z"
+   "last_ok": "2026-11-02T22:28:06.793Z"
   },
   {
    "id": "gnews-policy",
@@ -145,7 +145,7 @@
    "home": "https://news.google.com/",
    "ok": true,
    "count": 20,
-   "last_ok": "2026-11-02T15:53:21.450Z"
+   "last_ok": "2026-11-02T22:28:06.805Z"
   },
   {
    "id": "hn",
@@ -155,7 +155,7 @@
    "home": "https://news.ycombinator.com/",
    "ok": true,
    "count": 25,
-   "last_ok": "2026-11-02T15:53:21.190Z"
+   "last_ok": "2026-11-02T22:28:06.523Z"
   },
   {
    "id": "show-hn",
@@ -165,7 +165,7 @@
    "home": "https://news.ycombinator.com/show",
    "ok": true,
    "count": 3,
-   "last_ok": "2026-11-02T15:53:21.123Z"
+   "last_ok": "2026-11-02T22:28:06.520Z"
   },
   {
    "id": "r-localllama",
@@ -175,7 +175,7 @@
    "home": "https://www.reddit.com/r/LocalLLaMA/",
    "ok": true,
    "count": 20,
-   "last_ok": "2026-11-02T15:53:21.586Z"
+   "last_ok": "2026-11-02T22:28:06.596Z"
   },
   {
    "id": "r-claudeai",
@@ -185,7 +185,7 @@
    "home": "https://www.reddit.com/r/ClaudeAI/",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-02T15:54:01.022Z"
+   "last_ok": "2026-11-02T22:29:00.893Z"
   },
   {
    "id": "r-chatgptpro",
@@ -195,7 +195,7 @@
    "home": "https://www.reddit.com/r/ChatGPTPro/",
    "ok": true,
    "count": 10,
-   "last_ok": "2026-11-02T15:55:01.274Z"
+   "last_ok": "2026-11-02T22:30:01.077Z"
   },
   {
    "id": "r-machinelearning",
@@ -205,7 +205,7 @@
    "home": "https://www.reddit.com/r/MachineLearning/",
    "ok": true,
    "count": 10,
-   "last_ok": "2026-11-02T15:56:01.672Z"
+   "last_ok": "2026-11-02T22:31:01.286Z"
   },
   {
    "id": "hf-papers",
@@ -215,7 +215,7 @@
    "home": "https://huggingface.co/papers",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-02T15:53:21.183Z"
+   "last_ok": "2026-11-02T22:28:06.810Z"
   },
   {
    "id": "simonw",
@@ -225,7 +225,7 @@
    "home": "https://simonwillison.net/",
    "ok": true,
    "count": 2,
-   "last_ok": "2026-11-02T15:53:21.179Z"
+   "last_ok": "2026-11-02T22:28:06.826Z"
   },
   {
    "id": "latent-space",
@@ -235,7 +235,7 @@
    "home": "https://www.latent.space/",
    "ok": true,
    "count": 5,
-   "last_ok": "2026-11-02T15:53:21.676Z"
+   "last_ok": "2026-11-02T22:28:07.102Z"
   },
   {
    "id": "one-useful-thing",
@@ -245,7 +245,7 @@
    "home": "https://www.oneusefulthing.org/",
    "ok": true,
    "count": 0,
-   "last_ok": "2026-11-02T15:53:21.267Z"
+   "last_ok": "2026-11-02T22:28:07.004Z"
   },
   {
    "id": "yt-anthropic",
@@ -255,7 +255,7 @@
    "home": "https://www.youtube.com/@anthropic-ai",
    "ok": true,
    "count": 0,
-   "last_ok": "2026-11-02T15:53:21.085Z"
+   "last_ok": "2026-11-02T22:28:06.559Z"
   },
   {
    "id": "yt-openai",
@@ -265,7 +265,7 @@
    "home": "https://www.youtube.com/@OpenAI",
    "ok": true,
    "count": 5,
-   "last_ok": "2026-11-02T15:53:21.078Z"
+   "last_ok": "2026-11-02T22:28:06.440Z"
   },
   {
    "id": "yt-deepmind",
@@ -275,7 +275,7 @@
    "home": "https://www.youtube.com/@GoogleDeepMind",
    "ok": true,
    "count": 1,
-   "last_ok": "2026-11-02T15:53:21.131Z"
+   "last_ok": "2026-11-02T22:28:06.497Z"
   },
   {
    "id": "yt-ai-explained",
@@ -284,8 +284,8 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@aiexplained-official",
    "ok": true,
-   "count": 0,
-   "last_ok": "2026-11-02T15:53:21.133Z"
+   "count": 1,
+   "last_ok": "2026-11-02T22:28:06.631Z"
   },
   {
    "id": "yt-two-minute-papers",
@@ -295,7 +295,7 @@
    "home": "https://www.youtube.com/@TwoMinutePapers",
    "ok": true,
    "count": 2,
-   "last_ok": "2026-11-02T15:53:21.118Z"
+   "last_ok": "2026-11-02T22:28:06.558Z"
   },
   {
    "id": "yt-karpathy",
@@ -305,7 +305,7 @@
    "home": "https://www.youtube.com/@AndrejKarpathy",
    "ok": true,
    "count": 0,
-   "last_ok": "2026-11-02T15:53:21.090Z"
+   "last_ok": "2026-11-02T22:28:06.699Z"
   },
   {
    "id": "yt-ai-engineer",
@@ -315,7 +315,7 @@
    "home": "https://www.youtube.com/@aiDotEngineer",
    "ok": true,
    "count": 8,
-   "last_ok": "2026-11-02T15:53:21.250Z"
+   "last_ok": "2026-11-02T22:28:06.569Z"
   },
   {
    "id": "yt-indydevdan",
@@ -325,7 +325,7 @@
    "home": "https://www.youtube.com/@IndyDevDan",
    "ok": true,
    "count": 1,
-   "last_ok": "2026-11-02T15:53:21.351Z"
+   "last_ok": "2026-11-02T22:28:06.701Z"
   },
   {
    "id": "yt-greg-isenberg",
@@ -334,8 +334,8 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@GregIsenberg",
    "ok": true,
-   "count": 4,
-   "last_ok": "2026-11-02T15:53:21.143Z"
+   "count": 3,
+   "last_ok": "2026-11-02T22:28:06.705Z"
   },
   {
    "id": "yt-riley-brown",
@@ -345,7 +345,7 @@
    "home": "https://www.youtube.com/@rileybrownai",
    "ok": true,
    "count": 3,
-   "last_ok": "2026-11-02T15:53:21.247Z"
+   "last_ok": "2026-11-02T22:28:06.527Z"
   },
   {
    "id": "yt-sam-witteveen",
@@ -355,7 +355,7 @@
    "home": "https://www.youtube.com/@samwitteveenai",
    "ok": true,
    "count": 3,
-   "last_ok": "2026-11-02T15:53:21.142Z"
+   "last_ok": "2026-11-02T22:28:06.499Z"
   },
   {
    "id": "yt-matthew-berman",
@@ -365,10 +365,266 @@
    "home": "https://www.youtube.com/@matthew_berman",
    "ok": true,
    "count": 5,
-   "last_ok": "2026-11-02T15:53:21.128Z"
+   "last_ok": "2026-11-02T22:28:06.426Z"
   }
  ],
  "items": [
+  {
+   "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+   "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+   "published": "2026-11-02T22:14:50.000Z",
+   "source": "techcrunch",
+   "outlet": null,
+   "category": "other",
+   "score": null
+  },
+  {
+   "title": "New York Times, Chicago Tribune Sue Tech Company Brave Over AI Copyright Claims",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPempudGhjd2FYalVIUVRJR0RPM1VGd2tkV1hydVg4NEJmWm9TajlEUE5RNnFqcEd4UjB4MGNxMlBiejJnbzdqSWw1Y1JqNnBHcmFKSkRTeW0xLVprOFp0alJUWUNhLUZFWkViVDBtX1lPRklxVmxHMEpJbk1nVXlGSWN5QXlSUDJmUml3aWRsdW96VlZ4UW41S3Z6Nl9wS0ZNRW5B?oc=5",
+   "published": "2026-11-02T21:37:26.000Z",
+   "source": "gnews-policy",
+   "outlet": "TheWrap",
+   "category": "policy",
+   "score": null
+  },
+  {
+   "title": "I Turned My Phone Into a Focus Machine (That Watches Me Work)",
+   "url": "https://www.youtube.com/watch?v=8QPd6WD9Zzg",
+   "published": "2026-11-02T21:20:19.000Z",
+   "source": "yt-riley-brown",
+   "outlet": null,
+   "category": "use-cases",
+   "score": 971
+  },
+  {
+   "title": "Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights [R]",
+   "url": "https://www.reddit.com/r/MachineLearning/comments/1xm89ef/sparks_of_weightspace_programming_llms_can/",
+   "published": "2026-11-02T20:18:26.000Z",
+   "source": "r-machinelearning",
+   "outlet": null,
+   "category": "open-source",
+   "score": null,
+   "also": 1
+  },
+  {
+   "title": "Your Company Should Train Its Own AI Models - Will Brown, Prime Intellect",
+   "url": "https://www.youtube.com/watch?v=5SRjPT2Eo7A",
+   "published": "2026-11-02T20:00:09.000Z",
+   "source": "yt-ai-engineer",
+   "outlet": null,
+   "category": "use-cases",
+   "score": 1838
+  },
+  {
+   "title": "Web host Squarespace lays off 19% of its employees",
+   "url": "https://techcrunch.com/2026/11/02/web-host-squarespace-lays-off-19-of-its-employees/",
+   "published": "2026-11-02T19:25:59.000Z",
+   "source": "techcrunch",
+   "outlet": null,
+   "category": "other",
+   "score": null
+  },
+  {
+   "title": "New York Times and other outlets sue web browser Brave over alleged content scraping",
+   "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+   "published": "2026-11-02T19:19:17.000Z",
+   "source": "techcrunch",
+   "outlet": null,
+   "category": "other",
+   "score": null,
+   "also": 1
+  },
+  {
+   "title": "The $1M+ Solo Grok Bot Business (Full Course)",
+   "url": "https://www.youtube.com/watch?v=67BmkptgTms",
+   "published": "2026-11-02T19:15:08.000Z",
+   "source": "yt-greg-isenberg",
+   "outlet": null,
+   "category": "use-cases",
+   "score": 9491
+  },
+  {
+   "title": "Anthropic clamps down on Claude’s AI video game clones",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
+   "published": "2026-11-02T18:56:02.000Z",
+   "source": "verge",
+   "outlet": null,
+   "category": "other",
+   "score": null
+  },
+  {
+   "title": "To all ML PhDs, how are you guys doing these days? [D]",
+   "url": "https://www.reddit.com/r/MachineLearning/comments/1xm5w5i/to_all_ml_phds_how_are_you_guys_doing_these_days_d/",
+   "published": "2026-11-02T18:52:17.000Z",
+   "source": "r-machinelearning",
+   "outlet": null,
+   "category": "research",
+   "score": null
+  },
+  {
+   "title": "Y Combinator seeks founders for $500,000 startup funding",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOVHFjei15YWNfdjZpd0Fad1NLWmJkMGtsUzF5Z1BSX1J3ZkwyOEdFRGJRb29xZTJIN1VQcDY5dFVmd3dQOW5fWVZZeW9udXU4MlFkNFFoNE95RGkwMG43UVNzUGRTNTVYUHh2bHZBS1lGN0FrVG4zbGFNS0hfV3NkdnU1QmZqOFAtZXNyMnhfMklqSnBmMnVLMDMzV1lndw?oc=5",
+   "published": "2026-11-02T18:43:12.000Z",
+   "source": "gnews-funding",
+   "outlet": "www.thestreet.com",
+   "category": "funding",
+   "score": null
+  },
+  {
+   "title": "Tech company Brave plundered Orlando Sentinel’s content and resold it to A.I. giants: copyright lawsuit",
+   "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNRVBpUFpKODUycXluaTU2QS11UkpGeTJtdk16anhYeXZGbExvZTFDRTBMd1lsWDZsaHNqMEJjbnBrc0U4Z2xySGowWXhLenhiMUFEWDZVNjZhSjAxM0d0Y25xV3BtZTdzVXMzYzkzckpKNFZDYmZST1B5OWFjbGMzUWlQMjFvZDBVNk5aTmJwQmNUNHp3VmhHYXYyNHNqNmZzRjlyWjNFdGRNZEIyb1hPYTRGNEItb1lkY0gyWG5MdnRKdlB0bmFPUDJoV1lLLUt6a09FQXBsbVJFS0NrcklsVUZsWlkyTE1aNmM4RWNqajNwdm95U3h0M2tR?oc=5",
+   "published": "2026-11-02T18:28:20.000Z",
+   "source": "gnews-policy",
+   "outlet": "Orlando Sentinel",
+   "category": "policy",
+   "score": null
+  },
+  {
+   "title": "New York congressman on reelection campaign and AI legislation",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTzdaTGZXUmpDQm9BTEF1MXRCWXdrNWh6R1F6T0tUZEZNV2w5RmZoSHV3RmxWWlM5WWF0Y1hzNzVVcF85Mk0wa1l6b1hhRE1jZEtyVmZ6VG5vLWpHMUh0N0JxcXFEUzdITmVTdV9fOWg0Wk14OVR6ZnlpV185UE5hc2lodXpEMUY4TWxudjR4TnpVUFlpTWxIbnpjUmZHaHhqaWtZUmhkV296ay05ZUE?oc=5",
+   "published": "2026-11-02T18:07:23.000Z",
+   "source": "gnews-policy",
+   "outlet": "KYMA",
+   "category": "policy",
+   "score": null
+  },
+  {
+   "title": "OpenAI pitches data center power plants as a way to protect nearby areas",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program",
+   "published": "2026-11-02T18:01:30.000Z",
+   "source": "verge",
+   "outlet": null,
+   "category": "other",
+   "score": null
+  },
+  {
+   "title": "The latest AI news we announced in October 2026",
+   "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+   "published": "2026-11-02T17:45:00.000Z",
+   "source": "google-ai",
+   "outlet": null,
+   "category": "launches",
+   "score": null
+  },
+  {
+   "title": "Alphabet Shareholder Sues Executives Over AI Copyright Claims",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPVk9NWDNoWXo1RXVzMVFjQW5jYjFZZnBYeC13UW1WbDhKdDc4ekxldUo4NGdFM1NHTmRHNVpyX3F5c1VTYzBHMTc2ZVlDRm1MUlVwcndITFpZRG9LVUFSTDhUZ0pTUkhYZEVSUDJCbWpHV2VZS2NiNlZGbkhic0xDMUJsdVBvMEZQT3dUS3d3QzRkUmNqT1BnZEw2bVN1NzNhMmJfUzFTSTVadw?oc=5",
+   "published": "2026-11-02T17:38:00.000Z",
+   "source": "gnews-policy",
+   "outlet": "Bloomberg Law News",
+   "category": "policy",
+   "score": null
+  },
+  {
+   "title": "42AI Secures $62.5M in Seed Funding for Behavioral World Model",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZDZqY0NPUnMtZlhXWENDd3VVUTB2d1NweUk5VU80bDZWNXltZUZRWFNsM0FFSlM5U3NrbTJMeUdleW8yTThUV25qYVlpbDZpQTNxNGpFN3hBM2U2YzE0YVZER1NjU2FLaGdFYlpoaGlqZXJGTThlbGxWWHY1OGd2YlZ5a0U2TDY3RUlB?oc=5",
+   "published": "2026-11-02T17:19:02.000Z",
+   "source": "gnews-funding",
+   "outlet": "Unite.AI",
+   "category": "funding",
+   "score": null,
+   "also": 1
+  },
+  {
+   "title": "42AI Exits Stealth With $62.5M for Behavior-Predicting AI",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPZkNFT2VDUmd6aWVYc2pNdmFtRVRoUjI1a3I0UUxkbHVERHhLNXNxa3loVmtwNmo0aU5QUk1IUzRsV2dMc0tPckxCMURLMnJGbGZZckdhZEFXdVQ4bV9MNW9EMkpHX1pzamJGTFlRZzc4NmJONlJhX3l5UTMwNTc5ZWdUYnIxbVU2NG54aWZxQm9GY00?oc=5",
+   "published": "2026-11-02T17:02:38.000Z",
+   "source": "gnews-funding",
+   "outlet": "The Tech Buzz",
+   "category": "funding",
+   "score": null
+  },
+  {
+   "title": "‘We may release models we can’t control’: Amodei, Altman … and Gemini Carbon",
+   "url": "https://www.youtube.com/watch?v=0Kw6_DTZPrY",
+   "published": "2026-11-02T17:02:16.000Z",
+   "source": "yt-ai-explained",
+   "outlet": null,
+   "category": "launches",
+   "score": 34495,
+   "also": 1
+  },
+  {
+   "title": "Coinbase on OpenAI Private Intelligence",
+   "url": "https://www.youtube.com/watch?v=Amm9ySSET4c",
+   "published": "2026-11-02T16:59:21.000Z",
+   "source": "yt-openai",
+   "outlet": null,
+   "category": "launches",
+   "score": 7728
+  },
+  {
+   "title": "Official Statement: Qwen Models Will Stick to Open Source to the End!",
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xm28e6/official_statement_qwen_models_will_stick_to_open/",
+   "published": "2026-11-02T16:42:32.000Z",
+   "source": "r-localllama",
+   "outlet": null,
+   "category": "open-source",
+   "score": null
+  },
+  {
+   "title": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
+   "url": "https://news.ycombinator.com/item?id=50339494",
+   "published": "2026-11-02T16:40:29Z",
+   "source": "hn",
+   "outlet": null,
+   "category": "other",
+   "score": 256
+  },
+  {
+   "title": "Elon Musk throttles Grok Bot limits due to ‘unsustainably high’ costs",
+   "url": "https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/",
+   "published": "2026-11-02T16:23:21.000Z",
+   "source": "techcrunch",
+   "outlet": null,
+   "category": "other",
+   "score": null
+  },
+  {
+   "title": "Clark Raises $11M Seed to Bring AI Audit Employees to More CPA Firms",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNdXlsTEFSdHZrUl9UWWdqSGRDUTdCSW1ZdVRVYURoQWVqNXY3RkRET01mY1RoWHUyeURVWUtyU0VGNlhEZXNNWHpackJXaGJ6cTJER09TWEswenhmMWJDdUlUUGt4WjBxOHVMREd1WUJ4clV6T2ZpRm56LWJzOC1rRXRKX0M0S01DdmNfQnBUdDdOcEE?oc=5",
+   "published": "2026-11-02T16:23:01.000Z",
+   "source": "gnews-funding",
+   "outlet": "Unite.AI",
+   "category": "funding",
+   "score": null
+  },
+  {
+   "title": "Class action lawsuit alleges Meta AI Glasses wiretap user conversations",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNVVY1aFJUZHBUdzIyenowYXN0azZIeXFFbzRUNklQQmlTRXVvY3RfWElkNk9FRHFKcTk0THNyNUdlbGhzTURaZXhxZXVwOEpBb3JxaW83YktQOVFEYWtKY18tOW5SOTJ4Y1FqQzNCakhQcEtXUDlrajJEd3d2TlVVMEM0RHVsalVTLVh4b2tuaHpIb2pwWFo2Yjc2cnA0OXpLWEtYbnFFdVN6TEpGTGd0Z2RIV1BMRlFGR3pPaENSbXBYSC16a01ucU40UXQydw?oc=5",
+   "published": "2026-11-02T16:14:27.000Z",
+   "source": "gnews-policy",
+   "outlet": "Top Class Actions",
+   "category": "policy",
+   "score": null
+  },
+  {
+   "title": "How to Play AAPL Stock as Apple Acquires an Agentic AI Startup",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVllhVWNEMTl5cWo2Y2QzaFNRWG5pVmpGak5EUkhubE9ZamhUU09MSXRHcGF6WHQ5ZF9VSkM2Q2FkTmpReko5ZDYySTh0MHc1ZUIwMTBpTUJqd013NDVxRmNjendnTkFiQ3lQUVJfR1V1VTFGeHI4ajlCY05KR3Ayanp1MVJLang1T2VfTGVvYmdKcXJjTDdWRGk0VU1NempydEI0NnppOGdJZw?oc=5",
+   "published": "2026-11-02T16:09:24.000Z",
+   "source": "gnews-funding",
+   "outlet": "Barchart.com",
+   "category": "funding",
+   "score": null
+  },
+  {
+   "title": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPMFI4TnZ1Y0kybmZSazNaTXRvVWFocjZwemI5Ukp5WFFObFBCR3RWdmM5RkRRM1hUejl1NnRoeDN2NW53eWZZOFN5a1I3a2MxdXlGelI4Y3pfRW9iT1I2NmdXN0ZNUlZjSThjX24xa1k4YXBHZUx6aDZjMFZNTHg4b0xQRnFadw?oc=5",
+   "published": "2026-11-02T15:44:02.000Z",
+   "source": "gnews-funding",
+   "outlet": "Benzinga",
+   "category": "funding",
+   "score": null
+  },
+  {
+   "title": "Small-scale check of \"good views beat next-token prediction\" (Balestriero & LeCun 2026): human captions only, 11M-param encoders [P]",
+   "url": "https://www.reddit.com/r/MachineLearning/comments/1xlzoze/smallscale_check_of_good_views_beat_nexttoken/",
+   "published": "2026-11-02T15:08:41.000Z",
+   "source": "r-machinelearning",
+   "outlet": null,
+   "category": "research",
+   "score": null
+  },
   {
    "title": "Introducing the Grid Protectors Program",
    "url": "https://openai.com/index/grid-protectors-program",
@@ -407,6 +663,15 @@
    "also": 1
   },
   {
+   "title": "Anthropic reports $17B in Q3 revenue, commitments of $895B in revised S-1",
+   "url": "https://news.ycombinator.com/item?id=50337439",
+   "published": "2026-11-02T14:38:45Z",
+   "source": "hn",
+   "outlet": null,
+   "category": "other",
+   "score": 222
+  },
+  {
    "title": "CCIA Files Joint Amicus Brief in AI Training Copyright Case",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRXp4UlU2cHVabFAtandTQk1YdlVHSElMYTllUDFYWC1tS2daODR5bV9lbUl2MFVpZnhRWHJNbHBSWGhLM2xMZ2pfaGhkYkhyeXN3MG92dDVUbUZIVEowSjQzdEl0VC1jc25nczFNbVI2a3BWSjR1ZnJJUTc3aGRoSFo1XzdobmE4aTRKalk2RzR6emt1enZwaw?oc=5",
    "published": "2026-11-02T14:27:21.000Z",
@@ -421,6 +686,15 @@
    "published": "2026-11-02T14:17:08.000Z",
    "source": "gnews-policy",
    "outlet": "IMDb",
+   "category": "policy",
+   "score": null
+  },
+  {
+   "title": "Is Training an AI Model Infringing? Tulane Law Professor Brian Frye Breaks Down AI's Legal Battles",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOaTB6LTBia2xmSVk3V3RvWE9OM1F3UUVDYVFRMzJXczBRR0RDQXk2N21McmFkd1h4aW1manhMTWNseVZpU1FuanI4bnFwamZfSjdZOU41blI5aDU1S2pnalJxSUpidU84RXNDNXYxVXhWOHNRMS1yNU03ODdTY1d6UE5nT2g5R0ktY1dnZS1TM1N1MDlYRnlNNkRMdVV1Mi1RRnk3WGNsemtUQ2VaUWd1VVRwTTZfMWZqSFE?oc=5",
+   "published": "2026-11-02T14:12:46.000Z",
+   "source": "gnews-policy",
+   "outlet": "Tulane Law School",
    "category": "policy",
    "score": null
   },
@@ -440,7 +714,7 @@
    "source": "yt-indydevdan",
    "outlet": null,
    "category": "use-cases",
-   "score": 1382
+   "score": 15615
   },
   {
    "title": "2 days till TechCrunch Founder Summit: Boston founders don’t need a Silicon Valley address to build something big",
@@ -452,7 +726,7 @@
    "score": null
   },
   {
-   "title": "Corporate America's AI bills are piling up. This startup raised $30 million to help.",
+   "title": "Corporate America's AI bill is ballooning. This startup raised $30 million to make sense of where the money is going.",
    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPUU5YcDFqNHhHbTZCd0lGbVZzVFpQN3A2QUQzdmpGTWhrRGpxRXFmZE1NYlBkbTd5QnNSemJHUUdpWDVRY0o1V2U1TmV0YXVrU3Jqdm1PbTVaOXZBd0pld3Q2T1R0cG5SYjBrUEp1R0c3TkNYZWhDWmVDTmZlMVFzcUxzWkZ0SkNOOUI5ZXE5RVNXcDZBOEsw?oc=5",
    "published": "2026-11-02T14:00:00.000Z",
    "source": "gnews-funding",
@@ -461,7 +735,7 @@
    "score": null
   },
   {
-   "title": "OpenAI is finally merging ChatGPT’s chat and Work tabs",
+   "title": "OpenAI is finally merging ChatGPT’s Chat and Work tabs",
    "url": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/",
    "published": "2026-11-02T13:57:53.000Z",
    "source": "techcrunch",
@@ -485,7 +759,7 @@
    "source": "yt-sam-witteveen",
    "outlet": null,
    "category": "open-source",
-   "score": 3911
+   "score": 28065
   },
   {
    "title": "Argentina’s Milei pitches a regulation-free AI haven at the end of the world",
@@ -494,6 +768,15 @@
    "source": "gnews-policy",
    "outlet": "myMotherLode.com",
    "category": "policy",
+   "score": null
+  },
+  {
+   "title": "Former Veriff and Wise executives gets €2.9 million for AI-powered career platform - ArcticStartup",
+   "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE4tNGl6cC1kbVUtb3U5VXktaGFoQU8zS3ZHRGxsZ0txRWtzaWhhS1ZQOFVXdUx5QWE5ak1jb2ttWWUzSlA2OXZaZlpYX3lfUXdfcFZadkN3Z0UxLUFieFZmWU1n0gFiQVVfeXFMTi00aXpwLWRtVS1vdTlVeS1oYWhBTzNLdkdEbGxnS3FFa3NpaGFLVlA4VVd1THlBYTlqTWNva21ZZTNKUDY5dlpmWlhfeV9Rd19wVlp2Q3dnRTEtQWJ4VmZZTWc?oc=5",
+   "published": "2026-11-02T12:27:34.000Z",
+   "source": "gnews-funding",
+   "outlet": "ArcticStartup",
+   "category": "funding",
    "score": null
   },
   {
@@ -521,7 +804,8 @@
    "source": "gnews-funding",
    "outlet": "BeBeez International",
    "category": "funding",
-   "score": null
+   "score": null,
+   "also": 1
   },
   {
    "title": "Pronto founder Anjali Sardana’s Provision Labs acquires Basilisk Industries",
@@ -548,7 +832,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "use-cases",
-   "score": 2564
+   "score": 4204
   },
   {
    "title": "This crypto billionaire is spending tens of millions in the midterms to take on AI companies and the GOP",
@@ -584,7 +868,16 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "use-cases",
-   "score": 2665
+   "score": 4824
+  },
+  {
+   "title": "LifeVal",
+   "url": "https://openai.com/index/lifeval",
+   "published": "2026-11-02T09:00:00.000Z",
+   "source": "openai",
+   "outlet": null,
+   "category": "launches",
+   "score": null
   },
   {
    "title": "Deepgram Acquires Daily, Maker of Open Source Voice AI Framework Pipecat",
@@ -592,6 +885,15 @@
    "published": "2026-11-02T08:51:28.000Z",
    "source": "gnews-funding",
    "outlet": "AI Insider",
+   "category": "funding",
+   "score": null
+  },
+  {
+   "title": "Veriff founder's job-hunting AI startup Roleo raises €2.9M",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPQlQ1ZmhMaFNjd3hOUHF3YkV3REZIcjFjQkdWRS1zaF8zZ2dpOFljcGhEQmI2ZVhSLVU5S09ibTAzRDBoQV94VXpwZVFsbEhBZlZFaEtVVnhsUXh6SEFRRllxOFdCQXRCa3A2M0ZaalFKbG9nVnNTNFRvVzA4MlJTYVhneEoxMzF0LVprWk1Nak9weG1pZFE?oc=5",
+   "published": "2026-11-02T08:48:17.000Z",
+   "source": "gnews-funding",
+   "outlet": "Dealroom",
    "category": "funding",
    "score": null
   },
@@ -611,7 +913,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "use-cases",
-   "score": 3798
+   "score": 5567
   },
   {
    "title": "Tackling AI’s Labor Paradox",
@@ -668,15 +970,6 @@
    "score": null
   },
   {
-   "title": "Latham & Watkins Adds Jason Raeburn As London Partner To Expand AI, Copyright, And Data Disputes Practice",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxObVcxcXNsVktIMlpfYVVBZURqVGRHNzc5ZFpsRXhtRFYwNEx1ckpVYzROTHZmZzk4Y1RnWEQyMVhocTk3T2Y0TUdrR0g1MG0zZFpfaF9LbmxpRnhaVmxaclFMT1hkcGJ3ckQ1VGlzeEkzRF9JNk10aFZmVU8zRGJSZ2FlTGxhaFhleU0weVZFdG95VF9qTlhNZTRxSGU5NGlnSFRVZkIySmFENHpoRF9Pam1wbnJGTE1QanMyWkRR?oc=5",
-   "published": "2026-11-02T04:54:07.000Z",
-   "source": "gnews-policy",
-   "outlet": "Pulse 2.0",
-   "category": "policy",
-   "score": null
-  },
-  {
    "title": "Two Point O Capital Raises $10 Million to Expand into Battery Storage and Clean Energy Solutions",
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNM3RKVW9fTkZjSjhLUUExVUU3ekZlSW1iVFRLNEVZUkJ0NF9iOUVjbXA2SC1aaE1vY1kzSTAwekJ0dm5mbTdZd3FOMHVNQng0UmZfcmxfVEJURk9GZ0VXczhkZDREZDdmVDR2c19jaWNlWnVjdHNxVVJuWW1tNi1jSERYbTlWTll0MFVWNGVPelVWTldGM251ZUQ4eGF4SDNiQnc?oc=5",
    "published": "2026-11-02T04:42:05.000Z",
@@ -704,6 +997,15 @@
    "score": null
   },
   {
+   "title": "“Now fix all mistakes you’ve made”",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xllzsf/now_fix_all_mistakes_youve_made/",
+   "published": "2026-11-02T02:53:15.000Z",
+   "source": "r-claudeai",
+   "outlet": null,
+   "category": "use-cases",
+   "score": null
+  },
+  {
    "title": "Weekly VC funding stays subdued at $115M; Prosus gets CCI nod for Navi investment",
    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5MSkFJdEpMWnNJWDlMWU1YZERld3BKYUU5eXBDNEs3TEEtNXhvSmExZUtGdURFeU9zQ2xBUVlFTER3U0tOLXZiMlVTc2sxYXZCd1ZHamlQR0xtMFdZMkVLeUNkVlZfa0dkd2REU2JTTTVNa01uTnZXUA?oc=5",
    "published": "2026-11-02T02:24:25.000Z",
@@ -722,30 +1024,21 @@
    "score": null
   },
   {
-   "title": "Anthropic’s $900,000 California Democrats donation explained",
-   "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOTnhzUzdFNXJjVzlmMjZRMklaSHRVME9DRlpFMEszZjFCcTVKOG0yaVhPUUtpVVFtUzNpNFozWThVRTVzU1pLeDZUOEgzeVJWYV9MR3FBZ05wQ25od1hIaFlScVhERzBPN3VxUlRQcU9QeS1VTWlOdGFqYlNhQWF3eEttSmtlYWc0RlNzSmVXWGhFS2ZiS3F6QUNKdnI3cl82dTVUODVaRndBNjJtWXoydzJMbzVndWNGMTVSTmtrOXRfWW51bUFFMmcyVFhOai14YjZOc2xGSG1MRzZheTEtTU1wbl9LNm5QSHJKNg?oc=5",
-   "published": "2026-11-02T01:15:00.000Z",
-   "source": "gnews-policy",
-   "outlet": "Attack of the Fanboy",
-   "category": "policy",
-   "score": null
-  },
-  {
    "title": "I Don't Fear AI Slop. I Fear Untold Stories - Zack Proser, WorkOS",
    "url": "https://www.youtube.com/watch?v=1et3Lb_KLQo",
    "published": "2026-11-02T00:00:21.000Z",
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "use-cases",
-   "score": 6661
+   "score": 7762
   },
   {
-   "title": "Seeking copyright solutions in the AI era... MCST to run ‘Copyright Week’ in November",
-   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5peWhwc1g3UnNEN3VhbkkyY2xweE0tbDJkdTVwUzI1RjFhd3dQRTZZTW9fQjB2dUp5WUcxeC1sckRmbjRnNXNPRnhtUmlkWFBvRjZxakxHYXk?oc=5",
-   "published": "2026-11-01T23:00:00.000Z",
-   "source": "gnews-policy",
-   "outlet": "파이낸셜뉴스",
-   "category": "policy",
+   "title": "Qodo builds context into AI code review with Codex",
+   "url": "https://openai.com/index/qodo-codex-plugin",
+   "published": "2026-11-02T00:00:00.000Z",
+   "source": "openai",
+   "outlet": null,
+   "category": "launches",
    "score": null
   },
   {
@@ -794,31 +1087,13 @@
    "score": null
   },
   {
-   "title": "AI is stealing Indigenous Australian art and churning out ‘Temu slop’, artist says",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPbUdlVmNfOThBYVJkTV9XU044UFFYaUstYmotbHF0NVZxM0dKcHVncjBwd3llNXpZR3R1dXVSaDhCcEdIaGhTV2JNc214ZktUYjBTdXlpb3JFa0k2OXp2cndfU3JIUTNqTWNHSDlZeVA3M3ROVTVMOU5LZVgxTW9oSjZsalVVbjhrUXZzNkZZUS1Ra0lEc1ZWLUQtNU94T0pPT1ZMcGNXdkZxMktVNDRFS21ST3ozTW9PNi1n?oc=5",
-   "published": "2026-11-01T20:40:00.000Z",
-   "source": "gnews-policy",
-   "outlet": "The Guardian",
-   "category": "policy",
-   "score": null
-  },
-  {
-   "title": "Digital compliance calendar 2027, AI Act, NIS2, DORA and CRA deadlines",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQR2I3bmpYaUN0Ri1IUWpkWXRLbFEzNWNPUURjYzNNeFZXcW9zeGI2WFRoQmlpeWd3aXpLOU4zY0tibF9SV051WDdoUk5pRGtacDNCRVpaU2FsNzl1UVhXZkhHdkFWUnJJSmhsR0hHY2l5enlZNndBWTVGVDR6RWk2eHJ1V2ROaTE1X3FqVWxGRTMwTlVmQUxxQ0hhMUFwdw?oc=5",
-   "published": "2026-11-01T20:03:16.000Z",
-   "source": "gnews-policy",
-   "outlet": "Pasquale Pillitteri",
-   "category": "policy",
-   "score": null
-  },
-  {
    "title": "I Made a Fruit Fly Review My Code - Nick Nisi, WorkOS",
    "url": "https://www.youtube.com/watch?v=geMAe-PLJF4",
    "published": "2026-11-01T20:00:08.000Z",
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "use-cases",
-   "score": 6823
+   "score": 7638
   },
   {
    "title": "It wasn't AI that flipped Proton's charge",
@@ -828,15 +1103,6 @@
    "outlet": null,
    "category": "other",
    "score": 162
-  },
-  {
-   "title": "Why open-source is crucial for responsible AI development",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPcXhuMVpyTmpJaXlNZk02MHpNU1hZanpQcy0yZXVJYWREN3R3U2xLbk1Ca2xDUGUweVh1YXNralhTRG80RXY2Vzc2V1JmREFJcVhuLXc1Tk81RVFQNlk1MmE4dmY0UWgtTDB6UXVvWTZnd0d3dHYyMjM0b2pwSWVsZVB3ZUg?oc=5",
-   "published": "2026-11-01T18:48:01.000Z",
-   "source": "gnews-policy",
-   "outlet": "World Economic Forum",
-   "category": "policy",
-   "score": null
   },
   {
    "title": "AI Startup Valuation: 6 Drivers Investors Weigh [2026]",
@@ -902,15 +1168,6 @@
    "score": null
   },
   {
-   "title": "AI Needs a Gardener: A$29.9M Watchdog, 84-Day Lag [2026]",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPRDdCVlRIMTZzVnRtVmlqUDEzU0RxMFRrcllFVUFxVk55LUFqeGNZZ1RvNGVWQlNaWUlYZ1ZyMnhVTU1nWml6ajRrd0xfOHdXa1V2YmFVUVgzcVFURjdZNXZGajlrcG0wWGt6NXBMSWp1endrM0xJNndGaklDeFdIbnMweHpwQ3Y5?oc=5",
-   "published": "2026-11-01T13:58:36.000Z",
-   "source": "gnews-policy",
-   "outlet": "tech-insider.org",
-   "category": "policy",
-   "score": null
-  },
-  {
    "title": "AI agent swarms in Minecraft fail to build civilization, drown in bureaucracy",
    "url": "https://news.ycombinator.com/item?id=50325662",
    "published": "2026-11-01T13:47:24Z",
@@ -945,7 +1202,7 @@
    "source": "yt-sam-witteveen",
    "outlet": null,
    "category": "open-source",
-   "score": 6550
+   "score": 7215
   },
   {
    "title": "Why We Rebuilt Microsoft Office From Scratch for AI Agents - Yijia Liang, Compound AI",
@@ -955,15 +1212,6 @@
    "outlet": null,
    "category": "use-cases",
    "score": 27386
-  },
-  {
-   "title": "[Korean Startup Weekly News #142] NAVER and Furiosa AI Land Two of Korea's Biggest AI Rounds",
-   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBiRFBCV0ZVbTE2aWh5ZTY0dkIwYnBMV3c4VUVpMXpaaG5jWElkbi02YlBMWTlCUjYyc3pIMk8zcnl5ZnYyZHVMMjZkZzdFbXBTOUNz?oc=5",
-   "published": "2026-11-01T09:29:37.000Z",
-   "source": "gnews-funding",
-   "outlet": "Wowtale",
-   "category": "funding",
-   "score": null
   },
   {
    "title": "Memdoor: A team of 5 Qwen3.8-27B models beats Fable 5 on LiveCodeBench Hard",
@@ -993,33 +1241,6 @@
    "score": 5155
   },
   {
-   "title": "[Weekly funding roundup Oct 24-30] VC inflow continues to remain modest",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPV2VvRUJZaVE4NFJIVjZDSy1MSUtPbFVKOEFjamxnYXY5bGJLSXFEekNxSk1WX1RRakR4ejEzT1M3eW81bTJpSWNza1lwMDZfVjBhZUFGRTNYZE0wZ3l2b2FNZmNQNDdTamRPWmhBSlNpbTl1NkdCc3NzSlZJRkpQY1VnNWpuODBsMXY3T3lMbGgyUGlMTmh6X2JXeWxjalNx?oc=5",
-   "published": "2026-11-01T07:31:44.000Z",
-   "source": "gnews-funding",
-   "outlet": "YourStory.com",
-   "category": "funding",
-   "score": null
-  },
-  {
-   "title": "Nigerian co-founded AI startup Minicor raises $3.8 million to bridge AI and legacy business software",
-   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQMkhTRnFMMzJndm1kcEM1MlVmYTBiNHc3UTRBRE5tTGNBLVQxQ1dxRV9OTmx1RUJaUlk5RWNXQV9nNVFFeVNxVkhQVHA4U0syYUZpTi1WbHlZYWZROTVHVldCaUtEcS1qLVpRb0FVd3RmcE82TEJsZlpna2NzWEJWN0xpWV9iZ0VhSldOLTJTNnFybFBNcmpWdHVpMGZqVnNxd0RuVk0wNGNqdnlTb0l4Q3RmNWRkVkhYWjlyMVZSTHBtel85TjVveUNDRDVXaFlabGc?oc=5",
-   "published": "2026-11-01T07:11:00.000Z",
-   "source": "gnews-funding",
-   "outlet": "Nairametrics",
-   "category": "funding",
-   "score": null
-  },
-  {
-   "title": "If Your AI Scores 100%, Your Eval Is Wrong - Ramakrishnan Lokanathan, eslams.com",
-   "url": "https://www.youtube.com/watch?v=7WUzHIF32vA",
-   "published": "2026-11-01T07:00:02.000Z",
-   "source": "yt-ai-engineer",
-   "outlet": null,
-   "category": "use-cases",
-   "score": 5718
-  },
-  {
    "title": "The AI cost of JavaScript frameworks",
    "url": "https://news.ycombinator.com/item?id=50323088",
    "published": "2026-11-01T06:06:19Z",
@@ -1029,12 +1250,12 @@
    "score": 436
   },
   {
-   "title": "AI Software Engineering Market Grows as Cognition Considers New Funding",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPZGJWLWthbFpOd2ZHSWk4MzJUX3NBaERNNmdhYXRIM2hqUXlhQk9lTnNlNFR4TEQ4OGQtMFVuYTlqY29hSnRFalQxalpJZC00NjJXSUJaR3FqOVJudWV3cm5zWll0R1VVQVZsVDUxS1VWQzNJTUQtb2tLdFhTam5yZEExd1dRMG5kb2FVdzFqbDhlSlF2a0hlRGd4RVE?oc=5",
-   "published": "2026-11-01T05:41:54.000Z",
-   "source": "gnews-funding",
-   "outlet": "Tekedia",
-   "category": "funding",
+   "title": "Data centers are now a midterm issue, even in Brooklyn",
+   "url": "https://techcrunch.com/2026/10/31/data-centers-are-now-a-midterm-issue-even-in-brooklyn/",
+   "published": "2026-11-01T02:22:10.000Z",
+   "source": "techcrunch",
+   "outlet": null,
+   "category": "other",
    "score": null
   },
   {
@@ -1111,15 +1332,6 @@
    "score": 173
   },
   {
-   "title": "Baseten Valuation Set to Hit $30 Billion in New $2B Funding Round",
-   "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1MVG12X3J3RXg4a20tRkRBck9aSElEREFBYlVaSVBzczdIcGZOME5zaHZnNU5iaDRJR3pSSnR1YlgtQXNwcENRU3p0blFOV3JqNlFBT2VQdw?oc=5",
-   "published": "2026-10-31T20:33:35.000Z",
-   "source": "gnews-funding",
-   "outlet": "ShiftDelete.Net",
-   "category": "funding",
-   "score": null
-  },
-  {
    "title": "Anthropic blocks users for anything touching training larger models",
    "url": "https://news.ycombinator.com/item?id=50319358",
    "published": "2026-10-31T19:39:19Z",
@@ -1127,15 +1339,6 @@
    "outlet": null,
    "category": "other",
    "score": 448
-  },
-  {
-   "title": "AI Chip Startups 2026: Funding, Valuations and Top Companies",
-   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE05Rk1SOTdvclJKbVlTeFVTcFZ5aWx2cmZjdm5DS0JNMVBVUWlHOWVfRFBaM2J4TXFuNGQ0R2l6b3lvaEVGTUp4TkZ0TUlnODdrSldBSzRpZ3RLdw?oc=5",
-   "published": "2026-10-31T19:23:31.000Z",
-   "source": "gnews-funding",
-   "outlet": "AI Funding Tracker",
-   "category": "funding",
-   "score": null
   },
   {
    "title": "GPT-5.6 Sol can beat Factorio on peaceful mode",
@@ -1174,15 +1377,6 @@
    "score": null
   },
   {
-   "title": "Dulo Raises $130 Million Seed Funding To Build Engineering Superintelligence",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOT1FjU2dFNU92NTk0U2Z6NG53dTh6aDNpVmZWRGZwZ3czal9DZ2JRRjlvQmh0TTdydUZtYndqMHB5Ry1Zemg4bm9DSDVhT0N5U2sxTEVNMldYeUJBSHQ0ZndsWVFDMGo0cmNWTmQwVFdZeWlCWGZnS0VTTjRrU1o3VHA5aWJyQWlDTGtVaTdsY3hLTFhJQXJ0UVdKYw?oc=5",
-   "published": "2026-10-31T16:09:52.000Z",
-   "source": "gnews-funding",
-   "outlet": "Pulse 2.0",
-   "category": "funding",
-   "score": null
-  },
-  {
    "title": "I built an AI Tamagotchi before Meta could",
    "url": "https://www.theverge.com/gadgets/1013375/muse-charm-gadgets-preview-waveshare-esp32-claude-vibe-code",
    "published": "2026-10-31T16:05:00.000Z",
@@ -1210,15 +1404,6 @@
    "score": null
   },
   {
-   "title": "From Cent to Viridian: This Week's Startup Funding and Deals",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPdExUYllrYkJ1R3BRLUs3dkh6SGd6bHpjMmFBd1Q2R0pCZVdNMUh1RWdqSkJveTRfbVpXVElXQ1JlTldHMkdvb01zZjdEYzJTdEhrb3F6ZzBaSm9JUEhUWk5HOGdaaUlnSzhJRXFwZElrWjdMYnE2SndwTzd0RlcxVFVORGV2MUhIb0ltT2JMS1RoMG11OUJQRnpNZ0lQZ9IBngFBVV95cUxPdExUYllrYkJ1R3BRLUs3dkh6SGd6bHpjMmFBd1Q2R0pCZVdNMUh1RWdqSkJveTRfbVpXVElXQ1JlTldHMkdvb01zZjdEYzJTdEhrb3F6ZzBaSm9JUEhUWk5HOGdaaUlnSzhJRXFwZElrWjdMYnE2SndwTzd0RlcxVFVORGV2MUhIb0ltT2JMS1RoMG11OUJQRnpNZ0lQZw?oc=5",
-   "published": "2026-10-31T15:18:14.000Z",
-   "source": "gnews-funding",
-   "outlet": "CIOL",
-   "category": "funding",
-   "score": null
-  },
-  {
    "title": "Malware uses LLMs to rank victims by how much they're worth",
    "url": "https://news.ycombinator.com/item?id=50316531",
    "published": "2026-10-31T14:29:03Z",
@@ -1235,15 +1420,6 @@
    "outlet": null,
    "category": "use-cases",
    "score": 105110
-  },
-  {
-   "title": "Weekly Startup News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBobmdIZUNtR0RzNW9SZm5yYk40U1ZOQjZ3Z3JQVGJ3YlFTd2xfcXdCblRhNU9WNTlHaVB3ZFlEM0w0MTdDYmt4UEd2VjZud0lGMXZWSmRR?oc=5",
-   "published": "2026-10-31T13:50:52.000Z",
-   "source": "gnews-funding",
-   "outlet": "TechStory",
-   "category": "funding",
-   "score": null
   },
   {
    "title": "Betelgeuse: Running Qwen 3.8 Flash Next at 22 tok/s sustained (spiking to 48 tok/s) on an RTX 3060 12GB + 16GB DDR4 RAM 100% bit-exact!",
@@ -1369,6 +1545,15 @@
    "source": "techcrunch",
    "outlet": null,
    "category": "other",
+   "score": null
+  },
+  {
+   "title": "Do you double check what AI tells you, or mostly just trust it?",
+   "url": "https://www.reddit.com/r/ChatGPTPro/comments/1xjrb6h/do_you_double_check_what_ai_tells_you_or_mostly/",
+   "published": "2026-10-30T21:02:18.000Z",
+   "source": "r-chatgptpro",
+   "outlet": null,
+   "category": "use-cases",
    "score": null
   },
   {
@@ -1616,6 +1801,15 @@
    "score": null
   },
   {
+   "title": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+   "url": "https://huggingface.co/papers/2610.42053",
+   "published": "2026-10-30T13:18:13.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 43
+  },
+  {
    "title": "Silicon Valley wants you to invest in miracles",
    "url": "https://www.theverge.com/ai-artificial-intelligence/1023070/anthropic-ipo-risk-factors-filing-miracles",
    "published": "2026-10-30T13:11:05.000Z",
@@ -1640,7 +1834,7 @@
    "source": "yt-sam-witteveen",
    "outlet": null,
    "category": "open-source",
-   "score": 59474
+   "score": 65856
   },
   {
    "title": "Can AI data centers be mass-produced like cars? This startup aims to find out",
@@ -1806,15 +2000,6 @@
    "score": null
   },
   {
-   "title": "Arc: a ~70 MB streaming speech model that transcribes links names and metadata to your own list as they're spoken, with no second model [p]",
-   "url": "https://www.reddit.com/r/MachineLearning/comments/1xiyuoj/arc_a_70_mb_streaming_speech_model_that/",
-   "published": "2026-10-29T22:51:57.000Z",
-   "source": "r-machinelearning",
-   "outlet": null,
-   "category": "research",
-   "score": null
-  },
-  {
    "title": "Arguably unethical behavior from Cohere",
    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xix61q/arguably_unethical_behavior_from_cohere/",
    "published": "2026-10-29T21:43:11.000Z",
@@ -1824,13 +2009,22 @@
    "score": null
   },
   {
-   "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
-   "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
-   "published": "2026-10-29T20:08:31.000Z",
-   "source": "techcrunch",
+   "title": "WeFair: Fidelity-Aware Alignment from Human Feedback for Personalized Query Rewriting in Short-Video Search",
+   "url": "https://huggingface.co/papers/2610.16927",
+   "published": "2026-10-29T20:00:00.000Z",
+   "source": "hf-papers",
    "outlet": null,
-   "category": "launches",
-   "score": null
+   "category": "research",
+   "score": 26
+  },
+  {
+   "title": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+   "url": "https://huggingface.co/papers/2610.42149",
+   "published": "2026-10-29T20:00:00.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 24
   },
   {
    "title": "SaaS is dead?",
@@ -1860,15 +2054,6 @@
    "score": 356
   },
   {
-   "title": "ChatGPT Pro usages are getting doubles",
-   "url": "https://www.reddit.com/r/ChatGPTPro/comments/1xipn3v/chatgpt_pro_usages_are_getting_doubles/",
-   "published": "2026-10-29T17:00:34.000Z",
-   "source": "r-chatgptpro",
-   "outlet": null,
-   "category": "use-cases",
-   "score": null
-  },
-  {
    "title": "An updated Model Spec for more capable and beneficial AI",
    "url": "https://openai.com/index/updated-model-spec",
    "published": "2026-10-29T17:00:00.000Z",
@@ -1887,15 +2072,6 @@
    "score": null
   },
   {
-   "title": "LLM Voice",
-   "url": "https://news.ycombinator.com/item?id=50290177",
-   "published": "2026-10-29T14:57:55Z",
-   "source": "hn",
-   "outlet": null,
-   "category": "other",
-   "score": 605
-  },
-  {
    "title": "I think local AI cost me a job",
    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xils4t/i_think_local_ai_cost_me_a_job/",
    "published": "2026-10-29T14:38:02.000Z",
@@ -1905,32 +2081,14 @@
    "score": null
   },
   {
-   "title": "Manifestos, Fear, and 'Loser Thinking': Inside Proton's AI Reckoning",
-   "url": "https://news.ycombinator.com/item?id=50289692",
-   "published": "2026-10-29T14:29:06Z",
-   "source": "hn",
-   "outlet": null,
-   "category": "other",
-   "score": 232
-  },
-  {
-   "title": "We're releasing the weights of Mistral Large 4",
-   "url": "https://news.ycombinator.com/item?id=50289418",
-   "published": "2026-10-29T14:13:21Z",
-   "source": "hn",
+   "title": "Mistral Large 4 (Le Chonk) is now open weight",
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xil3qy/mistral_large_4_le_chonk_is_now_open_weight/",
+   "published": "2026-10-29T14:11:42.000Z",
+   "source": "r-localllama",
    "outlet": null,
    "category": "open-source",
-   "score": 1707,
+   "score": null,
    "also": 1
-  },
-  {
-   "title": "Old-school classifiers are still generally better than Jev [P]",
-   "url": "https://www.reddit.com/r/MachineLearning/comments/1xil53d/oldschool_classifiers_are_still_generally_better/",
-   "published": "2026-10-29T14:13:05.000Z",
-   "source": "r-machinelearning",
-   "outlet": null,
-   "category": "research",
-   "score": null
   },
   {
    "title": "Granite Switch 4.1.1 — Update models like you update software",
@@ -1957,15 +2115,6 @@
    "source": "r-claudeai",
    "outlet": null,
    "category": "launches",
-   "score": null
-  },
-  {
-   "title": "Leaving a job to pursue a PhD [D]",
-   "url": "https://www.reddit.com/r/MachineLearning/comments/1xif85l/leaving_a_job_to_pursue_a_phd_d/",
-   "published": "2026-10-29T09:28:28.000Z",
-   "source": "r-machinelearning",
-   "outlet": null,
-   "category": "research",
    "score": null
   },
   {
@@ -2050,15 +2199,6 @@
    "score": null
   },
   {
-   "title": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
-   "url": "https://huggingface.co/blog/mistral-large4",
-   "published": "2026-10-29T00:00:00.000Z",
-   "source": "hf-blog",
-   "outlet": null,
-   "category": "launches",
-   "score": null
-  },
-  {
    "title": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
    "url": "https://huggingface.co/blog/anydecisionmodel",
    "published": "2026-10-29T00:00:00.000Z",
@@ -2123,6 +2263,51 @@
    "score": 36
   },
   {
+   "title": "Apriel Voice 27B Preview: An Open Model for Speech, Reasoning, and Tool Use",
+   "url": "https://huggingface.co/papers/2610.40738",
+   "published": "2026-10-28T20:00:00.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 34
+  },
+  {
+   "title": "Intrinsic Distribution Matching",
+   "url": "https://huggingface.co/papers/2610.39633",
+   "published": "2026-10-28T20:00:00.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 26
+  },
+  {
+   "title": "Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers",
+   "url": "https://huggingface.co/papers/2610.40647",
+   "published": "2026-10-28T20:00:00.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 24
+  },
+  {
+   "title": "Wizard: Manipulate Any World in Real Time via Agentic Control",
+   "url": "https://huggingface.co/papers/2610.40339",
+   "published": "2026-10-28T20:00:00.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 24
+  },
+  {
+   "title": "HiFOR: Hierarchical Foresight with Action-Guided World Grounding for Vision-Language-Action Model",
+   "url": "https://huggingface.co/papers/2610.40373",
+   "published": "2026-10-28T20:00:00.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 23
+  },
+  {
    "title": "A 4B model made me a netherite ingot from bare hands. All I did was type one sentence in chat.",
    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xhw2l0/a_4b_model_made_me_a_netherite_ingot_from_bare/",
    "published": "2026-10-28T18:21:25.000Z",
@@ -2165,15 +2350,6 @@
    "source": "r-localllama",
    "outlet": null,
    "category": "open-source",
-   "score": null
-  },
-  {
-   "title": "Gemini 4 Carbon: Our next frontier model",
-   "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
-   "published": "2026-10-28T17:00:58.000Z",
-   "source": "deepmind",
-   "outlet": null,
-   "category": "launches",
    "score": null
   },
   {
@@ -2249,15 +2425,6 @@
    "score": null
   },
   {
-   "title": "Dirt cheap GPUs coming next year",
-   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xhep6w/dirt_cheap_gpus_coming_next_year/",
-   "published": "2026-10-28T04:34:41.000Z",
-   "source": "r-localllama",
-   "outlet": null,
-   "category": "open-source",
-   "score": null
-  },
-  {
    "title": "Deepseek crushed everyone",
    "url": "https://www.youtube.com/watch?v=DDZ-a6bAn3Y",
    "published": "2026-10-28T03:47:38.000Z",
@@ -2267,15 +2434,6 @@
    "score": 141200
   },
   {
-   "title": "Claude Code usage exploded 8x today. Anthropic confirmed service errors consume our paid limits — and they won't compensate users",
-   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xh3yyu/claude_code_usage_exploded_8x_today_anthropic/",
-   "published": "2026-10-27T20:34:10.000Z",
-   "source": "r-claudeai",
-   "outlet": null,
-   "category": "use-cases",
-   "score": null
-  },
-  {
    "title": "A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement",
    "url": "https://huggingface.co/papers/2610.38568",
    "published": "2026-10-27T20:00:00.000Z",
@@ -2283,6 +2441,24 @@
    "outlet": null,
    "category": "research",
    "score": 81
+  },
+  {
+   "title": "WeVisCut: The Whole Editing Room in One Agent From Narration to Long-Form Video",
+   "url": "https://huggingface.co/papers/2610.38352",
+   "published": "2026-10-27T20:00:00.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 27
+  },
+  {
+   "title": "IntReal: A Real-World Dataset and Benchmark for Multimodal Interleaved Generation",
+   "url": "https://huggingface.co/papers/2610.38425",
+   "published": "2026-10-27T20:00:00.000Z",
+   "source": "hf-papers",
+   "outlet": null,
+   "category": "research",
+   "score": 22
   },
   {
    "title": "I Ranked 5 Ways to Wake Up",
@@ -2337,141 +2513,6 @@
    "outlet": null,
    "category": "launches",
    "score": null
-  },
-  {
-   "title": "How Check Point accelerates vulnerability research with Daybreak",
-   "url": "https://openai.com/index/check-point-daybreak",
-   "published": "2026-10-27T00:00:00.000Z",
-   "source": "openai",
-   "outlet": null,
-   "category": "launches",
-   "score": null
-  },
-  {
-   "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
-   "url": "https://openai.com/index/greptile-code-review-codex-astra",
-   "published": "2026-10-26T22:00:00.000Z",
-   "source": "openai",
-   "outlet": null,
-   "category": "launches",
-   "score": null
-  },
-  {
-   "title": "The Most Terrifying Week in AI History...",
-   "url": "https://www.youtube.com/watch?v=3hJ049UPv4Y",
-   "published": "2026-10-26T21:00:54.000Z",
-   "source": "yt-riley-brown",
-   "outlet": null,
-   "category": "use-cases",
-   "score": 251910
-  },
-  {
-   "title": "Watch how I use @openai Dots AI agents in chatgpt to make my life & business better #chatgpt_partner",
-   "url": "https://www.youtube.com/shorts/35sh2FkQn-k",
-   "published": "2026-10-26T21:00:52.000Z",
-   "source": "yt-greg-isenberg",
-   "outlet": null,
-   "category": "use-cases",
-   "score": 5957
-  },
-  {
-   "title": "PDRVLA: A Vision-Language-Action Model with Physical Dynamics Representations",
-   "url": "https://huggingface.co/papers/2610.37381",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 153
-  },
-  {
-   "title": "Hy-Nomas: Towards Free-form Interactive World Generation",
-   "url": "https://huggingface.co/papers/2610.36729",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 123
-  },
-  {
-   "title": "Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs",
-   "url": "https://huggingface.co/papers/2610.36671",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 115
-  },
-  {
-   "title": "TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving",
-   "url": "https://huggingface.co/papers/2610.37230",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 95
-  },
-  {
-   "title": "ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning",
-   "url": "https://huggingface.co/papers/2610.37666",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 62
-  },
-  {
-   "title": "FrameForge: Harnessing Priors of Video Foundation Models for Unified Image Generation",
-   "url": "https://huggingface.co/papers/2610.36545",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 59
-  },
-  {
-   "title": "WorkFactory: Turning Professional Intents into Executable Work for Scalable Agent Training",
-   "url": "https://huggingface.co/papers/2610.37161",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 53
-  },
-  {
-   "title": "CodeCap-Bench: Can Code Serve as a Good Video Caption?",
-   "url": "https://huggingface.co/papers/2610.37341",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 53
-  },
-  {
-   "title": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
-   "url": "https://huggingface.co/papers/2610.37662",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 36
-  },
-  {
-   "title": "Zooming without Zooming v2: From Seeing Details to Connecting Evidence for Generalizable Multimodal Perception",
-   "url": "https://huggingface.co/papers/2610.37037",
-   "published": "2026-10-26T20:00:00.000Z",
-   "source": "hf-papers",
-   "outlet": null,
-   "category": "research",
-   "score": 32
-  },
-  {
-   "title": "The $1,000/hour 1-person AI business",
-   "url": "https://www.youtube.com/watch?v=HKNpCwG3nlc",
-   "published": "2026-10-26T18:35:28.000Z",
-   "source": "yt-greg-isenberg",
-   "outlet": null,
-   "category": "use-cases",
-   "score": 95022
   }
  ]
 }
