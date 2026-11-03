@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-03T09:55:08.326Z",
+ "fetched": "2026-11-03T15:36:08.175Z",
  "window_days": 120,
  "categories": [
   {
@@ -31,7 +31,7 @@
    "about": "Anthropic's own channel: research, interviews, how the company builds Claude.",
    "ok": true,
    "count": 8,
-   "last_ok": "2026-11-03T08:34:41.543Z"
+   "last_ok": "2026-11-03T14:15:19.138Z"
   },
   {
    "id": "yt-claude",
@@ -42,7 +42,7 @@
    "about": "Anthropic's product channel for Claude: feature walkthroughs, Claude Code, how-tos.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:42.948Z"
+   "last_ok": "2026-11-03T14:15:20.911Z"
   },
   {
    "id": "yt-openai",
@@ -53,7 +53,7 @@
    "about": "OpenAI's official channel: launches, livestreams, demos.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:44.557Z"
+   "last_ok": "2026-11-03T14:15:22.423Z"
   },
   {
    "id": "yt-deepmind",
@@ -64,7 +64,7 @@
    "about": "Google DeepMind's official channel: Gemini, research, model launches.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:46.169Z"
+   "last_ok": "2026-11-03T14:15:23.923Z"
   },
   {
    "id": "yt-meta-ai",
@@ -75,7 +75,7 @@
    "about": "Meta's official AI channel: Llama and research releases.",
    "ok": true,
    "count": 2,
-   "last_ok": "2026-11-03T08:34:47.778Z"
+   "last_ok": "2026-11-03T14:15:25.553Z"
   },
   {
    "id": "yt-mistral",
@@ -86,7 +86,7 @@
    "about": "Linked from mistral.ai. Model launches and talks.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:49.472Z"
+   "last_ok": "2026-11-03T14:15:27.176Z"
   },
   {
    "id": "yt-google-devs",
@@ -97,7 +97,7 @@
    "about": "Google's developer channel: Gemini API, AI Studio, Antigravity.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:51.072Z"
+   "last_ok": "2026-11-03T14:15:28.802Z"
   },
   {
    "id": "yt-google-cloud",
@@ -108,7 +108,7 @@
    "about": "Google Cloud's technical channel: Vertex AI, agents on GCP.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:52.674Z"
+   "last_ok": "2026-11-03T14:15:30.476Z"
   },
   {
    "id": "yt-github",
@@ -119,7 +119,7 @@
    "about": "GitHub's official channel: Copilot, agents, developer talks.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:54.292Z"
+   "last_ok": "2026-11-03T14:15:31.981Z"
   },
   {
    "id": "yt-cloudflare",
@@ -130,7 +130,7 @@
    "about": "Cloudflare's developer channel: Workers AI, agents, MCP.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:55.806Z"
+   "last_ok": "2026-11-03T14:15:33.605Z"
   },
   {
    "id": "yt-vercel",
@@ -141,7 +141,7 @@
    "about": "Vercel's official channel: AI SDK, v0, Next.js.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:57.467Z"
+   "last_ok": "2026-11-03T14:15:35.315Z"
   },
   {
    "id": "yt-supabase",
@@ -152,7 +152,7 @@
    "about": "Supabase's official channel: Postgres, vectors, building backends.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:34:59.127Z"
+   "last_ok": "2026-11-03T14:15:36.949Z"
   },
   {
    "id": "yt-langchain",
@@ -163,7 +163,7 @@
    "about": "LangChain's team: LangGraph, agents, new capabilities shown by the people who built them.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:35:00.757Z"
+   "last_ok": "2026-11-03T14:15:38.599Z"
   },
   {
    "id": "yt-llamaindex",
@@ -174,7 +174,7 @@
    "about": "LlamaIndex's official channel: document agents, parsing, RAG.",
    "ok": true,
    "count": 13,
-   "last_ok": "2026-11-03T08:35:02.358Z"
+   "last_ok": "2026-11-03T14:15:40.307Z"
   },
   {
    "id": "yt-huggingface",
@@ -185,7 +185,7 @@
    "about": "Hugging Face's official channel: open models, libraries, talks.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:35:04.107Z"
+   "last_ok": "2026-11-03T14:15:41.956Z"
   },
   {
    "id": "yt-pinecone",
@@ -196,7 +196,7 @@
    "about": "Pinecone's official channel: vector search, retrieval.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:35:05.714Z"
+   "last_ok": "2026-11-03T14:15:43.686Z"
   },
   {
    "id": "yt-cursor",
@@ -207,7 +207,7 @@
    "about": "Cursor's official channel: how teams use the editor and its agent.",
    "ok": true,
    "count": 8,
-   "last_ok": "2026-11-03T08:35:07.327Z"
+   "last_ok": "2026-11-03T14:15:45.304Z"
   },
   {
    "id": "yt-replit",
@@ -218,7 +218,7 @@
    "about": "Replit's official channel: Replit Agent, building apps.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:35:09.016Z"
+   "last_ok": "2026-11-03T14:15:46.934Z"
   },
   {
    "id": "yt-n8n",
@@ -229,7 +229,7 @@
    "about": "n8n's official channel: workflow and AI-agent automation tutorials.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:35:10.677Z"
+   "last_ok": "2026-11-03T14:15:48.571Z"
   },
   {
    "id": "yt-ai-engineer",
@@ -240,10 +240,28 @@
    "about": "The AI Engineer conference: talks from the people building at labs and startups.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-03T08:35:12.191Z"
+   "last_ok": "2026-11-03T14:15:50.200Z"
   }
  ],
  "items": [
+  {
+   "title": "Make Your AI Agents Predictable With Graph Engineering - Zachary Blumenfeld, Neo4j",
+   "url": "https://www.youtube.com/watch?v=g_NgCLTibiM",
+   "published": "2026-11-03T10:00:09.000Z",
+   "source": "yt-ai-engineer",
+   "outlet": null,
+   "category": "video",
+   "score": 8917
+  },
+  {
+   "title": "Your AI Agents Shouldn't Care Where They Run - Nikhil Harithas, Factory",
+   "url": "https://www.youtube.com/watch?v=XIHZpZtYCzo",
+   "published": "2026-11-03T09:00:22.000Z",
+   "source": "yt-ai-engineer",
+   "outlet": null,
+   "category": "video",
+   "score": 1689
+  },
   {
    "title": "Better Search Took This AI Agent From 36% to 98% Accuracy - Aamir Shakir, Mixedbread",
    "url": "https://www.youtube.com/watch?v=3Ad73Onx3Aw",
@@ -251,7 +269,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 107
+   "score": 2111
   },
   {
    "title": "You Can't Tell What's Real Anymore. Here's What Comes Next - Cristóbal Valenzuela, Runway",
@@ -260,7 +278,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 3898
+   "score": 6039
   },
   {
    "title": "More AI agents = better results?",
@@ -269,7 +287,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 3112
+   "score": 4359
   },
   {
    "title": "GitHub Universe 2026 was built different",
@@ -278,7 +296,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 1734
+   "score": 2629
   },
   {
    "title": "Coinbase on OpenAI Private Intelligence",
@@ -287,7 +305,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 2002
+   "score": 2768
   },
   {
    "title": "GitHub Universe '26 was built different",
@@ -296,7 +314,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 2422
+   "score": 2914
   },
   {
    "title": "I built an AI Agent to run my channel",
@@ -314,7 +332,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 14132
+   "score": 16983
   },
   {
    "title": "Cloud Run vs.Compute Engine: When should you run a container on serverless vs. managing a full VM?",
@@ -323,7 +341,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 925
+   "score": 1122
   },
   {
    "title": "How Travis and his team cut customer issue resolution time by 60% on Replit",
@@ -332,7 +350,7 @@
    "source": "yt-replit",
    "outlet": null,
    "category": "video",
-   "score": 403
+   "score": 448
   },
   {
    "title": "Self Driving Support Teams (Replit for Business)",
@@ -359,7 +377,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 13428
+   "score": 14949
   },
   {
    "title": "BigQuery vs. Production SQL: When should you use a data warehouse instead of a relational database?",
@@ -368,7 +386,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 1581
+   "score": 1867
   },
   {
    "title": "pg_pinecone: One SQL interface, three engines",
@@ -386,43 +404,43 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 1896
+   "score": 2114
   },
   {
    "title": "A Valid Key Let an AI Agent Delete Production - Sagar Batchu, Speakeasy",
    "url": "https://www.youtube.com/watch?v=JxNCuXkSWyQ",
-   "published": "2026-11-02T10:00:35Z",
+   "published": "2026-11-02T10:00:35.000Z",
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 4613
+   "score": 5163
   },
   {
    "title": "AI Writes Code Faster Than Your Team Can Review It - Andrew Norrish, Sourcegraph",
    "url": "https://www.youtube.com/watch?v=-X3yXTwGs9A",
-   "published": "2026-11-02T09:00:13Z",
+   "published": "2026-11-02T09:00:13.000Z",
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 5300
+   "score": 6017
   },
   {
    "title": "Your AI Pilots Won't Move the P&L. Here's What Will - Adam Nahari, Apollo",
    "url": "https://www.youtube.com/watch?v=vUJDyDnqT4c",
-   "published": "2026-11-02T08:00:03Z",
+   "published": "2026-11-02T08:00:03.000Z",
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 6019
+   "score": 6764
   },
   {
    "title": "What can the GitHub Universe 2026 badge actually do?",
    "url": "https://www.youtube.com/shorts/sPYYs-66-SA",
-   "published": "2026-11-02T05:52:12Z",
+   "published": "2026-11-02T05:52:12.000Z",
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 2332
+   "score": 2746
   },
   {
    "title": "I Don't Fear AI Slop. I Fear Untold Stories - Zack Proser, WorkOS",
@@ -458,7 +476,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 5155
+   "score": 5679
   },
   {
    "title": "If Your AI Scores 100%, Your Eval Is Wrong - Ramakrishnan Lokanathan, eslams.com",
@@ -495,24 +513,6 @@
    "outlet": null,
    "category": "video",
    "score": 2473
-  },
-  {
-   "title": "78% Wanted This AI Feature. Almost Nobody Used It - Supriya Subudhi, Bumble",
-   "url": "https://www.youtube.com/watch?v=CvmZtAPmAW4",
-   "published": "2026-10-31T09:00:01.000Z",
-   "source": "yt-ai-engineer",
-   "outlet": null,
-   "category": "video",
-   "score": 9149
-  },
-  {
-   "title": "When Running Your Own AI Models Beats Paying for APIs - Steven Latré, imec",
-   "url": "https://www.youtube.com/watch?v=9-Y_oS9OBLc",
-   "published": "2026-10-31T08:00:24.000Z",
-   "source": "yt-ai-engineer",
-   "outlet": null,
-   "category": "video",
-   "score": 8389
   },
   {
    "title": "The Self-Driving Finance Team (Replit for Business)",
@@ -571,11 +571,11 @@
   {
    "title": "Clarisse's finance tool was built entirely on Replit",
    "url": "https://www.youtube.com/watch?v=Iz3q5q5gqTw",
-   "published": "2026-10-30T16:16:22Z",
+   "published": "2026-10-30T16:16:22.000Z",
    "source": "yt-replit",
    "outlet": null,
    "category": "video",
-   "score": 12375
+   "score": 13720
   },
   {
    "title": "How Gen uses ChatGPT Work to turn data Into decisions | OpenAI",
@@ -638,7 +638,7 @@
    "source": "yt-langchain",
    "outlet": null,
    "category": "video",
-   "score": 2366
+   "score": 2676
   },
   {
    "title": "ML4 Office Hour",
@@ -827,7 +827,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 9384
+   "score": 10334
   },
   {
    "title": "Why AI agents need their own identity & audit trails",
@@ -899,7 +899,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 49236
+   "score": 55651
   },
   {
    "title": "Functional smart devices using Gemini 4 Argon and Google Antigravity",
