@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-03T01:12:21.712Z",
+ "fetched": "2026-11-03T02:35:07.929Z",
  "window_days": 120,
  "categories": [
   {
@@ -29,9 +29,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@anthropic-ai",
    "about": "Anthropic's own channel: research, interviews, how the company builds Claude.",
-   "ok": true,
+   "ok": false,
    "count": 8,
-   "last_ok": "2026-11-02T16:26:41.985Z"
+   "last_ok": "2026-11-02T16:26:41.985Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-claude",
@@ -40,9 +41,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@claude",
    "about": "Anthropic's product channel for Claude: feature walkthroughs, Claude Code, how-tos.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.485Z"
+   "last_ok": "2026-11-02T16:26:41.485Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-openai",
@@ -51,9 +53,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@OpenAI",
    "about": "OpenAI's official channel: launches, livestreams, demos.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.340Z"
+   "last_ok": "2026-11-02T16:26:41.340Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-deepmind",
@@ -64,7 +67,7 @@
    "about": "Google DeepMind's official channel: Gemini, research, model launches.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.332Z"
+   "last_ok": "2026-11-03T01:15:57.295Z"
   },
   {
    "id": "yt-meta-ai",
@@ -73,9 +76,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@AIatMeta",
    "about": "Meta's official AI channel: Llama and research releases.",
-   "ok": true,
+   "ok": false,
    "count": 2,
-   "last_ok": "2026-11-02T16:26:41.949Z"
+   "last_ok": "2026-11-02T16:26:41.949Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-mistral",
@@ -84,9 +88,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@MistralAIOfficial",
    "about": "Linked from mistral.ai. Model launches and talks.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:42.035Z"
+   "last_ok": "2026-11-02T16:26:42.035Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-google-devs",
@@ -95,9 +100,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@GoogleDevelopers",
    "about": "Google's developer channel: Gemini API, AI Studio, Antigravity.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.340Z"
+   "last_ok": "2026-11-02T16:26:41.340Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-google-cloud",
@@ -106,9 +112,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@GoogleCloudTech",
    "about": "Google Cloud's technical channel: Vertex AI, agents on GCP.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.943Z"
+   "last_ok": "2026-11-02T16:26:41.943Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-github",
@@ -117,9 +124,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@GitHub",
    "about": "GitHub's official channel: Copilot, agents, developer talks.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.330Z"
+   "last_ok": "2026-11-02T16:26:41.330Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-cloudflare",
@@ -128,9 +136,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@CloudflareDevelopers",
    "about": "Cloudflare's developer channel: Workers AI, agents, MCP.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:42.027Z"
+   "last_ok": "2026-11-02T16:26:42.027Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-vercel",
@@ -139,9 +148,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@VercelHQ",
    "about": "Vercel's official channel: AI SDK, v0, Next.js.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:42.078Z"
+   "last_ok": "2026-11-02T16:26:42.078Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-supabase",
@@ -150,9 +160,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@Supabase",
    "about": "Supabase's official channel: Postgres, vectors, building backends.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.331Z"
+   "last_ok": "2026-11-02T16:26:41.331Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-langchain",
@@ -161,9 +172,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@LangChain",
    "about": "LangChain's team: LangGraph, agents, new capabilities shown by the people who built them.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.539Z"
+   "last_ok": "2026-11-02T16:26:41.539Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-llamaindex",
@@ -172,9 +184,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@LlamaIndex",
    "about": "LlamaIndex's official channel: document agents, parsing, RAG.",
-   "ok": true,
+   "ok": false,
    "count": 13,
-   "last_ok": "2026-11-02T16:26:41.996Z"
+   "last_ok": "2026-11-02T16:26:41.996Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-huggingface",
@@ -183,9 +196,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@HuggingFace",
    "about": "Hugging Face's official channel: open models, libraries, talks.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:42.055Z"
+   "last_ok": "2026-11-02T16:26:42.055Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-pinecone",
@@ -194,9 +208,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@pinecone-io",
    "about": "Pinecone's official channel: vector search, retrieval.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.546Z"
+   "last_ok": "2026-11-02T16:26:41.546Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-cursor",
@@ -205,9 +220,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@cursor_ai",
    "about": "Cursor's official channel: how teams use the editor and its agent.",
-   "ok": true,
+   "ok": false,
    "count": 8,
-   "last_ok": "2026-11-02T16:26:42.023Z"
+   "last_ok": "2026-11-02T16:26:42.023Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-replit",
@@ -216,9 +232,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@Replit",
    "about": "Replit's official channel: Replit Agent, building apps.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.491Z"
+   "last_ok": "2026-11-02T16:26:41.491Z",
+   "error": "HTTP 404"
   },
   {
    "id": "yt-n8n",
@@ -227,9 +244,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@n8n-io",
    "about": "n8n's official channel: workflow and AI-agent automation tutorials.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:41.586Z"
+   "last_ok": "2026-11-02T16:26:41.586Z",
+   "error": "HTTP 500"
   },
   {
    "id": "yt-ai-engineer",
@@ -238,9 +256,10 @@
    "kind": "youtube_channel",
    "home": "https://www.youtube.com/@aiDotEngineer",
    "about": "The AI Engineer conference: talks from the people building at labs and startups.",
-   "ok": true,
+   "ok": false,
    "count": 15,
-   "last_ok": "2026-11-02T16:26:42.002Z"
+   "last_ok": "2026-11-02T16:26:42.002Z",
+   "error": "HTTP 404"
   }
  ],
  "items": [
