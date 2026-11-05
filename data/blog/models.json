@@ -68,7 +68,7 @@
     },
     {
       "type": "prose",
-      "html": "Find what you want to make in the first column. <b>Tested</b> means I used it myself to make the reel. <b>Higgsfield says</b> means it is the platform's own description, not my test. All of these models are on Higgsfield."
+      "html": "Find what you want to make in the first column. <b>Tested</b> means I used it myself to make the reel. <b>Higgsfield says</b> means it comes from Higgsfield's own guides, tests or model data, not from my test. Every model here is on Higgsfield."
     },
     {
       "type": "table",
@@ -80,29 +80,34 @@
       ],
       "rows": [
         [
-          "Realistic photos <small>a lifestyle shot for a café page, a model wearing your outfit</small>",
+          "Realistic photos of people <small>a lifestyle shot for a café page, a model wearing your outfit</small>",
           "Soul 2.0",
-          "<b>Tested.</b> The real-looking rain photo above. Higgsfield says: realistic UGC, fashion editorial and character generation."
+          "<b>Tested.</b> The real-looking rain photo above. Higgsfield says: best for \"photorealistic people and one character across a series\"."
         ],
         [
-          "The same person in many images, or editing a photo by plain instruction <small>yourself in ten scenes, \"change the jacket\"</small>",
+          "The same person in many images, edits by plain instruction, or anime <small>yourself in ten scenes, \"change the jacket\", a story in anime style</small>",
           "Nano Banana 2.1",
-          "<b>Tested.</b> Every shot of me in the reel kept the same face, hair and jacket. About 2 credits for a 2K image."
+          "<b>Tested.</b> Every shot of me in the reel kept the same face, hair and jacket, and it made the anime polaroid. About 2 credits for a 2K image. Higgsfield says: best for \"precise edits\"."
         ],
         [
-          "Product ads and packshots <small>a skincare bottle on marble, a product carousel</small>",
+          "Product photos and thumbnails <small>a skincare bottle on marble, a YouTube cover</small>",
           "Nano Banana Pro",
-          "Higgsfield's own product-photoshoot workflow uses this model."
+          "Higgsfield's own product-photoshoot and thumbnail workflows use this model."
         ],
         [
-          "Text inside the image <small>an event poster, a labelled diagram</small>",
-          "Nano Banana Pro or GPT Image 2",
-          "Higgsfield says Nano Banana Pro is for text and diagrams, and tags GPT Image 2 for text rendering."
+          "Your product held or worn by a person <small>a model holding your mug, wearing your watch</small>",
+          "Marketing Studio, \"With Model\"",
+          "Higgsfield says: the product \"held, worn or used by a person\". It also makes ad sizes for Meta and Google."
         ],
         [
-          "YouTube or Instagram thumbnails <small>a cover with a big title</small>",
-          "Nano Banana Pro",
-          "Higgsfield's own thumbnail workflow uses this model."
+          "Text inside the image <small>an event poster, a menu, a sale banner</small>",
+          "GPT Image 2 or Ideogram 4.5",
+          "Higgsfield says GPT Image handles text and exact colour better than most models, and calls Ideogram 4.5 best for \"accurate text and typography\". Put the exact words in quotes in your prompt."
+        ],
+        [
+          "Infographics, or text in many languages <small>a step-by-step chart, a poster in Hindi and English</small>",
+          "Seedream 5.0 Pro",
+          "Higgsfield says: best for \"infographics and multilingual text\", and for long, detailed prompts."
         ],
         [
           "Logos as SVG <small>a logo that stays sharp at any size</small>",
@@ -110,9 +115,9 @@
           "Higgsfield's brand-asset workflow calls it the only SVG logo generator."
         ],
         [
-          "Anime and illustration <small>a story told in anime style</small>",
-          "Nano Banana 2.1",
-          "<b>Tested.</b> The anime polaroid in the reel."
+          "A made-up actor who looks the same in every scene <small>the lead of a short AI film</small>",
+          "Soul Cast",
+          "Higgsfield says: build an AI actor that stays \"consistent across every scene\". For a real person's face, use Soul 2.0 with your own photos instead."
         ],
         [
           "Cinematic stills and concept art <small>a mood board for a short film</small>",
@@ -133,6 +138,42 @@
     },
     {
       "type": "table",
+      "title": "Fix what you already have",
+      "head": [
+        "You want",
+        "Use",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Make a small or blurry photo sharp <small>an old phone photo, a face that is soft</small>",
+          "Topaz upscale",
+          "Higgsfield says: upscale to any pixel size, with a face option to \"recover facial detail in a blurry portrait\"."
+        ],
+        [
+          "Bring an old, faded photo back <small>a family photo from the 90s</small>",
+          "Topaz generative, Recovery mode",
+          "Higgsfield says Recovery rebuilds \"old and faded photos\". It adds detail that was not there, so check faces."
+        ],
+        [
+          "Make a video sharper <small>720p up to 4K</small>",
+          "Higgsfield video upscale",
+          "Higgsfield's upscale tool: 1080p, 2K or 4K, with presets for AI clips, UGC and old film."
+        ],
+        [
+          "Remove the background <small>a product on white, a cut-out of you</small>",
+          "Higgsfield remove background",
+          "A tool, not a model. One click."
+        ],
+        [
+          "Change the shape <small>a square post into a 9:16 reel cover</small>",
+          "Higgsfield reframe",
+          "A tool, not a model. It fills the new space around the picture."
+        ]
+      ]
+    },
+    {
+      "type": "table",
       "title": "Video",
       "head": [
         "You want",
@@ -146,9 +187,44 @@
           "<b>Tested.</b> Every clip of me in the reel. 8.75 credits for 5 seconds at 1080p, sound off. Takes a start frame and an end frame."
         ],
         [
-          "Realistic video of a real person, with sound, up to 30 seconds <small>a short scene with dialogue</small>",
+          "A realistic person, with sound, several shots, up to 30 seconds <small>a short scene with dialogue</small>",
           "Seedance 2.5",
-          "Higgsfield's default for general video. Much dearer: I was quoted 80 credits for 5 seconds at 1080p, against 8.75 on Kling."
+          "Higgsfield says: best for \"multi-shot films that need synced audio\". Much dearer: I was quoted 80 credits for 5 seconds at 1080p, against 8.75 on Kling."
+        ],
+        [
+          "Wide outdoor scenes and weather <small>a city in fog, waves on rocks</small>",
+          "Veo 3.1",
+          "Higgsfield says: best for \"wide, outdoor and weather-driven scenes\", weaker on close-ups of faces. 80 credits for 8 seconds at 1080p."
+        ],
+        [
+          "Several people in one long take <small>friends talking around a table</small>",
+          "Wan 3.0",
+          "Higgsfield says: best for \"long takes with several characters on screen\". 35 credits for 10 seconds at 1080p."
+        ],
+        [
+          "A photo that talks <small>a portrait saying your script</small>",
+          "Grok Imagine 1.5",
+          "Higgsfield says: best for \"talking heads and animated stills with dialogue\". Use a front-facing photo and short lines. 80 credits for 10 seconds at 1080p."
+        ],
+        [
+          "Your photo, speaking your own recording <small>you, in a new place, with your real voice</small>",
+          "Higgsfield Intone",
+          "Higgsfield says: the person in one image speaks your recording in the place from another image. 4 to 30 seconds, set by the recording."
+        ],
+        [
+          "New words on a video you already have <small>fix a line in your reel without reshooting</small>",
+          "Sync Lipsync 3",
+          "Higgsfield says: precise lip sync on an existing video, up to 4K. You give the video and the new audio."
+        ],
+        [
+          "Fast anime and stylised clips <small>an anime fight, a cartoon loop</small>",
+          "MiniMax Hailuo 2.3",
+          "Higgsfield says: \"the fastest, lowest-effort model for short-form, stylised and anime content\". 10 credits for 6 seconds at 1080p."
+        ],
+        [
+          "A directed film shot: you set camera, light and colour <small>a slow dolly-in at golden hour</small>",
+          "Cinema Studio 4.0",
+          "Higgsfield says: best for \"directed cinematic clips\". The dearest here: 16 credits a second at 1080p."
         ],
         [
           "Product ad videos for Reels or TikTok <small>a ready-made ad for an online shop</small>",
@@ -174,7 +250,7 @@
     },
     {
       "type": "table",
-      "title": "Voice",
+      "title": "Voice and music",
       "head": [
         "You want",
         "Use",
@@ -185,13 +261,48 @@
           "A voice that acts, not reads <small>a narrator who sounds amused, not robotic</small>",
           "ElevenLabs v4, with audio tags",
           "<b>Tested.</b> The voice in the reel. Tags like <code>[amused]</code> or <code>[deadpan]</code> change the emotion, CAPITALS stress a word, and \"…\" adds a pause."
+        ],
+        [
+          "Your own voice <small>a voiceover in your voice, without recording it</small>",
+          "Higgsfield Create Voice, then ElevenLabs v4",
+          "Make the voice once from your recordings. Eleven v4 can then speak with it. Only clone a voice you have the right to use."
+        ],
+        [
+          "One narrator at the highest quality <small>a clean explainer voiceover</small>",
+          "MiniMax Speech 2.8 HD",
+          "Higgsfield says: \"built for a single narrator voice at the highest fidelity\"."
+        ],
+        [
+          "The same script in many languages <small>one ad for India, Brazil and Japan</small>",
+          "Seed Speech",
+          "Higgsfield says: \"built for reach across 30+ languages\"."
+        ],
+        [
+          "Long narration <small>an audiobook chapter, a podcast episode</small>",
+          "VibeVoice",
+          "Higgsfield says: \"specifically for long-form narration\"."
+        ],
+        [
+          "A scene with several speakers and room sound <small>two people arguing in a busy café</small>",
+          "Seed Audio 1.0",
+          "Higgsfield says: makes the ambience together with the dialogue, \"rather than one isolated clean voice\"."
+        ],
+        [
+          "Background music or a song <small>a 30-second bed for a reel, a jingle with lyrics</small>",
+          "ElevenLabs Music v2.5",
+          "Higgsfield's model data: music from a prompt or your own lyrics, with an instrumental option."
+        ],
+        [
+          "A video in another language, or a new voice on it <small>your reel in Spanish</small>",
+          "Higgsfield Translation or Change Voice",
+          "Higgsfield says: Translation changes the spoken language and keeps the timing. Change Voice swaps the voice and keeps the picture."
         ]
       ]
     },
     {
       "type": "note",
       "title": "Check the price before you generate",
-      "html": "Prices are in Higgsfield credits, checked in November 2026. They change often. Higgsfield shows the cost before you press generate, so look there, not here."
+      "html": "Prices are in Higgsfield credits, from my own quotes and Higgsfield's tests, October to November 2026. They change often. Higgsfield shows the cost before you press generate, so look there, not here."
     },
     {
       "type": "heading",
@@ -209,11 +320,31 @@
   ],
   "sources": [
     {
-      "label": "Higgsfield: model descriptions and workflows, read in the Higgsfield app",
+      "label": "Higgsfield: model descriptions and workflows, read in the Higgsfield app and its model data",
       "date": "2026-11"
     },
     {
-      "label": "Credit prices: quoted by Higgsfield before generating",
+      "label": "Higgsfield help centre: Which AI model should I use?",
+      "date": "2026-08",
+      "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/which-ai-model-should-i-use"
+    },
+    {
+      "label": "Higgsfield: Best AI Image Generators in 2026",
+      "date": "2026-10",
+      "url": "https://higgsfield.ai/blog/best-ai-image-generators-2026"
+    },
+    {
+      "label": "Higgsfield: The 10 Best AI Video Models in 2026, Tested and Compared (prices quoted)",
+      "date": "2026-10",
+      "url": "https://higgsfield.ai/blog/5-Best-AI-Video-Models-2026-Tested-Compared"
+    },
+    {
+      "label": "Higgsfield Audio: Voice, Music and Sound Effects for AI Video",
+      "date": "2026-07",
+      "url": "https://higgsfield.ai/blog/higgsfield-audio"
+    },
+    {
+      "label": "Credit prices marked as mine: quoted by Higgsfield before generating",
       "date": "2026-11"
     },
     {
