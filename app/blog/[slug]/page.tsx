@@ -74,6 +74,28 @@ function BlockView({ b }: { b: Block }) {
       );
     case "steps":
       return <ol className="post-steps">{b.items.map((s, i) => <H key={i} as="li" html={s} />)}</ol>;
+    case "watch":
+      return (
+        <ol className="post-watch">
+          {b.items.map((it) => (
+            <li key={it.term}>
+              <a href={`https://www.youtube.com/watch?v=${it.id}${it.start ? `&t=${it.start}s` : ""}`} target="_blank" rel="noopener">
+                <span className="post-watch-thumb">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`https://i.ytimg.com/vi/${it.id}/mqdefault.jpg`} alt="" loading="lazy" decoding="async" />
+                  <span className="post-watch-len">{it.length}</span>
+                </span>
+                <span className="post-watch-text">
+                  <span className="post-watch-term">{it.term}</span>
+                  <H html={it.what} />
+                  {it.why && <span className="post-watch-why">Why this one: {it.why}</span>}
+                  <span className="post-watch-meta">{it.title} · {it.channel}{it.from ? ` · watch ${it.from}` : ""}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      );
     case "note":
       return (
         <aside className="post-note">

@@ -13,7 +13,22 @@ export type Block =
   | { type: "pair"; items: { src: string; alt: string; caption?: string }[] }
   | { type: "table"; title?: string; head: string[]; rows: string[][] }
   | { type: "steps"; items: string[] }
-  | { type: "note"; title?: string; html: string };
+  | { type: "note"; title?: string; html: string }
+  | { type: "watch"; items: WatchItem[] };
+
+// One term with the one video we would send a friend to. Links go straight to
+// YouTube (these are not on /watch/, which only carries the official channels).
+export interface WatchItem {
+  term: string;
+  what: string;     // one line, inline HTML
+  id: string;       // YouTube video id
+  title: string;
+  channel: string;
+  length: string;   // e.g. "6:35"
+  start?: number;   // seconds, when only part of the video is about this term
+  from?: string;    // label for that part, e.g. "12:27 to 20:22"
+  why?: string;     // why this video, one line (plain text)
+}
 
 export interface Post {
   slug: string;

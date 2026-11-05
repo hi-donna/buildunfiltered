@@ -1,5 +1,19 @@
 # Status
 
+## 2026-11-05 — blog: "levels" post (16 terms, one video each)
+
+**Shipped:** `/blog/levels/`, the long version of the levels reel.
+Four levels, four terms each, one line per term and one YouTube video. New block type
+`watch` (`lib/blog.ts`, rendered in `app/blog/[slug]/page.tsx`, styles `.post-watch`):
+thumbnail from i.ytimg.com, links straight to YouTube (with `start` for a part of a long
+video). Videos vetted 2026-11-05/06: 3-4 candidates per term, full transcript of each read and
+scored (correct, clear, on-topic, worth the time); 9 of 16 first picks replaced. Each card
+has a "Why this one" line that names any known flaw. Level order follows the suggested
+fix, not reel v1.
+
+**Needs the owner:** watch the 16 picks; add the reel (`video` block + poster) once
+the final cut exists; set `instagram`.
+
 ## 2026-11-05 — blog: one page per reel
 
 **Shipped (local, not pushed):** a Blog tab. `/blog/` lists posts; `/blog/<slug>/` is one

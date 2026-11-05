@@ -1,0 +1,217 @@
+{
+ "slug": "levels",
+ "kicker": "From the reel",
+ "title": "After vibe coding: 16 things to learn, in order",
+ "dek": "Vibe coding gets you a demo. These 16 ideas are what it takes to build an AI product that works. Four levels, one video each.",
+ "published": "2026-11-05",
+ "instagram": null,
+ "blocks": [
+  {
+   "type": "prose",
+   "html": "You can make an app by talking to an AI now. That is vibe coding, and it is a good start. But the words in every AI job post and every engineering blog are different ones: tokens, RAG, MCP, evals."
+  },
+  {
+   "type": "prose",
+   "html": "Here are 16 of them, in the order they build on each other. <b>Each level needs the one before it.</b> Each term has one line on what it is and one video that explains it well. Where only part of a video is needed, the link starts there. Total: under 3 hours."
+  },
+  {
+   "type": "heading",
+   "text": "Level 1 · How a model reads"
+  },
+  {
+   "type": "watch",
+   "items": [
+    {
+     "term": "Tokens",
+     "what": "The pieces a model reads and writes. Not words: <em>vibe coding</em> is several of them. You pay per token and the context window is counted in them.",
+     "id": "nKSk_TiR8YA",
+     "title": "Most devs don't understand how LLM tokens work",
+     "channel": "Matt Pocock",
+     "length": "10:57",
+     "why": "Short and practical: what a token is, why you pay per token, and why some words and languages cost more."
+    },
+    {
+     "term": "Embeddings",
+     "what": "Text turned into a list of numbers, so that things with similar meaning sit close together. Search and RAG are built on this.",
+     "id": "ArnMdc-ICCM",
+     "title": "Embeddings: What they are and why they matter",
+     "channel": "Simon Willison",
+     "length": "38:38",
+     "start": 102,
+     "from": "1:42 to 21:31",
+     "why": "Simon Willison, who co-created Django and writes one of the most-read AI blogs, shows what embeddings do for a builder: related posts and search by meaning."
+    },
+    {
+     "term": "RAG",
+     "what": "Find the right pages first, put them in the prompt, then let the model answer. How you give a model your own documents.",
+     "id": "T-D1OfcDW1M",
+     "title": "What is Retrieval-Augmented Generation (RAG)?",
+     "channel": "IBM Technology",
+     "length": "6:35",
+     "why": "Six minutes from an IBM Research scientist. One known date slip: the Saturn moon count in her example is out of date. The idea is not."
+    },
+    {
+     "term": "Structured outputs",
+     "what": "Make the model answer in an exact shape, like JSON with fixed fields, so your code can read it. Tool calling is built on this.",
+     "id": "kE4BkATIl9c",
+     "title": "OpenAI DevDay 2024: Structured outputs for reliable applications",
+     "channel": "OpenAI",
+     "length": "40:39",
+     "start": 39,
+     "from": "0:39 to 11:44",
+     "why": "The engineers who built the feature explain why asking for JSON breaks, and how a schema fixes the shape. It fixes the shape, not whether the content is right."
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "text": "Level 2 · Giving it hands"
+  },
+  {
+   "type": "watch",
+   "items": [
+    {
+     "term": "Tool calling",
+     "what": "The model does not run anything. It asks your code to run a function, with the arguments filled in, and reads the result.",
+     "id": "gMeTK6zzaO4",
+     "title": "LLM Function Calling - AI Tools Deep Dive",
+     "channel": "Adam Lucek",
+     "length": "31:14",
+     "from": "0:00 to 14:33",
+     "why": "Shows the real round trip in code: tool definition, the model's request, your code running it, the result going back."
+    },
+    {
+     "term": "MCP",
+     "what": "One standard plug between AI apps and tools. Write a tool once and every MCP app can use it.",
+     "id": "tzrwxLNHtRY",
+     "title": "Model Context Protocol Clearly Explained | MCP Beyond the Hype",
+     "channel": "codebasics",
+     "length": "15:04",
+     "why": "Starts from the problem MCP solves, then opens a real server and shows its tools. Honest that it is early days."
+    },
+    {
+     "term": "AI agents",
+     "what": "A model in a loop: plan, call a tool, check the result, go again, until the job is done.",
+     "id": "D7_ipDqhtwk",
+     "title": "How We Build Effective Agents: Barry Zhang, Anthropic",
+     "channel": "AI Engineer",
+     "length": "15:09",
+     "why": "From a co-author of Anthropic's “Building effective agents”: tools in a loop, and when not to build an agent at all."
+    },
+    {
+     "term": "Memory",
+     "what": "What the agent keeps between steps and between chats, and how it gets it back when it needs it.",
+     "id": "BacJ6sEhqMo",
+     "title": "The Four Types of Memory Every AI Agent Needs",
+     "channel": "IBM Technology",
+     "length": "10:40",
+     "why": "The four kinds of memory, each with an example a builder already uses, like a CLAUDE.md file."
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "text": "Level 3 · Keeping it on track"
+  },
+  {
+   "type": "watch",
+   "items": [
+    {
+     "term": "Context engineering",
+     "what": "Deciding what goes into the context window on every call: instructions, files, history, tool results. Most agent failures start here.",
+     "id": "BBPQYtR7oUk",
+     "title": "Context engineering explained: What every AI developer should know",
+     "channel": "Google Cloud Tech",
+     "length": "10:05",
+     "why": "Defines the term in the first minute, names four ways a long context goes wrong, and shows the four fixes on one small agent."
+    },
+    {
+     "term": "Context compaction",
+     "what": "When the window fills up, summarise the old part, keep the decisions, drop the chatter, and carry on.",
+     "id": "eW3oTyfeWZ0",
+     "title": "Context Management in Claude Code",
+     "channel": "Claude",
+     "length": "3:30",
+     "why": "Three minutes from the team that built it: what compaction keeps, what it can lose, and what to put in a file instead. One line is out of date: MCP tools no longer all load into context by default."
+    },
+    {
+     "term": "Guardrails",
+     "what": "Checks before and after the model: block the bad request, catch the bad answer, before a user sees it.",
+     "id": "IeyB-2cS5lM",
+     "title": "What are AI guardrails? How do they work?",
+     "channel": "Probably Private",
+     "length": "19:24",
+     "from": "0:00 to 8:20",
+     "why": "A security and privacy practitioner sorts the word into its real types, and is honest that every one of them can be got around."
+    },
+    {
+     "term": "Prompt injection",
+     "what": "Text hidden in an email, a web page or a file that tells your model to do something else. The attack every agent with tools has to plan for.",
+     "id": "KDcayRssGbw",
+     "title": "Prompt Injection, Clearly Explained",
+     "channel": "ByteByteAI",
+     "length": "5:45",
+     "why": "Why a model cannot tell instructions from data, one email attack walked through, and defences you can use in your own app."
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "text": "Level 4 · Running it for real"
+  },
+  {
+   "type": "watch",
+   "items": [
+    {
+     "term": "Evals",
+     "what": "Tests for AI output. A fixed set of cases you run after every change, so you know if it got better or worse.",
+     "id": "MltkRz94SWA",
+     "title": "The Most Important Skill for AI Engineers: Evals Explained",
+     "channel": "Aish Reganti",
+     "length": "17:44",
+     "why": "Written for people building products: why public benchmarks do not test your app, and a first eval built end to end."
+    },
+    {
+     "term": "LLM-as-a-judge",
+     "what": "A second model grades the answers against a rubric, when there is no single right answer to compare with.",
+     "id": "Qj3u_kzfJVo",
+     "title": "LLM-as-a-judge: evaluating LLMs with LLMs",
+     "channel": "Evidently AI",
+     "length": "5:41",
+     "why": "Under six minutes on building a judge you can trust: label some answers yourself first, and check the judge agrees with you."
+    },
+    {
+     "term": "Tracing",
+     "what": "A record of every step an agent took: each prompt, tool call and result. How you find the step that broke.",
+     "id": "A7fPlx9ESlE",
+     "title": "LLM Observability Explained: Why Your AI Lies to You",
+     "channel": "Devsplainers",
+     "length": "9:37",
+     "start": 97,
+     "from": "1:37 to 4:22",
+     "why": "Not tied to any product. A trace is the full story of one request, and each step in it is a span."
+    },
+    {
+     "term": "Model routing",
+     "what": "Send easy requests to a small, cheap model and hard ones to a big one. Same quality, a smaller bill.",
+     "id": "V_K6PCmdtRg",
+     "title": "What is an LLM Router?",
+     "channel": "Sam Witteveen",
+     "length": "9:16",
+     "why": "Clear on the idea in two minutes. From 2024, so the model names are old, and its “over 85% savings” holds for one benchmark only. The idea has not changed."
+    }
+   ]
+  },
+  {
+   "type": "note",
+   "title": "How these videos were picked",
+   "html": "For each term we shortlisted three or four videos: from YouTube search, and by searching Reddit, Hacker News and practitioners' blogs for what developers recommend. Then we read the <b>full transcript</b> of every shortlisted video (about 50 in all) and checked it for four things: is it <b>correct</b> and still current, is it <b>clear</b> for someone new to the term, is it <b>about the term</b> and not a sales pitch, and is it <b>worth the time</b>. Several popular videos were dropped for real mistakes, like saying one technique stops a model from making things up. Where we found a flaw that matters in a pick, the line under it says so. No video here is sponsored, and nobody paid to be on the list. Checked 5 to 6 November 2026. If you find a better video for any term, tell us on Instagram."
+  }
+ ],
+ "sources": [
+  {
+   "label": "YouTube transcripts and metadata, read in full for every shortlisted video",
+   "date": "5-6 November 2026"
+  }
+ ]
+}
