@@ -77,6 +77,9 @@ history before that date if anything needs to come back. The tool roadmap in
   Channel list and why: `docs/WATCH_CHANNELS.md`. Page: `app/watch/`, `components/WatchHome.tsx`,
   `components/VideoCard.tsx`, `lib/watch.ts`. Limits: no durations (RSS doesn't carry them);
   "Most viewed" is of each channel's last 15 uploads, not all time.
+- **Blog** — `/blog/` (added 2026-11-05). One page per Instagram reel: the reel plays from
+  our own copy, then the long version in plain words (e.g. the list promised by a "comment
+  MODELS" CTA). One JSON file per post in `data/blog/`, media in `public/blog/<slug>/`.
 - **Account** — `/account/`. Phone sign-in via Supabase. Nothing is gated behind it.
 
 **Principles that don't bend:** data first (every tool is one JSON file plus a

@@ -1,5 +1,17 @@
 # Status
 
+## 2026-11-05 — blog: one page per reel
+
+**Shipped (local, not pushed):** a Blog tab. `/blog/` lists posts; `/blog/<slug>/` is one
+reel written out. A post is one JSON file in `data/blog/` plus its media in
+`public/blog/<slug>/` (the reel re-encoded to 720p, ~5 MB, played by our own `<video>`,
+so no Instagram embed script). Block types: prose, heading, video, pair, table, steps,
+note (`lib/blog.ts`). Post HTML is limited to inline tags. First post: `/blog/models/`,
+the realism reel plus the MODELS list.
+
+**Needs the owner:** the Instagram link of the reel (set `instagram` in
+`data/blog/models.json`).
+
 ## 2026-10-23 — site: The Wire is the whole site
 
 **Shipped:** the homepage is The Wire (moved from `/tools/wire/`). Removed AI Tool

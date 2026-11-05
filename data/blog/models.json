@@ -1,0 +1,108 @@
+{
+  "slug": "models",
+  "kicker": "From the reel",
+  "title": "Which AI model for which job",
+  "dek": "ChatGPT and Claude can do almost everything. Image and video models can't. Each one is good at one thing. This is the list.",
+  "published": "2026-11-05",
+  "instagram": null,
+  "blocks": [
+    {
+      "type": "video",
+      "src": "/blog/models/reel.mp4",
+      "poster": "/blog/models/poster.jpg",
+      "caption": "The reel, 54 seconds. Every shot made on Higgsfield."
+    },
+    { "type": "heading", "text": "The short version" },
+    {
+      "type": "prose",
+      "html": "I asked for a realistic photo of me on a sofa. The photo looked plastic. So I did what everyone does: I added <em>ultra realistic, 8K, cinematic</em>. It looked more fake."
+    },
+    {
+      "type": "prose",
+      "html": "The prompt was not the problem. The <b>model</b> was."
+    },
+    {
+      "type": "prose",
+      "html": "With text, two or three models (ChatGPT, Claude) do nearly every job. Images and video are different. Each model has one talent: one is best at anime, one at product ads, one at realism. So <b>pick the model first, then write the prompt.</b>"
+    },
+    { "type": "heading", "text": "Same scene, two results" },
+    {
+      "type": "prose",
+      "html": "Both pictures came from the same scene: <em>a small roadside tea stall at night, two red plastic chairs, a little steel table, glasses of tea, a single streetlight above, the street wet from rain.</em>"
+    },
+    {
+      "type": "pair",
+      "items": [
+        { "src": "/blog/models/scene-8k.jpg", "alt": "Two red chairs by a river at night, neon skyline, heavy rain under a streetlight. Glossy and too perfect.", "caption": "What most people write: <em>realistic, 8K, cinematic</em>." },
+        { "src": "/blog/models/scene-soul.jpg", "alt": "Two red plastic chairs and a steel table by a roadside tea stall at night, wet road, a tarp lit warm yellow.", "caption": "<b>Soul 2.0</b>, with the scene described the way it feels." }
+      ]
+    },
+    {
+      "type": "prose",
+      "html": "The left one is a stock photo of rain. The right one is a place you have sat in."
+    },
+    { "type": "heading", "text": "Pick by job" },
+    {
+      "type": "prose",
+      "html": "Find what you want to make in the first column. <b>Tested</b> means I used it myself to make the reel. <b>Higgsfield says</b> means it is the platform's own description, not my test. All of these models are on Higgsfield."
+    },
+    {
+      "type": "table",
+      "title": "Images",
+      "head": ["You want", "Use", "Why"],
+      "rows": [
+        ["Realistic photos <small>a lifestyle shot for a café page, a model wearing your outfit</small>", "Soul 2.0", "<b>Tested.</b> The real-looking rain photo above. Higgsfield says: realistic UGC, fashion editorial and character generation."],
+        ["The same person in many images, or editing a photo by plain instruction <small>yourself in ten scenes, \"change the jacket\"</small>", "Nano Banana 2.1", "<b>Tested.</b> Every shot of me in the reel kept the same face, hair and jacket. About 2 credits for a 2K image."],
+        ["Product ads and packshots <small>a skincare bottle on marble, a product carousel</small>", "Nano Banana Pro", "Higgsfield's own product-photoshoot workflow uses this model."],
+        ["Text inside the image <small>an event poster, a labelled diagram</small>", "Nano Banana Pro or GPT Image 2", "Higgsfield says Nano Banana Pro is for text and diagrams, and tags GPT Image 2 for text rendering."],
+        ["YouTube or Instagram thumbnails <small>a cover with a big title</small>", "Nano Banana Pro", "Higgsfield's own thumbnail workflow uses this model."],
+        ["Logos as SVG <small>a logo that stays sharp at any size</small>", "Recraft V4.1, vector mode", "Higgsfield's brand-asset workflow calls it the only SVG logo generator."],
+        ["Anime and illustration <small>a story told in anime style</small>", "Nano Banana 2.1", "<b>Tested.</b> The anime polaroid in the reel."],
+        ["Cinematic stills and concept art <small>a mood board for a short film</small>", "Soul Cinema", "Higgsfield says: cinema-grade stills and concept art."],
+        ["Backgrounds and locations <small>a set for your character to stand in</small>", "Soul Location", "Higgsfield says: environment and location generation."],
+        ["Fast, cheap drafts <small>trying ten ideas before you pay for one</small>", "Z Image", "Higgsfield says: super fast, stylised. <b>Tested:</b> with an \"8K, cinematic, masterpiece\" prompt it gave the glossy, too-perfect AI look. Not the one for realism."]
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Video",
+      "head": ["You want", "Use", "Why"],
+      "rows": [
+        ["Bring a still image to life, cheaply <small>your product photo, now slowly turning</small>", "Kling 3.0 Pro", "<b>Tested.</b> Every clip of me in the reel. 8.75 credits for 5 seconds at 1080p, sound off. Takes a start frame and an end frame."],
+        ["Realistic video of a real person, with sound, up to 30 seconds <small>a short scene with dialogue</small>", "Seedance 2.5", "Higgsfield's default for general video. Much dearer: I was quoted 80 credits for 5 seconds at 1080p, against 8.75 on Kling."],
+        ["Product ad videos for Reels or TikTok <small>a ready-made ad for an online shop</small>", "Marketing Studio", "Higgsfield says: one-click product ads, TikTok and Reels ready."],
+        ["Copy a movement from one video onto your character <small>your character doing a dance from another clip</small>", "Genjutsu motion transfer", "Higgsfield sends motion transfer here."],
+        ["Replace one object in a video <small>swap the can in a clip for your drink</small>", "Genjutsu replace object", "Higgsfield sends object swaps here."],
+        ["Longer than 15 seconds, several keyframes, or editing a finished clip <small>a sequence with set moments</small>", "Kling 4.0", "Higgsfield says: text, ordered keyframes, references, or edit an input video."]
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Voice",
+      "head": ["You want", "Use", "Why"],
+      "rows": [
+        ["A voice that acts, not reads <small>a narrator who sounds amused, not robotic</small>", "ElevenLabs v4, with audio tags", "<b>Tested.</b> The voice in the reel. Tags like <code>[amused]</code> or <code>[deadpan]</code> change the emotion, CAPITALS stress a word, and \"…\" adds a pause."]
+      ]
+    },
+    {
+      "type": "note",
+      "title": "Check the price before you generate",
+      "html": "Prices are in Higgsfield credits, checked in November 2026. They change often. Higgsfield shows the cost before you press generate, so look there, not here."
+    },
+    { "type": "heading", "text": "Four things I learned making the reel" },
+    {
+      "type": "steps",
+      "items": [
+        "<b>Describe the feeling, not \"8K\".</b> \"Ultra realistic, 8K, cinematic\" made it look more fake. Describing the scene the way it feels (the minute after the rain, the last drops falling off a tin roof) made it real.",
+        "<b>Real does not mean cheap.</b> Ask for a nice place, then describe it honestly.",
+        "<b>With start and end frames, both frames must agree.</b> If an object sits in a different spot in the end frame, the model slides it across the shot. My cardboard box walked towards the camera until I fixed the start frame.",
+        "<b>Do not slow AI clips down in the edit.</b> It looks fake straight away. Plan the action to fit the length instead."
+      ]
+    }
+  ],
+  "sources": [
+    { "label": "Higgsfield: model descriptions and workflows, read in the Higgsfield app", "date": "2026-11" },
+    { "label": "Credit prices: quoted by Higgsfield before generating", "date": "2026-11" },
+    { "label": "Everything marked Tested: made by me for the reel", "date": "2026-11" }
+  ]
+}
