@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-05T21:18:08.033Z",
+ "fetched": "2026-11-05T22:39:08.048Z",
  "window_days": 120,
  "categories": [
   {
@@ -31,7 +31,7 @@
    "about": "Anthropic's own channel: research, interviews, how the company builds Claude.",
    "ok": true,
    "count": 7,
-   "last_ok": "2026-11-05T19:57:12.337Z"
+   "last_ok": "2026-11-05T21:18:28.193Z"
   },
   {
    "id": "yt-claude",
@@ -42,7 +42,7 @@
    "about": "Anthropic's product channel for Claude: feature walkthroughs, Claude Code, how-tos.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:13.914Z"
+   "last_ok": "2026-11-05T21:18:29.494Z"
   },
   {
    "id": "yt-openai",
@@ -53,7 +53,7 @@
    "about": "OpenAI's official channel: launches, livestreams, demos.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:15.506Z"
+   "last_ok": "2026-11-05T21:18:31.204Z"
   },
   {
    "id": "yt-deepmind",
@@ -64,7 +64,7 @@
    "about": "Google DeepMind's official channel: Gemini, research, model launches.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:17.127Z"
+   "last_ok": "2026-11-05T21:18:32.711Z"
   },
   {
    "id": "yt-meta-ai",
@@ -75,7 +75,7 @@
    "about": "Meta's official AI channel: Llama and research releases.",
    "ok": true,
    "count": 2,
-   "last_ok": "2026-11-05T19:57:18.722Z"
+   "last_ok": "2026-11-05T21:18:34.215Z"
   },
   {
    "id": "yt-mistral",
@@ -86,7 +86,7 @@
    "about": "Linked from mistral.ai. Model launches and talks.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:20.341Z"
+   "last_ok": "2026-11-05T21:18:35.833Z"
   },
   {
    "id": "yt-google-devs",
@@ -97,7 +97,7 @@
    "about": "Google's developer channel: Gemini API, AI Studio, Antigravity.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:21.940Z"
+   "last_ok": "2026-11-05T21:18:37.436Z"
   },
   {
    "id": "yt-google-cloud",
@@ -108,7 +108,7 @@
    "about": "Google Cloud's technical channel: Vertex AI, agents on GCP.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:23.522Z"
+   "last_ok": "2026-11-05T21:18:38.945Z"
   },
   {
    "id": "yt-github",
@@ -119,7 +119,7 @@
    "about": "GitHub's official channel: Copilot, agents, developer talks.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:25.110Z"
+   "last_ok": "2026-11-05T21:18:40.546Z"
   },
   {
    "id": "yt-cloudflare",
@@ -130,7 +130,7 @@
    "about": "Cloudflare's developer channel: Workers AI, agents, MCP.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:26.747Z"
+   "last_ok": "2026-11-05T21:18:42.132Z"
   },
   {
    "id": "yt-vercel",
@@ -141,7 +141,7 @@
    "about": "Vercel's official channel: AI SDK, v0, Next.js.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:28.468Z"
+   "last_ok": "2026-11-05T21:18:43.636Z"
   },
   {
    "id": "yt-supabase",
@@ -152,7 +152,7 @@
    "about": "Supabase's official channel: Postgres, vectors, building backends.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:30.076Z"
+   "last_ok": "2026-11-05T21:18:45.214Z"
   },
   {
    "id": "yt-langchain",
@@ -163,7 +163,7 @@
    "about": "LangChain's team: LangGraph, agents, new capabilities shown by the people who built them.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:31.845Z"
+   "last_ok": "2026-11-05T21:18:46.723Z"
   },
   {
    "id": "yt-llamaindex",
@@ -174,7 +174,7 @@
    "about": "LlamaIndex's official channel: document agents, parsing, RAG.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:33.422Z"
+   "last_ok": "2026-11-05T21:18:48.296Z"
   },
   {
    "id": "yt-huggingface",
@@ -185,7 +185,7 @@
    "about": "Hugging Face's official channel: open models, libraries, talks.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:35.008Z"
+   "last_ok": "2026-11-05T21:18:49.804Z"
   },
   {
    "id": "yt-pinecone",
@@ -196,7 +196,7 @@
    "about": "Pinecone's official channel: vector search, retrieval.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:36.594Z"
+   "last_ok": "2026-11-05T21:18:51.459Z"
   },
   {
    "id": "yt-cursor",
@@ -207,7 +207,7 @@
    "about": "Cursor's official channel: how teams use the editor and its agent.",
    "ok": true,
    "count": 8,
-   "last_ok": "2026-11-05T19:57:38.243Z"
+   "last_ok": "2026-11-05T21:18:52.963Z"
   },
   {
    "id": "yt-replit",
@@ -218,7 +218,7 @@
    "about": "Replit's official channel: Replit Agent, building apps.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:39.870Z"
+   "last_ok": "2026-11-05T21:18:54.560Z"
   },
   {
    "id": "yt-n8n",
@@ -229,7 +229,7 @@
    "about": "n8n's official channel: workflow and AI-agent automation tutorials.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:41.460Z"
+   "last_ok": "2026-11-05T21:18:56.147Z"
   },
   {
    "id": "yt-ai-engineer",
@@ -240,10 +240,46 @@
    "about": "The AI Engineer conference: talks from the people building at labs and startups.",
    "ok": true,
    "count": 15,
-   "last_ok": "2026-11-05T19:57:43.173Z"
+   "last_ok": "2026-11-05T21:18:57.651Z"
   }
  ],
  "items": [
+  {
+   "title": "Stop Giving Your AI Agents API Keys - Kim Maida, Keycard & Mason Egger, Temporal",
+   "url": "https://www.youtube.com/watch?v=YqJ4asgj1R8",
+   "published": "2026-11-05T21:00:16.000Z",
+   "source": "yt-ai-engineer",
+   "outlet": null,
+   "category": "video",
+   "score": 15
+  },
+  {
+   "title": "How Pinecone Built Its RAG-Powered Support Agent",
+   "url": "https://www.youtube.com/watch?v=nvGaAgGH488",
+   "published": "2026-11-05T20:15:25.000Z",
+   "source": "yt-pinecone",
+   "outlet": null,
+   "category": "video",
+   "score": 3
+  },
+  {
+   "title": "How Netflix Evaluates AI When There's No Right Answer - Cameron Wolfe, Netflix",
+   "url": "https://www.youtube.com/watch?v=zLc8zeGeNaY",
+   "published": "2026-11-05T20:00:25.000Z",
+   "source": "yt-ai-engineer",
+   "outlet": null,
+   "category": "video",
+   "score": 275
+  },
+  {
+   "title": "AI that knows your business: From data to ML fast",
+   "url": "https://www.youtube.com/shorts/5BdNMz6tHME",
+   "published": "2026-11-05T20:00:04.000Z",
+   "source": "yt-google-cloud",
+   "outlet": null,
+   "category": "video",
+   "score": 129
+  },
   {
    "title": "Introducing Personal Finance in Claude",
    "url": "https://www.youtube.com/watch?v=UTubvRLX2j4",
@@ -251,7 +287,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 21684
+   "score": 42632
   },
   {
    "title": "LangChain vs. LangGraph vs. Deep Agents: When to Use Each One",
@@ -260,7 +296,7 @@
    "source": "yt-langchain",
    "outlet": null,
    "category": "video",
-   "score": 388
+   "score": 820
   },
   {
    "title": "Studio Office Hour",
@@ -269,7 +305,7 @@
    "source": "yt-mistral",
    "outlet": null,
    "category": "video",
-   "score": 418
+   "score": 579
   },
   {
    "title": "How Mozilla strengthens Firefox security with GPT-6 Cyber",
@@ -278,7 +314,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 3422
+   "score": 6007
   },
   {
    "title": "3 ways to design your agentic system",
@@ -287,7 +323,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 2194
+   "score": 4183
   },
   {
    "title": "Building a product feedback routing workflow in Mistral Studio",
@@ -296,7 +332,7 @@
    "source": "yt-mistral",
    "outlet": null,
    "category": "video",
-   "score": 273
+   "score": 340
   },
   {
    "title": "Sovereign AI in action: KYC and penetration testing with Studio",
@@ -305,7 +341,7 @@
    "source": "yt-mistral",
    "outlet": null,
    "category": "video",
-   "score": 451
+   "score": 708
   },
   {
    "title": "Building a project staffing app in Mistral Studio",
@@ -314,7 +350,7 @@
    "source": "yt-mistral",
    "outlet": null,
    "category": "video",
-   "score": 440
+   "score": 574
   },
   {
    "title": "Mistral Studio: Agents, apps and workflows for enterprise AI you control",
@@ -323,7 +359,7 @@
    "source": "yt-mistral",
    "outlet": null,
    "category": "video",
-   "score": 255
+   "score": 347
   },
   {
    "title": "Humans set direction. Agents close the loop.",
@@ -332,7 +368,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 1694
+   "score": 1890
   },
   {
    "title": "The critical PHP security flaw that broke the internet",
@@ -341,7 +377,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 768
+   "score": 932
   },
   {
    "title": "Local AI 301: Quantization",
@@ -359,7 +395,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 4459
+   "score": 4844
   },
   {
    "title": "From Data to Vectors to Context: What AI Agents Need Beyond RAG",
@@ -377,7 +413,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 3680
+   "score": 3885
   },
   {
    "title": "Stop Making Your Customers Click Approve - Emil Chetty, Wise",
@@ -386,7 +422,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 3323
+   "score": 3464
   },
   {
    "title": "Introducing ChatGPT Images 2.6",
@@ -395,7 +431,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 87521
+   "score": 90000
   },
   {
    "title": "From hackathon project to helping transplant surgeons",
@@ -404,7 +440,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 577
+   "score": 581
   },
   {
    "title": "Building a platform that can handle thousands of videos",
@@ -413,7 +449,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 362
+   "score": 399
   },
   {
    "title": "How I built Battle Chess in one weekend… with no game dev experience",
@@ -422,7 +458,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 4338
+   "score": 4431
   },
   {
    "title": "How I improved the UK Global Talent visa process",
@@ -431,7 +467,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 131
+   "score": 145
   },
   {
    "title": "How I built my own English tutor",
@@ -440,7 +476,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 1137
+   "score": 1173
   },
   {
    "title": "GPT-Image-2.6: Faster image generation with Flare and Sunburst",
@@ -449,7 +485,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 214247
+   "score": 220910
   },
   {
    "title": "Building a Commercial Submission Intake Workflow with LlamaParse",
@@ -467,7 +503,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 13266
+   "score": 13654
   },
   {
    "title": "AI Labs Will Trap You or Replace You - Dillon Rolnick, Nous Research",
@@ -476,7 +512,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 9619
+   "score": 9996
   },
   {
    "title": "Robots Will Be Trained on Video Games - Pim de Witte, General Intuition",
@@ -494,7 +530,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 17870
+   "score": 18283
   },
   {
    "title": "Messi asks ChatGPT to reimagine his room",
@@ -503,7 +539,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 40040
+   "score": 42433
   },
   {
    "title": "Building a Commercial Submission Intake Workflow with LlamaParse",
@@ -521,7 +557,7 @@
    "source": "yt-cloudflare",
    "outlet": null,
    "category": "video",
-   "score": 3567
+   "score": 3636
   },
   {
    "title": "Collaborate on artifacts in Claude",
@@ -530,7 +566,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 80401
+   "score": 82196
   },
   {
    "title": "Trusted agents, real outcomes: Driving AI impact at scale with Google's Agentic Data Cloud",
@@ -539,7 +575,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 11037
+   "score": 11208
   },
   {
    "title": "Browser Use with Managed Deep Agents",
@@ -548,7 +584,7 @@
    "source": "yt-langchain",
    "outlet": null,
    "category": "video",
-   "score": 4222
+   "score": 4322
   },
   {
    "title": "How Figma Is Building Self-Serve Analytics with OpenAI",
@@ -557,7 +593,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 4693
+   "score": 4766
   },
   {
    "title": "How Figma Is Building Self-Serve Analytics with OpenAI",
@@ -566,7 +602,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 12239
+   "score": 12375
   },
   {
    "title": "Get your skills recognized with GitHub Copilot verified proficiency",
@@ -575,7 +611,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 8219
+   "score": 8334
   },
   {
    "title": "Who even writes code by hand anymore?...",
@@ -584,16 +620,16 @@
    "source": "yt-supabase",
    "outlet": null,
    "category": "video",
-   "score": 3875
+   "score": 4060
   },
   {
    "title": "Don't Approve the AI Model. Approve the App - Doneyli De Jesus, Langfuse",
    "url": "https://www.youtube.com/watch?v=-uBABM2AuFg",
-   "published": "2026-11-04T10:00:35Z",
+   "published": "2026-11-04T10:00:35.000Z",
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 5229
+   "score": 5854
   },
   {
    "title": "Why Datasite Stopped Building Its Own Parsing - Adit Abraham, Reducto & Raj Bakhru, Datasite",
@@ -602,7 +638,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 3756
+   "score": 3820
   },
   {
    "title": "Building the AI Agent Is Easy. Proving It's Safe Isn't - Jonathan Osborne, NatWest",
@@ -611,7 +647,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 4846
+   "score": 4871
   },
   {
    "title": "Automating Customer Support at Scale (Replit for Business)",
@@ -620,7 +656,7 @@
    "source": "yt-replit",
    "outlet": null,
    "category": "video",
-   "score": 1183
+   "score": 1322
   },
   {
    "title": "Why AI Makes You 100x Faster but Not Your Company - Mitchell Troyanovsky, Basis",
@@ -629,7 +665,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 70245
+   "score": 71087
   },
   {
    "title": "Cloud Load Balancing explained: How does global traffic routing work behind a single IP address?",
@@ -638,7 +674,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 1330
+   "score": 1331
   },
   {
    "title": "I built an agent to run my YouTube channel",
@@ -647,7 +683,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 13142
+   "score": 13210
   },
   {
    "title": "Open Source Friday: pgmq",
@@ -665,7 +701,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 5414
+   "score": 5553
   },
   {
    "title": "Without Caching, Your AI Agent Costs 10x More - George Cameron, Artificial Analysis",
@@ -674,7 +710,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 8260
+   "score": 8319
   },
   {
    "title": "How Work is Changing in 2027 (Replit for Business)",
@@ -692,7 +728,7 @@
    "source": "yt-langchain",
    "outlet": null,
    "category": "video",
-   "score": 5376
+   "score": 5453
   },
   {
    "title": "Design hardware with Astra",
@@ -701,7 +737,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 460626
+   "score": 467655
   },
   {
    "title": "Qodo brings company context into Codex code review",
@@ -710,7 +746,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 12093
+   "score": 12159
   },
   {
    "title": "ChatGPT Voice is now in Finances",
@@ -719,7 +755,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 63060
+   "score": 63693
   },
   {
    "title": "How pg_pinecone finds nearest neighbors without a graph (IVF explained)",
@@ -737,7 +773,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 7717
+   "score": 7728
   },
   {
    "title": "Glean on privacy and OpenAI Private Intelligence",
@@ -746,7 +782,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 5921
+   "score": 5955
   },
   {
    "title": "Glean on privacy and OpenAI Private Intelligence",
@@ -755,7 +791,7 @@
    "source": "yt-openai",
    "outlet": null,
    "category": "video",
-   "score": 10742
+   "score": 11838
   },
   {
    "title": "How OpenClaw tracks issues without user telemetry",
@@ -764,7 +800,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 11286
+   "score": 11815
   },
   {
    "title": "Make Your AI Agents Predictable With Graph Engineering - Zachary Blumenfeld, Neo4j",
@@ -773,7 +809,7 @@
    "source": "yt-ai-engineer",
    "outlet": null,
    "category": "video",
-   "score": 118580
+   "score": 119855
   },
   {
    "title": "Your AI Agents Shouldn't Care Where They Run - Nikhil Harithas, Factory",
@@ -785,31 +821,13 @@
    "score": 4653
   },
   {
-   "title": "Better Search Took This AI Agent From 36% to 98% Accuracy - Aamir Shakir, Mixedbread",
-   "url": "https://www.youtube.com/watch?v=3Ad73Onx3Aw",
-   "published": "2026-11-03T08:00:24.000Z",
-   "source": "yt-ai-engineer",
-   "outlet": null,
-   "category": "video",
-   "score": 5969
-  },
-  {
-   "title": "You Can't Tell What's Real Anymore. Here's What Comes Next - Cristóbal Valenzuela, Runway",
-   "url": "https://www.youtube.com/watch?v=q4ITwvlFplQ",
-   "published": "2026-11-03T00:00:29.000Z",
-   "source": "yt-ai-engineer",
-   "outlet": null,
-   "category": "video",
-   "score": 19533
-  },
-  {
    "title": "More AI agents = better results?",
    "url": "https://www.youtube.com/shorts/yDLv-bNfrSI",
    "published": "2026-11-03T00:00:06.000Z",
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 9957
+   "score": 10055
   },
   {
    "title": "GitHub Universe 2026 was built different",
@@ -845,7 +863,7 @@
    "source": "yt-google-cloud",
    "outlet": null,
    "category": "video",
-   "score": 2041
+   "score": 2062
   },
   {
    "title": "Travis made a tool on Replit that cut customer resolution time by 60%",
@@ -890,7 +908,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 4093
+   "score": 4132
   },
   {
    "title": "What can the GitHub Universe 2026 badge actually do?",
@@ -938,22 +956,13 @@
    "score": 123523
   },
   {
-   "title": "Tell your data story with Looker Data Apps",
-   "url": "https://www.youtube.com/shorts/WWG-wIaB4aQ",
-   "published": "2026-10-30T20:00:42Z",
-   "source": "yt-google-cloud",
-   "outlet": null,
-   "category": "video",
-   "score": 5817
-  },
-  {
    "title": "Studio Office Hour",
    "url": "https://www.youtube.com/watch?v=bTMRF7DcKiU",
    "published": "2026-10-30T16:49:01.000Z",
    "source": "yt-mistral",
    "outlet": null,
    "category": "video",
-   "score": 456
+   "score": 539
   },
   {
    "title": "Clarisse's finance tool was built entirely on Replit",
@@ -980,7 +989,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 15706
+   "score": 15737
   },
   {
    "title": "Build your first workflow",
@@ -1025,7 +1034,7 @@
    "source": "yt-mistral",
    "outlet": null,
    "category": "video",
-   "score": 4163
+   "score": 4174
   },
   {
    "title": "The Agent Left the Workflow: Building n8n Agents",
@@ -1043,7 +1052,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 11131
+   "score": 11142
   },
   {
    "title": "Can you commit to the answer? Git trivia at GitHub Universe 2026",
@@ -1061,7 +1070,7 @@
    "source": "yt-google-devs",
    "outlet": null,
    "category": "video",
-   "score": 13271
+   "score": 13303
   },
   {
    "title": "The Hardest Part of Testing Agents: Write Access",
@@ -1079,7 +1088,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 6369
+   "score": 6376
   },
   {
    "title": "Claude's new mobile app updates are here",
@@ -1088,7 +1097,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 372762
+   "score": 372907
   },
   {
    "title": "Building Semiconductor Agents at Skyworks with LangGraph + LangSmith",
@@ -1124,7 +1133,7 @@
    "source": "yt-github",
    "outlet": null,
    "category": "video",
-   "score": 57667
+   "score": 58105
   },
   {
    "title": "🪴 Building an autonomous plant rover with Gemini Live",
@@ -1151,7 +1160,7 @@
    "source": "yt-google-devs",
    "outlet": null,
    "category": "video",
-   "score": 40790
+   "score": 40832
   },
   {
    "title": "The Real Cost of \"We Can Just Build It Ourselves\"",
@@ -1169,7 +1178,7 @@
    "source": "yt-google-devs",
    "outlet": null,
    "category": "video",
-   "score": 27450
+   "score": 27489
   },
   {
    "title": "What is LangChain?",
@@ -1196,7 +1205,7 @@
    "source": "yt-langchain",
    "outlet": null,
    "category": "video",
-   "score": 92526
+   "score": 92660
   },
   {
    "title": "Introducing Genie 4",
@@ -1205,7 +1214,7 @@
    "source": "yt-google-devs",
    "outlet": null,
    "category": "video",
-   "score": 60783
+   "score": 60833
   },
   {
    "title": "Genie 4: A new generation of world simulation",
@@ -1214,7 +1223,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 608738
+   "score": 608955
   },
   {
    "title": "The Self-Driving Company | Anyone can contribute to the company codebase",
@@ -1241,7 +1250,7 @@
    "source": "yt-langchain",
    "outlet": null,
    "category": "video",
-   "score": 2986
+   "score": 2988
   },
   {
    "title": "LangGraph explained in 1 minute",
@@ -1250,7 +1259,7 @@
    "source": "yt-langchain",
    "outlet": null,
    "category": "video",
-   "score": 11536
+   "score": 11556
   },
   {
    "title": "How an Anthropic engineer uses Claude Docs",
@@ -1268,7 +1277,7 @@
    "source": "yt-pinecone",
    "outlet": null,
    "category": "video",
-   "score": 465
+   "score": 466
   },
   {
    "title": "Fix broken STT models with Context Biasing",
@@ -1367,7 +1376,7 @@
    "source": "yt-cloudflare",
    "outlet": null,
    "category": "video",
-   "score": 6822
+   "score": 6825
   },
   {
    "title": "Generative media’s breakthrough moment: Insights from Runway (Cloudflare Connect 2026)",
@@ -1439,7 +1448,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 82292
+   "score": 82416
   },
   {
    "title": "The Boring Version of Continual Learning",
@@ -1448,7 +1457,7 @@
    "source": "yt-langchain",
    "outlet": null,
    "category": "video",
-   "score": 4953
+   "score": 4959
   },
   {
    "title": "Llama: Local AI on Your Mac",
@@ -1493,7 +1502,7 @@
    "source": "yt-huggingface",
    "outlet": null,
    "category": "video",
-   "score": 2960
+   "score": 2961
   },
   {
    "title": "ShipSF Workshops - V, from Scratch",
@@ -1538,7 +1547,7 @@
    "source": "yt-vercel",
    "outlet": null,
    "category": "video",
-   "score": 694
+   "score": 696
   },
   {
    "title": "Fast AI panel: A conversation with Cerebras, TypeSafe AI, and Vercel",
@@ -1547,7 +1556,7 @@
    "source": "yt-vercel",
    "outlet": null,
    "category": "video",
-   "score": 590
+   "score": 591
   },
   {
    "title": "ShipSF Workshops - Mini-workers workshop with Notion",
@@ -1565,7 +1574,7 @@
    "source": "yt-vercel",
    "outlet": null,
    "category": "video",
-   "score": 7593
+   "score": 7596
   },
   {
    "title": "Building in an AI-First World: The Agentic Shift on AWS + Vercel",
@@ -1628,7 +1637,7 @@
    "source": "yt-google-devs",
    "outlet": null,
    "category": "video",
-   "score": 10571
+   "score": 10575
   },
   {
    "title": "Building durable agents with Durable Objects (Cloudflare Connect 2026)",
@@ -1646,7 +1655,7 @@
    "source": "yt-cloudflare",
    "outlet": null,
    "category": "video",
-   "score": 3943
+   "score": 3945
   },
   {
    "title": "Introducing Claude Duet",
@@ -1655,7 +1664,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 1207550
+   "score": 1207767
   },
   {
    "title": "Design and replicate voices with Gemini 3.8 Flash TTS",
@@ -1682,7 +1691,7 @@
    "source": "yt-cloudflare",
    "outlet": null,
    "category": "video",
-   "score": 10197
+   "score": 10202
   },
   {
    "title": "I Turned Structured Output Into a Game 🎮",
@@ -1691,7 +1700,7 @@
    "source": "yt-huggingface",
    "outlet": null,
    "category": "video",
-   "score": 1393
+   "score": 1397
   },
   {
    "title": "Introducing Mistral Large 4, Le Chonk.",
@@ -1727,7 +1736,7 @@
    "source": "yt-mistral",
    "outlet": null,
    "category": "video",
-   "score": 5823
+   "score": 5839
   },
   {
    "title": "Voxtral TTS 3 - Feature Overview",
@@ -1772,7 +1781,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 180468
+   "score": 180566
   },
   {
    "title": "What is chunking, and why does it matter for LLMs and agents?",
@@ -1826,7 +1835,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 49574
+   "score": 49600
   },
   {
    "title": "How AI Finds Images Without Keywords #shorts #ai #",
@@ -1844,7 +1853,7 @@
    "source": "yt-huggingface",
    "outlet": null,
    "category": "video",
-   "score": 3590
+   "score": 3593
   },
   {
    "title": "Pi Durable EXPLAINED: Build Always-On Agents with Local Models",
@@ -1916,7 +1925,7 @@
    "source": "yt-google-devs",
    "outlet": null,
    "category": "video",
-   "score": 1639870
+   "score": 1665995
   },
   {
    "title": "Gemini 4 Argon in Antigravity",
@@ -1943,7 +1952,7 @@
    "source": "yt-huggingface",
    "outlet": null,
    "category": "video",
-   "score": 32573
+   "score": 32581
   },
   {
    "title": "Coding on the go with Claude Code",
@@ -1952,7 +1961,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 41335
+   "score": 41364
   },
   {
    "title": "Gemini 4 Argon: What’s new and what’s next",
@@ -1961,7 +1970,7 @@
    "source": "yt-google-devs",
    "outlet": null,
    "category": "video",
-   "score": 90046
+   "score": 90094
   },
   {
    "title": "TanStack Start 1.0 on Cloudflare",
@@ -2006,7 +2015,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 244248
+   "score": 244309
   },
   {
    "title": "Everything you missed from Supabase Select 2026",
@@ -2015,7 +2024,7 @@
    "source": "yt-supabase",
    "outlet": null,
    "category": "video",
-   "score": 30260
+   "score": 30266
   },
   {
    "title": "Applying Gemini 4 for large-scale codebase maintenance in Chromium",
@@ -2024,7 +2033,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 3383715
+   "score": 3383734
   },
   {
    "title": "Using Gemini 4 Argon to protect against Cyber attackers",
@@ -2051,7 +2060,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 2962454
+   "score": 2962490
   },
   {
    "title": "Untangling 500-page chemistry patents with Gemini 4",
@@ -2060,7 +2069,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 111082
+   "score": 111102
   },
   {
    "title": "OpenDocRouter: Picking your Parsing Model",
@@ -2096,7 +2105,7 @@
    "source": "yt-huggingface",
    "outlet": null,
    "category": "video",
-   "score": 18547
+   "score": 18551
   },
   {
    "title": "Introducing Muse Wonder & Muse Wonder Full: frontier models for agentic tasks",
@@ -2132,7 +2141,7 @@
    "source": "yt-huggingface",
    "outlet": null,
    "category": "video",
-   "score": 14972
+   "score": 14981
   },
   {
    "title": "Order in any language with Gemini 3.5 Live Translate",
@@ -2141,7 +2150,7 @@
    "source": "yt-google-devs",
    "outlet": null,
    "category": "video",
-   "score": 9108
+   "score": 9109
   },
   {
    "title": "Getting started with Claude Code Projects",
@@ -2150,7 +2159,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 396501
+   "score": 396581
   },
   {
    "title": "I found the cheapest AI Model for building workflows",
@@ -2168,7 +2177,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 1406663
+   "score": 1406912
   },
   {
    "title": "Inside Shopify's AI strategy with CTO Mikhail Parakhin",
@@ -2177,7 +2186,7 @@
    "source": "yt-claude",
    "outlet": null,
    "category": "video",
-   "score": 46571
+   "score": 46600
   },
   {
    "title": "Reachy Mini - Yo It's Your Boy (music video)",
@@ -2222,7 +2231,7 @@
    "source": "yt-n8n",
    "outlet": null,
    "category": "video",
-   "score": 6008
+   "score": 6010
   },
   {
    "title": "Supabase Compute, Turso Joining Supabase, Multigres Alpha - Weekly Changelog Live Stream Ep 15",
@@ -2249,7 +2258,7 @@
    "source": "yt-supabase",
    "outlet": null,
    "category": "video",
-   "score": 11769
+   "score": 11770
   },
   {
    "title": "From deepfakes to DNA: the science of watermarking AI",
@@ -2258,7 +2267,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 199195
+   "score": 199285
   },
   {
    "title": "Introducing Extract v2.5: Next-Gen Document Extraction Agents",
@@ -2285,7 +2294,7 @@
    "source": "yt-cursor",
    "outlet": null,
    "category": "video",
-   "score": 10681
+   "score": 10683
   },
   {
    "title": "Meet the AI That Only Makes Decisions (Jev)",
@@ -2312,7 +2321,7 @@
    "source": "yt-supabase",
    "outlet": null,
    "category": "video",
-   "score": 1419
+   "score": 1421
   },
   {
    "title": "Processing Documents: Jev vs OSS Models",
@@ -2330,7 +2339,7 @@
    "source": "yt-anthropic",
    "outlet": null,
    "category": "video",
-   "score": 169314
+   "score": 169365
   },
   {
    "title": "Create your own voices with Gemini 3.8 text-to-speech",
@@ -2339,7 +2348,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 6063605
+   "score": 6063649
   },
   {
    "title": "The future of AI...",
@@ -2348,7 +2357,7 @@
    "source": "yt-supabase",
    "outlet": null,
    "category": "video",
-   "score": 17030
+   "score": 17031
   },
   {
    "title": "How to build a Telegram agent in n8n",
@@ -2384,7 +2393,7 @@
    "source": "yt-supabase",
    "outlet": null,
    "category": "video",
-   "score": 110682
+   "score": 110698
   },
   {
    "title": "What Is a Vector Database? Explained in 60 Seconds",
@@ -2447,7 +2456,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 7835
+   "score": 7837
   },
   {
    "title": "AlphaGenome Atlas: Understanding the human genome",
@@ -2456,7 +2465,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 4928790
+   "score": 4928803
   },
   {
    "title": "Agents write my migrations. I still read the diff. - Weekly Changelog Ep 11",
@@ -2492,7 +2501,7 @@
    "source": "yt-cursor",
    "outlet": null,
    "category": "video",
-   "score": 19475
+   "score": 19483
   },
   {
    "title": "Model Selection & Token Efficiency",
@@ -2501,7 +2510,7 @@
    "source": "yt-cursor",
    "outlet": null,
    "category": "video",
-   "score": 34133
+   "score": 34139
   },
   {
    "title": "Refactoring Legacy Codebases",
@@ -2510,7 +2519,7 @@
    "source": "yt-cursor",
    "outlet": null,
    "category": "video",
-   "score": 23027
+   "score": 23028
   },
   {
    "title": "WeatherNext 3: More accurate, timely, and local weather forecasts",
@@ -2528,7 +2537,7 @@
    "source": "yt-cursor",
    "outlet": null,
    "category": "video",
-   "score": 14822
+   "score": 14821
   },
   {
    "title": "Meet Claude Fable 5.1",
@@ -2546,7 +2555,7 @@
    "source": "yt-anthropic",
    "outlet": null,
    "category": "video",
-   "score": 723986
+   "score": 724060
   },
   {
    "title": "Model Hardware Standard: AI operating physical equipment",
@@ -2555,7 +2564,7 @@
    "source": "yt-anthropic",
    "outlet": null,
    "category": "video",
-   "score": 76069
+   "score": 76104
   },
   {
    "title": "We're building a way for AI models to connect to any device and run real experiments.",
@@ -2564,7 +2573,7 @@
    "source": "yt-anthropic",
    "outlet": null,
    "category": "video",
-   "score": 101553
+   "score": 101566
   },
   {
    "title": "AI models can now help run physical science experiments",
@@ -2573,7 +2582,7 @@
    "source": "yt-anthropic",
    "outlet": null,
    "category": "video",
-   "score": 432514
+   "score": 432567
   },
   {
    "title": "The mathematics of AI uncertainty",
@@ -2582,7 +2591,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 400338
+   "score": 400351
   },
   {
    "title": "Why is Nexus only possible on Pinecone? #PineconeNexus #Pinecone #KnowQL #AIAgents #KnowledgeEngine",
@@ -2592,15 +2601,6 @@
    "outlet": null,
    "category": "video",
    "score": 160
-  },
-  {
-   "title": "What is Knowledge? What does it mean from an agentic context?",
-   "url": "https://www.youtube.com/shorts/22oNR5QVJbs",
-   "published": "2026-08-18T15:00:12.000Z",
-   "source": "yt-pinecone",
-   "outlet": null,
-   "category": "video",
-   "score": 102
   },
   {
    "title": "Introducing ExtractBench: The Most Comprehensive Benchmark for Data Extraction from Enterprise Docs",
@@ -2645,7 +2645,7 @@
    "source": "yt-anthropic",
    "outlet": null,
    "category": "video",
-   "score": 106047
+   "score": 106049
   },
   {
    "title": "Talking to Apollo about Gemini Robotics 2 🤖",
@@ -2654,7 +2654,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 16566
+   "score": 16576
   },
   {
    "title": "This is Gemini Robotics 2 🤖",
@@ -2663,7 +2663,7 @@
    "source": "yt-deepmind",
    "outlet": null,
    "category": "video",
-   "score": 14378
+   "score": 14381
   },
   {
    "title": "From complex docs to decision ready context for agentic financial workflows",
