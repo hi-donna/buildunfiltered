@@ -1,5 +1,14 @@
 # Status
 
+## 2026-11-07 — blog: "earshot" post (setup guide for the SOUND reel)
+
+**Shipped:** `/blog/earshot/`, the guide promised by the reel's "comment SOUND" CTA. Written
+in ASD-STE100 (short sentences, one instruction per step). Install, MCP setup, commands,
+our 2026-11-06 test of Earshot 0.4.0, what it cannot do, fixes. Reel v6 re-encoded to 720p
+(4.8 MB) in `public/blog/earshot/`. No code change.
+
+**Needs the owner:** set `instagram` once the reel is posted.
+
 ## 2026-11-05 — blog: "levels" post (16 terms, one video each)
 
 **Shipped:** `/blog/levels/`, the long version of the levels reel.
